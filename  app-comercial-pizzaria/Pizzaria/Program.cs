@@ -5,6 +5,10 @@ using System.Windows.Forms;
 
 namespace Pizzaria
 {
+    using Pizzaria.Banco;
+    using Pizzaria.Properties;
+    using Pizzaria.Classes;
+    using Pizzaria.Tela;
     static class Program
     {
         /// <summary>
