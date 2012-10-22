@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{13A5418D-E1EB-42AF-8754-A79BDE0E90CB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pizzaria</RootNamespace>
+    <AssemblyName>Pizzaria</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icone.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>041C2605489300912425883BF874F73BDC37301D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Pizzaria_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Devart.Data, Version=5.0.431.0, Culture=neutral, PublicKeyToken=09af7300eec23701" />
+    <Reference Include="Devart.Data.PostgreSql, Version=5.80.332.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="MatrixReporter">
+      <HintPath>..\..\Delirius\Delirius\Projeto Delirius\bin\Debug\MatrixReporter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Mono.Security">
+      <HintPath>..\..\Delirius\Delirius\Projeto Delirius\bin\Debug\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\..\Delirius\Delirius\Projeto Delirius\bin\Debug\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abertura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abertura.Designer.cs">
+      <DependentUpon>Abertura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddProduto.Designer.cs">
+      <DependentUpon>AddProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlterarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlterarForm.Designer.cs">
+      <DependentUpon>AlterarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlterarMesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlterarMesa.Designer.cs">
+      <DependentUpon>AlterarMesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Banco.cs" />
+    <Compile Include="BancoConsulta.cs" />
+    <Compile Include="BancoRelatorio.cs" />
+    <Compile Include="BancoVenda.cs" />
+    <Compile Include="CadastroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroForm.Designer.cs">
+      <DependentUpon>CadastroForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CodigoProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodigoProduto.Designer.cs">
+      <DependentUpon>CodigoProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Comanda.cs" />
+    <Compile Include="Completa.cs" />
+    <Compile Include="ConsultaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaForm.Designer.cs">
+      <DependentUpon>ConsultaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Encerrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Encerrar.Designer.cs">
+      <DependentUpon>Encerrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fundo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fundo.Designer.cs">
+      <DependentUpon>Fundo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Garcon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Garcon.Designer.cs">
+      <DependentUpon>Garcon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Impressao.cs" />
+    <Compile Include="Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produto.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RelatorioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RelatorioForm.Designer.cs">
+      <DependentUpon>RelatorioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatorios.Designer.cs">
+      <DependentUpon>Relatorios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RemoverProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoverProduto.Designer.cs">
+      <DependentUpon>RemoverProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="SubVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubVenda.Designer.cs">
+      <DependentUpon>SubVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tamanho.cs" />
+    <Compile Include="Tratamento.cs" />
+    <Compile Include="Venda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Venda.Designer.cs">
+      <DependentUpon>Venda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VendaFull.cs" />
+    <Compile Include="VendaHalf.cs" />
+    <EmbeddedResource Include="Abertura.resx">
+      <DependentUpon>Abertura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddProduto.resx">
+      <DependentUpon>AddProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlterarForm.resx">
+      <DependentUpon>AlterarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlterarMesa.resx">
+      <DependentUpon>AlterarMesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroForm.resx">
+      <DependentUpon>CadastroForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CodigoProduto.resx">
+      <DependentUpon>CodigoProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaForm.resx">
+      <DependentUpon>ConsultaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Encerrar.resx">
+      <DependentUpon>Encerrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fundo.resx">
+      <DependentUpon>Fundo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Garcon.resx">
+      <DependentUpon>Garcon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RelatorioForm.resx">
+      <DependentUpon>RelatorioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios.resx">
+      <DependentUpon>Relatorios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoverProduto.resx">
+      <DependentUpon>RemoverProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report3.rdlc" />
+    <EmbeddedResource Include="SubVenda.resx">
+      <DependentUpon>SubVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Venda.resx">
+      <DependentUpon>Venda.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <Generator>dcPgSqlDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <CustomToolNamespace>Pizzaria</CustomToolNamespace>
+    </None>
+    <None Include="DataSet1.xse">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Pizzaria_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BRCadastro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BRAjuda3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BRAlterar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BRConsulta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BREcluir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BRRelatorio2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BRtent1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BRtent2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mesawhite.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BRFechar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AFOTO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BTnewAvancar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setverde.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setVermelhor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setAzul.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setPreto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FUNDO PAINEL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icone.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

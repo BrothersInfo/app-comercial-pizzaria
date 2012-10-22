@@ -1,0 +1,92 @@
+D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Pizzaria.exe
+D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Pizzaria.pdb
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Abertura.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Fundo.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Principal.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Properties.Resources.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.exe
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.pdb
+D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\MatrixReporter.dll
+D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Mono.Security.dll
+D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Npgsql.dll
+D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Npgsql.pdb
+D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Npgsql.xml
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Venda.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.SubVenda.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.AddProduto.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.CodigoProduto.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.AlterarMesa.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.RemoverProduto.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Encerrar.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.AlterarForm.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.CadastroForm.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.RelatorioForm.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.ConsultaForm.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Garcon.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Pizzaria.exe.config
+D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Pizzaria.exe.manifest
+D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Pizzaria.application
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.exe.manifest
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.application
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\bin\Debug\Pizzaria.exe.config
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.exe
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.pdb
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Abertura.resources
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.AddProduto.resources
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.AlterarForm.resources
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.AlterarMesa.resources
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.CadastroForm.resources
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.CodigoProduto.resources
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.ConsultaForm.resources
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Encerrar.resources
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Fundo.resources
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Garcon.resources
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Principal.resources
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Properties.Resources.resources
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.RelatorioForm.resources
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.RemoverProduto.resources
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.SubVenda.resources
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Venda.resources
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\GenerateResource.read.1.tlog
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\GenerateResource.write.1.tlog
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\bin\Debug\Pizzaria.exe.manifest
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\bin\Debug\Pizzaria.application
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\bin\Debug\Pizzaria.exe
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\bin\Debug\Pizzaria.pdb
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.exe.manifest
+F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.application
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\bin\Debug\Pizzaria.exe.config
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.exe
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.pdb
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\bin\Debug\Pizzaria.exe.manifest
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\bin\Debug\Pizzaria.application
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\bin\Debug\Pizzaria.exe
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\bin\Debug\Pizzaria.pdb
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Abertura.resources
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.AddProduto.resources
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.AlterarForm.resources
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.AlterarMesa.resources
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.CadastroForm.resources
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.CodigoProduto.resources
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.ConsultaForm.resources
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Encerrar.resources
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Fundo.resources
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Garcon.resources
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Principal.resources
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Properties.Resources.resources
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.RelatorioForm.resources
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.RemoverProduto.resources
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.SubVenda.resources
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Venda.resources
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\RdlCompile.cache
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\RdlCompile.compiled
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.exe.manifest
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.application
+C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.TipoRelatorio.resources
