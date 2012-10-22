@@ -113,163 +113,148 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abertura.cs">
+    <Compile Include="Tela\Abertura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abertura.Designer.cs">
+    <Compile Include="Tela\Abertura.Designer.cs">
       <DependentUpon>Abertura.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddProduto.cs">
+    <Compile Include="Tela\AddProduto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddProduto.Designer.cs">
+    <Compile Include="Tela\AddProduto.Designer.cs">
       <DependentUpon>AddProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="AlterarForm.cs">
+    <Compile Include="Tela\AlterarForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AlterarForm.Designer.cs">
+    <Compile Include="Tela\AlterarForm.Designer.cs">
       <DependentUpon>AlterarForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AlterarMesa.cs">
+    <Compile Include="Tela\AlterarMesa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AlterarMesa.Designer.cs">
+    <Compile Include="Tela\AlterarMesa.Designer.cs">
       <DependentUpon>AlterarMesa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Banco.cs" />
-    <Compile Include="BancoConsulta.cs" />
-    <Compile Include="BancoRelatorio.cs" />
-    <Compile Include="BancoVenda.cs" />
-    <Compile Include="CadastroForm.cs">
+    <Compile Include="Banco\Banco.cs" />
+    <Compile Include="Banco\BancoConsulta.cs" />
+    <Compile Include="Banco\BancoRelatorio.cs" />
+    <Compile Include="Banco\BancoVenda.cs" />
+    <Compile Include="Tela\CadastroForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CadastroForm.Designer.cs">
+    <Compile Include="Tela\CadastroForm.Designer.cs">
       <DependentUpon>CadastroForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CodigoProduto.cs">
+    <Compile Include="Tela\CodigoProduto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CodigoProduto.Designer.cs">
+    <Compile Include="Tela\CodigoProduto.Designer.cs">
       <DependentUpon>CodigoProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Comanda.cs" />
-    <Compile Include="Completa.cs" />
-    <Compile Include="ConsultaForm.cs">
+    <Compile Include="Classes\Comanda.cs" />
+    <Compile Include="Classes\Completa.cs" />
+    <Compile Include="Tela\ConsultaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConsultaForm.Designer.cs">
+    <Compile Include="Tela\ConsultaForm.Designer.cs">
       <DependentUpon>ConsultaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CrystalReport1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Encerrar.cs">
+    <Compile Include="Tela\Encerrar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Encerrar.Designer.cs">
+    <Compile Include="Tela\Encerrar.Designer.cs">
       <DependentUpon>Encerrar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fundo.cs">
+    <Compile Include="Tela\Fundo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fundo.Designer.cs">
+    <Compile Include="Tela\Fundo.Designer.cs">
       <DependentUpon>Fundo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Garcon.cs">
+    <Compile Include="Tela\Garcon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Garcon.Designer.cs">
+    <Compile Include="Tela\Garcon.Designer.cs">
       <DependentUpon>Garcon.cs</DependentUpon>
     </Compile>
-    <Compile Include="Impressao.cs" />
-    <Compile Include="Principal.cs">
+    <Compile Include="Classes\Impressao.cs" />
+    <Compile Include="Tela\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal.Designer.cs">
+    <Compile Include="Tela\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Produto.cs" />
+    <Compile Include="Classes\Produto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RelatorioForm.cs">
+    <Compile Include="Tela\RelatorioForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RelatorioForm.Designer.cs">
+    <Compile Include="Tela\RelatorioForm.Designer.cs">
       <DependentUpon>RelatorioForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Relatorios.cs">
+    <Compile Include="Tela\Relatorios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Relatorios.Designer.cs">
+    <Compile Include="Tela\Relatorios.Designer.cs">
       <DependentUpon>Relatorios.cs</DependentUpon>
     </Compile>
-    <Compile Include="RemoverProduto.cs">
+    <Compile Include="Tela\RemoverProduto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RemoverProduto.Designer.cs">
+    <Compile Include="Tela\RemoverProduto.Designer.cs">
       <DependentUpon>RemoverProduto.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="SubVenda.cs">
+    <Compile Include="Tela\SubVenda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SubVenda.Designer.cs">
+    <Compile Include="Tela\SubVenda.Designer.cs">
       <DependentUpon>SubVenda.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tamanho.cs" />
-    <Compile Include="Tratamento.cs" />
-    <Compile Include="Venda.cs">
+    <Compile Include="Classes\Tamanho.cs" />
+    <Compile Include="Classes\Tratamento.cs" />
+    <Compile Include="Tela\Venda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Venda.Designer.cs">
+    <Compile Include="Tela\Venda.Designer.cs">
       <DependentUpon>Venda.cs</DependentUpon>
     </Compile>
-    <Compile Include="VendaFull.cs" />
-    <Compile Include="VendaHalf.cs" />
-    <EmbeddedResource Include="Abertura.resx">
+    <Compile Include="Classes\VendaFull.cs" />
+    <Compile Include="Classes\VendaHalf.cs" />
+    <EmbeddedResource Include="Tela\Abertura.resx">
       <DependentUpon>Abertura.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddProduto.resx">
+    <EmbeddedResource Include="Tela\AddProduto.resx">
       <DependentUpon>AddProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AlterarForm.resx">
+    <EmbeddedResource Include="Tela\AlterarForm.resx">
       <DependentUpon>AlterarForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AlterarMesa.resx">
+    <EmbeddedResource Include="Tela\AlterarMesa.resx">
       <DependentUpon>AlterarMesa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CadastroForm.resx">
+    <EmbeddedResource Include="Tela\CadastroForm.resx">
       <DependentUpon>CadastroForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CodigoProduto.resx">
+    <EmbeddedResource Include="Tela\CodigoProduto.resx">
       <DependentUpon>CodigoProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConsultaForm.resx">
+    <EmbeddedResource Include="Tela\ConsultaForm.resx">
       <DependentUpon>ConsultaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport1.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Encerrar.resx">
+    <EmbeddedResource Include="Tela\Encerrar.resx">
       <DependentUpon>Encerrar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fundo.resx">
+    <EmbeddedResource Include="Tela\Fundo.resx">
       <DependentUpon>Fundo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Garcon.resx">
+    <EmbeddedResource Include="Tela\Garcon.resx">
       <DependentUpon>Garcon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principal.resx">
+    <EmbeddedResource Include="Tela\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -282,38 +267,22 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RelatorioForm.resx">
+    <EmbeddedResource Include="Tela\RelatorioForm.resx">
       <DependentUpon>RelatorioForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Relatorios.resx">
+    <EmbeddedResource Include="Tela\Relatorios.resx">
       <DependentUpon>Relatorios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemoverProduto.resx">
+    <EmbeddedResource Include="Tela\RemoverProduto.resx">
       <DependentUpon>RemoverProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report3.rdlc" />
-    <EmbeddedResource Include="SubVenda.resx">
+    <EmbeddedResource Include="Tela\SubVenda.resx">
       <DependentUpon>SubVenda.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Venda.resx">
+    <EmbeddedResource Include="Tela\Venda.resx">
       <DependentUpon>Venda.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet1.xsd">
-      <Generator>dcPgSqlDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-      <CustomToolNamespace>Pizzaria</CustomToolNamespace>
-    </None>
-    <None Include="DataSet1.xse">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
     <None Include="Pizzaria_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
