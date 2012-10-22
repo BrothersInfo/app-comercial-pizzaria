@@ -90,3 +90,6 @@ C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\o
 C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.exe.manifest
 C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.application
 C:\Users\Marcus Túlio\Documents\Visual Studio 2010\Projects\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.TipoRelatorio.resources
+F:\Proj\app_pizzaria\Pizzaria\bin\Debug\Pizzaria.exe.config
+F:\Proj\app_pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.exe
+F:\Proj\app_pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.pdb
