@@ -31,18 +31,8 @@
             this.LTipoRelatorio = new System.Windows.Forms.Label();
             this.LRelatorio = new System.Windows.Forms.Label();
             this.cbRelatorio = new System.Windows.Forms.ComboBox();
-            this.RBDiaAtual = new System.Windows.Forms.RadioButton();
-            this.LDiaAtual = new System.Windows.Forms.Label();
-            this.CBDia = new System.Windows.Forms.ComboBox();
-            this.gbDiaVenda = new System.Windows.Forms.GroupBox();
-            this.gbMesVenda = new System.Windows.Forms.GroupBox();
-            this.LMesAtual = new System.Windows.Forms.Label();
-            this.RBMesAtual = new System.Windows.Forms.RadioButton();
-            this.CBMes = new System.Windows.Forms.ComboBox();
-            this.gbAnoVenda = new System.Windows.Forms.GroupBox();
-            this.LAnoAtual = new System.Windows.Forms.Label();
-            this.RBAnoAtual = new System.Windows.Forms.RadioButton();
-            this.CBAno = new System.Windows.Forms.ComboBox();
+            this.cbDia = new System.Windows.Forms.ComboBox();
+            this.gbDataVenda = new System.Windows.Forms.GroupBox();
             this.gbPeriodoVenda = new System.Windows.Forms.GroupBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -82,9 +72,12 @@
             this.gbProduto = new System.Windows.Forms.GroupBox();
             this.cbProduto = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.gbDiaVenda.SuspendLayout();
-            this.gbMesVenda.SuspendLayout();
-            this.gbAnoVenda.SuspendLayout();
+            this.lDia = new System.Windows.Forms.Label();
+            this.lMes = new System.Windows.Forms.Label();
+            this.cbMes = new System.Windows.Forms.ComboBox();
+            this.lAno = new System.Windows.Forms.Label();
+            this.cbAno = new System.Windows.Forms.ComboBox();
+            this.gbDataVenda.SuspendLayout();
             this.gbPeriodoVenda.SuspendLayout();
             this.flpPrincipal.SuspendLayout();
             this.pVenda.SuspendLayout();
@@ -135,29 +128,10 @@
             this.cbRelatorio.Size = new System.Drawing.Size(121, 21);
             this.cbRelatorio.TabIndex = 2;
             // 
-            // RBDiaAtual
+            // cbDia
             // 
-            this.RBDiaAtual.AutoSize = true;
-            this.RBDiaAtual.Location = new System.Drawing.Point(42, 16);
-            this.RBDiaAtual.Name = "RBDiaAtual";
-            this.RBDiaAtual.Size = new System.Drawing.Size(14, 13);
-            this.RBDiaAtual.TabIndex = 0;
-            this.RBDiaAtual.TabStop = true;
-            this.RBDiaAtual.UseVisualStyleBackColor = true;
-            // 
-            // LDiaAtual
-            // 
-            this.LDiaAtual.AutoSize = true;
-            this.LDiaAtual.Location = new System.Drawing.Point(6, 16);
-            this.LDiaAtual.Name = "LDiaAtual";
-            this.LDiaAtual.Size = new System.Drawing.Size(29, 13);
-            this.LDiaAtual.TabIndex = 1;
-            this.LDiaAtual.Text = "Hoje";
-            // 
-            // CBDia
-            // 
-            this.CBDia.FormattingEnabled = true;
-            this.CBDia.Items.AddRange(new object[] {
+            this.cbDia.FormattingEnabled = true;
+            this.cbDia.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -189,126 +163,25 @@
             "29",
             "30",
             "31"});
-            this.CBDia.Location = new System.Drawing.Point(9, 32);
-            this.CBDia.Name = "CBDia";
-            this.CBDia.Size = new System.Drawing.Size(47, 21);
-            this.CBDia.TabIndex = 4;
+            this.cbDia.Location = new System.Drawing.Point(9, 32);
+            this.cbDia.Name = "cbDia";
+            this.cbDia.Size = new System.Drawing.Size(47, 21);
+            this.cbDia.TabIndex = 4;
             // 
-            // gbDiaVenda
+            // gbDataVenda
             // 
-            this.gbDiaVenda.Controls.Add(this.LDiaAtual);
-            this.gbDiaVenda.Controls.Add(this.RBDiaAtual);
-            this.gbDiaVenda.Controls.Add(this.CBDia);
-            this.gbDiaVenda.Location = new System.Drawing.Point(7, 25);
-            this.gbDiaVenda.Name = "gbDiaVenda";
-            this.gbDiaVenda.Size = new System.Drawing.Size(72, 59);
-            this.gbDiaVenda.TabIndex = 5;
-            this.gbDiaVenda.TabStop = false;
-            this.gbDiaVenda.Text = "Dia";
-            // 
-            // gbMesVenda
-            // 
-            this.gbMesVenda.Controls.Add(this.LMesAtual);
-            this.gbMesVenda.Controls.Add(this.RBMesAtual);
-            this.gbMesVenda.Controls.Add(this.CBMes);
-            this.gbMesVenda.Location = new System.Drawing.Point(85, 25);
-            this.gbMesVenda.Name = "gbMesVenda";
-            this.gbMesVenda.Size = new System.Drawing.Size(72, 59);
-            this.gbMesVenda.TabIndex = 6;
-            this.gbMesVenda.TabStop = false;
-            this.gbMesVenda.Text = "Mês";
-            // 
-            // LMesAtual
-            // 
-            this.LMesAtual.AutoSize = true;
-            this.LMesAtual.Location = new System.Drawing.Point(6, 16);
-            this.LMesAtual.Name = "LMesAtual";
-            this.LMesAtual.Size = new System.Drawing.Size(31, 13);
-            this.LMesAtual.TabIndex = 1;
-            this.LMesAtual.Text = "Atual";
-            // 
-            // RBMesAtual
-            // 
-            this.RBMesAtual.AutoSize = true;
-            this.RBMesAtual.Location = new System.Drawing.Point(42, 16);
-            this.RBMesAtual.Name = "RBMesAtual";
-            this.RBMesAtual.Size = new System.Drawing.Size(14, 13);
-            this.RBMesAtual.TabIndex = 0;
-            this.RBMesAtual.TabStop = true;
-            this.RBMesAtual.UseVisualStyleBackColor = true;
-            // 
-            // CBMes
-            // 
-            this.CBMes.FormattingEnabled = true;
-            this.CBMes.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.CBMes.Location = new System.Drawing.Point(9, 32);
-            this.CBMes.Name = "CBMes";
-            this.CBMes.Size = new System.Drawing.Size(47, 21);
-            this.CBMes.TabIndex = 4;
-            // 
-            // gbAnoVenda
-            // 
-            this.gbAnoVenda.Controls.Add(this.LAnoAtual);
-            this.gbAnoVenda.Controls.Add(this.RBAnoAtual);
-            this.gbAnoVenda.Controls.Add(this.CBAno);
-            this.gbAnoVenda.Location = new System.Drawing.Point(163, 25);
-            this.gbAnoVenda.Name = "gbAnoVenda";
-            this.gbAnoVenda.Size = new System.Drawing.Size(72, 59);
-            this.gbAnoVenda.TabIndex = 7;
-            this.gbAnoVenda.TabStop = false;
-            this.gbAnoVenda.Text = "Ano";
-            // 
-            // LAnoAtual
-            // 
-            this.LAnoAtual.AutoSize = true;
-            this.LAnoAtual.Location = new System.Drawing.Point(6, 16);
-            this.LAnoAtual.Name = "LAnoAtual";
-            this.LAnoAtual.Size = new System.Drawing.Size(31, 13);
-            this.LAnoAtual.TabIndex = 1;
-            this.LAnoAtual.Text = "Atual";
-            // 
-            // RBAnoAtual
-            // 
-            this.RBAnoAtual.AutoSize = true;
-            this.RBAnoAtual.Location = new System.Drawing.Point(42, 16);
-            this.RBAnoAtual.Name = "RBAnoAtual";
-            this.RBAnoAtual.Size = new System.Drawing.Size(14, 13);
-            this.RBAnoAtual.TabIndex = 0;
-            this.RBAnoAtual.TabStop = true;
-            this.RBAnoAtual.UseVisualStyleBackColor = true;
-            // 
-            // CBAno
-            // 
-            this.CBAno.FormattingEnabled = true;
-            this.CBAno.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.CBAno.Location = new System.Drawing.Point(9, 32);
-            this.CBAno.Name = "CBAno";
-            this.CBAno.Size = new System.Drawing.Size(57, 21);
-            this.CBAno.TabIndex = 4;
+            this.gbDataVenda.Controls.Add(this.lAno);
+            this.gbDataVenda.Controls.Add(this.cbAno);
+            this.gbDataVenda.Controls.Add(this.lMes);
+            this.gbDataVenda.Controls.Add(this.cbMes);
+            this.gbDataVenda.Controls.Add(this.lDia);
+            this.gbDataVenda.Controls.Add(this.cbDia);
+            this.gbDataVenda.Location = new System.Drawing.Point(7, 25);
+            this.gbDataVenda.Name = "gbDataVenda";
+            this.gbDataVenda.Size = new System.Drawing.Size(228, 59);
+            this.gbDataVenda.TabIndex = 5;
+            this.gbDataVenda.TabStop = false;
+            this.gbDataVenda.Text = "Data";
             // 
             // gbPeriodoVenda
             // 
@@ -354,10 +227,8 @@
             this.pVenda.Controls.Add(this.gbFiltroVenda);
             this.pVenda.Controls.Add(this.btConsultarVenda);
             this.pVenda.Controls.Add(this.gbVendaOrdenar);
-            this.pVenda.Controls.Add(this.gbDiaVenda);
+            this.pVenda.Controls.Add(this.gbDataVenda);
             this.pVenda.Controls.Add(this.gbPeriodoVenda);
-            this.pVenda.Controls.Add(this.gbAnoVenda);
-            this.pVenda.Controls.Add(this.gbMesVenda);
             this.pVenda.Location = new System.Drawing.Point(3, 3);
             this.pVenda.Name = "pVenda";
             this.pVenda.Size = new System.Drawing.Size(765, 94);
@@ -703,6 +574,72 @@
             this.panel1.Size = new System.Drawing.Size(170, 94);
             this.panel1.TabIndex = 10;
             // 
+            // lDia
+            // 
+            this.lDia.AutoSize = true;
+            this.lDia.Location = new System.Drawing.Point(22, 16);
+            this.lDia.Name = "lDia";
+            this.lDia.Size = new System.Drawing.Size(23, 13);
+            this.lDia.TabIndex = 1;
+            this.lDia.Text = "Dia";
+            // 
+            // lMes
+            // 
+            this.lMes.AutoSize = true;
+            this.lMes.Location = new System.Drawing.Point(97, 16);
+            this.lMes.Name = "lMes";
+            this.lMes.Size = new System.Drawing.Size(27, 13);
+            this.lMes.TabIndex = 5;
+            this.lMes.Text = "Mês";
+            // 
+            // cbMes
+            // 
+            this.cbMes.FormattingEnabled = true;
+            this.cbMes.Items.AddRange(new object[] {
+            "janeiro",
+            "fevereiro",
+            "março",
+            "abril",
+            "maio",
+            "junho",
+            "julho",
+            "agosto",
+            "setembro",
+            "outubro",
+            "novembro",
+            "dezembro"});
+            this.cbMes.Location = new System.Drawing.Point(68, 32);
+            this.cbMes.Name = "cbMes";
+            this.cbMes.Size = new System.Drawing.Size(90, 21);
+            this.cbMes.TabIndex = 6;
+            // 
+            // lAno
+            // 
+            this.lAno.AutoSize = true;
+            this.lAno.Location = new System.Drawing.Point(177, 16);
+            this.lAno.Name = "lAno";
+            this.lAno.Size = new System.Drawing.Size(26, 13);
+            this.lAno.TabIndex = 7;
+            this.lAno.Text = "Ano";
+            // 
+            // cbAno
+            // 
+            this.cbAno.FormattingEnabled = true;
+            this.cbAno.Items.AddRange(new object[] {
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020"});
+            this.cbAno.Location = new System.Drawing.Point(164, 32);
+            this.cbAno.Name = "cbAno";
+            this.cbAno.Size = new System.Drawing.Size(58, 21);
+            this.cbAno.TabIndex = 8;
+            // 
             // TipoRelatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -713,12 +650,8 @@
             this.Controls.Add(this.LRelatorio);
             this.Name = "TipoRelatorio";
             this.Text = "Relatorios";
-            this.gbDiaVenda.ResumeLayout(false);
-            this.gbDiaVenda.PerformLayout();
-            this.gbMesVenda.ResumeLayout(false);
-            this.gbMesVenda.PerformLayout();
-            this.gbAnoVenda.ResumeLayout(false);
-            this.gbAnoVenda.PerformLayout();
+            this.gbDataVenda.ResumeLayout(false);
+            this.gbDataVenda.PerformLayout();
             this.gbPeriodoVenda.ResumeLayout(false);
             this.flpPrincipal.ResumeLayout(false);
             this.pVenda.ResumeLayout(false);
@@ -749,18 +682,8 @@
         private System.Windows.Forms.Label LTipoRelatorio;
         private System.Windows.Forms.Label LRelatorio;
         private System.Windows.Forms.ComboBox cbRelatorio;
-        private System.Windows.Forms.RadioButton RBDiaAtual;
-        private System.Windows.Forms.Label LDiaAtual;
-        private System.Windows.Forms.ComboBox CBDia;
-        private System.Windows.Forms.GroupBox gbDiaVenda;
-        private System.Windows.Forms.GroupBox gbMesVenda;
-        private System.Windows.Forms.Label LMesAtual;
-        private System.Windows.Forms.RadioButton RBMesAtual;
-        private System.Windows.Forms.ComboBox CBMes;
-        private System.Windows.Forms.GroupBox gbAnoVenda;
-        private System.Windows.Forms.Label LAnoAtual;
-        private System.Windows.Forms.RadioButton RBAnoAtual;
-        private System.Windows.Forms.ComboBox CBAno;
+        private System.Windows.Forms.ComboBox cbDia;
+        private System.Windows.Forms.GroupBox gbDataVenda;
         private System.Windows.Forms.GroupBox gbPeriodoVenda;
         private System.Windows.Forms.FlowLayoutPanel flpPrincipal;
         private System.Windows.Forms.Panel pVenda;
@@ -800,5 +723,10 @@
         private System.Windows.Forms.RadioButton rbOrdenarProdutoD;
         private System.Windows.Forms.GroupBox gbFiltrarProduto;
         private System.Windows.Forms.ComboBox cbFiltrarProduto;
+        private System.Windows.Forms.Label lAno;
+        private System.Windows.Forms.ComboBox cbAno;
+        private System.Windows.Forms.Label lMes;
+        private System.Windows.Forms.ComboBox cbMes;
+        private System.Windows.Forms.Label lDia;
     }
 }
