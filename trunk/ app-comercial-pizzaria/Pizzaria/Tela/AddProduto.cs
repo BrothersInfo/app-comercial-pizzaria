@@ -657,12 +657,10 @@ namespace Pizzaria.Tela
                 if (!(new Banco().jaTemProduto(cod_venda, XcodigoProduto, XcodTamanho, val, prod.Length == 1, XquantidadeProduto, Xcod_garcon)))//se ja houver produtos, aqui altera quantidade.
                 {
                     preecherTodosProdutos();
-
                     int cod_completo = new Banco().novoCompleto(prod, Convert.ToDouble(mtValor.Text), Convert.ToInt16(numQuantidade.Text));
                     new Banco().makeVendaCompleto(cod_venda, cod_completo);
                     new Banco().GarconCompleto(Xcod_garcon, cod_completo, XquantidadeProduto);
-                    new Banco().makeGarconVenda(cod_venda, new Banco().codGarconByNome(getGarcon()));
-                    //gerar Completo e completo produto
+              
                 }
                 if ((MessageBox.Show("Deseja acrescentar outro Produto? ", "Pizzaria Delirius", MessageBoxButtons.YesNo)) == DialogResult.Yes)
                 {

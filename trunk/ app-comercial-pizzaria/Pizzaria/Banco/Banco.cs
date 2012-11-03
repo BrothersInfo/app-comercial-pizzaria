@@ -11,7 +11,7 @@ namespace Pizzaria.Banco
     using Pizzaria.Classes;
     public class Banco
     {
-        string conexao = "server=Localhost; Port=5432;User =postgres;Password=[zxc123];Database=Pizzaria";
+        string conexao = "server=Localhost; Port=5432;User =postgres;Password=fof0130407*;Database=Delirius";
         //-------------------------------------
         //novos metodos
         //-------------------------------------
@@ -29,11 +29,8 @@ namespace Pizzaria.Banco
                 (query1, Conectar());
             sql.Fill(dtt);
 
-            DataTable dtt2 = new DataTable();
-            string query = "UPDATE vendagarcon  SET quantidade= (quantidade+1)"
-                + " WHERE cod_venda =" + cod_venda + " and cod_garcon = " + cod_garcon;
-            new NpgsqlDataAdapter(query, Conectar()).Fill(dtt2);
-
+            return;
+          
         }
         public int codGarconPeloCompleto(int cod_completo)
         {
@@ -99,13 +96,23 @@ namespace Pizzaria.Banco
         public DataTable GarconDaVenda(int cod_venda)
         {
             DataTable dttGarcon = new DataTable();
-            NpgsqlDataAdapter sql = new NpgsqlDataAdapter("(select g.cod_garcon,g.nome from garcon g inner join vendaGarcon vg on g.cod_garcon = vg.cod_garcon  where vg.cod_venda =  " + cod_venda + " and  g.ativo = true )", Conectar());
+            string garcon =
+            "select g.cod_garcon, g.nome from garcon g inner join GarconCompleto cg on (cg.cod_garcon = g.cod_garcon) "+
+            "inner join completo c on (c.cod_completo = cg.cod_completo) inner join vendaCompleta vg on (vg.cod_completo = c.cod_completo) "+
+            "inner join venda v on (v.cod_venda = vg.cod_venda) where vg.cod_venda = "+cod_venda+" and  g.ativo = true group by g.cod_garcon, g.nome";
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(garcon, Conectar());
             sql.Fill(dttGarcon);
             return dttGarcon;
         }
         public bool temGarconIn(int cod_venda)
         {
-            string query = "select (count(g.cod_garcon))>0 as \"booleana\" from garcon g inner join vendaGarcon vg on g.cod_garcon = vg.cod_garcon  where vg.cod_venda = "+cod_venda+" and g.ativo = true";
+            string query = 
+            "select (count(g.cod_garcon))>0 as \"booleana\" "+
+            "from garcon g inner join GarconCompleto cg on (cg.cod_garcon = g.cod_garcon) "+
+            "inner join completo c on (c.cod_completo = cg.cod_completo) inner join vendaCompleta vg "
+            +" on (vg.cod_completo = c.cod_completo) "+
+            "inner join venda v on (v.cod_venda = vg.cod_venda) "+
+            "where vg.cod_venda = "+cod_venda+" and g.ativo = true ";
             DataTable dttGarcon = new DataTable();
             NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
             sql.Fill(dttGarcon);
@@ -115,7 +122,12 @@ namespace Pizzaria.Banco
         public DataTable GarconNaoUsadoPelaVenda(int cod_venda)
         {
             DataTable dttGarcon = new DataTable();
-            NpgsqlDataAdapter sql = new NpgsqlDataAdapter("select g.cod_garcon, g.nome from garcon g where g.ativo = true and  g.cod_garcon not in (select g.cod_garcon from garcon g inner join vendaGarcon vg on g.cod_garcon = vg.cod_garcon  where vg.cod_venda = " + cod_venda + " ) order by g.cod_garcon", Conectar());
+            string garcon = "select g.cod_garcon, g.nome from garcon g where g.ativo = true and  g.cod_garcon not in "+
+            "(select g.cod_garcon from garcon g inner join GarconCompleto cg on (cg.cod_garcon = g.cod_garcon) "+
+            "inner join completo c on (c.cod_completo = cg.cod_completo) inner join vendaCompleta vg on (vg.cod_completo = c.cod_completo) "+
+            "inner join venda v on (v.cod_venda = vg.cod_venda) where vg.cod_venda = "+cod_venda+" ) order by g.cod_garcon";
+
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(garcon, Conectar());
             sql.Fill(dttGarcon);
             return dttGarcon;
         }

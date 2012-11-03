@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace Pizzaria.Tela
 {
     using Pizzaria.Banco;
@@ -65,10 +66,12 @@ namespace Pizzaria.Tela
             tlpBotoes.Visible = true;
          /*/
         }
+        
         CadastroForm cf;
         AlterarForm af;
         ConsultaForm cof;
-        RelatorioForm rf;
+        
+        TipoRelatorio rf;
         private void expandirConsulta()
         {
             cof = new ConsultaForm();
@@ -107,7 +110,7 @@ namespace Pizzaria.Tela
         }
         private void expandirRelatorio()
         {
-            rf = new RelatorioForm();
+            rf = new TipoRelatorio();
             rf.Visible = true;
             rf.WindowState = FormWindowState.Maximized;
             rf.StartPosition = FormStartPosition.CenterScreen;

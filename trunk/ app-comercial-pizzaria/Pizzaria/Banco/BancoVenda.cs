@@ -14,7 +14,7 @@ namespace Pizzaria.Banco
     using Pizzaria.Classes;
     public class BancoVenda
     {
-        string conexao = "server=Localhost; Port=5432;User =postgres;Password=[zxc123];Database=Pizzaria";
+        string conexao = "server=Localhost; Port=5432;User =postgres;Password=fof0130407*;Database=Delirius";
         public NpgsqlConnection Conectar()
         {
             return new NpgsqlConnection(conexao);
@@ -65,6 +65,16 @@ namespace Pizzaria.Banco
             string garcon = "select g.cod_garcon, g.nome, vg.quantidade from venda v"
                             + " inner join vendaGarcon vg on (v.cod_venda = vg.cod_venda)"
                             + " inner join garcon g on (g.cod_garcon = vg.cod_garcon) where v.cod_venda = " + cod_venda;
+             garcon =
+            "select g.cod_garcon, g.nome,  cg.quantidade " +
+            "from garcon g inner join GarconCompleto cg " +
+            "on (cg.cod_garcon = g.cod_garcon) 	inner join completo c " +
+            "on (c.cod_completo = cg.cod_completo)	inner join vendaCompleta vg " +
+            "on (vg.cod_completo = c.cod_completo)	inner join venda v " +
+            "on (v.cod_venda = vg.cod_venda)	" +
+            "where v.cod_venda = "+cod_venda+" group by g.nome, g.cod_garcon, cg.quantidade	";
+
+
 
             new NpgsqlDataAdapter(garcon, Conectar()).Fill(garc);
             int[] garcons = new int[garc.Rows.Count];
