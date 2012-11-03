@@ -22,10 +22,12 @@ namespace Pizzaria
                 Application.SetCompatibleTextRenderingDefault(false);
 
                 
-              //  Fundo f = new Fundo();
-             //   f.ShowDialog();
-            //    f.ShowIcon = true;
-                  Application.Run(new TipoRelatorio()                    );
+                Fundo f = new Fundo();
+                f.ShowDialog();
+                f.ShowIcon = true;
+
+
+           //       Application.Run(new Fundo()                    );
            }            catch { return; }
             
         }

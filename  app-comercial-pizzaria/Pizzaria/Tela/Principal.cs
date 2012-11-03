@@ -54,7 +54,7 @@ namespace Pizzaria.Tela
                 lValor.Text ="TOTAL PARCIAL = R$ "+ new Tratamento().retornaValorEscrito(new BancoVenda().carregaVenda(new Banco().codVendaSelecionada2(listVenda.FocusedItem.Text)).valorTotal);
               
             }
-            catch { }
+            catch { return; }
         }
         private void regularTamanho()
         {
