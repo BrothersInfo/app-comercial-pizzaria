@@ -32,49 +32,52 @@
             this.LTipoRelatorio = new System.Windows.Forms.Label();
             this.LRelatorio = new System.Windows.Forms.Label();
             this.cbRelatorio = new System.Windows.Forms.ComboBox();
-            this.cbDia = new System.Windows.Forms.ComboBox();
+            this.cbVendaDia = new System.Windows.Forms.ComboBox();
             this.gbDataVenda = new System.Windows.Forms.GroupBox();
             this.lAno = new System.Windows.Forms.Label();
-            this.cbAno = new System.Windows.Forms.ComboBox();
+            this.cbVendaAno = new System.Windows.Forms.ComboBox();
             this.lMes = new System.Windows.Forms.Label();
-            this.cbMes = new System.Windows.Forms.ComboBox();
+            this.cbVendaMes = new System.Windows.Forms.ComboBox();
             this.lDia = new System.Windows.Forms.Label();
             this.gbPeriodoVenda = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpVendaDois = new System.Windows.Forms.DateTimePicker();
+            this.dtpVendaUm = new System.Windows.Forms.DateTimePicker();
             this.flpPrincipal = new System.Windows.Forms.FlowLayoutPanel();
-            this.pVenda = new System.Windows.Forms.Panel();
-            this.gbFiltroVenda = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.gbPeriodoGarcon = new System.Windows.Forms.GroupBox();
+            this.dtpGarconDois = new System.Windows.Forms.DateTimePicker();
+            this.dtpGarconUm = new System.Windows.Forms.DateTimePicker();
+            this.gpGarcon = new System.Windows.Forms.GroupBox();
+            this.cbGarcon = new System.Windows.Forms.ComboBox();
+            this.flpVenda = new System.Windows.Forms.FlowLayoutPanel();
             this.btConsultarVenda = new System.Windows.Forms.Button();
             this.gbVendaOrdenar = new System.Windows.Forms.GroupBox();
             this.cbOrdenarVenda = new System.Windows.Forms.ComboBox();
-            this.rbCrescente = new System.Windows.Forms.RadioButton();
-            this.rbDecrescente = new System.Windows.Forms.RadioButton();
-            this.pGarcon = new System.Windows.Forms.Panel();
-            this.gbOrdenarGarcon = new System.Windows.Forms.GroupBox();
-            this.cbOrdenarGarcon = new System.Windows.Forms.ComboBox();
-            this.rbOrdenarGarcon = new System.Windows.Forms.RadioButton();
-            this.rbOrdenarGarconD = new System.Windows.Forms.RadioButton();
-            this.gbFiltroGarcon = new System.Windows.Forms.GroupBox();
-            this.cbFiltroGarcon = new System.Windows.Forms.ComboBox();
-            this.btConsultarGarcon = new System.Windows.Forms.Button();
-            this.gbPeriodoGarcon = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.gpGarcon = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.pProduto = new System.Windows.Forms.Panel();
+            this.rbVendaCres = new System.Windows.Forms.RadioButton();
+            this.rbVendaDecr = new System.Windows.Forms.RadioButton();
+            this.gbFiltroVenda = new System.Windows.Forms.GroupBox();
+            this.cbFiltroVenda = new System.Windows.Forms.ComboBox();
+            this.gbVendaData = new System.Windows.Forms.GroupBox();
+            this.cbVendaData = new System.Windows.Forms.ComboBox();
+            this.flpProduto = new System.Windows.Forms.FlowLayoutPanel();
+            this.btConsultarProduto = new System.Windows.Forms.Button();
             this.gbOrdenarProduto = new System.Windows.Forms.GroupBox();
             this.cbOrdenarProduto = new System.Windows.Forms.ComboBox();
-            this.rbOrdenarProdutoC = new System.Windows.Forms.RadioButton();
-            this.rbOrdenarProdutoD = new System.Windows.Forms.RadioButton();
+            this.rbProdutCres = new System.Windows.Forms.RadioButton();
+            this.rbProdutDecr = new System.Windows.Forms.RadioButton();
             this.gbFiltrarProduto = new System.Windows.Forms.GroupBox();
-            this.cbFiltrarProduto = new System.Windows.Forms.ComboBox();
-            this.btConsultarProduto = new System.Windows.Forms.Button();
+            this.cbFiltroProduto = new System.Windows.Forms.ComboBox();
             this.gbPeriodoProduto = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
+            this.dtpProdutoDois = new System.Windows.Forms.DateTimePicker();
+            this.dtpProdutoUm = new System.Windows.Forms.DateTimePicker();
+            this.gbProdutoDia = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbProdutoAno = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbProdutoMes = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbProdutoDia = new System.Windows.Forms.ComboBox();
+            this.gbProdutoData = new System.Windows.Forms.GroupBox();
+            this.cbProdutoData = new System.Windows.Forms.ComboBox();
             this.gbProduto = new System.Windows.Forms.GroupBox();
             this.cbProduto = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -85,25 +88,47 @@
             this.Produto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Tamanho = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ValorUni = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.flpGarcon = new System.Windows.Forms.FlowLayoutPanel();
+            this.gbGarconDia = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbGarconAno = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbGarconMes = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbGarconDia = new System.Windows.Forms.ComboBox();
+            this.btConsultarGarcon = new System.Windows.Forms.Button();
+            this.cbFiltroGarcon = new System.Windows.Forms.ComboBox();
+            this.gbFiltroGarcon = new System.Windows.Forms.GroupBox();
+            this.rbGarconDecr = new System.Windows.Forms.RadioButton();
+            this.rbGarconCres = new System.Windows.Forms.RadioButton();
+            this.cbOrdenarGarcon = new System.Windows.Forms.ComboBox();
+            this.gbOrdenarGarcon = new System.Windows.Forms.GroupBox();
+            this.gbGarconData = new System.Windows.Forms.GroupBox();
+            this.cbGarconData = new System.Windows.Forms.ComboBox();
             this.gbDataVenda.SuspendLayout();
             this.gbPeriodoVenda.SuspendLayout();
             this.flpPrincipal.SuspendLayout();
-            this.pVenda.SuspendLayout();
-            this.gbFiltroVenda.SuspendLayout();
-            this.gbVendaOrdenar.SuspendLayout();
-            this.pGarcon.SuspendLayout();
-            this.gbOrdenarGarcon.SuspendLayout();
-            this.gbFiltroGarcon.SuspendLayout();
             this.gbPeriodoGarcon.SuspendLayout();
             this.gpGarcon.SuspendLayout();
-            this.pProduto.SuspendLayout();
+            this.flpVenda.SuspendLayout();
+            this.gbVendaOrdenar.SuspendLayout();
+            this.gbFiltroVenda.SuspendLayout();
+            this.gbVendaData.SuspendLayout();
+            this.flpProduto.SuspendLayout();
             this.gbOrdenarProduto.SuspendLayout();
             this.gbFiltrarProduto.SuspendLayout();
             this.gbPeriodoProduto.SuspendLayout();
+            this.gbProdutoDia.SuspendLayout();
+            this.gbProdutoData.SuspendLayout();
             this.gbProduto.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tlpFundo.SuspendLayout();
             this.pFiltro.SuspendLayout();
+            this.flpGarcon.SuspendLayout();
+            this.gbGarconDia.SuspendLayout();
+            this.gbFiltroGarcon.SuspendLayout();
+            this.gbOrdenarGarcon.SuspendLayout();
+            this.gbGarconData.SuspendLayout();
             this.SuspendLayout();
             // 
             // LTipoRelatorio
@@ -140,11 +165,11 @@
             this.cbRelatorio.TabIndex = 1;
             this.cbRelatorio.SelectedIndexChanged += new System.EventHandler(this.cbRelatorio_SelectedIndexChanged);
             // 
-            // cbDia
+            // cbVendaDia
             // 
-            this.cbDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbDia.FormattingEnabled = true;
-            this.cbDia.Items.AddRange(new object[] {
+            this.cbVendaDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbVendaDia.FormattingEnabled = true;
+            this.cbVendaDia.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -176,23 +201,24 @@
             "29",
             "30",
             "31"});
-            this.cbDia.Location = new System.Drawing.Point(9, 32);
-            this.cbDia.Name = "cbDia";
-            this.cbDia.Size = new System.Drawing.Size(47, 26);
-            this.cbDia.TabIndex = 4;
+            this.cbVendaDia.Location = new System.Drawing.Point(9, 41);
+            this.cbVendaDia.Name = "cbVendaDia";
+            this.cbVendaDia.Size = new System.Drawing.Size(66, 26);
+            this.cbVendaDia.TabIndex = 4;
             // 
             // gbDataVenda
             // 
             this.gbDataVenda.Controls.Add(this.lAno);
-            this.gbDataVenda.Controls.Add(this.cbAno);
+            this.gbDataVenda.Controls.Add(this.cbVendaAno);
             this.gbDataVenda.Controls.Add(this.lMes);
-            this.gbDataVenda.Controls.Add(this.cbMes);
+            this.gbDataVenda.Controls.Add(this.cbVendaMes);
             this.gbDataVenda.Controls.Add(this.lDia);
-            this.gbDataVenda.Controls.Add(this.cbDia);
+            this.gbDataVenda.Controls.Add(this.cbVendaDia);
             this.gbDataVenda.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbDataVenda.Location = new System.Drawing.Point(7, 3);
+            this.gbDataVenda.Location = new System.Drawing.Point(153, 3);
+            this.gbDataVenda.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbDataVenda.Name = "gbDataVenda";
-            this.gbDataVenda.Size = new System.Drawing.Size(228, 88);
+            this.gbDataVenda.Size = new System.Drawing.Size(273, 88);
             this.gbDataVenda.TabIndex = 5;
             this.gbDataVenda.TabStop = false;
             this.gbDataVenda.Text = "Data";
@@ -200,17 +226,17 @@
             // lAno
             // 
             this.lAno.AutoSize = true;
-            this.lAno.Location = new System.Drawing.Point(177, 16);
+            this.lAno.Location = new System.Drawing.Point(198, 25);
             this.lAno.Name = "lAno";
             this.lAno.Size = new System.Drawing.Size(33, 16);
             this.lAno.TabIndex = 7;
             this.lAno.Text = "Ano";
             // 
-            // cbAno
+            // cbVendaAno
             // 
-            this.cbAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAno.FormattingEnabled = true;
-            this.cbAno.Items.AddRange(new object[] {
+            this.cbVendaAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbVendaAno.FormattingEnabled = true;
+            this.cbVendaAno.Items.AddRange(new object[] {
             "2012",
             "2013",
             "2014",
@@ -220,25 +246,25 @@
             "2018",
             "2019",
             "2020"});
-            this.cbAno.Location = new System.Drawing.Point(164, 32);
-            this.cbAno.Name = "cbAno";
-            this.cbAno.Size = new System.Drawing.Size(58, 26);
-            this.cbAno.TabIndex = 8;
+            this.cbVendaAno.Location = new System.Drawing.Point(199, 41);
+            this.cbVendaAno.Name = "cbVendaAno";
+            this.cbVendaAno.Size = new System.Drawing.Size(68, 26);
+            this.cbVendaAno.TabIndex = 8;
             // 
             // lMes
             // 
             this.lMes.AutoSize = true;
-            this.lMes.Location = new System.Drawing.Point(97, 16);
+            this.lMes.Location = new System.Drawing.Point(81, 25);
             this.lMes.Name = "lMes";
             this.lMes.Size = new System.Drawing.Size(34, 16);
             this.lMes.TabIndex = 5;
             this.lMes.Text = "Mês";
             // 
-            // cbMes
+            // cbVendaMes
             // 
-            this.cbMes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMes.FormattingEnabled = true;
-            this.cbMes.Items.AddRange(new object[] {
+            this.cbVendaMes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbVendaMes.FormattingEnabled = true;
+            this.cbVendaMes.Items.AddRange(new object[] {
             "janeiro",
             "fevereiro",
             "março",
@@ -251,15 +277,15 @@
             "outubro",
             "novembro",
             "dezembro"});
-            this.cbMes.Location = new System.Drawing.Point(68, 32);
-            this.cbMes.Name = "cbMes";
-            this.cbMes.Size = new System.Drawing.Size(90, 26);
-            this.cbMes.TabIndex = 6;
+            this.cbVendaMes.Location = new System.Drawing.Point(80, 41);
+            this.cbVendaMes.Name = "cbVendaMes";
+            this.cbVendaMes.Size = new System.Drawing.Size(112, 26);
+            this.cbVendaMes.TabIndex = 6;
             // 
             // lDia
             // 
             this.lDia.AutoSize = true;
-            this.lDia.Location = new System.Drawing.Point(22, 16);
+            this.lDia.Location = new System.Drawing.Point(12, 25);
             this.lDia.Name = "lDia";
             this.lDia.Size = new System.Drawing.Size(29, 16);
             this.lDia.TabIndex = 1;
@@ -267,97 +293,138 @@
             // 
             // gbPeriodoVenda
             // 
-            this.gbPeriodoVenda.Controls.Add(this.dateTimePicker2);
-            this.gbPeriodoVenda.Controls.Add(this.dateTimePicker1);
+            this.gbPeriodoVenda.Controls.Add(this.dtpVendaDois);
+            this.gbPeriodoVenda.Controls.Add(this.dtpVendaUm);
             this.gbPeriodoVenda.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPeriodoVenda.Location = new System.Drawing.Point(241, 3);
+            this.gbPeriodoVenda.Location = new System.Drawing.Point(430, 3);
+            this.gbPeriodoVenda.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbPeriodoVenda.Name = "gbPeriodoVenda";
-            this.gbPeriodoVenda.Size = new System.Drawing.Size(254, 88);
+            this.gbPeriodoVenda.Size = new System.Drawing.Size(273, 88);
             this.gbPeriodoVenda.TabIndex = 8;
             this.gbPeriodoVenda.TabStop = false;
             this.gbPeriodoVenda.Text = "Período";
             // 
-            // dateTimePicker2
+            // dtpVendaDois
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(128, 35);
-            this.dateTimePicker2.MinDate = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(116, 24);
-            this.dateTimePicker2.TabIndex = 11;
+            this.dtpVendaDois.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpVendaDois.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpVendaDois.Location = new System.Drawing.Point(128, 41);
+            this.dtpVendaDois.MinDate = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
+            this.dtpVendaDois.Name = "dtpVendaDois";
+            this.dtpVendaDois.Size = new System.Drawing.Size(116, 24);
+            this.dtpVendaDois.TabIndex = 11;
             // 
-            // dateTimePicker1
+            // dtpVendaUm
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 35);
-            this.dateTimePicker1.MinDate = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(116, 24);
-            this.dateTimePicker1.TabIndex = 10;
+            this.dtpVendaUm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpVendaUm.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpVendaUm.Location = new System.Drawing.Point(6, 41);
+            this.dtpVendaUm.MinDate = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
+            this.dtpVendaUm.Name = "dtpVendaUm";
+            this.dtpVendaUm.Size = new System.Drawing.Size(116, 24);
+            this.dtpVendaUm.TabIndex = 10;
             // 
             // flpPrincipal
             // 
-            this.flpPrincipal.Controls.Add(this.pVenda);
-            this.flpPrincipal.Controls.Add(this.pGarcon);
-            this.flpPrincipal.Controls.Add(this.pProduto);
+            this.flpPrincipal.Controls.Add(this.flpVenda);
+            this.flpPrincipal.Controls.Add(this.flpProduto);
+            this.flpPrincipal.Controls.Add(this.flpGarcon);
             this.flpPrincipal.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flpPrincipal.Location = new System.Drawing.Point(255, 0);
+            this.flpPrincipal.Location = new System.Drawing.Point(245, 0);
             this.flpPrincipal.Margin = new System.Windows.Forms.Padding(0);
             this.flpPrincipal.Name = "flpPrincipal";
-            this.flpPrincipal.Size = new System.Drawing.Size(870, 96);
+            this.flpPrincipal.Size = new System.Drawing.Size(1048, 98);
             this.flpPrincipal.TabIndex = 9;
             // 
-            // pVenda
+            // gbPeriodoGarcon
             // 
-            this.pVenda.Controls.Add(this.gbFiltroVenda);
-            this.pVenda.Controls.Add(this.btConsultarVenda);
-            this.pVenda.Controls.Add(this.gbVendaOrdenar);
-            this.pVenda.Controls.Add(this.gbDataVenda);
-            this.pVenda.Controls.Add(this.gbPeriodoVenda);
-            this.pVenda.Location = new System.Drawing.Point(0, 0);
-            this.pVenda.Margin = new System.Windows.Forms.Padding(0);
-            this.pVenda.Name = "pVenda";
-            this.pVenda.Size = new System.Drawing.Size(870, 100);
-            this.pVenda.TabIndex = 10;
+            this.gbPeriodoGarcon.Controls.Add(this.dtpGarconDois);
+            this.gbPeriodoGarcon.Controls.Add(this.dtpGarconUm);
+            this.gbPeriodoGarcon.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbPeriodoGarcon.Location = new System.Drawing.Point(302, 3);
+            this.gbPeriodoGarcon.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbPeriodoGarcon.Name = "gbPeriodoGarcon";
+            this.gbPeriodoGarcon.Size = new System.Drawing.Size(273, 88);
+            this.gbPeriodoGarcon.TabIndex = 9;
+            this.gbPeriodoGarcon.TabStop = false;
+            this.gbPeriodoGarcon.Text = "Período";
             // 
-            // gbFiltroVenda
+            // dtpGarconDois
             // 
-            this.gbFiltroVenda.Controls.Add(this.comboBox2);
-            this.gbFiltroVenda.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbFiltroVenda.Location = new System.Drawing.Point(498, 3);
-            this.gbFiltroVenda.Name = "gbFiltroVenda";
-            this.gbFiltroVenda.Size = new System.Drawing.Size(108, 88);
-            this.gbFiltroVenda.TabIndex = 11;
-            this.gbFiltroVenda.TabStop = false;
-            this.gbFiltroVenda.Text = "Filtrar";
+            this.dtpGarconDois.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpGarconDois.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpGarconDois.Location = new System.Drawing.Point(143, 41);
+            this.dtpGarconDois.MinDate = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
+            this.dtpGarconDois.Name = "dtpGarconDois";
+            this.dtpGarconDois.Size = new System.Drawing.Size(116, 24);
+            this.dtpGarconDois.TabIndex = 11;
             // 
-            // comboBox2
+            // dtpGarconUm
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(6, 34);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(96, 26);
-            this.comboBox2.TabIndex = 5;
+            this.dtpGarconUm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpGarconUm.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpGarconUm.Location = new System.Drawing.Point(6, 41);
+            this.dtpGarconUm.MinDate = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
+            this.dtpGarconUm.Name = "dtpGarconUm";
+            this.dtpGarconUm.Size = new System.Drawing.Size(116, 24);
+            this.dtpGarconUm.TabIndex = 10;
+            // 
+            // gpGarcon
+            // 
+            this.gpGarcon.Controls.Add(this.cbGarcon);
+            this.gpGarcon.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpGarcon.Location = new System.Drawing.Point(579, 3);
+            this.gpGarcon.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gpGarcon.Name = "gpGarcon";
+            this.gpGarcon.Size = new System.Drawing.Size(124, 88);
+            this.gpGarcon.TabIndex = 5;
+            this.gpGarcon.TabStop = false;
+            this.gpGarcon.Text = "Garçon";
+            // 
+            // cbGarcon
+            // 
+            this.cbGarcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbGarcon.FormattingEnabled = true;
+            this.cbGarcon.Location = new System.Drawing.Point(9, 39);
+            this.cbGarcon.Name = "cbGarcon";
+            this.cbGarcon.Size = new System.Drawing.Size(100, 26);
+            this.cbGarcon.TabIndex = 4;
+            // 
+            // flpVenda
+            // 
+            this.flpVenda.Controls.Add(this.btConsultarVenda);
+            this.flpVenda.Controls.Add(this.gbVendaOrdenar);
+            this.flpVenda.Controls.Add(this.gbFiltroVenda);
+            this.flpVenda.Controls.Add(this.gbPeriodoVenda);
+            this.flpVenda.Controls.Add(this.gbDataVenda);
+            this.flpVenda.Controls.Add(this.gbVendaData);
+            this.flpVenda.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flpVenda.Location = new System.Drawing.Point(0, 0);
+            this.flpVenda.Margin = new System.Windows.Forms.Padding(0);
+            this.flpVenda.Name = "flpVenda";
+            this.flpVenda.Size = new System.Drawing.Size(1048, 100);
+            this.flpVenda.TabIndex = 13;
             // 
             // btConsultarVenda
             // 
-            this.btConsultarVenda.Location = new System.Drawing.Point(750, 34);
+            this.btConsultarVenda.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btConsultarVenda.Location = new System.Drawing.Point(946, 31);
+            this.btConsultarVenda.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btConsultarVenda.Name = "btConsultarVenda";
             this.btConsultarVenda.Size = new System.Drawing.Size(100, 31);
             this.btConsultarVenda.TabIndex = 10;
             this.btConsultarVenda.Text = "Consultar";
             this.btConsultarVenda.UseVisualStyleBackColor = true;
+            this.btConsultarVenda.Click += new System.EventHandler(this.btConsultarVenda_Click);
             // 
             // gbVendaOrdenar
             // 
             this.gbVendaOrdenar.Controls.Add(this.cbOrdenarVenda);
-            this.gbVendaOrdenar.Controls.Add(this.rbCrescente);
-            this.gbVendaOrdenar.Controls.Add(this.rbDecrescente);
+            this.gbVendaOrdenar.Controls.Add(this.rbVendaCres);
+            this.gbVendaOrdenar.Controls.Add(this.rbVendaDecr);
             this.gbVendaOrdenar.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbVendaOrdenar.Location = new System.Drawing.Point(608, 3);
+            this.gbVendaOrdenar.Location = new System.Drawing.Point(819, 3);
+            this.gbVendaOrdenar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbVendaOrdenar.Name = "gbVendaOrdenar";
             this.gbVendaOrdenar.Size = new System.Drawing.Size(123, 88);
             this.gbVendaOrdenar.TabIndex = 9;
@@ -373,192 +440,111 @@
             this.cbOrdenarVenda.Size = new System.Drawing.Size(102, 26);
             this.cbOrdenarVenda.TabIndex = 4;
             // 
-            // rbCrescente
+            // rbVendaCres
             // 
-            this.rbCrescente.AutoSize = true;
-            this.rbCrescente.Location = new System.Drawing.Point(15, 45);
-            this.rbCrescente.Name = "rbCrescente";
-            this.rbCrescente.Size = new System.Drawing.Size(91, 20);
-            this.rbCrescente.TabIndex = 3;
-            this.rbCrescente.TabStop = true;
-            this.rbCrescente.Text = "Crescente";
-            this.rbCrescente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.rbCrescente.UseVisualStyleBackColor = true;
+            this.rbVendaCres.AutoSize = true;
+            this.rbVendaCres.Checked = true;
+            this.rbVendaCres.Location = new System.Drawing.Point(15, 45);
+            this.rbVendaCres.Name = "rbVendaCres";
+            this.rbVendaCres.Size = new System.Drawing.Size(91, 20);
+            this.rbVendaCres.TabIndex = 3;
+            this.rbVendaCres.TabStop = true;
+            this.rbVendaCres.Text = "Crescente";
+            this.rbVendaCres.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.rbVendaCres.UseVisualStyleBackColor = true;
             // 
-            // rbDecrescente
+            // rbVendaDecr
             // 
-            this.rbDecrescente.AutoSize = true;
-            this.rbDecrescente.Location = new System.Drawing.Point(15, 61);
-            this.rbDecrescente.Name = "rbDecrescente";
-            this.rbDecrescente.Size = new System.Drawing.Size(106, 20);
-            this.rbDecrescente.TabIndex = 2;
-            this.rbDecrescente.TabStop = true;
-            this.rbDecrescente.Text = "Decrescente";
-            this.rbDecrescente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.rbDecrescente.UseVisualStyleBackColor = true;
+            this.rbVendaDecr.AutoSize = true;
+            this.rbVendaDecr.Location = new System.Drawing.Point(15, 61);
+            this.rbVendaDecr.Name = "rbVendaDecr";
+            this.rbVendaDecr.Size = new System.Drawing.Size(106, 20);
+            this.rbVendaDecr.TabIndex = 2;
+            this.rbVendaDecr.Text = "Decrescente";
+            this.rbVendaDecr.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.rbVendaDecr.UseVisualStyleBackColor = true;
             // 
-            // pGarcon
+            // gbFiltroVenda
             // 
-            this.pGarcon.Controls.Add(this.gbOrdenarGarcon);
-            this.pGarcon.Controls.Add(this.gbFiltroGarcon);
-            this.pGarcon.Controls.Add(this.btConsultarGarcon);
-            this.pGarcon.Controls.Add(this.gbPeriodoGarcon);
-            this.pGarcon.Controls.Add(this.gpGarcon);
-            this.pGarcon.Location = new System.Drawing.Point(0, 100);
-            this.pGarcon.Margin = new System.Windows.Forms.Padding(0);
-            this.pGarcon.Name = "pGarcon";
-            this.pGarcon.Size = new System.Drawing.Size(870, 100);
-            this.pGarcon.TabIndex = 11;
-            this.pGarcon.Visible = false;
+            this.gbFiltroVenda.Controls.Add(this.cbFiltroVenda);
+            this.gbFiltroVenda.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbFiltroVenda.Location = new System.Drawing.Point(707, 3);
+            this.gbFiltroVenda.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbFiltroVenda.Name = "gbFiltroVenda";
+            this.gbFiltroVenda.Size = new System.Drawing.Size(108, 88);
+            this.gbFiltroVenda.TabIndex = 11;
+            this.gbFiltroVenda.TabStop = false;
+            this.gbFiltroVenda.Text = "Filtrar";
             // 
-            // gbOrdenarGarcon
+            // cbFiltroVenda
             // 
-            this.gbOrdenarGarcon.Controls.Add(this.cbOrdenarGarcon);
-            this.gbOrdenarGarcon.Controls.Add(this.rbOrdenarGarcon);
-            this.gbOrdenarGarcon.Controls.Add(this.rbOrdenarGarconD);
-            this.gbOrdenarGarcon.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbOrdenarGarcon.Location = new System.Drawing.Point(608, 3);
-            this.gbOrdenarGarcon.Name = "gbOrdenarGarcon";
-            this.gbOrdenarGarcon.Size = new System.Drawing.Size(123, 88);
-            this.gbOrdenarGarcon.TabIndex = 13;
-            this.gbOrdenarGarcon.TabStop = false;
-            this.gbOrdenarGarcon.Text = "Ordenar";
+            this.cbFiltroVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFiltroVenda.FormattingEnabled = true;
+            this.cbFiltroVenda.Location = new System.Drawing.Point(6, 39);
+            this.cbFiltroVenda.Name = "cbFiltroVenda";
+            this.cbFiltroVenda.Size = new System.Drawing.Size(96, 26);
+            this.cbFiltroVenda.TabIndex = 5;
             // 
-            // cbOrdenarGarcon
+            // gbVendaData
             // 
-            this.cbOrdenarGarcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbOrdenarGarcon.FormattingEnabled = true;
-            this.cbOrdenarGarcon.Location = new System.Drawing.Point(11, 17);
-            this.cbOrdenarGarcon.Name = "cbOrdenarGarcon";
-            this.cbOrdenarGarcon.Size = new System.Drawing.Size(102, 26);
-            this.cbOrdenarGarcon.TabIndex = 4;
+            this.gbVendaData.Controls.Add(this.cbVendaData);
+            this.gbVendaData.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbVendaData.Location = new System.Drawing.Point(41, 3);
+            this.gbVendaData.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbVendaData.Name = "gbVendaData";
+            this.gbVendaData.Size = new System.Drawing.Size(108, 88);
+            this.gbVendaData.TabIndex = 12;
+            this.gbVendaData.TabStop = false;
+            this.gbVendaData.Text = "Data";
             // 
-            // rbOrdenarGarcon
+            // cbVendaData
             // 
-            this.rbOrdenarGarcon.AutoSize = true;
-            this.rbOrdenarGarcon.Location = new System.Drawing.Point(15, 45);
-            this.rbOrdenarGarcon.Name = "rbOrdenarGarcon";
-            this.rbOrdenarGarcon.Size = new System.Drawing.Size(91, 20);
-            this.rbOrdenarGarcon.TabIndex = 3;
-            this.rbOrdenarGarcon.TabStop = true;
-            this.rbOrdenarGarcon.Text = "Crescente";
-            this.rbOrdenarGarcon.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.rbOrdenarGarcon.UseVisualStyleBackColor = true;
+            this.cbVendaData.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbVendaData.FormattingEnabled = true;
+            this.cbVendaData.Items.AddRange(new object[] {
+            "Data",
+            "Periodo"});
+            this.cbVendaData.Location = new System.Drawing.Point(6, 39);
+            this.cbVendaData.Name = "cbVendaData";
+            this.cbVendaData.Size = new System.Drawing.Size(96, 26);
+            this.cbVendaData.TabIndex = 5;
+            this.cbVendaData.SelectedIndexChanged += new System.EventHandler(this.cbData_SelectedIndexChanged);
             // 
-            // rbOrdenarGarconD
+            // flpProduto
             // 
-            this.rbOrdenarGarconD.AutoSize = true;
-            this.rbOrdenarGarconD.Location = new System.Drawing.Point(15, 61);
-            this.rbOrdenarGarconD.Name = "rbOrdenarGarconD";
-            this.rbOrdenarGarconD.Size = new System.Drawing.Size(106, 20);
-            this.rbOrdenarGarconD.TabIndex = 2;
-            this.rbOrdenarGarconD.TabStop = true;
-            this.rbOrdenarGarconD.Text = "Decrescente";
-            this.rbOrdenarGarconD.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.rbOrdenarGarconD.UseVisualStyleBackColor = true;
+            this.flpProduto.Controls.Add(this.btConsultarProduto);
+            this.flpProduto.Controls.Add(this.gbOrdenarProduto);
+            this.flpProduto.Controls.Add(this.gbFiltrarProduto);
+            this.flpProduto.Controls.Add(this.gbProduto);
+            this.flpProduto.Controls.Add(this.gbProdutoDia);
+            this.flpProduto.Controls.Add(this.gbPeriodoProduto);
+            this.flpProduto.Controls.Add(this.gbProdutoData);
+            this.flpProduto.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flpProduto.Location = new System.Drawing.Point(0, 100);
+            this.flpProduto.Margin = new System.Windows.Forms.Padding(0);
+            this.flpProduto.Name = "flpProduto";
+            this.flpProduto.Size = new System.Drawing.Size(1048, 100);
+            this.flpProduto.TabIndex = 14;
             // 
-            // gbFiltroGarcon
+            // btConsultarProduto
             // 
-            this.gbFiltroGarcon.Controls.Add(this.cbFiltroGarcon);
-            this.gbFiltroGarcon.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbFiltroGarcon.Location = new System.Drawing.Point(498, 3);
-            this.gbFiltroGarcon.Name = "gbFiltroGarcon";
-            this.gbFiltroGarcon.Size = new System.Drawing.Size(108, 88);
-            this.gbFiltroGarcon.TabIndex = 12;
-            this.gbFiltroGarcon.TabStop = false;
-            this.gbFiltroGarcon.Text = "Filtrar";
-            // 
-            // cbFiltroGarcon
-            // 
-            this.cbFiltroGarcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbFiltroGarcon.FormattingEnabled = true;
-            this.cbFiltroGarcon.Location = new System.Drawing.Point(6, 34);
-            this.cbFiltroGarcon.Name = "cbFiltroGarcon";
-            this.cbFiltroGarcon.Size = new System.Drawing.Size(96, 26);
-            this.cbFiltroGarcon.TabIndex = 5;
-            // 
-            // btConsultarGarcon
-            // 
-            this.btConsultarGarcon.Location = new System.Drawing.Point(750, 34);
-            this.btConsultarGarcon.Name = "btConsultarGarcon";
-            this.btConsultarGarcon.Size = new System.Drawing.Size(100, 31);
-            this.btConsultarGarcon.TabIndex = 11;
-            this.btConsultarGarcon.Text = "Consultar";
-            this.btConsultarGarcon.UseVisualStyleBackColor = true;
-            // 
-            // gbPeriodoGarcon
-            // 
-            this.gbPeriodoGarcon.Controls.Add(this.dateTimePicker3);
-            this.gbPeriodoGarcon.Controls.Add(this.dateTimePicker4);
-            this.gbPeriodoGarcon.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPeriodoGarcon.Location = new System.Drawing.Point(241, 3);
-            this.gbPeriodoGarcon.Name = "gbPeriodoGarcon";
-            this.gbPeriodoGarcon.Size = new System.Drawing.Size(254, 88);
-            this.gbPeriodoGarcon.TabIndex = 9;
-            this.gbPeriodoGarcon.TabStop = false;
-            this.gbPeriodoGarcon.Text = "Período";
-            // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker3.Location = new System.Drawing.Point(128, 35);
-            this.dateTimePicker3.MinDate = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(116, 24);
-            this.dateTimePicker3.TabIndex = 11;
-            // 
-            // dateTimePicker4
-            // 
-            this.dateTimePicker4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker4.Location = new System.Drawing.Point(6, 35);
-            this.dateTimePicker4.MinDate = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(116, 24);
-            this.dateTimePicker4.TabIndex = 10;
-            // 
-            // gpGarcon
-            // 
-            this.gpGarcon.Controls.Add(this.comboBox1);
-            this.gpGarcon.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpGarcon.Location = new System.Drawing.Point(111, 3);
-            this.gpGarcon.Name = "gpGarcon";
-            this.gpGarcon.Size = new System.Drawing.Size(124, 88);
-            this.gpGarcon.TabIndex = 5;
-            this.gpGarcon.TabStop = false;
-            this.gpGarcon.Text = "Garçon";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(9, 32);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 26);
-            this.comboBox1.TabIndex = 4;
-            // 
-            // pProduto
-            // 
-            this.pProduto.Controls.Add(this.gbOrdenarProduto);
-            this.pProduto.Controls.Add(this.gbFiltrarProduto);
-            this.pProduto.Controls.Add(this.btConsultarProduto);
-            this.pProduto.Controls.Add(this.gbPeriodoProduto);
-            this.pProduto.Controls.Add(this.gbProduto);
-            this.pProduto.Location = new System.Drawing.Point(0, 200);
-            this.pProduto.Margin = new System.Windows.Forms.Padding(0);
-            this.pProduto.Name = "pProduto";
-            this.pProduto.Size = new System.Drawing.Size(870, 100);
-            this.pProduto.TabIndex = 12;
-            this.pProduto.Visible = false;
+            this.btConsultarProduto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btConsultarProduto.Location = new System.Drawing.Point(946, 31);
+            this.btConsultarProduto.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btConsultarProduto.Name = "btConsultarProduto";
+            this.btConsultarProduto.Size = new System.Drawing.Size(100, 31);
+            this.btConsultarProduto.TabIndex = 11;
+            this.btConsultarProduto.Text = "Consultar";
+            this.btConsultarProduto.UseVisualStyleBackColor = true;
             // 
             // gbOrdenarProduto
             // 
             this.gbOrdenarProduto.Controls.Add(this.cbOrdenarProduto);
-            this.gbOrdenarProduto.Controls.Add(this.rbOrdenarProdutoC);
-            this.gbOrdenarProduto.Controls.Add(this.rbOrdenarProdutoD);
+            this.gbOrdenarProduto.Controls.Add(this.rbProdutCres);
+            this.gbOrdenarProduto.Controls.Add(this.rbProdutDecr);
             this.gbOrdenarProduto.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbOrdenarProduto.Location = new System.Drawing.Point(608, 3);
+            this.gbOrdenarProduto.Location = new System.Drawing.Point(819, 3);
+            this.gbOrdenarProduto.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbOrdenarProduto.Name = "gbOrdenarProduto";
             this.gbOrdenarProduto.Size = new System.Drawing.Size(123, 88);
             this.gbOrdenarProduto.TabIndex = 13;
@@ -574,96 +560,241 @@
             this.cbOrdenarProduto.Size = new System.Drawing.Size(102, 26);
             this.cbOrdenarProduto.TabIndex = 4;
             // 
-            // rbOrdenarProdutoC
+            // rbProdutCres
             // 
-            this.rbOrdenarProdutoC.AutoSize = true;
-            this.rbOrdenarProdutoC.Location = new System.Drawing.Point(15, 45);
-            this.rbOrdenarProdutoC.Name = "rbOrdenarProdutoC";
-            this.rbOrdenarProdutoC.Size = new System.Drawing.Size(91, 20);
-            this.rbOrdenarProdutoC.TabIndex = 3;
-            this.rbOrdenarProdutoC.TabStop = true;
-            this.rbOrdenarProdutoC.Text = "Crescente";
-            this.rbOrdenarProdutoC.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.rbOrdenarProdutoC.UseVisualStyleBackColor = true;
+            this.rbProdutCres.AutoSize = true;
+            this.rbProdutCres.Checked = true;
+            this.rbProdutCres.Location = new System.Drawing.Point(15, 45);
+            this.rbProdutCres.Name = "rbProdutCres";
+            this.rbProdutCres.Size = new System.Drawing.Size(91, 20);
+            this.rbProdutCres.TabIndex = 3;
+            this.rbProdutCres.TabStop = true;
+            this.rbProdutCres.Text = "Crescente";
+            this.rbProdutCres.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.rbProdutCres.UseVisualStyleBackColor = true;
             // 
-            // rbOrdenarProdutoD
+            // rbProdutDecr
             // 
-            this.rbOrdenarProdutoD.AutoSize = true;
-            this.rbOrdenarProdutoD.Location = new System.Drawing.Point(15, 61);
-            this.rbOrdenarProdutoD.Name = "rbOrdenarProdutoD";
-            this.rbOrdenarProdutoD.Size = new System.Drawing.Size(106, 20);
-            this.rbOrdenarProdutoD.TabIndex = 2;
-            this.rbOrdenarProdutoD.TabStop = true;
-            this.rbOrdenarProdutoD.Text = "Decrescente";
-            this.rbOrdenarProdutoD.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.rbOrdenarProdutoD.UseVisualStyleBackColor = true;
+            this.rbProdutDecr.AutoSize = true;
+            this.rbProdutDecr.Location = new System.Drawing.Point(15, 61);
+            this.rbProdutDecr.Name = "rbProdutDecr";
+            this.rbProdutDecr.Size = new System.Drawing.Size(106, 20);
+            this.rbProdutDecr.TabIndex = 2;
+            this.rbProdutDecr.Text = "Decrescente";
+            this.rbProdutDecr.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.rbProdutDecr.UseVisualStyleBackColor = true;
             // 
             // gbFiltrarProduto
             // 
-            this.gbFiltrarProduto.Controls.Add(this.cbFiltrarProduto);
+            this.gbFiltrarProduto.Controls.Add(this.cbFiltroProduto);
             this.gbFiltrarProduto.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbFiltrarProduto.Location = new System.Drawing.Point(498, 3);
+            this.gbFiltrarProduto.Location = new System.Drawing.Point(707, 3);
+            this.gbFiltrarProduto.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbFiltrarProduto.Name = "gbFiltrarProduto";
             this.gbFiltrarProduto.Size = new System.Drawing.Size(108, 88);
             this.gbFiltrarProduto.TabIndex = 12;
             this.gbFiltrarProduto.TabStop = false;
             this.gbFiltrarProduto.Text = "Filtrar";
             // 
-            // cbFiltrarProduto
+            // cbFiltroProduto
             // 
-            this.cbFiltrarProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbFiltrarProduto.FormattingEnabled = true;
-            this.cbFiltrarProduto.Location = new System.Drawing.Point(6, 34);
-            this.cbFiltrarProduto.Name = "cbFiltrarProduto";
-            this.cbFiltrarProduto.Size = new System.Drawing.Size(96, 26);
-            this.cbFiltrarProduto.TabIndex = 5;
-            // 
-            // btConsultarProduto
-            // 
-            this.btConsultarProduto.Location = new System.Drawing.Point(750, 34);
-            this.btConsultarProduto.Name = "btConsultarProduto";
-            this.btConsultarProduto.Size = new System.Drawing.Size(100, 31);
-            this.btConsultarProduto.TabIndex = 11;
-            this.btConsultarProduto.Text = "Consultar";
-            this.btConsultarProduto.UseVisualStyleBackColor = true;
+            this.cbFiltroProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFiltroProduto.FormattingEnabled = true;
+            this.cbFiltroProduto.Location = new System.Drawing.Point(6, 39);
+            this.cbFiltroProduto.Name = "cbFiltroProduto";
+            this.cbFiltroProduto.Size = new System.Drawing.Size(96, 26);
+            this.cbFiltroProduto.TabIndex = 5;
             // 
             // gbPeriodoProduto
             // 
-            this.gbPeriodoProduto.Controls.Add(this.dateTimePicker5);
-            this.gbPeriodoProduto.Controls.Add(this.dateTimePicker6);
+            this.gbPeriodoProduto.Controls.Add(this.dtpProdutoDois);
+            this.gbPeriodoProduto.Controls.Add(this.dtpProdutoUm);
             this.gbPeriodoProduto.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPeriodoProduto.Location = new System.Drawing.Point(241, 3);
+            this.gbPeriodoProduto.Location = new System.Drawing.Point(25, 3);
+            this.gbPeriodoProduto.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbPeriodoProduto.Name = "gbPeriodoProduto";
-            this.gbPeriodoProduto.Size = new System.Drawing.Size(254, 88);
+            this.gbPeriodoProduto.Size = new System.Drawing.Size(273, 88);
             this.gbPeriodoProduto.TabIndex = 9;
             this.gbPeriodoProduto.TabStop = false;
             this.gbPeriodoProduto.Text = "Período";
             // 
-            // dateTimePicker5
+            // dtpProdutoDois
             // 
-            this.dateTimePicker5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker5.Location = new System.Drawing.Point(128, 35);
-            this.dateTimePicker5.MinDate = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.Size = new System.Drawing.Size(116, 24);
-            this.dateTimePicker5.TabIndex = 11;
+            this.dtpProdutoDois.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpProdutoDois.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpProdutoDois.Location = new System.Drawing.Point(143, 41);
+            this.dtpProdutoDois.MinDate = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
+            this.dtpProdutoDois.Name = "dtpProdutoDois";
+            this.dtpProdutoDois.Size = new System.Drawing.Size(116, 24);
+            this.dtpProdutoDois.TabIndex = 11;
             // 
-            // dateTimePicker6
+            // dtpProdutoUm
             // 
-            this.dateTimePicker6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker6.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker6.Location = new System.Drawing.Point(6, 35);
-            this.dateTimePicker6.MinDate = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker6.Name = "dateTimePicker6";
-            this.dateTimePicker6.Size = new System.Drawing.Size(116, 24);
-            this.dateTimePicker6.TabIndex = 10;
+            this.dtpProdutoUm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpProdutoUm.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpProdutoUm.Location = new System.Drawing.Point(6, 41);
+            this.dtpProdutoUm.MinDate = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
+            this.dtpProdutoUm.Name = "dtpProdutoUm";
+            this.dtpProdutoUm.Size = new System.Drawing.Size(116, 24);
+            this.dtpProdutoUm.TabIndex = 10;
+            // 
+            // gbProdutoDia
+            // 
+            this.gbProdutoDia.Controls.Add(this.label1);
+            this.gbProdutoDia.Controls.Add(this.cbProdutoAno);
+            this.gbProdutoDia.Controls.Add(this.label2);
+            this.gbProdutoDia.Controls.Add(this.cbProdutoMes);
+            this.gbProdutoDia.Controls.Add(this.label3);
+            this.gbProdutoDia.Controls.Add(this.cbProdutoDia);
+            this.gbProdutoDia.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbProdutoDia.Location = new System.Drawing.Point(302, 3);
+            this.gbProdutoDia.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbProdutoDia.Name = "gbProdutoDia";
+            this.gbProdutoDia.Size = new System.Drawing.Size(273, 88);
+            this.gbProdutoDia.TabIndex = 14;
+            this.gbProdutoDia.TabStop = false;
+            this.gbProdutoDia.Text = "Data";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(198, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(33, 16);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Ano";
+            // 
+            // cbProdutoAno
+            // 
+            this.cbProdutoAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProdutoAno.FormattingEnabled = true;
+            this.cbProdutoAno.Items.AddRange(new object[] {
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020"});
+            this.cbProdutoAno.Location = new System.Drawing.Point(199, 41);
+            this.cbProdutoAno.Name = "cbProdutoAno";
+            this.cbProdutoAno.Size = new System.Drawing.Size(68, 26);
+            this.cbProdutoAno.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(81, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 16);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Mês";
+            // 
+            // cbProdutoMes
+            // 
+            this.cbProdutoMes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProdutoMes.FormattingEnabled = true;
+            this.cbProdutoMes.Items.AddRange(new object[] {
+            "janeiro",
+            "fevereiro",
+            "março",
+            "abril",
+            "maio",
+            "junho",
+            "julho",
+            "agosto",
+            "setembro",
+            "outubro",
+            "novembro",
+            "dezembro"});
+            this.cbProdutoMes.Location = new System.Drawing.Point(80, 41);
+            this.cbProdutoMes.Name = "cbProdutoMes";
+            this.cbProdutoMes.Size = new System.Drawing.Size(112, 26);
+            this.cbProdutoMes.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 16);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Dia";
+            // 
+            // cbProdutoDia
+            // 
+            this.cbProdutoDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProdutoDia.FormattingEnabled = true;
+            this.cbProdutoDia.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31"});
+            this.cbProdutoDia.Location = new System.Drawing.Point(9, 41);
+            this.cbProdutoDia.Name = "cbProdutoDia";
+            this.cbProdutoDia.Size = new System.Drawing.Size(66, 26);
+            this.cbProdutoDia.TabIndex = 4;
+            // 
+            // gbProdutoData
+            // 
+            this.gbProdutoData.Controls.Add(this.cbProdutoData);
+            this.gbProdutoData.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbProdutoData.Location = new System.Drawing.Point(938, 97);
+            this.gbProdutoData.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbProdutoData.Name = "gbProdutoData";
+            this.gbProdutoData.Size = new System.Drawing.Size(108, 88);
+            this.gbProdutoData.TabIndex = 14;
+            this.gbProdutoData.TabStop = false;
+            this.gbProdutoData.Text = "Data";
+            // 
+            // cbProdutoData
+            // 
+            this.cbProdutoData.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProdutoData.FormattingEnabled = true;
+            this.cbProdutoData.Items.AddRange(new object[] {
+            "Data",
+            "Periodo"});
+            this.cbProdutoData.Location = new System.Drawing.Point(6, 39);
+            this.cbProdutoData.Name = "cbProdutoData";
+            this.cbProdutoData.Size = new System.Drawing.Size(96, 26);
+            this.cbProdutoData.TabIndex = 5;
+            this.cbProdutoData.SelectedIndexChanged += new System.EventHandler(this.cbProdutoData_SelectedIndexChanged);
             // 
             // gbProduto
             // 
             this.gbProduto.Controls.Add(this.cbProduto);
             this.gbProduto.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbProduto.Location = new System.Drawing.Point(111, 3);
+            this.gbProduto.Location = new System.Drawing.Point(579, 3);
+            this.gbProduto.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbProduto.Name = "gbProduto";
             this.gbProduto.Size = new System.Drawing.Size(124, 88);
             this.gbProduto.TabIndex = 5;
@@ -674,7 +805,7 @@
             // 
             this.cbProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbProduto.FormattingEnabled = true;
-            this.cbProduto.Location = new System.Drawing.Point(9, 32);
+            this.cbProduto.Location = new System.Drawing.Point(9, 39);
             this.cbProduto.Name = "cbProduto";
             this.cbProduto.Size = new System.Drawing.Size(100, 26);
             this.cbProduto.TabIndex = 4;
@@ -687,7 +818,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(255, 96);
+            this.panel1.Size = new System.Drawing.Size(245, 98);
             this.panel1.TabIndex = 1;
             // 
             // tlpFundo
@@ -702,9 +833,9 @@
             this.tlpFundo.Location = new System.Drawing.Point(0, 0);
             this.tlpFundo.Name = "tlpFundo";
             this.tlpFundo.RowCount = 2;
-            this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 98F));
             this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpFundo.Size = new System.Drawing.Size(1170, 487);
+            this.tlpFundo.Size = new System.Drawing.Size(1338, 487);
             this.tlpFundo.TabIndex = 0;
             // 
             // pFiltro
@@ -715,7 +846,7 @@
             this.pFiltro.Location = new System.Drawing.Point(25, 0);
             this.pFiltro.Margin = new System.Windows.Forms.Padding(0);
             this.pFiltro.Name = "pFiltro";
-            this.pFiltro.Size = new System.Drawing.Size(1125, 96);
+            this.pFiltro.Size = new System.Drawing.Size(1293, 98);
             this.pFiltro.TabIndex = 0;
             // 
             // lvConsInfo
@@ -731,10 +862,10 @@
             this.lvConsInfo.FullRowSelect = true;
             this.lvConsInfo.GridLines = true;
             this.lvConsInfo.HoverSelection = true;
-            this.lvConsInfo.Location = new System.Drawing.Point(25, 96);
+            this.lvConsInfo.Location = new System.Drawing.Point(25, 98);
             this.lvConsInfo.Margin = new System.Windows.Forms.Padding(0);
             this.lvConsInfo.Name = "lvConsInfo";
-            this.lvConsInfo.Size = new System.Drawing.Size(1125, 391);
+            this.lvConsInfo.Size = new System.Drawing.Size(1293, 389);
             this.lvConsInfo.TabIndex = 45;
             this.lvConsInfo.UseCompatibleStateImageBehavior = false;
             this.lvConsInfo.View = System.Windows.Forms.View.Details;
@@ -762,11 +893,257 @@
             this.ValorUni.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ValorUni.Width = 90;
             // 
+            // flpGarcon
+            // 
+            this.flpGarcon.Controls.Add(this.btConsultarGarcon);
+            this.flpGarcon.Controls.Add(this.gbOrdenarGarcon);
+            this.flpGarcon.Controls.Add(this.gbFiltroGarcon);
+            this.flpGarcon.Controls.Add(this.gpGarcon);
+            this.flpGarcon.Controls.Add(this.gbPeriodoGarcon);
+            this.flpGarcon.Controls.Add(this.gbGarconDia);
+            this.flpGarcon.Controls.Add(this.gbGarconData);
+            this.flpGarcon.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flpGarcon.Location = new System.Drawing.Point(0, 200);
+            this.flpGarcon.Margin = new System.Windows.Forms.Padding(0);
+            this.flpGarcon.Name = "flpGarcon";
+            this.flpGarcon.Size = new System.Drawing.Size(1048, 100);
+            this.flpGarcon.TabIndex = 15;
+            // 
+            // gbGarconDia
+            // 
+            this.gbGarconDia.Controls.Add(this.label4);
+            this.gbGarconDia.Controls.Add(this.cbGarconAno);
+            this.gbGarconDia.Controls.Add(this.label5);
+            this.gbGarconDia.Controls.Add(this.cbGarconMes);
+            this.gbGarconDia.Controls.Add(this.label6);
+            this.gbGarconDia.Controls.Add(this.cbGarconDia);
+            this.gbGarconDia.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbGarconDia.Location = new System.Drawing.Point(25, 3);
+            this.gbGarconDia.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbGarconDia.Name = "gbGarconDia";
+            this.gbGarconDia.Size = new System.Drawing.Size(273, 88);
+            this.gbGarconDia.TabIndex = 14;
+            this.gbGarconDia.TabStop = false;
+            this.gbGarconDia.Text = "Data";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(198, 25);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 16);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Ano";
+            // 
+            // cbGarconAno
+            // 
+            this.cbGarconAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbGarconAno.FormattingEnabled = true;
+            this.cbGarconAno.Items.AddRange(new object[] {
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020"});
+            this.cbGarconAno.Location = new System.Drawing.Point(199, 41);
+            this.cbGarconAno.Name = "cbGarconAno";
+            this.cbGarconAno.Size = new System.Drawing.Size(68, 26);
+            this.cbGarconAno.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(81, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 16);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Mês";
+            // 
+            // cbGarconMes
+            // 
+            this.cbGarconMes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbGarconMes.FormattingEnabled = true;
+            this.cbGarconMes.Items.AddRange(new object[] {
+            "janeiro",
+            "fevereiro",
+            "março",
+            "abril",
+            "maio",
+            "junho",
+            "julho",
+            "agosto",
+            "setembro",
+            "outubro",
+            "novembro",
+            "dezembro"});
+            this.cbGarconMes.Location = new System.Drawing.Point(80, 41);
+            this.cbGarconMes.Name = "cbGarconMes";
+            this.cbGarconMes.Size = new System.Drawing.Size(112, 26);
+            this.cbGarconMes.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 25);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(29, 16);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Dia";
+            // 
+            // cbGarconDia
+            // 
+            this.cbGarconDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbGarconDia.FormattingEnabled = true;
+            this.cbGarconDia.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31"});
+            this.cbGarconDia.Location = new System.Drawing.Point(9, 41);
+            this.cbGarconDia.Name = "cbGarconDia";
+            this.cbGarconDia.Size = new System.Drawing.Size(66, 26);
+            this.cbGarconDia.TabIndex = 4;
+            // 
+            // btConsultarGarcon
+            // 
+            this.btConsultarGarcon.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btConsultarGarcon.Location = new System.Drawing.Point(946, 31);
+            this.btConsultarGarcon.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btConsultarGarcon.Name = "btConsultarGarcon";
+            this.btConsultarGarcon.Size = new System.Drawing.Size(100, 31);
+            this.btConsultarGarcon.TabIndex = 11;
+            this.btConsultarGarcon.Text = "Consultar";
+            this.btConsultarGarcon.UseVisualStyleBackColor = true;
+            // 
+            // cbFiltroGarcon
+            // 
+            this.cbFiltroGarcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFiltroGarcon.FormattingEnabled = true;
+            this.cbFiltroGarcon.Location = new System.Drawing.Point(6, 39);
+            this.cbFiltroGarcon.Name = "cbFiltroGarcon";
+            this.cbFiltroGarcon.Size = new System.Drawing.Size(96, 26);
+            this.cbFiltroGarcon.TabIndex = 5;
+            // 
+            // gbFiltroGarcon
+            // 
+            this.gbFiltroGarcon.Controls.Add(this.cbFiltroGarcon);
+            this.gbFiltroGarcon.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbFiltroGarcon.Location = new System.Drawing.Point(707, 3);
+            this.gbFiltroGarcon.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbFiltroGarcon.Name = "gbFiltroGarcon";
+            this.gbFiltroGarcon.Size = new System.Drawing.Size(108, 88);
+            this.gbFiltroGarcon.TabIndex = 12;
+            this.gbFiltroGarcon.TabStop = false;
+            this.gbFiltroGarcon.Text = "Filtrar";
+            // 
+            // rbGarconDecr
+            // 
+            this.rbGarconDecr.AutoSize = true;
+            this.rbGarconDecr.Location = new System.Drawing.Point(15, 61);
+            this.rbGarconDecr.Name = "rbGarconDecr";
+            this.rbGarconDecr.Size = new System.Drawing.Size(106, 20);
+            this.rbGarconDecr.TabIndex = 2;
+            this.rbGarconDecr.Text = "Decrescente";
+            this.rbGarconDecr.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.rbGarconDecr.UseVisualStyleBackColor = true;
+            // 
+            // rbGarconCres
+            // 
+            this.rbGarconCres.AutoSize = true;
+            this.rbGarconCres.Checked = true;
+            this.rbGarconCres.Location = new System.Drawing.Point(15, 45);
+            this.rbGarconCres.Name = "rbGarconCres";
+            this.rbGarconCres.Size = new System.Drawing.Size(91, 20);
+            this.rbGarconCres.TabIndex = 3;
+            this.rbGarconCres.TabStop = true;
+            this.rbGarconCres.Text = "Crescente";
+            this.rbGarconCres.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.rbGarconCres.UseVisualStyleBackColor = true;
+            // 
+            // cbOrdenarGarcon
+            // 
+            this.cbOrdenarGarcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbOrdenarGarcon.FormattingEnabled = true;
+            this.cbOrdenarGarcon.Location = new System.Drawing.Point(11, 17);
+            this.cbOrdenarGarcon.Name = "cbOrdenarGarcon";
+            this.cbOrdenarGarcon.Size = new System.Drawing.Size(102, 26);
+            this.cbOrdenarGarcon.TabIndex = 4;
+            // 
+            // gbOrdenarGarcon
+            // 
+            this.gbOrdenarGarcon.Controls.Add(this.cbOrdenarGarcon);
+            this.gbOrdenarGarcon.Controls.Add(this.rbGarconCres);
+            this.gbOrdenarGarcon.Controls.Add(this.rbGarconDecr);
+            this.gbOrdenarGarcon.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbOrdenarGarcon.Location = new System.Drawing.Point(819, 3);
+            this.gbOrdenarGarcon.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbOrdenarGarcon.Name = "gbOrdenarGarcon";
+            this.gbOrdenarGarcon.Size = new System.Drawing.Size(123, 88);
+            this.gbOrdenarGarcon.TabIndex = 13;
+            this.gbOrdenarGarcon.TabStop = false;
+            this.gbOrdenarGarcon.Text = "Ordenar";
+            // 
+            // gbGarconData
+            // 
+            this.gbGarconData.Controls.Add(this.cbGarconData);
+            this.gbGarconData.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbGarconData.Location = new System.Drawing.Point(938, 97);
+            this.gbGarconData.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbGarconData.Name = "gbGarconData";
+            this.gbGarconData.Size = new System.Drawing.Size(108, 88);
+            this.gbGarconData.TabIndex = 15;
+            this.gbGarconData.TabStop = false;
+            this.gbGarconData.Text = "Data";
+            // 
+            // cbGarconData
+            // 
+            this.cbGarconData.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbGarconData.FormattingEnabled = true;
+            this.cbGarconData.Items.AddRange(new object[] {
+            "Data",
+            "Periodo"});
+            this.cbGarconData.Location = new System.Drawing.Point(6, 39);
+            this.cbGarconData.Name = "cbGarconData";
+            this.cbGarconData.Size = new System.Drawing.Size(96, 26);
+            this.cbGarconData.TabIndex = 5;
+            this.cbGarconData.SelectedIndexChanged += new System.EventHandler(this.cbGarconData_SelectedIndexChanged);
+            // 
             // TipoRelatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1170, 487);
+            this.ClientSize = new System.Drawing.Size(1338, 487);
             this.ControlBox = false;
             this.Controls.Add(this.tlpFundo);
             this.Controls.Add(this.LRelatorio);
@@ -783,26 +1160,33 @@
             this.gbDataVenda.PerformLayout();
             this.gbPeriodoVenda.ResumeLayout(false);
             this.flpPrincipal.ResumeLayout(false);
-            this.pVenda.ResumeLayout(false);
-            this.gbFiltroVenda.ResumeLayout(false);
-            this.gbVendaOrdenar.ResumeLayout(false);
-            this.gbVendaOrdenar.PerformLayout();
-            this.pGarcon.ResumeLayout(false);
-            this.gbOrdenarGarcon.ResumeLayout(false);
-            this.gbOrdenarGarcon.PerformLayout();
-            this.gbFiltroGarcon.ResumeLayout(false);
             this.gbPeriodoGarcon.ResumeLayout(false);
             this.gpGarcon.ResumeLayout(false);
-            this.pProduto.ResumeLayout(false);
+            this.flpVenda.ResumeLayout(false);
+            this.gbVendaOrdenar.ResumeLayout(false);
+            this.gbVendaOrdenar.PerformLayout();
+            this.gbFiltroVenda.ResumeLayout(false);
+            this.gbVendaData.ResumeLayout(false);
+            this.flpProduto.ResumeLayout(false);
             this.gbOrdenarProduto.ResumeLayout(false);
             this.gbOrdenarProduto.PerformLayout();
             this.gbFiltrarProduto.ResumeLayout(false);
             this.gbPeriodoProduto.ResumeLayout(false);
+            this.gbProdutoDia.ResumeLayout(false);
+            this.gbProdutoDia.PerformLayout();
+            this.gbProdutoData.ResumeLayout(false);
             this.gbProduto.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tlpFundo.ResumeLayout(false);
             this.pFiltro.ResumeLayout(false);
+            this.flpGarcon.ResumeLayout(false);
+            this.gbGarconDia.ResumeLayout(false);
+            this.gbGarconDia.PerformLayout();
+            this.gbFiltroGarcon.ResumeLayout(false);
+            this.gbOrdenarGarcon.ResumeLayout(false);
+            this.gbOrdenarGarcon.PerformLayout();
+            this.gbGarconData.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -813,51 +1197,41 @@
         private System.Windows.Forms.Label LTipoRelatorio;
         private System.Windows.Forms.Label LRelatorio;
         private System.Windows.Forms.ComboBox cbRelatorio;
-        private System.Windows.Forms.ComboBox cbDia;
+        private System.Windows.Forms.ComboBox cbVendaDia;
         private System.Windows.Forms.GroupBox gbDataVenda;
         private System.Windows.Forms.GroupBox gbPeriodoVenda;
         private System.Windows.Forms.FlowLayoutPanel flpPrincipal;
-        private System.Windows.Forms.Panel pVenda;
-        private System.Windows.Forms.Panel pGarcon;
         private System.Windows.Forms.GroupBox gpGarcon;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox cbGarcon;
+        private System.Windows.Forms.DateTimePicker dtpVendaDois;
+        private System.Windows.Forms.DateTimePicker dtpVendaUm;
         private System.Windows.Forms.GroupBox gbVendaOrdenar;
-        private System.Windows.Forms.RadioButton rbCrescente;
-        private System.Windows.Forms.RadioButton rbDecrescente;
+        private System.Windows.Forms.RadioButton rbVendaCres;
+        private System.Windows.Forms.RadioButton rbVendaDecr;
         private System.Windows.Forms.Button btConsultarVenda;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btConsultarGarcon;
         private System.Windows.Forms.GroupBox gbPeriodoGarcon;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
-        private System.Windows.Forms.Panel pProduto;
+        private System.Windows.Forms.DateTimePicker dtpGarconDois;
+        private System.Windows.Forms.DateTimePicker dtpGarconUm;
         private System.Windows.Forms.Button btConsultarProduto;
         private System.Windows.Forms.GroupBox gbPeriodoProduto;
-        private System.Windows.Forms.DateTimePicker dateTimePicker5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker6;
+        private System.Windows.Forms.DateTimePicker dtpProdutoDois;
+        private System.Windows.Forms.DateTimePicker dtpProdutoUm;
         private System.Windows.Forms.GroupBox gbProduto;
         private System.Windows.Forms.ComboBox cbProduto;
         private System.Windows.Forms.ComboBox cbOrdenarVenda;
         private System.Windows.Forms.GroupBox gbFiltroVenda;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.GroupBox gbOrdenarGarcon;
-        private System.Windows.Forms.ComboBox cbOrdenarGarcon;
-        private System.Windows.Forms.RadioButton rbOrdenarGarcon;
-        private System.Windows.Forms.RadioButton rbOrdenarGarconD;
-        private System.Windows.Forms.GroupBox gbFiltroGarcon;
-        private System.Windows.Forms.ComboBox cbFiltroGarcon;
+        private System.Windows.Forms.ComboBox cbFiltroVenda;
         private System.Windows.Forms.GroupBox gbOrdenarProduto;
         private System.Windows.Forms.ComboBox cbOrdenarProduto;
-        private System.Windows.Forms.RadioButton rbOrdenarProdutoC;
-        private System.Windows.Forms.RadioButton rbOrdenarProdutoD;
+        private System.Windows.Forms.RadioButton rbProdutCres;
+        private System.Windows.Forms.RadioButton rbProdutDecr;
         private System.Windows.Forms.GroupBox gbFiltrarProduto;
-        private System.Windows.Forms.ComboBox cbFiltrarProduto;
+        private System.Windows.Forms.ComboBox cbFiltroProduto;
         private System.Windows.Forms.Label lAno;
-        private System.Windows.Forms.ComboBox cbAno;
+        private System.Windows.Forms.ComboBox cbVendaAno;
         private System.Windows.Forms.Label lMes;
-        private System.Windows.Forms.ComboBox cbMes;
+        private System.Windows.Forms.ComboBox cbVendaMes;
         private System.Windows.Forms.Label lDia;
         private System.Windows.Forms.TableLayoutPanel tlpFundo;
         private System.Windows.Forms.Panel pFiltro;
@@ -866,5 +1240,35 @@
         private System.Windows.Forms.ColumnHeader Produto;
         private System.Windows.Forms.ColumnHeader Tamanho;
         private System.Windows.Forms.ColumnHeader ValorUni;
+        private System.Windows.Forms.GroupBox gbVendaData;
+        private System.Windows.Forms.ComboBox cbVendaData;
+        private System.Windows.Forms.FlowLayoutPanel flpVenda;
+        private System.Windows.Forms.FlowLayoutPanel flpProduto;
+        private System.Windows.Forms.GroupBox gbProdutoDia;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbProdutoAno;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbProdutoMes;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbProdutoDia;
+        private System.Windows.Forms.GroupBox gbProdutoData;
+        private System.Windows.Forms.ComboBox cbProdutoData;
+        private System.Windows.Forms.FlowLayoutPanel flpGarcon;
+        private System.Windows.Forms.Button btConsultarGarcon;
+        private System.Windows.Forms.GroupBox gbOrdenarGarcon;
+        private System.Windows.Forms.ComboBox cbOrdenarGarcon;
+        private System.Windows.Forms.RadioButton rbGarconCres;
+        private System.Windows.Forms.RadioButton rbGarconDecr;
+        private System.Windows.Forms.GroupBox gbFiltroGarcon;
+        private System.Windows.Forms.ComboBox cbFiltroGarcon;
+        private System.Windows.Forms.GroupBox gbGarconDia;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbGarconAno;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbGarconMes;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbGarconDia;
+        private System.Windows.Forms.GroupBox gbGarconData;
+        private System.Windows.Forms.ComboBox cbGarconData;
     }
 }
