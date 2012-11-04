@@ -204,9 +204,15 @@ namespace Pizzaria.Banco
         }
         public DataTable consultaVendaGeral(string []data, int order, bool hasFiltro, int filtro, int valorFiltro, bool ascen)
         {
-            string query = "select "+ "(select mm.descricao from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) inner join venda vv on (vv.cod_venda = vmm.cod_venda) where v.cod_venda = vv.cod_venda order by vv.cod_venda desc limit 1) as \"venda\"," 
-                +" v.dataVenda as \"Data\", v.horario as \"Horario\", x.nomeCaixa as \"Caixa\""
-                +" ,p.descricao as \"Pagamento\",v.valorTotal as \"Valor\",  a.descricao as \"Ambiente\""
+
+            string query = "select "+ "(select mm.descricao from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) inner join venda vv on (vv.cod_venda = vmm.cod_venda) where v.cod_venda = vv.cod_venda order by vv.cod_venda desc limit 1) as \"Venda\"," 
+                +" to_char(v.dataVenda, 'DD MM YYYY') as \"Data\", to_char(v.horario, 'HH24:MI:SS') as \"Horario\", x.nomeCaixa as \"Caixa\" ,"
+                
+                + "(select gg.nome from garcon gg inner join GarconCompleto ccg on (ccg.cod_garcon = gg.cod_garcon) "
+                +" inner join completo cc on (cc.cod_completo = ccg.cod_completo) inner join vendaCompleta vvg on (vvg.cod_completo = cc.cod_completo) "
+                +" inner join venda vv on (vv.cod_venda = vvg.cod_venda) where vvg.cod_venda =  v.cod_venda order by vv.cod_venda desc limit 1) as \"Garcon\","
+                
+                + " p.descricao as \"Pagamento\",('R$ '||  trim( to_char( v.valorTotal,'9999.99')  )  ) as \"Valor\",  a.descricao as \"Ambiente\""
                 +" from  venda v " 
                 +" inner join vendaMesa vm              on (vm.cod_venda    = v.cod_venda) "    
                 +" inner join mesa m                    on (m.cod_mesa      = vm.cod_mesa) "

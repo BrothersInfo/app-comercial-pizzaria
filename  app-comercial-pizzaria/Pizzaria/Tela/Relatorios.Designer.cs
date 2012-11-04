@@ -336,7 +336,7 @@
             this.flpPrincipal.Location = new System.Drawing.Point(245, 0);
             this.flpPrincipal.Margin = new System.Windows.Forms.Padding(0);
             this.flpPrincipal.Name = "flpPrincipal";
-            this.flpPrincipal.Size = new System.Drawing.Size(1048, 304);
+            this.flpPrincipal.Size = new System.Drawing.Size(1048, 97);
             this.flpPrincipal.TabIndex = 9;
             // 
             // gbPeriodoGarcon
@@ -828,7 +828,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(245, 304);
+            this.panel1.Size = new System.Drawing.Size(245, 97);
             this.panel1.TabIndex = 1;
             // 
             // tlpFundo
@@ -843,7 +843,7 @@
             this.tlpFundo.Location = new System.Drawing.Point(0, 0);
             this.tlpFundo.Name = "tlpFundo";
             this.tlpFundo.RowCount = 2;
-            this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 304F));
+            this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 97F));
             this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpFundo.Size = new System.Drawing.Size(1338, 487);
             this.tlpFundo.TabIndex = 0;
@@ -856,7 +856,7 @@
             this.pFiltro.Location = new System.Drawing.Point(25, 0);
             this.pFiltro.Margin = new System.Windows.Forms.Padding(0);
             this.pFiltro.Name = "pFiltro";
-            this.pFiltro.Size = new System.Drawing.Size(1293, 304);
+            this.pFiltro.Size = new System.Drawing.Size(1293, 97);
             this.pFiltro.TabIndex = 0;
             // 
             // lvConsInfo
@@ -872,10 +872,10 @@
             this.lvConsInfo.FullRowSelect = true;
             this.lvConsInfo.GridLines = true;
             this.lvConsInfo.HoverSelection = true;
-            this.lvConsInfo.Location = new System.Drawing.Point(25, 304);
+            this.lvConsInfo.Location = new System.Drawing.Point(25, 97);
             this.lvConsInfo.Margin = new System.Windows.Forms.Padding(0);
             this.lvConsInfo.Name = "lvConsInfo";
-            this.lvConsInfo.Size = new System.Drawing.Size(1293, 183);
+            this.lvConsInfo.Size = new System.Drawing.Size(1293, 390);
             this.lvConsInfo.TabIndex = 45;
             this.lvConsInfo.UseCompatibleStateImageBehavior = false;
             this.lvConsInfo.View = System.Windows.Forms.View.Details;
