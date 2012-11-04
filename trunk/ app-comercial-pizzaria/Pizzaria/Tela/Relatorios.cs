@@ -19,6 +19,8 @@ namespace Pizzaria.Tela
             InitializeComponent();
             cbRelatorio.SelectedIndex = 1;
             cbRelatorio.SelectedIndex = 0;
+            limpaListView(); lvConsInfo.Items.Clear();
+
         }
         private void cbRelatorio_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -74,6 +76,14 @@ namespace Pizzaria.Tela
             }
             DataTable tabela = new BancoRelatorio().consultaVendaGeral(data, cbOrdenarVenda.SelectedIndex,gbSubFiltro.Visible,cbFiltroVenda.SelectedIndex,cbItem.SelectedIndex,rbVendaCres.Checked );
             carregarListView(tabela);
+            lValor.Text = somarValores(tabela);
+        }
+        public string somarValores(DataTable tabela)
+        {
+            double valor = 0;
+            for (int i = 0; i < tabela.Rows.Count; i++)
+                valor += Convert.ToDouble( tabela.Rows[i].ItemArray.GetValue(6).ToString().Substring(0).Replace('.',','));
+            return "Valor Total : R$"+new Tratamento().retornaValorEscrito(valor);
         }
         public void carregarVenda()
         {

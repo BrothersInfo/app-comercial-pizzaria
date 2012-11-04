@@ -80,14 +80,10 @@
             this.cbProdutoData = new System.Windows.Forms.ComboBox();
             this.gbProduto = new System.Windows.Forms.GroupBox();
             this.cbProduto = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pTipoRelatorio = new System.Windows.Forms.Panel();
             this.tlpFundo = new System.Windows.Forms.TableLayoutPanel();
             this.pFiltro = new System.Windows.Forms.Panel();
             this.lvConsInfo = new System.Windows.Forms.ListView();
-            this.codigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Produto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Tamanho = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ValorUni = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.flpGarcon = new System.Windows.Forms.FlowLayoutPanel();
             this.gbGarconDia = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -107,6 +103,8 @@
             this.cbGarconData = new System.Windows.Forms.ComboBox();
             this.gbSubFiltro = new System.Windows.Forms.GroupBox();
             this.cbItem = new System.Windows.Forms.ComboBox();
+            this.pValor = new System.Windows.Forms.Panel();
+            this.lValor = new System.Windows.Forms.Label();
             this.gbDataVenda.SuspendLayout();
             this.gbPeriodoVenda.SuspendLayout();
             this.flpPrincipal.SuspendLayout();
@@ -123,7 +121,7 @@
             this.gbProdutoDia.SuspendLayout();
             this.gbProdutoData.SuspendLayout();
             this.gbProduto.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pTipoRelatorio.SuspendLayout();
             this.tlpFundo.SuspendLayout();
             this.pFiltro.SuspendLayout();
             this.flpGarcon.SuspendLayout();
@@ -132,6 +130,7 @@
             this.gbOrdenarGarcon.SuspendLayout();
             this.gbGarconData.SuspendLayout();
             this.gbSubFiltro.SuspendLayout();
+            this.pValor.SuspendLayout();
             this.SuspendLayout();
             // 
             // LTipoRelatorio
@@ -820,16 +819,16 @@
             this.cbProduto.Size = new System.Drawing.Size(100, 26);
             this.cbProduto.TabIndex = 4;
             // 
-            // panel1
+            // pTipoRelatorio
             // 
-            this.panel1.Controls.Add(this.cbRelatorio);
-            this.panel1.Controls.Add(this.LTipoRelatorio);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(245, 97);
-            this.panel1.TabIndex = 1;
+            this.pTipoRelatorio.Controls.Add(this.cbRelatorio);
+            this.pTipoRelatorio.Controls.Add(this.LTipoRelatorio);
+            this.pTipoRelatorio.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pTipoRelatorio.Location = new System.Drawing.Point(0, 0);
+            this.pTipoRelatorio.Margin = new System.Windows.Forms.Padding(0);
+            this.pTipoRelatorio.Name = "pTipoRelatorio";
+            this.pTipoRelatorio.Size = new System.Drawing.Size(245, 97);
+            this.pTipoRelatorio.TabIndex = 1;
             // 
             // tlpFundo
             // 
@@ -839,18 +838,20 @@
             this.tlpFundo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpFundo.Controls.Add(this.pFiltro, 1, 0);
             this.tlpFundo.Controls.Add(this.lvConsInfo, 1, 1);
+            this.tlpFundo.Controls.Add(this.pValor, 1, 2);
             this.tlpFundo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpFundo.Location = new System.Drawing.Point(0, 0);
             this.tlpFundo.Name = "tlpFundo";
-            this.tlpFundo.RowCount = 2;
+            this.tlpFundo.RowCount = 3;
             this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 97F));
             this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tlpFundo.Size = new System.Drawing.Size(1338, 487);
             this.tlpFundo.TabIndex = 0;
             // 
             // pFiltro
             // 
-            this.pFiltro.Controls.Add(this.panel1);
+            this.pFiltro.Controls.Add(this.pTipoRelatorio);
             this.pFiltro.Controls.Add(this.flpPrincipal);
             this.pFiltro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pFiltro.Location = new System.Drawing.Point(25, 0);
@@ -861,11 +862,6 @@
             // 
             // lvConsInfo
             // 
-            this.lvConsInfo.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.codigo,
-            this.Produto,
-            this.Tamanho,
-            this.ValorUni});
             this.lvConsInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvConsInfo.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvConsInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -875,33 +871,10 @@
             this.lvConsInfo.Location = new System.Drawing.Point(25, 97);
             this.lvConsInfo.Margin = new System.Windows.Forms.Padding(0);
             this.lvConsInfo.Name = "lvConsInfo";
-            this.lvConsInfo.Size = new System.Drawing.Size(1293, 390);
+            this.lvConsInfo.Size = new System.Drawing.Size(1293, 340);
             this.lvConsInfo.TabIndex = 45;
             this.lvConsInfo.UseCompatibleStateImageBehavior = false;
             this.lvConsInfo.View = System.Windows.Forms.View.Details;
-            // 
-            // codigo
-            // 
-            this.codigo.Text = "Item";
-            this.codigo.Width = 55;
-            // 
-            // Produto
-            // 
-            this.Produto.Text = "Produto";
-            this.Produto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Produto.Width = 170;
-            // 
-            // Tamanho
-            // 
-            this.Tamanho.Text = "Tamanho";
-            this.Tamanho.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Tamanho.Width = 75;
-            // 
-            // ValorUni
-            // 
-            this.ValorUni.Text = "Valor";
-            this.ValorUni.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ValorUni.Width = 90;
             // 
             // flpGarcon
             // 
@@ -1173,6 +1146,30 @@
             this.cbItem.Size = new System.Drawing.Size(96, 26);
             this.cbItem.TabIndex = 5;
             // 
+            // pValor
+            // 
+            this.pValor.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pValor.BackColor = System.Drawing.Color.White;
+            this.pValor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pValor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pValor.Controls.Add(this.lValor);
+            this.pValor.Location = new System.Drawing.Point(872, 442);
+            this.pValor.Margin = new System.Windows.Forms.Padding(2);
+            this.pValor.Name = "pValor";
+            this.pValor.Size = new System.Drawing.Size(444, 39);
+            this.pValor.TabIndex = 46;
+            // 
+            // lValor
+            // 
+            this.lValor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lValor.AutoSize = true;
+            this.lValor.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.lValor.ForeColor = System.Drawing.Color.Red;
+            this.lValor.Location = new System.Drawing.Point(218, 10);
+            this.lValor.Name = "lValor";
+            this.lValor.Size = new System.Drawing.Size(0, 18);
+            this.lValor.TabIndex = 37;
+            // 
             // TipoRelatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1210,8 +1207,8 @@
             this.gbProdutoDia.PerformLayout();
             this.gbProdutoData.ResumeLayout(false);
             this.gbProduto.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pTipoRelatorio.ResumeLayout(false);
+            this.pTipoRelatorio.PerformLayout();
             this.tlpFundo.ResumeLayout(false);
             this.pFiltro.ResumeLayout(false);
             this.flpGarcon.ResumeLayout(false);
@@ -1222,6 +1219,8 @@
             this.gbOrdenarGarcon.PerformLayout();
             this.gbGarconData.ResumeLayout(false);
             this.gbSubFiltro.ResumeLayout(false);
+            this.pValor.ResumeLayout(false);
+            this.pValor.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1244,7 +1243,7 @@
         private System.Windows.Forms.RadioButton rbVendaCres;
         private System.Windows.Forms.RadioButton rbVendaDecr;
         private System.Windows.Forms.Button btConsultarVenda;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pTipoRelatorio;
         private System.Windows.Forms.GroupBox gbPeriodoGarcon;
         private System.Windows.Forms.DateTimePicker dtpGarconDois;
         private System.Windows.Forms.DateTimePicker dtpGarconUm;
@@ -1271,10 +1270,6 @@
         private System.Windows.Forms.TableLayoutPanel tlpFundo;
         private System.Windows.Forms.Panel pFiltro;
         private System.Windows.Forms.ListView lvConsInfo;
-        private System.Windows.Forms.ColumnHeader codigo;
-        private System.Windows.Forms.ColumnHeader Produto;
-        private System.Windows.Forms.ColumnHeader Tamanho;
-        private System.Windows.Forms.ColumnHeader ValorUni;
         private System.Windows.Forms.GroupBox gbVendaData;
         private System.Windows.Forms.ComboBox cbVendaData;
         private System.Windows.Forms.FlowLayoutPanel flpVenda;
@@ -1307,5 +1302,7 @@
         private System.Windows.Forms.ComboBox cbGarconData;
         private System.Windows.Forms.GroupBox gbSubFiltro;
         private System.Windows.Forms.ComboBox cbItem;
+        private System.Windows.Forms.Panel pValor;
+        private System.Windows.Forms.Label lValor;
     }
 }

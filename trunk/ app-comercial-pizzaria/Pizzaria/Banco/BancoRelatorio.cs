@@ -212,7 +212,7 @@ namespace Pizzaria.Banco
                 +" inner join completo cc on (cc.cod_completo = ccg.cod_completo) inner join vendaCompleta vvg on (vvg.cod_completo = cc.cod_completo) "
                 +" inner join venda vv on (vv.cod_venda = vvg.cod_venda) where vvg.cod_venda =  v.cod_venda order by vv.cod_venda desc limit 1) as \"Garcon\","
                 
-                + " p.descricao as \"Pagamento\",('R$ '||  trim( to_char( v.valorTotal,'9999.99')  )  ) as \"Valor\",  a.descricao as \"Ambiente\""
+                + " p.descricao as \"Pagamento\",(CASE v.valortotal >0  WHEN true THEN (trim(to_char( v.valorTotal,'9999.99'))) ELSE '0.00'  end ) as \"Valor\",    a.descricao as \"Ambiente\""
                 +" from  venda v " 
                 +" inner join vendaMesa vm              on (vm.cod_venda    = v.cod_venda) "    
                 +" inner join mesa m                    on (m.cod_mesa      = vm.cod_mesa) "
@@ -230,7 +230,7 @@ namespace Pizzaria.Banco
             query +=
              " order by " + orderQuery(  order);
             if (ascen) query += " asc";
-            else query += "desc";
+            else query += " desc";
 
             DataTable tabela = new DataTable();
 
