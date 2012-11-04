@@ -84,14 +84,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pizzaria.exe" size="1487872">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pizzaria.exe" size="1493504">
       <assemblyIdentity name="Pizzaria" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>qBi4tqqZMvS5Nt0mlo8SZXW2Ep4=</dsig:DigestValue>
+        <dsig:DigestValue>4EO6Gu9Tf0+MJ8+JfV3r7/rFrd4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

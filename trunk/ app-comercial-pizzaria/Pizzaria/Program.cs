@@ -17,7 +17,7 @@ namespace Pizzaria
         [STAThread]
         static void Main()
         {
-            try            {
+         //   try            {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 
@@ -28,7 +28,7 @@ namespace Pizzaria
 
 
            //       Application.Run(new Fundo()                    );
-           }            catch { return; }
+          // }            catch { return; }
             
         }
     }
