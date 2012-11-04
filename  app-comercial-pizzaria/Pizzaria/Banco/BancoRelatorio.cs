@@ -117,6 +117,124 @@ namespace Pizzaria.Banco
         }
 
 
+        public string[] caixas()
+        {
+            DataTable tabela = new DataTable();
+            string query = "select nomeCaixa as \"Caixa\" from caixa ";
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(tabela);
+            string[] retorno = new string[tabela.Rows.Count];
 
+            for (int i = 0; i < retorno.Length; i++)
+                retorno[i] = tabela.Rows[i].ItemArray.GetValue(0).ToString();
+
+            return retorno;
+        }
+        public string[] formasPagamento()
+        {
+            DataTable tabela = new DataTable();
+            string query = "select descricao as \"Pagamento\" from pagamento ";
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(tabela);
+            string[] retorno = new string[tabela.Rows.Count];
+
+            for (int i = 0; i < retorno.Length; i++)
+                retorno[i] = tabela.Rows[i].ItemArray.GetValue(0).ToString();
+
+                return retorno;
+
+        }
+        public string[] ambientes()
+        {
+            DataTable tabela = new DataTable();
+            string query = "select descricao as \"Ambiente\" from Ambiente ";
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(tabela);
+            string[] retorno = new string[tabela.Rows.Count];
+
+            for (int i = 0; i < retorno.Length; i++)
+                retorno[i] = tabela.Rows[i].ItemArray.GetValue(0).ToString();
+
+            return retorno;
+
+        }
+        public string[] itemDoFiltroVenda(int numero)
+        {
+
+            switch (numero)
+            {
+                case 0:  return new string [0];
+                case 1:  return caixas();
+                case 2:  return formasPagamento();
+                case 3:  return ambientes();
+                default: return new string[0];
+
+
+            }
+
+            return null;
+        }
+        public string[] orderByDaVenda()
+        {
+            return new string[] { "Data", "Valor", "Ambiente", "Caixa", "Forma Pag"  };
+         
+        }
+        private string orderQuery(int numero){
+        switch(numero){
+            case 0 : return " v.datavenda";
+            case 1 : return " v.valorTotal";
+            case 2 : return " a.cod_ambiente";
+            case 3 :return " x.cod_caixa";
+            case 4 :return " p.cod_pagamento";
+            default : return " v.data";
+        }
+
+        }
+        private string filtroQuery(int numero)
+        {
+            switch (numero)
+            {
+                case 1: return " x.cod_caixa";
+                case 2: return " p.cod_pagamento";
+                case 3: return " a.cod_ambiente";
+                
+                default: goto case 1;
+            }
+
+        }
+        public DataTable consultaVendaGeral(string []data, int order, bool hasFiltro, int filtro, int valorFiltro, bool ascen)
+        {
+            string query = "select "+ "(select mm.descricao from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) inner join venda vv on (vv.cod_venda = vmm.cod_venda) where v.cod_venda = vv.cod_venda order by vv.cod_venda desc limit 1) as \"venda\"," 
+                +" v.dataVenda as \"Data\", v.horario as \"Horario\", x.nomeCaixa as \"Caixa\""
+                +" ,p.descricao as \"Pagamento\",v.valorTotal as \"Valor\",  a.descricao as \"Ambiente\""
+                +" from  venda v " 
+                +" inner join vendaMesa vm              on (vm.cod_venda    = v.cod_venda) "    
+                +" inner join mesa m                    on (m.cod_mesa      = vm.cod_mesa) "
+                +" inner join caixa x                   on (x.cod_caixa     = v.cod_caixa) "
+                +" inner join pagamento p               on (p.cod_pagamento = v.cod_pagamento) "
+                +" inner join ambiente a                on (a.cod_ambiente  = m.cod_ambiente) "
+                +" where v.aberta = false ";
+            if (hasFiltro)
+                query += " and "+ filtroQuery(  filtro) +" = "+ (1+valorFiltro);
+            if (data.Length == 1)
+                query += " and v.dataVenda = '"+data[0]+"' ";
+            else
+                query += " and v.dataVenda between '" + data[0] + "' and '" + data[1] + "' ";
+                    //--filtros
+            query +=
+             " order by " + orderQuery(  order);
+            if (ascen) query += " asc";
+            else query += "desc";
+
+            DataTable tabela = new DataTable();
+
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(tabela);
+            return tabela;
+
+
+        }
+
+        
     }
 }

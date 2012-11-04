@@ -19,9 +19,7 @@ namespace Pizzaria.Tela
             InitializeComponent();
             cbRelatorio.SelectedIndex = 1;
             cbRelatorio.SelectedIndex = 0;
-
         }
-
         private void cbRelatorio_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (cbRelatorio.SelectedIndex){
@@ -64,12 +62,19 @@ namespace Pizzaria.Tela
                     break;
             }
         }
-
         private void btConsultarVenda_Click(object sender, EventArgs e)
         {
-
+            string[] data = new string [cbVendaData.SelectedIndex+1];
+            if (data.Length == 1)
+                data[0] = cbVendaDia.SelectedItem+"/"+(cbVendaMes.SelectedIndex+1)+"/"+cbVendaAno.SelectedItem;
+            else
+            {
+                data[0] = dtpVendaUm.Value.ToShortDateString();
+                data[1] = dtpVendaDois.Value.ToShortDateString();
+            }
+            DataTable tabela = new BancoRelatorio().consultaVendaGeral(data, cbOrdenarVenda.SelectedIndex,gbSubFiltro.Visible,cbFiltroVenda.SelectedIndex,cbItem.SelectedIndex,rbVendaCres.Checked );
+            carregarListView(tabela);
         }
-
         public void carregarVenda()
         {
             int[] dias = new int[DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)];
@@ -88,8 +93,12 @@ namespace Pizzaria.Tela
             cbVendaAno.SelectedIndex = DateTime.Now.Year- 2012;
 
             cbVendaData.SelectedIndex = 0;
-        }
+            cbFiltroVenda.SelectedIndex = 0;
 
+            cbOrdenarVenda.DataSource = new BancoRelatorio().orderByDaVenda();
+            cbOrdenarVenda.SelectedIndex = 0;
+
+        }
         public void carregaProduto()
         {
             int[] dias = new int[DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)];
@@ -110,7 +119,6 @@ namespace Pizzaria.Tela
 
             cbProdutoData.SelectedIndex = 0;
         }
-
         public void carregaGarcon()
         {
             int[] dias = new int[DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)];
@@ -173,10 +181,41 @@ namespace Pizzaria.Tela
                     break;
             }
         }
-
-
-
-
-        
+        private void cbFiltroVenda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbFiltroVenda.SelectedIndex > 0) gbSubFiltro.Visible = true;
+            else gbSubFiltro.Visible = false;
+            cbItem.DataSource = new BancoRelatorio().itemDoFiltroVenda(cbFiltroVenda.SelectedIndex);
+        }
+        public void carregarListView(DataTable tabela)
+        {
+            limpaListView();
+            lvConsInfo.Items.Clear();
+            int cont =tabela.Columns.Count;
+            int j = 0;
+            int tamanho = (lvConsInfo.Width/cont)-1;
+            while (cont-- > 0)
+            {
+                lvConsInfo.Columns.Add(new ColumnHeader());
+                lvConsInfo.Columns[j].Text = tabela.Columns[j].ColumnName;
+                lvConsInfo.Columns[j++].Width = tamanho   ;
+            }
+            for (int i = 0; i < tabela.Rows.Count; i++)
+            {
+                lvConsInfo.Items.Add(tabela.Rows[i].ItemArray.GetValue(0).ToString());
+                int size = 1;
+                lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size++).ToString());
+                lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size++).ToString());
+                lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size++).ToString());
+                lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size++).ToString());
+                lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size++).ToString());
+                lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size++).ToString());
+            }
+        }
+        public void limpaListView()
+        {
+            while (lvConsInfo.Columns.Count > 0)
+                lvConsInfo.Columns.RemoveAt(0);
+        }        
     }
 }

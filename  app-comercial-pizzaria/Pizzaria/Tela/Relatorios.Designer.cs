@@ -105,6 +105,8 @@
             this.gbOrdenarGarcon = new System.Windows.Forms.GroupBox();
             this.gbGarconData = new System.Windows.Forms.GroupBox();
             this.cbGarconData = new System.Windows.Forms.ComboBox();
+            this.gbSubFiltro = new System.Windows.Forms.GroupBox();
+            this.cbItem = new System.Windows.Forms.ComboBox();
             this.gbDataVenda.SuspendLayout();
             this.gbPeriodoVenda.SuspendLayout();
             this.flpPrincipal.SuspendLayout();
@@ -129,6 +131,7 @@
             this.gbFiltroGarcon.SuspendLayout();
             this.gbOrdenarGarcon.SuspendLayout();
             this.gbGarconData.SuspendLayout();
+            this.gbSubFiltro.SuspendLayout();
             this.SuspendLayout();
             // 
             // LTipoRelatorio
@@ -215,7 +218,7 @@
             this.gbDataVenda.Controls.Add(this.lDia);
             this.gbDataVenda.Controls.Add(this.cbVendaDia);
             this.gbDataVenda.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbDataVenda.Location = new System.Drawing.Point(153, 3);
+            this.gbDataVenda.Location = new System.Drawing.Point(295, 3);
             this.gbDataVenda.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbDataVenda.Name = "gbDataVenda";
             this.gbDataVenda.Size = new System.Drawing.Size(273, 88);
@@ -296,7 +299,7 @@
             this.gbPeriodoVenda.Controls.Add(this.dtpVendaDois);
             this.gbPeriodoVenda.Controls.Add(this.dtpVendaUm);
             this.gbPeriodoVenda.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPeriodoVenda.Location = new System.Drawing.Point(430, 3);
+            this.gbPeriodoVenda.Location = new System.Drawing.Point(18, 3);
             this.gbPeriodoVenda.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbPeriodoVenda.Name = "gbPeriodoVenda";
             this.gbPeriodoVenda.Size = new System.Drawing.Size(273, 88);
@@ -333,7 +336,7 @@
             this.flpPrincipal.Location = new System.Drawing.Point(245, 0);
             this.flpPrincipal.Margin = new System.Windows.Forms.Padding(0);
             this.flpPrincipal.Name = "flpPrincipal";
-            this.flpPrincipal.Size = new System.Drawing.Size(1048, 98);
+            this.flpPrincipal.Size = new System.Drawing.Size(1048, 304);
             this.flpPrincipal.TabIndex = 9;
             // 
             // gbPeriodoGarcon
@@ -341,7 +344,7 @@
             this.gbPeriodoGarcon.Controls.Add(this.dtpGarconDois);
             this.gbPeriodoGarcon.Controls.Add(this.dtpGarconUm);
             this.gbPeriodoGarcon.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPeriodoGarcon.Location = new System.Drawing.Point(302, 3);
+            this.gbPeriodoGarcon.Location = new System.Drawing.Point(279, 3);
             this.gbPeriodoGarcon.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbPeriodoGarcon.Name = "gbPeriodoGarcon";
             this.gbPeriodoGarcon.Size = new System.Drawing.Size(273, 88);
@@ -373,7 +376,7 @@
             // 
             this.gpGarcon.Controls.Add(this.cbGarcon);
             this.gpGarcon.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpGarcon.Location = new System.Drawing.Point(579, 3);
+            this.gpGarcon.Location = new System.Drawing.Point(556, 3);
             this.gpGarcon.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gpGarcon.Name = "gpGarcon";
             this.gpGarcon.Size = new System.Drawing.Size(124, 88);
@@ -394,9 +397,10 @@
             // 
             this.flpVenda.Controls.Add(this.btConsultarVenda);
             this.flpVenda.Controls.Add(this.gbVendaOrdenar);
+            this.flpVenda.Controls.Add(this.gbSubFiltro);
             this.flpVenda.Controls.Add(this.gbFiltroVenda);
-            this.flpVenda.Controls.Add(this.gbPeriodoVenda);
             this.flpVenda.Controls.Add(this.gbDataVenda);
+            this.flpVenda.Controls.Add(this.gbPeriodoVenda);
             this.flpVenda.Controls.Add(this.gbVendaData);
             this.flpVenda.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flpVenda.Location = new System.Drawing.Point(0, 0);
@@ -468,10 +472,10 @@
             // 
             this.gbFiltroVenda.Controls.Add(this.cbFiltroVenda);
             this.gbFiltroVenda.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbFiltroVenda.Location = new System.Drawing.Point(707, 3);
+            this.gbFiltroVenda.Location = new System.Drawing.Point(572, 3);
             this.gbFiltroVenda.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbFiltroVenda.Name = "gbFiltroVenda";
-            this.gbFiltroVenda.Size = new System.Drawing.Size(108, 88);
+            this.gbFiltroVenda.Size = new System.Drawing.Size(131, 88);
             this.gbFiltroVenda.TabIndex = 11;
             this.gbFiltroVenda.TabStop = false;
             this.gbFiltroVenda.Text = "Filtrar";
@@ -480,16 +484,22 @@
             // 
             this.cbFiltroVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFiltroVenda.FormattingEnabled = true;
+            this.cbFiltroVenda.Items.AddRange(new object[] {
+            "Sem Filtro",
+            "Caixa",
+            "Forma de Pagamento",
+            "Ambiente"});
             this.cbFiltroVenda.Location = new System.Drawing.Point(6, 39);
             this.cbFiltroVenda.Name = "cbFiltroVenda";
-            this.cbFiltroVenda.Size = new System.Drawing.Size(96, 26);
+            this.cbFiltroVenda.Size = new System.Drawing.Size(119, 26);
             this.cbFiltroVenda.TabIndex = 5;
+            this.cbFiltroVenda.SelectedIndexChanged += new System.EventHandler(this.cbFiltroVenda_SelectedIndexChanged);
             // 
             // gbVendaData
             // 
             this.gbVendaData.Controls.Add(this.cbVendaData);
             this.gbVendaData.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbVendaData.Location = new System.Drawing.Point(41, 3);
+            this.gbVendaData.Location = new System.Drawing.Point(938, 97);
             this.gbVendaData.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbVendaData.Name = "gbVendaData";
             this.gbVendaData.Size = new System.Drawing.Size(108, 88);
@@ -588,10 +598,10 @@
             // 
             this.gbFiltrarProduto.Controls.Add(this.cbFiltroProduto);
             this.gbFiltrarProduto.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbFiltrarProduto.Location = new System.Drawing.Point(707, 3);
+            this.gbFiltrarProduto.Location = new System.Drawing.Point(684, 3);
             this.gbFiltrarProduto.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbFiltrarProduto.Name = "gbFiltrarProduto";
-            this.gbFiltrarProduto.Size = new System.Drawing.Size(108, 88);
+            this.gbFiltrarProduto.Size = new System.Drawing.Size(131, 88);
             this.gbFiltrarProduto.TabIndex = 12;
             this.gbFiltrarProduto.TabStop = false;
             this.gbFiltrarProduto.Text = "Filtrar";
@@ -602,7 +612,7 @@
             this.cbFiltroProduto.FormattingEnabled = true;
             this.cbFiltroProduto.Location = new System.Drawing.Point(6, 39);
             this.cbFiltroProduto.Name = "cbFiltroProduto";
-            this.cbFiltroProduto.Size = new System.Drawing.Size(96, 26);
+            this.cbFiltroProduto.Size = new System.Drawing.Size(119, 26);
             this.cbFiltroProduto.TabIndex = 5;
             // 
             // gbPeriodoProduto
@@ -610,7 +620,7 @@
             this.gbPeriodoProduto.Controls.Add(this.dtpProdutoDois);
             this.gbPeriodoProduto.Controls.Add(this.dtpProdutoUm);
             this.gbPeriodoProduto.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPeriodoProduto.Location = new System.Drawing.Point(25, 3);
+            this.gbPeriodoProduto.Location = new System.Drawing.Point(2, 3);
             this.gbPeriodoProduto.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbPeriodoProduto.Name = "gbPeriodoProduto";
             this.gbPeriodoProduto.Size = new System.Drawing.Size(273, 88);
@@ -647,7 +657,7 @@
             this.gbProdutoDia.Controls.Add(this.label3);
             this.gbProdutoDia.Controls.Add(this.cbProdutoDia);
             this.gbProdutoDia.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbProdutoDia.Location = new System.Drawing.Point(302, 3);
+            this.gbProdutoDia.Location = new System.Drawing.Point(279, 3);
             this.gbProdutoDia.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbProdutoDia.Name = "gbProdutoDia";
             this.gbProdutoDia.Size = new System.Drawing.Size(273, 88);
@@ -793,7 +803,7 @@
             // 
             this.gbProduto.Controls.Add(this.cbProduto);
             this.gbProduto.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbProduto.Location = new System.Drawing.Point(579, 3);
+            this.gbProduto.Location = new System.Drawing.Point(556, 3);
             this.gbProduto.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbProduto.Name = "gbProduto";
             this.gbProduto.Size = new System.Drawing.Size(124, 88);
@@ -818,7 +828,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(245, 98);
+            this.panel1.Size = new System.Drawing.Size(245, 304);
             this.panel1.TabIndex = 1;
             // 
             // tlpFundo
@@ -833,7 +843,7 @@
             this.tlpFundo.Location = new System.Drawing.Point(0, 0);
             this.tlpFundo.Name = "tlpFundo";
             this.tlpFundo.RowCount = 2;
-            this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 98F));
+            this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 304F));
             this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpFundo.Size = new System.Drawing.Size(1338, 487);
             this.tlpFundo.TabIndex = 0;
@@ -846,7 +856,7 @@
             this.pFiltro.Location = new System.Drawing.Point(25, 0);
             this.pFiltro.Margin = new System.Windows.Forms.Padding(0);
             this.pFiltro.Name = "pFiltro";
-            this.pFiltro.Size = new System.Drawing.Size(1293, 98);
+            this.pFiltro.Size = new System.Drawing.Size(1293, 304);
             this.pFiltro.TabIndex = 0;
             // 
             // lvConsInfo
@@ -862,10 +872,10 @@
             this.lvConsInfo.FullRowSelect = true;
             this.lvConsInfo.GridLines = true;
             this.lvConsInfo.HoverSelection = true;
-            this.lvConsInfo.Location = new System.Drawing.Point(25, 98);
+            this.lvConsInfo.Location = new System.Drawing.Point(25, 304);
             this.lvConsInfo.Margin = new System.Windows.Forms.Padding(0);
             this.lvConsInfo.Name = "lvConsInfo";
-            this.lvConsInfo.Size = new System.Drawing.Size(1293, 389);
+            this.lvConsInfo.Size = new System.Drawing.Size(1293, 183);
             this.lvConsInfo.TabIndex = 45;
             this.lvConsInfo.UseCompatibleStateImageBehavior = false;
             this.lvConsInfo.View = System.Windows.Forms.View.Details;
@@ -918,7 +928,7 @@
             this.gbGarconDia.Controls.Add(this.label6);
             this.gbGarconDia.Controls.Add(this.cbGarconDia);
             this.gbGarconDia.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbGarconDia.Location = new System.Drawing.Point(25, 3);
+            this.gbGarconDia.Location = new System.Drawing.Point(2, 3);
             this.gbGarconDia.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbGarconDia.Name = "gbGarconDia";
             this.gbGarconDia.Size = new System.Drawing.Size(273, 88);
@@ -1052,17 +1062,17 @@
             this.cbFiltroGarcon.FormattingEnabled = true;
             this.cbFiltroGarcon.Location = new System.Drawing.Point(6, 39);
             this.cbFiltroGarcon.Name = "cbFiltroGarcon";
-            this.cbFiltroGarcon.Size = new System.Drawing.Size(96, 26);
+            this.cbFiltroGarcon.Size = new System.Drawing.Size(119, 26);
             this.cbFiltroGarcon.TabIndex = 5;
             // 
             // gbFiltroGarcon
             // 
             this.gbFiltroGarcon.Controls.Add(this.cbFiltroGarcon);
             this.gbFiltroGarcon.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbFiltroGarcon.Location = new System.Drawing.Point(707, 3);
+            this.gbFiltroGarcon.Location = new System.Drawing.Point(684, 3);
             this.gbFiltroGarcon.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbFiltroGarcon.Name = "gbFiltroGarcon";
-            this.gbFiltroGarcon.Size = new System.Drawing.Size(108, 88);
+            this.gbFiltroGarcon.Size = new System.Drawing.Size(131, 88);
             this.gbFiltroGarcon.TabIndex = 12;
             this.gbFiltroGarcon.TabStop = false;
             this.gbFiltroGarcon.Text = "Filtrar";
@@ -1139,6 +1149,30 @@
             this.cbGarconData.TabIndex = 5;
             this.cbGarconData.SelectedIndexChanged += new System.EventHandler(this.cbGarconData_SelectedIndexChanged);
             // 
+            // gbSubFiltro
+            // 
+            this.gbSubFiltro.Controls.Add(this.cbItem);
+            this.gbSubFiltro.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbSubFiltro.Location = new System.Drawing.Point(707, 3);
+            this.gbSubFiltro.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbSubFiltro.Name = "gbSubFiltro";
+            this.gbSubFiltro.Size = new System.Drawing.Size(108, 88);
+            this.gbSubFiltro.TabIndex = 13;
+            this.gbSubFiltro.TabStop = false;
+            this.gbSubFiltro.Text = "Item do Filtro";
+            this.gbSubFiltro.Visible = false;
+            // 
+            // cbItem
+            // 
+            this.cbItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbItem.FormattingEnabled = true;
+            this.cbItem.Items.AddRange(new object[] {
+            "Sem Filtro"});
+            this.cbItem.Location = new System.Drawing.Point(6, 39);
+            this.cbItem.Name = "cbItem";
+            this.cbItem.Size = new System.Drawing.Size(96, 26);
+            this.cbItem.TabIndex = 5;
+            // 
             // TipoRelatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1187,6 +1221,7 @@
             this.gbOrdenarGarcon.ResumeLayout(false);
             this.gbOrdenarGarcon.PerformLayout();
             this.gbGarconData.ResumeLayout(false);
+            this.gbSubFiltro.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1270,5 +1305,7 @@
         private System.Windows.Forms.ComboBox cbGarconDia;
         private System.Windows.Forms.GroupBox gbGarconData;
         private System.Windows.Forms.ComboBox cbGarconData;
+        private System.Windows.Forms.GroupBox gbSubFiltro;
+        private System.Windows.Forms.ComboBox cbItem;
     }
 }
