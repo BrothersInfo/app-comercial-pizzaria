@@ -148,3 +148,4 @@ F:\Proj\app_pizzaria\Pizzaria\obj\x86\Debug\GenerateResource.read.1.tlog
 F:\Proj\app_pizzaria\Pizzaria\obj\x86\Debug\GenerateResource.write.1.tlog
 F:\Proj\app_pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.exe.manifest
 F:\Proj\app_pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.application
+D:\Tortoise\Pizzaria\obj\x86\Debug\Pizzaria.Tela.Teclado.resources

@@ -462,7 +462,9 @@
             this.mtCodigo.Size = new System.Drawing.Size(81, 32);
             this.mtCodigo.TabIndex = 3;
             this.mtCodigo.ValidatingType = typeof(int);
+            this.mtCodigo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtCodigo_MouseClick);
             this.mtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtCodigo_KeyPress);
+
             // 
             // btConsulta2
             // 
@@ -620,6 +622,7 @@
             this.ClientSize = new System.Drawing.Size(963, 250);
             this.Controls.Add(this.panFundo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(963, 250);

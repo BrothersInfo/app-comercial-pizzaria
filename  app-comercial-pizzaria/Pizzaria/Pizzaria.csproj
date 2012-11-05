@@ -15,7 +15,7 @@
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>C:\Users\Tremere\Desktop\instalador nova versaoNovembro\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -26,7 +26,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
+    <ApplicationVersion>2.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -216,6 +216,12 @@
     </Compile>
     <Compile Include="Classes\Tamanho.cs" />
     <Compile Include="Classes\Tratamento.cs" />
+    <Compile Include="Tela\Teclado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tela\Teclado.Designer.cs">
+      <DependentUpon>Teclado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tela\Venda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tela\SubVenda.resx">
       <DependentUpon>SubVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tela\Teclado.resx">
+      <DependentUpon>Teclado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tela\Venda.resx">
       <DependentUpon>Venda.cs</DependentUpon>
