@@ -141,11 +141,14 @@ namespace Pizzaria.Banco
         }
         public string preencherNomeProduct(int cod_produto)
         {
-            DataTable dttGarcon = new DataTable();
-            NpgsqlDataAdapter sql = new NpgsqlDataAdapter("select descricao from produto where ativo = true and cod_produto = '" + cod_produto + "'", Conectar());
-            sql.Fill(dttGarcon);
-            return dttGarcon.Rows[0].ItemArray.GetValue(0).ToString();
-
+            try
+            {
+                DataTable dttGarcon = new DataTable();
+                NpgsqlDataAdapter sql = new NpgsqlDataAdapter("select descricao from produto where ativo = true and cod_produto = '" + cod_produto + "'", Conectar());
+                sql.Fill(dttGarcon);
+                return dttGarcon.Rows[0].ItemArray.GetValue(0).ToString();
+            }
+            catch { return "Não Existe"; }
         }
         public string preencherNomeProdctAll(int cod_produto)
         {

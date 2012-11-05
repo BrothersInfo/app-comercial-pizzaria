@@ -776,6 +776,18 @@ namespace Pizzaria.Tela
 
         }
 
+
+        private void mtCodigo_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left) {
+                Teclado t =
+                new Teclado();
+                t.ShowDialog();
+                if (t.retorno != "") mtCodigo.Text =t.retorno;
+                mtCodigo_KeyPress(sender, new KeyPressEventArgs('\r'));
+            }
+        }
+
    
     }
 }
