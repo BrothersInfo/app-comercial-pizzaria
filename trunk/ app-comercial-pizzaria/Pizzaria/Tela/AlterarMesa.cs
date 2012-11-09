@@ -15,6 +15,31 @@ namespace Pizzaria.Tela
     public partial class AlterarMesa : Form
     {
         List<ListViewItem> conjItem = new List<ListViewItem>();
+        public AlterarMesa(int cod_venda){
+            this.cod_venda = cod_venda;
+            InitializeComponent();
+            trocaMesa();
+            posicionamento();
+    
+        }
+        public void trocaMesa(){
+            troca = true;
+            listVenda.Clear();
+            listVenda.LargeImageList = imageList1;
+
+            string[] mesa = new Banco().mesasDisponiveis();
+            for (int i = 0; i < mesa.Length; i++)
+            {
+                conjItem.Add(new ListViewItem(mesa[i], 4));
+                listVenda.Items.Add(conjItem.Last());
+            }
+            listVenda.AllowColumnReorder = true;
+            listVenda.FullRowSelect = true;
+            listVenda.GridLines = true;
+            listVenda.CheckBoxes = true;
+
+        }
+        public bool troca = false;
         public AlterarMesa(bool retira, int cod_venda)
         {
             this.retira = retira;
@@ -25,6 +50,7 @@ namespace Pizzaria.Tela
         }
         bool retira;
         int cod_venda;
+
         public void atualiza()
         {
             if (retira)
@@ -61,16 +87,10 @@ namespace Pizzaria.Tela
                 {
                     conjItem.Add(new ListViewItem(mesa[i], 4));
                     listVenda.Items.Add(conjItem.Last());
-                }
-                // Allow the user to rearrange columns.  
+                }  
                 listVenda.AllowColumnReorder = true;
-
-                // Select the item and subitems when selection is made.  
                 listVenda.FullRowSelect = true;
-                // Display grid lines.  
                 listVenda.GridLines = true;
-                // Sort the items in the list in ascending order.  
-                //  listMesas.Sorting = SortOrder.Ascending;
                 listVenda.CheckBoxes = true;
 
             }
@@ -84,20 +104,30 @@ namespace Pizzaria.Tela
         }
         private void btConfirmar_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < listVenda.CheckedItems.Count; i++)
+            if (!troca)
+                for (int i = 0; i < listVenda.CheckedItems.Count; i++)
+                {
+                    if (retira) new BancoVenda().removerMesaIntoVenda(cod_venda, new BancoVenda().codMesaPelaDescricao(listVenda.CheckedItems[i].Text));
+                    else new BancoVenda().inserirMesaIntoVenda(cod_venda, new BancoVenda().codMesaPelaDescricao(listVenda.CheckedItems[i].Text));
+                }
+            else
             {
-                if (retira) new BancoVenda().removerMesaIntoVenda(cod_venda, new BancoVenda().codMesaPelaDescricao(listVenda.CheckedItems[i].Text));
-                else new BancoVenda().inserirMesaIntoVenda(cod_venda, new BancoVenda().codMesaPelaDescricao(listVenda.CheckedItems[i].Text));
+                if (listVenda.CheckedItems.Count > 0)
+                {
+                    string[] mesa = new BancoVenda().mesasDaVenda(cod_venda);
+                    for (int i = 0; i < listVenda.CheckedItems.Count; i++)
+                        new BancoVenda().inserirMesaIntoVenda(cod_venda, new BancoVenda().codMesaPelaDescricao(listVenda.CheckedItems[i].Text));
+                    for (int i = 0; i < mesa.Length; i++)
+                        new BancoVenda().removerMesaIntoVenda(cod_venda, new BancoVenda().codMesaPelaDescricao(mesa[i]));
+                }
             }
             this.Close();
 
         }
-
         private void btCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void AlterarMesa_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)

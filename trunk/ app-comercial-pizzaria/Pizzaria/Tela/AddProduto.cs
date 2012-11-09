@@ -38,21 +38,25 @@ namespace Pizzaria.Tela
             InitializeComponent();
             mesas = t;
             this.cod_caixa = cod_caixa;
-            preencherTexto(t);
-           int [] x  = new Banco().cod_mesa(t);
+            int[] x = new Banco().cod_mesa(t);
+            this.cod_venda = new Banco().novaVenda(cod_caixa, x);
+           
             divisao1 = new string[] { "INTEIRA", "50% | 50%", "50% | 2 x 25%", "4 x 25%" };
             divisao2 = new string[] { "INTEIRA", "50% | 50%" };
             
-            this.cod_venda = new Banco().novaVenda(cod_caixa, x);
+            
                    load(cod_venda);
         
             new BancoVenda().superVenda(this.cod_venda);//cria a super venda e associa a venda criada
-            mtCodigo.Focus();
-
+            //mtCodigo.Focus();
+            mtCodigo_KeyPress(null, null);
+            preencherTexto(t);
             garconDaVenda();
             double valr = Screen.PrimaryScreen.Bounds.Height / 100f;
             double yy = (13.5 * valr) +345;
             this.Location = new Point((Screen.PrimaryScreen.Bounds.Width - this.Size.Width) / 2, (int)yy);
+
+            this.TopMost = true;
         }
         public AddProduto(int cod_venda)
         {
@@ -779,13 +783,16 @@ namespace Pizzaria.Tela
 
         private void mtCodigo_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left) {
-                Teclado t =
-                new Teclado();
-                t.ShowDialog();
-                if (t.retorno != "") mtCodigo.Text =t.retorno;
-                mtCodigo_KeyPress(sender, new KeyPressEventArgs('\r'));
-            }
+           /* {
+                if (e.Button == MouseButtons.Left)
+                {
+                    Teclado t =
+                    new Teclado();
+                    t.ShowDialog();
+                    if (t.retorno != "") mtCodigo.Text = t.retorno;
+                    mtCodigo_KeyPress(sender, new KeyPressEventArgs('\r'));
+                }
+            }//*/
         }
 
    

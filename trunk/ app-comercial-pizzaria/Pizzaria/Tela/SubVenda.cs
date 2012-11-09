@@ -26,6 +26,8 @@ namespace Pizzaria.Tela
         regularTamanho(lvInfo.Width);
         posicionamento();
         }
+
+
         private void posicionamento()
         {
             double valr = Screen.PrimaryScreen.Bounds.Height / 100f;

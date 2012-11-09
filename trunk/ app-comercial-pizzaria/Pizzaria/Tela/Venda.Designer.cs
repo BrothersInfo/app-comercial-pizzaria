@@ -51,47 +51,44 @@
             this.nomMesa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ambient = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabLayINFO = new System.Windows.Forms.TableLayoutPanel();
-            this.tabLayCima = new System.Windows.Forms.TableLayoutPanel();
             this.tabLayPROD = new System.Windows.Forms.TableLayoutPanel();
-            this.tlpProduto = new System.Windows.Forms.TableLayoutPanel();
+            this.pBotoesCima = new System.Windows.Forms.Panel();
             this.pProduto = new System.Windows.Forms.Panel();
-            this.tabLayCimaMESA = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tlpVenda = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tlbBotaoVendas = new System.Windows.Forms.TableLayoutPanel();
-            this.tlpComanda = new System.Windows.Forms.TableLayoutPanel();
-            this.ttEncerrar = new System.Windows.Forms.ToolTip(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.btProduto = new System.Windows.Forms.Button();
             this.btRemoveProd = new System.Windows.Forms.Button();
+            this.pMesaNova = new System.Windows.Forms.Panel();
             this.btInseMesa = new System.Windows.Forms.Button();
-            this.btRemoMesa = new System.Windows.Forms.Button();
             this.pMesa = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btMesaTrocar = new System.Windows.Forms.Button();
+            this.btRemoMesa = new System.Windows.Forms.Button();
+            this.tlpVenda = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tlbBotaoVendas = new System.Windows.Forms.TableLayoutPanel();
             this.btAnular = new System.Windows.Forms.Button();
             this.btParcial = new System.Windows.Forms.Button();
             this.btEncerrar = new System.Windows.Forms.Button();
+            this.tlpComanda = new System.Windows.Forms.TableLayoutPanel();
             this.btVoltar = new System.Windows.Forms.Button();
             this.btImprimir = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.ttEncerrar = new System.Windows.Forms.ToolTip(this.components);
             this.panBut.SuspendLayout();
             this.tabLayDescricao.SuspendLayout();
             this.tlpGAmb.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.pValor.SuspendLayout();
             this.tabLayINFO.SuspendLayout();
-            this.tabLayCima.SuspendLayout();
             this.tabLayPROD.SuspendLayout();
-            this.tlpProduto.SuspendLayout();
+            this.pBotoesCima.SuspendLayout();
             this.pProduto.SuspendLayout();
-            this.tabLayCimaMESA.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.pMesaNova.SuspendLayout();
+            this.pMesa.SuspendLayout();
             this.tlpVenda.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tlbBotaoVendas.SuspendLayout();
             this.tlpComanda.SuspendLayout();
-            this.pMesa.SuspendLayout();
             this.SuspendLayout();
             // 
             // panBut
@@ -106,10 +103,10 @@
             this.panBut.Controls.Add(this.tabLayINFO);
             this.panBut.Location = new System.Drawing.Point(0, 0);
             this.panBut.Margin = new System.Windows.Forms.Padding(0);
-            this.panBut.MaximumSize = new System.Drawing.Size(1019, 318);
-            this.panBut.MinimumSize = new System.Drawing.Size(1019, 318);
+            this.panBut.MaximumSize = new System.Drawing.Size(1019, 400);
+            this.panBut.MinimumSize = new System.Drawing.Size(1019, 400);
             this.panBut.Name = "panBut";
-            this.panBut.Size = new System.Drawing.Size(1019, 318);
+            this.panBut.Size = new System.Drawing.Size(1019, 400);
             this.panBut.TabIndex = 22;
             // 
             // tabLayDescricao
@@ -123,9 +120,9 @@
             this.tabLayDescricao.Margin = new System.Windows.Forms.Padding(0, 0, 1, 0);
             this.tabLayDescricao.Name = "tabLayDescricao";
             this.tabLayDescricao.RowCount = 2;
-            this.tabLayDescricao.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 211F));
-            this.tabLayDescricao.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 109F));
-            this.tabLayDescricao.Size = new System.Drawing.Size(570, 314);
+            this.tabLayDescricao.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 262F));
+            this.tabLayDescricao.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 58F));
+            this.tabLayDescricao.Size = new System.Drawing.Size(570, 396);
             this.tabLayDescricao.TabIndex = 20;
             // 
             // lvInfo
@@ -147,7 +144,7 @@
             this.lvInfo.Location = new System.Drawing.Point(3, 0);
             this.lvInfo.Margin = new System.Windows.Forms.Padding(3, 0, 2, 0);
             this.lvInfo.Name = "lvInfo";
-            this.lvInfo.Size = new System.Drawing.Size(565, 211);
+            this.lvInfo.Size = new System.Drawing.Size(565, 262);
             this.lvInfo.TabIndex = 32;
             this.lvInfo.UseCompatibleStateImageBehavior = false;
             this.lvInfo.View = System.Windows.Forms.View.Details;
@@ -191,13 +188,13 @@
             this.tlpGAmb.Controls.Add(this.tableLayoutPanel5, 0, 0);
             this.tlpGAmb.Controls.Add(this.lvMesa, 1, 0);
             this.tlpGAmb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpGAmb.Location = new System.Drawing.Point(0, 211);
+            this.tlpGAmb.Location = new System.Drawing.Point(0, 262);
             this.tlpGAmb.Margin = new System.Windows.Forms.Padding(0, 0, 1, 1);
             this.tlpGAmb.Name = "tlpGAmb";
             this.tlpGAmb.RowCount = 1;
             this.tlpGAmb.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpGAmb.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 108F));
-            this.tlpGAmb.Size = new System.Drawing.Size(569, 108);
+            this.tlpGAmb.Size = new System.Drawing.Size(569, 133);
             this.tlpGAmb.TabIndex = 0;
             // 
             // tableLayoutPanel5
@@ -213,7 +210,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(384, 108);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(384, 133);
             this.tableLayoutPanel5.TabIndex = 39;
             // 
             // lvGarcon
@@ -228,9 +225,8 @@
             this.lvGarcon.GridLines = true;
             this.lvGarcon.HoverSelection = true;
             this.lvGarcon.Location = new System.Drawing.Point(186, 3);
-            this.lvGarcon.Margin = new System.Windows.Forms.Padding(3, 3, 1, 6);
             this.lvGarcon.Name = "lvGarcon";
-            this.lvGarcon.Size = new System.Drawing.Size(197, 99);
+            this.lvGarcon.Size = new System.Drawing.Size(195, 127);
             this.lvGarcon.TabIndex = 33;
             this.lvGarcon.UseCompatibleStateImageBehavior = false;
             this.lvGarcon.View = System.Windows.Forms.View.Details;
@@ -251,9 +247,8 @@
             this.pValor.Controls.Add(this.label4);
             this.pValor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pValor.Location = new System.Drawing.Point(3, 3);
-            this.pValor.Margin = new System.Windows.Forms.Padding(3, 3, 3, 6);
             this.pValor.Name = "pValor";
-            this.pValor.Size = new System.Drawing.Size(177, 99);
+            this.pValor.Size = new System.Drawing.Size(177, 127);
             this.pValor.TabIndex = 34;
             // 
             // mtValor
@@ -261,7 +256,7 @@
             this.mtValor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mtValor.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtValor.ForeColor = System.Drawing.Color.DarkRed;
-            this.mtValor.Location = new System.Drawing.Point(21, 50);
+            this.mtValor.Location = new System.Drawing.Point(21, 64);
             this.mtValor.Mask = "0,00";
             this.mtValor.Name = "mtValor";
             this.mtValor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -274,7 +269,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Maroon;
-            this.label4.Location = new System.Drawing.Point(47, 17);
+            this.label4.Location = new System.Drawing.Point(47, 31);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 30);
             this.label4.TabIndex = 18;
@@ -292,9 +287,8 @@
             this.lvMesa.GridLines = true;
             this.lvMesa.HoverSelection = true;
             this.lvMesa.Location = new System.Drawing.Point(387, 3);
-            this.lvMesa.Margin = new System.Windows.Forms.Padding(3, 3, 1, 6);
             this.lvMesa.Name = "lvMesa";
-            this.lvMesa.Size = new System.Drawing.Size(181, 99);
+            this.lvMesa.Size = new System.Drawing.Size(179, 127);
             this.lvMesa.TabIndex = 38;
             this.lvMesa.UseCompatibleStateImageBehavior = false;
             this.lvMesa.View = System.Windows.Forms.View.Details;
@@ -314,35 +308,18 @@
             this.tabLayINFO.BackColor = System.Drawing.Color.Transparent;
             this.tabLayINFO.ColumnCount = 1;
             this.tabLayINFO.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tabLayINFO.Controls.Add(this.tabLayCima, 0, 0);
+            this.tabLayINFO.Controls.Add(this.tabLayPROD, 0, 0);
             this.tabLayINFO.Controls.Add(this.tlpVenda, 0, 1);
             this.tabLayINFO.Dock = System.Windows.Forms.DockStyle.Left;
             this.tabLayINFO.Location = new System.Drawing.Point(0, 0);
             this.tabLayINFO.Margin = new System.Windows.Forms.Padding(0);
             this.tabLayINFO.Name = "tabLayINFO";
             this.tabLayINFO.RowCount = 2;
-            this.tabLayINFO.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.49045F));
-            this.tabLayINFO.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.50955F));
+            this.tabLayINFO.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.9899F));
+            this.tabLayINFO.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.0101F));
             this.tabLayINFO.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tabLayINFO.Size = new System.Drawing.Size(447, 314);
+            this.tabLayINFO.Size = new System.Drawing.Size(447, 396);
             this.tabLayINFO.TabIndex = 11;
-            // 
-            // tabLayCima
-            // 
-            this.tabLayCima.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.tabLayCima.ColumnCount = 2;
-            this.tabLayCima.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tabLayCima.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tabLayCima.Controls.Add(this.tabLayPROD, 0, 0);
-            this.tabLayCima.Controls.Add(this.tabLayCimaMESA, 0, 0);
-            this.tabLayCima.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tabLayCima.Location = new System.Drawing.Point(3, 3);
-            this.tabLayCima.Name = "tabLayCima";
-            this.tabLayCima.RowCount = 1;
-            this.tabLayCima.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tabLayCima.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 118F));
-            this.tabLayCima.Size = new System.Drawing.Size(441, 118);
-            this.tabLayCima.TabIndex = 11;
             // 
             // tabLayPROD
             // 
@@ -350,36 +327,31 @@
             this.tabLayPROD.ColumnCount = 1;
             this.tabLayPROD.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tabLayPROD.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tabLayPROD.Controls.Add(this.tlpProduto, 0, 1);
-            this.tabLayPROD.Controls.Add(this.pProduto, 0, 0);
+            this.tabLayPROD.Controls.Add(this.pBotoesCima, 0, 0);
+            this.tabLayPROD.Controls.Add(this.pMesaNova, 0, 1);
             this.tabLayPROD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabLayPROD.Location = new System.Drawing.Point(221, 3);
-            this.tabLayPROD.Margin = new System.Windows.Forms.Padding(1, 3, 3, 3);
+            this.tabLayPROD.Location = new System.Drawing.Point(0, 0);
+            this.tabLayPROD.Margin = new System.Windows.Forms.Padding(0);
             this.tabLayPROD.Name = "tabLayPROD";
             this.tabLayPROD.RowCount = 2;
             this.tabLayPROD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tabLayPROD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tabLayPROD.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tabLayPROD.Size = new System.Drawing.Size(217, 112);
+            this.tabLayPROD.Size = new System.Drawing.Size(447, 193);
             this.tabLayPROD.TabIndex = 9;
             // 
-            // tlpProduto
+            // pBotoesCima
             // 
-            this.tlpProduto.BackColor = System.Drawing.Color.Transparent;
-            this.tlpProduto.ColumnCount = 2;
-            this.tlpProduto.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpProduto.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpProduto.Controls.Add(this.btProduto, 0, 0);
-            this.tlpProduto.Controls.Add(this.btRemoveProd, 1, 0);
-            this.tlpProduto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpProduto.Location = new System.Drawing.Point(1, 57);
-            this.tlpProduto.Margin = new System.Windows.Forms.Padding(1);
-            this.tlpProduto.Name = "tlpProduto";
-            this.tlpProduto.RowCount = 1;
-            this.tlpProduto.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpProduto.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.tlpProduto.Size = new System.Drawing.Size(215, 54);
-            this.tlpProduto.TabIndex = 7;
+            this.pBotoesCima.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pBotoesCima.Controls.Add(this.pProduto);
+            this.pBotoesCima.Controls.Add(this.btProduto);
+            this.pBotoesCima.Controls.Add(this.btRemoveProd);
+            this.pBotoesCima.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pBotoesCima.Location = new System.Drawing.Point(0, 0);
+            this.pBotoesCima.Margin = new System.Windows.Forms.Padding(0);
+            this.pBotoesCima.Name = "pBotoesCima";
+            this.pBotoesCima.Size = new System.Drawing.Size(447, 96);
+            this.pBotoesCima.TabIndex = 35;
             // 
             // pProduto
             // 
@@ -387,120 +359,23 @@
             this.pProduto.BackgroundImage = global::Pizzaria.Properties.Resources.FUNDO_PAINEL;
             this.pProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pProduto.Controls.Add(this.label1);
-            this.pProduto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pProduto.Location = new System.Drawing.Point(2, 2);
+            this.pProduto.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pProduto.Location = new System.Drawing.Point(0, 0);
             this.pProduto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 0);
             this.pProduto.Name = "pProduto";
-            this.pProduto.Size = new System.Drawing.Size(213, 54);
+            this.pProduto.Size = new System.Drawing.Size(447, 33);
             this.pProduto.TabIndex = 8;
             // 
-            // tabLayCimaMESA
+            // label1
             // 
-            this.tabLayCimaMESA.BackColor = System.Drawing.Color.Transparent;
-            this.tabLayCimaMESA.ColumnCount = 1;
-            this.tabLayCimaMESA.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tabLayCimaMESA.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tabLayCimaMESA.Controls.Add(this.tableLayoutPanel1, 0, 1);
-            this.tabLayCimaMESA.Controls.Add(this.pMesa, 0, 0);
-            this.tabLayCimaMESA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabLayCimaMESA.Location = new System.Drawing.Point(3, 3);
-            this.tabLayCimaMESA.Margin = new System.Windows.Forms.Padding(3, 3, 1, 3);
-            this.tabLayCimaMESA.Name = "tabLayCimaMESA";
-            this.tabLayCimaMESA.RowCount = 2;
-            this.tabLayCimaMESA.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tabLayCimaMESA.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tabLayCimaMESA.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tabLayCimaMESA.Size = new System.Drawing.Size(216, 112);
-            this.tabLayCimaMESA.TabIndex = 10;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.btInseMesa, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btRemoMesa, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 57);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(214, 54);
-            this.tableLayoutPanel1.TabIndex = 8;
-            // 
-            // tlpVenda
-            // 
-            this.tlpVenda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.tlpVenda.ColumnCount = 1;
-            this.tlpVenda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpVenda.Controls.Add(this.panel1, 0, 0);
-            this.tlpVenda.Controls.Add(this.tlbBotaoVendas, 0, 1);
-            this.tlpVenda.Controls.Add(this.tlpComanda, 0, 2);
-            this.tlpVenda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpVenda.Location = new System.Drawing.Point(4, 126);
-            this.tlpVenda.Margin = new System.Windows.Forms.Padding(4, 2, 4, 0);
-            this.tlpVenda.Name = "tlpVenda";
-            this.tlpVenda.RowCount = 3;
-            this.tlpVenda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.56322F));
-            this.tlpVenda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.08046F));
-            this.tlpVenda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.35632F));
-            this.tlpVenda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpVenda.Size = new System.Drawing.Size(439, 188);
-            this.tlpVenda.TabIndex = 10;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImage = global::Pizzaria.Properties.Resources.FUNDO_PAINEL;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(2, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(435, 42);
-            this.panel1.TabIndex = 9;
-            // 
-            // tlbBotaoVendas
-            // 
-            this.tlbBotaoVendas.BackColor = System.Drawing.Color.Transparent;
-            this.tlbBotaoVendas.ColumnCount = 3;
-            this.tlbBotaoVendas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlbBotaoVendas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlbBotaoVendas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlbBotaoVendas.Controls.Add(this.btAnular, 0, 0);
-            this.tlbBotaoVendas.Controls.Add(this.btParcial, 2, 0);
-            this.tlbBotaoVendas.Controls.Add(this.btEncerrar, 1, 0);
-            this.tlbBotaoVendas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlbBotaoVendas.Location = new System.Drawing.Point(6, 44);
-            this.tlbBotaoVendas.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.tlbBotaoVendas.Name = "tlbBotaoVendas";
-            this.tlbBotaoVendas.RowCount = 1;
-            this.tlbBotaoVendas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlbBotaoVendas.Size = new System.Drawing.Size(427, 73);
-            this.tlbBotaoVendas.TabIndex = 3;
-            // 
-            // tlpComanda
-            // 
-            this.tlpComanda.BackColor = System.Drawing.Color.Transparent;
-            this.tlpComanda.ColumnCount = 3;
-            this.tlpComanda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpComanda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpComanda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpComanda.Controls.Add(this.btVoltar, 0, 0);
-            this.tlpComanda.Controls.Add(this.btImprimir, 1, 0);
-            this.tlpComanda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpComanda.Location = new System.Drawing.Point(6, 117);
-            this.tlpComanda.Margin = new System.Windows.Forms.Padding(6, 0, 6, 4);
-            this.tlpComanda.Name = "tlpComanda";
-            this.tlpComanda.RowCount = 1;
-            this.tlpComanda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpComanda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 67F));
-            this.tlpComanda.Size = new System.Drawing.Size(427, 67);
-            this.tlpComanda.TabIndex = 4;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(167, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 24);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "PRODUTO";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btProduto
             // 
@@ -508,11 +383,11 @@
             this.btProduto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btProduto.BackgroundImage")));
             this.btProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btProduto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btProduto.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btProduto.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Bold);
             this.btProduto.ForeColor = System.Drawing.Color.Maroon;
-            this.btProduto.Location = new System.Drawing.Point(10, 5);
+            this.btProduto.Location = new System.Drawing.Point(23, 38);
             this.btProduto.Name = "btProduto";
-            this.btProduto.Size = new System.Drawing.Size(87, 43);
+            this.btProduto.Size = new System.Drawing.Size(120, 50);
             this.btProduto.TabIndex = 5;
             this.btProduto.Text = "INSERIR";
             this.ttEncerrar.SetToolTip(this.btProduto, "Inserir Produto - (P)");
@@ -525,16 +400,30 @@
             this.btRemoveProd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btRemoveProd.BackgroundImage")));
             this.btRemoveProd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btRemoveProd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btRemoveProd.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btRemoveProd.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Bold);
             this.btRemoveProd.ForeColor = System.Drawing.Color.White;
-            this.btRemoveProd.Location = new System.Drawing.Point(117, 5);
+            this.btRemoveProd.Location = new System.Drawing.Point(305, 38);
             this.btRemoveProd.Name = "btRemoveProd";
-            this.btRemoveProd.Size = new System.Drawing.Size(87, 43);
+            this.btRemoveProd.Size = new System.Drawing.Size(120, 50);
             this.btRemoveProd.TabIndex = 6;
             this.btRemoveProd.Text = "REMOVER";
             this.ttEncerrar.SetToolTip(this.btRemoveProd, "Remover Produto - (R)");
             this.btRemoveProd.UseVisualStyleBackColor = true;
             this.btRemoveProd.Click += new System.EventHandler(this.btRemoveProd_Click);
+            // 
+            // pMesaNova
+            // 
+            this.pMesaNova.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pMesaNova.Controls.Add(this.btInseMesa);
+            this.pMesaNova.Controls.Add(this.pMesa);
+            this.pMesaNova.Controls.Add(this.btMesaTrocar);
+            this.pMesaNova.Controls.Add(this.btRemoMesa);
+            this.pMesaNova.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pMesaNova.Location = new System.Drawing.Point(0, 96);
+            this.pMesaNova.Margin = new System.Windows.Forms.Padding(0);
+            this.pMesaNova.Name = "pMesaNova";
+            this.pMesaNova.Size = new System.Drawing.Size(447, 97);
+            this.pMesaNova.TabIndex = 0;
             // 
             // btInseMesa
             // 
@@ -542,34 +431,17 @@
             this.btInseMesa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btInseMesa.BackgroundImage")));
             this.btInseMesa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btInseMesa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btInseMesa.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btInseMesa.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Bold);
             this.btInseMesa.ForeColor = System.Drawing.Color.Maroon;
-            this.btInseMesa.Location = new System.Drawing.Point(10, 5);
+            this.btInseMesa.Location = new System.Drawing.Point(23, 40);
             this.btInseMesa.Margin = new System.Windows.Forms.Padding(0);
             this.btInseMesa.Name = "btInseMesa";
-            this.btInseMesa.Size = new System.Drawing.Size(87, 43);
+            this.btInseMesa.Size = new System.Drawing.Size(120, 50);
             this.btInseMesa.TabIndex = 1;
             this.btInseMesa.Text = "INSERIR";
             this.ttEncerrar.SetToolTip(this.btInseMesa, "Inserir Mesa - (M)");
             this.btInseMesa.UseVisualStyleBackColor = true;
             this.btInseMesa.Click += new System.EventHandler(this.btInseMesa_Click);
-            // 
-            // btRemoMesa
-            // 
-            this.btRemoMesa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btRemoMesa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btRemoMesa.BackgroundImage")));
-            this.btRemoMesa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btRemoMesa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btRemoMesa.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btRemoMesa.ForeColor = System.Drawing.Color.White;
-            this.btRemoMesa.Location = new System.Drawing.Point(117, 5);
-            this.btRemoMesa.Name = "btRemoMesa";
-            this.btRemoMesa.Size = new System.Drawing.Size(87, 43);
-            this.btRemoMesa.TabIndex = 2;
-            this.btRemoMesa.Text = "REMOVER";
-            this.ttEncerrar.SetToolTip(this.btRemoMesa, "Remover Mesa - (N)");
-            this.btRemoMesa.UseVisualStyleBackColor = true;
-            this.btRemoMesa.Click += new System.EventHandler(this.btRemoMesa_Click);
             // 
             // pMesa
             // 
@@ -577,12 +449,121 @@
             this.pMesa.BackgroundImage = global::Pizzaria.Properties.Resources.FUNDO_PAINEL;
             this.pMesa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pMesa.Controls.Add(this.label3);
-            this.pMesa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pMesa.Location = new System.Drawing.Point(2, 2);
+            this.pMesa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pMesa.Location = new System.Drawing.Point(0, 0);
             this.pMesa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 0);
             this.pMesa.Name = "pMesa";
-            this.pMesa.Size = new System.Drawing.Size(212, 54);
+            this.pMesa.Size = new System.Drawing.Size(447, 33);
             this.pMesa.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(188, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 24);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "MESA";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btMesaTrocar
+            // 
+            this.btMesaTrocar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btMesaTrocar.BackgroundImage = global::Pizzaria.Properties.Resources.setAzul;
+            this.btMesaTrocar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btMesaTrocar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btMesaTrocar.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Bold);
+            this.btMesaTrocar.ForeColor = System.Drawing.Color.Maroon;
+            this.btMesaTrocar.Location = new System.Drawing.Point(163, 40);
+            this.btMesaTrocar.Margin = new System.Windows.Forms.Padding(0);
+            this.btMesaTrocar.Name = "btMesaTrocar";
+            this.btMesaTrocar.Size = new System.Drawing.Size(120, 50);
+            this.btMesaTrocar.TabIndex = 2;
+            this.btMesaTrocar.Text = "TROCAR";
+            this.ttEncerrar.SetToolTip(this.btMesaTrocar, "Trocar Mesa - (T)");
+            this.btMesaTrocar.UseVisualStyleBackColor = true;
+            this.btMesaTrocar.Click += new System.EventHandler(this.btMesaTrocar_Click);
+            // 
+            // btRemoMesa
+            // 
+            this.btRemoMesa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btRemoMesa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btRemoMesa.BackgroundImage")));
+            this.btRemoMesa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btRemoMesa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btRemoMesa.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Bold);
+            this.btRemoMesa.ForeColor = System.Drawing.Color.White;
+            this.btRemoMesa.Location = new System.Drawing.Point(305, 40);
+            this.btRemoMesa.Name = "btRemoMesa";
+            this.btRemoMesa.Size = new System.Drawing.Size(120, 50);
+            this.btRemoMesa.TabIndex = 2;
+            this.btRemoMesa.Text = "REMOVER";
+            this.ttEncerrar.SetToolTip(this.btRemoMesa, "Remover Mesa - (N)");
+            this.btRemoMesa.UseVisualStyleBackColor = true;
+            this.btRemoMesa.Click += new System.EventHandler(this.btRemoMesa_Click);
+            // 
+            // tlpVenda
+            // 
+            this.tlpVenda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tlpVenda.ColumnCount = 1;
+            this.tlpVenda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpVenda.Controls.Add(this.panel1, 0, 0);
+            this.tlpVenda.Controls.Add(this.tlbBotaoVendas, 0, 1);
+            this.tlpVenda.Controls.Add(this.tlpComanda, 0, 2);
+            this.tlpVenda.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpVenda.Location = new System.Drawing.Point(0, 193);
+            this.tlpVenda.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpVenda.Name = "tlpVenda";
+            this.tlpVenda.RowCount = 3;
+            this.tlpVenda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.39801F));
+            this.tlpVenda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.27861F));
+            this.tlpVenda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.87395F));
+            this.tlpVenda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpVenda.Size = new System.Drawing.Size(447, 203);
+            this.tlpVenda.TabIndex = 10;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = global::Pizzaria.Properties.Resources.FUNDO_PAINEL;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(443, 39);
+            this.panel1.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(112, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(211, 24);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "OPÇÕES DE VENDA";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tlbBotaoVendas
+            // 
+            this.tlbBotaoVendas.BackColor = System.Drawing.Color.Transparent;
+            this.tlbBotaoVendas.ColumnCount = 3;
+            this.tlbBotaoVendas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlbBotaoVendas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlbBotaoVendas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlbBotaoVendas.Controls.Add(this.btAnular, 0, 0);
+            this.tlbBotaoVendas.Controls.Add(this.btParcial, 2, 0);
+            this.tlbBotaoVendas.Controls.Add(this.btEncerrar, 1, 0);
+            this.tlbBotaoVendas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlbBotaoVendas.Location = new System.Drawing.Point(6, 41);
+            this.tlbBotaoVendas.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.tlbBotaoVendas.Name = "tlbBotaoVendas";
+            this.tlbBotaoVendas.RowCount = 1;
+            this.tlbBotaoVendas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlbBotaoVendas.Size = new System.Drawing.Size(435, 90);
+            this.tlbBotaoVendas.TabIndex = 3;
             // 
             // btAnular
             // 
@@ -592,7 +573,7 @@
             this.btAnular.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btAnular.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAnular.ForeColor = System.Drawing.Color.White;
-            this.btAnular.Location = new System.Drawing.Point(3, 15);
+            this.btAnular.Location = new System.Drawing.Point(4, 23);
             this.btAnular.Name = "btAnular";
             this.btAnular.Size = new System.Drawing.Size(100, 43);
             this.btAnular.TabIndex = 3;
@@ -609,7 +590,7 @@
             this.btParcial.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btParcial.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btParcial.ForeColor = System.Drawing.Color.Maroon;
-            this.btParcial.Location = new System.Drawing.Point(322, 15);
+            this.btParcial.Location = new System.Drawing.Point(329, 23);
             this.btParcial.Margin = new System.Windows.Forms.Padding(0);
             this.btParcial.Name = "btParcial";
             this.btParcial.Size = new System.Drawing.Size(102, 43);
@@ -625,17 +606,36 @@
             this.btEncerrar.BackgroundImage = global::Pizzaria.Properties.Resources.setverde;
             this.btEncerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btEncerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btEncerrar.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btEncerrar.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Bold);
             this.btEncerrar.ForeColor = System.Drawing.Color.Maroon;
-            this.btEncerrar.Location = new System.Drawing.Point(146, 11);
+            this.btEncerrar.Location = new System.Drawing.Point(135, 14);
             this.btEncerrar.Margin = new System.Windows.Forms.Padding(0);
             this.btEncerrar.Name = "btEncerrar";
-            this.btEncerrar.Size = new System.Drawing.Size(132, 51);
+            this.btEncerrar.Size = new System.Drawing.Size(162, 62);
             this.btEncerrar.TabIndex = 1;
             this.btEncerrar.Text = "ENCERRAR";
             this.ttEncerrar.SetToolTip(this.btEncerrar, "Encerrar Venda  - (V)");
             this.btEncerrar.UseVisualStyleBackColor = true;
             this.btEncerrar.Click += new System.EventHandler(this.btEncerrar_Click);
+            // 
+            // tlpComanda
+            // 
+            this.tlpComanda.BackColor = System.Drawing.Color.Transparent;
+            this.tlpComanda.ColumnCount = 3;
+            this.tlpComanda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpComanda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpComanda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpComanda.Controls.Add(this.btVoltar, 0, 0);
+            this.tlpComanda.Controls.Add(this.btImprimir, 1, 0);
+            this.tlpComanda.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpComanda.Location = new System.Drawing.Point(6, 131);
+            this.tlpComanda.Margin = new System.Windows.Forms.Padding(6, 0, 6, 4);
+            this.tlpComanda.Name = "tlpComanda";
+            this.tlpComanda.RowCount = 1;
+            this.tlpComanda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpComanda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 67F));
+            this.tlpComanda.Size = new System.Drawing.Size(435, 68);
+            this.tlpComanda.TabIndex = 4;
             // 
             // btVoltar
             // 
@@ -644,7 +644,7 @@
             this.btVoltar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btVoltar.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btVoltar.ForeColor = System.Drawing.Color.White;
-            this.btVoltar.Location = new System.Drawing.Point(11, 14);
+            this.btVoltar.Location = new System.Drawing.Point(12, 15);
             this.btVoltar.Name = "btVoltar";
             this.btVoltar.Size = new System.Drawing.Size(84, 38);
             this.btVoltar.TabIndex = 2;
@@ -659,54 +659,22 @@
             this.btImprimir.BackgroundImage = global::Pizzaria.Properties.Resources.setPreto;
             this.btImprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btImprimir.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btImprimir.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
             this.btImprimir.ForeColor = System.Drawing.Color.White;
-            this.btImprimir.Location = new System.Drawing.Point(146, 8);
+            this.btImprimir.Location = new System.Drawing.Point(135, 8);
+            this.btImprimir.Margin = new System.Windows.Forms.Padding(0);
             this.btImprimir.Name = "btImprimir";
-            this.btImprimir.Size = new System.Drawing.Size(132, 51);
+            this.btImprimir.Size = new System.Drawing.Size(162, 52);
             this.btImprimir.TabIndex = 0;
             this.btImprimir.Text = "IMPRIMIR";
             this.ttEncerrar.SetToolTip(this.btImprimir, "Imprimir - (I)");
             this.btImprimir.UseVisualStyleBackColor = true;
             this.btImprimir.Click += new System.EventHandler(this.btImprimir_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(50, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "PRODUTO";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(71, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 24);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "MESA";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(112, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(211, 24);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "OPÇÕES DE VENDA";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Venda
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.ClientSize = new System.Drawing.Size(1019, 318);
+            this.ClientSize = new System.Drawing.Size(1019, 400);
             this.ControlBox = false;
             this.Controls.Add(this.panBut);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -724,20 +692,18 @@
             this.pValor.ResumeLayout(false);
             this.pValor.PerformLayout();
             this.tabLayINFO.ResumeLayout(false);
-            this.tabLayCima.ResumeLayout(false);
             this.tabLayPROD.ResumeLayout(false);
-            this.tlpProduto.ResumeLayout(false);
+            this.pBotoesCima.ResumeLayout(false);
             this.pProduto.ResumeLayout(false);
             this.pProduto.PerformLayout();
-            this.tabLayCimaMESA.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.pMesaNova.ResumeLayout(false);
+            this.pMesa.ResumeLayout(false);
+            this.pMesa.PerformLayout();
             this.tlpVenda.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tlbBotaoVendas.ResumeLayout(false);
             this.tlpComanda.ResumeLayout(false);
-            this.pMesa.ResumeLayout(false);
-            this.pMesa.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -766,15 +732,10 @@
         private System.Windows.Forms.ColumnHeader ValorUni;
         private System.Windows.Forms.ColumnHeader SubTotal;
         private System.Windows.Forms.TableLayoutPanel tabLayINFO;
-        private System.Windows.Forms.TableLayoutPanel tabLayCima;
         private System.Windows.Forms.TableLayoutPanel tabLayPROD;
-        private System.Windows.Forms.TableLayoutPanel tlpProduto;
         private System.Windows.Forms.Button btProduto;
         private System.Windows.Forms.Button btRemoveProd;
         private System.Windows.Forms.Panel pProduto;
-        private System.Windows.Forms.TableLayoutPanel tabLayCimaMESA;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button btInseMesa;
         private System.Windows.Forms.Button btRemoMesa;
         private System.Windows.Forms.Panel pMesa;
         private System.Windows.Forms.TableLayoutPanel tlpVenda;
@@ -790,5 +751,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btInseMesa;
+        private System.Windows.Forms.Button btMesaTrocar;
+        private System.Windows.Forms.Panel pBotoesCima;
+        private System.Windows.Forms.Panel pMesaNova;
     }
 }

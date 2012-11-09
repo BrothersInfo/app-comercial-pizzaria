@@ -18,7 +18,6 @@ namespace Pizzaria.Classes
         public string horario;
         public string dia;
         public string[] mesa;
-        public ArrayList produto = new ArrayList();
         public Completa[] Completos;
         public int qtdItens;
         public int[] garcon;
@@ -69,21 +68,14 @@ namespace Pizzaria.Classes
             {
                 this.garcon = garcon;
                 Completos = conjProd;
-
                 this.cod_venda = cod_venda;
                 this.cod_caixa = cod_caixa;
                 this.valorTotal = valorTotal;
                 this.horario = horario;
                 this.dia = dia;
                 this.mesa = mesas;
-
-
-                produto.AddRange(conjProd);
-
                 for (int i = 0; i < conjProd.Length; i++)
-                {
                     this.valorTotal += (conjProd[i].valorUnitario * conjProd[i].quantidade);
-                }
             }
             catch { }
         }
@@ -92,12 +84,6 @@ namespace Pizzaria.Classes
             new BancoVenda().encerrarVenda(valorTotal, cod_venda, mesa);
         }
 
-        //esse metodo retorna a mesma venda, como uma nova venda.
-        //retirando os produtos da 
-        public VendaFull subVenda()
-        {
-            return null;
-        }
 
     }
 }

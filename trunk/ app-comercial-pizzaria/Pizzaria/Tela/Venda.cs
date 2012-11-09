@@ -118,8 +118,11 @@ namespace Pizzaria.Tela
             catch { }
             for (int i = 0; i < vendas.garcon.Length; i++)
             {
-                lvGarcon.Items.Add(vendas.garcon[i].ToString());
-                lvGarcon.Items[i].SubItems.Add(new BancoVenda().nomeGarcon(vendas.garcon[i]));
+                if (!lvGarcon.Items.Contains(new ListViewItem(vendas.garcon[i].ToString())))
+                {
+                    lvGarcon.Items.Add(vendas.garcon[i].ToString());
+                    lvGarcon.Items[i].SubItems.Add(new BancoVenda().nomeGarcon(vendas.garcon[i]));
+                }
             }
             for (int i = 0; i < vendas.mesa.Length; i++)
             {
@@ -567,10 +570,29 @@ namespace Pizzaria.Tela
                 case Keys.N://Voltar Tela
                     btRemoMesa_Click(sender, null);
                     break;
+                case Keys.T://Voltar Tela
+                    btMesaTrocar_Click(sender, null);
+                    break;
+
 
 
 
             }
+        }
+
+        private void btMesaTrocar_Click(object sender, EventArgs e)
+        {
+            if (new Banco().mesasDisponiveis().Length > 0)
+            {
+                //    this.Visible = false;
+                new AlterarMesa( venda.cod_venda).ShowDialog();
+
+                naoimpressao(venda.cod_venda);
+                //   this.Visible = true;
+            }
+            venda = new BancoVenda().carregaVenda(venda.cod_venda);
+            tamanhoMTVALOR(venda);
+            carregarListView(venda);
         }
         }
 

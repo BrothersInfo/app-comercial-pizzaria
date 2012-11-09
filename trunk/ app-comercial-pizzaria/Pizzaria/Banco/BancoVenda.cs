@@ -292,18 +292,7 @@ namespace Pizzaria.Banco
             ttt = new DataTable();
 
             new NpgsqlDataAdapter(query4, Conectar()).Fill(ttt);
-            try
-            {
-                string mudanca = "UPDATE vendagarcon   SET cod_venda= " + Convert.ToInt16(ttt.Rows[0].ItemArray.GetValue(0)) + " WHERE cod_venda = " + cod_venda;
-                ttt = new DataTable();// essa linha acima -  muda a venda para a outra encontrada. qualquer erro indica que nao existe outra venda, basta deletar vendaGarcon
-                new NpgsqlDataAdapter(mudanca, Conectar()).Fill(ttt);
-            }
-            catch
-            {
-                string mudanca = "delete from vendaGarcon where cod_venda  =" + cod_venda;
-                ttt = new DataTable();
-                new NpgsqlDataAdapter(mudanca, Conectar()).Fill(ttt);
-            }
+
             string quer = "delete from supervenda where cod_venda = " + cod_venda;
             new NpgsqlDataAdapter(quer, Conectar()).Fill(compl);
             string venda = "delete from venda where cod_venda = " + cod_venda;
