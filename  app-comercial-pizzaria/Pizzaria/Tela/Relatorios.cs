@@ -148,6 +148,19 @@ namespace Pizzaria.Tela
             cbGarconAno.SelectedIndex = DateTime.Now.Year - 2012;
 
             cbGarconData.SelectedIndex = 0;
+            cbGarcon.DataSource = new BancoRelatorio().garcons();
+            cbGarconTipo.DataSource = new BancoRelatorio().categorias();
+            string[] parse = new BancoRelatorio().ambientes();
+            string[] todos = new string[parse.Length + 1];
+            todos[0] = "Todos";
+            for (int i = 0; i < parse.Length; i++)
+                todos[i + 1] = parse[i];
+            cbGarconAmbiente.DataSource = todos;// 
+            cbGarcon.SelectedIndex = 0;
+            cbGarconTipo.SelectedIndex = 0;
+            cbGarconAmbiente.SelectedIndex = 0;
+            cbOrdenarGarcon.SelectedIndex = 0;
+
         }
         private void cbData_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -177,7 +190,7 @@ namespace Pizzaria.Tela
                     break;
             }
         }
-        private void cbGarconData_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbGarconData_SelectedIndexChanged(object sender, EventArgs e)  
         {
             switch (cbGarconData.SelectedIndex)
             {
@@ -189,6 +202,11 @@ namespace Pizzaria.Tela
                     gbGarconDia.Visible = false;
                     gbPeriodoGarcon.Visible = true;
                     break;
+                case 2:
+                    gbGarconDia.Visible = false;
+                    gbPeriodoGarcon.Visible = false;
+                    break;
+
             }
         }
         private void cbFiltroVenda_SelectedIndexChanged(object sender, EventArgs e)
@@ -214,19 +232,46 @@ namespace Pizzaria.Tela
             {
                 lvConsInfo.Items.Add(tabela.Rows[i].ItemArray.GetValue(0).ToString());
                 int size = 1;
-                lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size++).ToString());
-                lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size++).ToString());
-                lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size++).ToString());
-                lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size++).ToString());
-                lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size++).ToString());
-                lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size++).ToString());
-                lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size++).ToString());
+                while (size<tabela.Rows[i].ItemArray.Length)
+                {
+                    lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size++).ToString());
+                }
             }
         }
         public void limpaListView()
         {
             while (lvConsInfo.Columns.Count > 0)
                 lvConsInfo.Columns.RemoveAt(0);
-        }        
+        }
+        //---
+        private void btConsultarGarcon_Click(object sender, EventArgs e)
+        {
+
+            string[] data = new string[cbGarconData.SelectedIndex + 1];
+
+            if (data.Length == 1)
+            {
+                data[0] = cbGarconDia.SelectedItem + "/" + (cbGarconMes.SelectedIndex + 1) + "/" + cbGarconAno.SelectedItem;
+
+            }
+            else
+            {
+                data[0] = dtpGarconUm.Value.ToShortDateString();
+                data[1] = dtpGarconDois.Value.ToShortDateString();
+            }
+            DataTable tabela = new BancoRelatorio().consultaGarconGeral(cbGarconData.SelectedIndex == 2, data, cbGarcon.SelectedIndex != 0, cbGarcon.SelectedItem.ToString(), cbGarconAmbiente.SelectedIndex != 0, cbGarconAmbiente.SelectedItem.ToString(),
+                cbGarconTipo.SelectedIndex != 0, cbGarconTipo.SelectedItem.ToString(), cbOrdenarGarcon.SelectedIndex, rbGarconCres.Checked);
+            carregarListView(tabela);
+            lValor.Text = somarValoresGarcon(tabela);
+        }
+        public string somarValoresGarcon(DataTable tabela)
+        {
+            double valor = 0;
+            for (int i = 0; i < tabela.Rows.Count; i++)
+                valor += (Convert.ToDouble(tabela.Rows[i].ItemArray.GetValue(8).ToString().Substring(0).Replace('.', ','))*
+                    Convert.ToDouble(tabela.Rows[i].ItemArray.GetValue(9).ToString().Substring(0).Replace('.', ',')));
+            return "Valor Total : R$" + new Tratamento().retornaValorEscrito(valor);
+        }
+
     }
 }

@@ -108,17 +108,30 @@ namespace Pizzaria.Tela
             af.Location = new Point(0, 0);
             obj.Visible = false;
         }
-        private void expandirRelatorio()
+        private void expandirRelatorios()
         {
-            rf = new TipoRelatorio();
-            rf.Visible = true;
-            rf.WindowState = FormWindowState.Maximized;
-            rf.StartPosition = FormStartPosition.CenterScreen;
-            rf.TopLevel = false;
-            rf.Size = new System.Drawing.Size(pLoadForm.Size.Width, pLoadForm.Size.Height);
-            pLoadForm.Controls.Add(rf);
-            rf.Location = new Point(0, 0);
-            obj.Visible = false;
+            SenhaAcesso sa = new SenhaAcesso();
+            sa.ShowDialog();
+            if (sa.acesso)
+            {
+
+                rf = new TipoRelatorio();
+                rf.Visible = true;
+                rf.WindowState = FormWindowState.Maximized;
+                rf.StartPosition = FormStartPosition.CenterScreen;
+                rf.TopLevel = false;
+                rf.Size = new System.Drawing.Size(pLoadForm.Size.Width, pLoadForm.Size.Height);
+                pLoadForm.Controls.Add(rf);
+                rf.Location = new Point(0, 0);
+                obj.Visible = false;
+            }
+            else
+            {
+                allFixedSingle();
+               // rf.Visible = false;
+                obj.Visible = true;
+                removeAllForm();
+            }
         }
         private void pbFechar_Click(object sender, EventArgs e)
         {
@@ -190,7 +203,7 @@ namespace Pizzaria.Tela
             {
                 allFixedSingle();
                 pbRelatorio.BorderStyle = BorderStyle.Fixed3D;
-                expandirRelatorio();
+                expandirRelatorios();
                 pLoadForm.Controls.Remove(cf);
                 pLoadForm.Controls.Remove(cof);
                 pLoadForm.Controls.Remove(af);

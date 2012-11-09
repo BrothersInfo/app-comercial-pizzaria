@@ -19,6 +19,19 @@ namespace Pizzaria.Banco
         {
             return new NpgsqlConnection(conexao);
         }
+        public bool isAdm(string usuario, string senha)
+        {
+            DataTable dtt = new DataTable();
+          string query =  "select nivel_acesso  from caixa where nomecaixa = '"+usuario+"' and senha = '"+senha+"'";
+          NpgsqlDataAdapter sql = new NpgsqlDataAdapter
+             (query, Conectar());
+          sql.Fill(dtt);
+          try
+          {
+              return Convert.ToBoolean(dtt.Rows[0].ItemArray.GetValue(0));
+          }
+          catch { return false; }
+        }
         public void mudarQuantidade(int cod_venda, int cod_completo, int qtd, int cod_garcon)
         {
 
