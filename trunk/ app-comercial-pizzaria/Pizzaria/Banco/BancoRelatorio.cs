@@ -275,10 +275,10 @@ namespace Pizzaria.Banco
                 " inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) " +
                 " inner join venda vv on (vv.cod_venda = vmm.cod_venda) ";
             if (hasAmbiente)
-                query += " where v.cod_venda = vv.cod_venda and and aa.cod_ambiente = " + new BancoConsulta().codAmbientePelaDescricao(ambiente) + " order by vv.cod_venda desc limit 1) as \"AMBIENTE\",";
+                query += " where v.cod_venda = vv.cod_venda and aa.cod_ambiente = " + new BancoConsulta().codAmbientePelaDescricao(ambiente) + " order by vv.cod_venda desc limit 1) as \"AMBIENTE\",";
 
             else
-                query += " where v.cod_venda = vv.cod_venda  order by vv.cod_venda desc limit 1) as \"AMBIENTE\",";
+                query += " where v.cod_venda = vv.cod_venda  order by vv.cod_venda desc limit 1) as \"Ambiente\",";
             query +=
                
                 " t.nome as \"Categoria\" " +
@@ -338,7 +338,103 @@ namespace Pizzaria.Banco
             }
 
         }
+        public DataTable consultaProdutoGeral(string[] data, bool hasValor, bool hasTipo, int cod_tipo, bool hasTamanho, int cod_tamanho, 
+            bool hasProduto, int cod_produto)
+        {
+            string query =
+                " select " +
+                " (select pp.descricao from produto pp where pp.cod_produto = p.cod_produto) as \"Produto\" " +
+                " , (select pp.nome from tipo pp where pp.cod_tipo = t.cod_tipo) as \"Categoria\" " +
+                " , (select pp.descricao from tamanho pp where pp.cod_tamanho = tt.cod_tamanho) as \"Sub Categoria\" ";
+            if (hasValor)
+                query +=
+            " , (CASE (c.valorUnitarioCompleto*(cast(cp.porcentagem as double precision) /100)) >0 "
+            + " WHEN true THEN (trim(to_char( (c.valorUnitarioCompleto*(cast(cp.porcentagem as double precision) /100)),'9999.99'))) ELSE '0.00'  end ) as \"Valor Unitario\" " +
+            " , (CASE ((c.valorUnitarioCompleto*(cast(cp.porcentagem as double precision) /100))* sum(c.quantidade)) >0  WHEN true "+
+	            " THEN (trim(to_char( ((c.valorUnitarioCompleto*(cast(cp.porcentagem as double precision) /100))* sum(c.quantidade)),'9999.99'))) ELSE '0.00'  end ) as \"Sub Total\" ";
+            query +=
+                " ,(CASE cp.porcentagem = 100 when true then	(CASE (t.cod_tipo = 1)when true then 'Inteiro' ELSE 'Unico' end ) else  " +
+                "                    (CASE (cp.porcentagem = 50 )when true then 'Metade' ELSE " +
+                "                        (CASE (cp.porcentagem = 25 )when true then '1/4'  " +
+                "                            ELSE ('Desconhecido') end ) end )  end)as \"Divisao\" " +
+                " , sum(c.quantidade) as \"Quantidade\" " +
+                " from 		completo c              " +
+                " inner join 	completoProduto cp        on (cp.cod_completo = c.cod_completo)     " +
+                " inner join 	produto p      	     	  on (p.cod_produto   = cp.cod_produto ) " +
+                " inner join 	produtoTamanho pt         on (pt.cod_produto  = p.cod_produto)   " +
+                " inner join 	tamanho tt    	     	  on (tt.cod_tamanho  = pt.cod_tamanho and tt.cod_tamanho =  cp.cod_tamanho) " +
+                " inner join	tipo t			          on (t.cod_tipo      = p.cod_tipo) " +
+                " inner join	vendaCompleta vc	      on (vc.cod_completo = c.cod_completo)   " +
+                " inner join 	venda v			          on (v.cod_venda = vc.cod_venda)" +
+                " where ";
+            if (data.Length == 1)
+                query += " v.dataVenda = '" + data[0] + "' ";
+            else
+                query += " v.dataVenda between '" + data[0] + "' and '" + data[1] + "' ";
+            if (hasTipo)
+            {
+                query += " and t.cod_tipo = " + cod_tipo;
+                if (hasTamanho)
+                    query += " and tt.cod_tamanho = " + cod_tamanho;
+                if (hasProduto)
+                    query += " and p.cod_produto = " + cod_produto;
+            }
+            query += " group by t.cod_tipo,p.cod_produto, tt.cod_tamanho,cp.porcentagem ";
+            if(hasValor)
+                query+=
+                " , c.valorUnitarioCompleto  ";
+            query+=
+                " order by t.cod_tipo,p.cod_produto, tt.cod_tamanho,  cp.porcentagem ";
 
-            
+            DataTable tabela = new DataTable();
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(tabela);
+            return tabela;
+        }
+        public string[] tamanhosDoTipo(int cod_tipo)
+        {
+            string query = 
+            " select tt.cod_tamanho, tt.descricao " +
+            " from 	produto p      	  "+
+            " inner join 	produtoTamanho pt         on (pt.cod_produto  = p.cod_produto)"+  
+            " inner join 	tamanho tt    	     	  on (tt.cod_tamanho  = pt.cod_tamanho )"+
+            " inner join	tipo t			  on (t.cod_tipo      = p.cod_tipo)"+
+            " where t.cod_tipo = "+cod_tipo +
+            " group by tt.cod_tamanho, tt.descricao order by tt.cod_tamanho ";
+            DataTable tabela = new DataTable();
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(tabela);
+
+            string[] retorno = new string[tabela.Rows.Count + 1];
+            retorno[0] = "Todos";
+            for (int i = 1; i < retorno.Length; i++)
+                retorno[i] = tabela.Rows[i - 1].ItemArray.GetValue(1).ToString();
+
+            return retorno;
+        
+        }
+        public string[] produtosDoTipo(int cod_tipo)
+        {
+            string query =
+            " select p.cod_produto, p.descricao " +
+            " from 	produto p      	  " +
+            " inner join 	produtoTamanho pt         on (pt.cod_produto  = p.cod_produto)" +
+            " inner join 	tamanho tt    	     	  on (tt.cod_tamanho  = pt.cod_tamanho )" +
+            " inner join	tipo t			  on (t.cod_tipo      = p.cod_tipo)" +
+            " where t.cod_tipo = " + cod_tipo +
+            " group by p.cod_produto, p.descricao order by p.cod_produto ";
+            DataTable tabela = new DataTable();
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(tabela);
+
+            string[] retorno = new string[tabela.Rows.Count + 1];
+            retorno[0] = "Todos";
+            for (int i = 1; i < retorno.Length; i++)
+                retorno[i] = tabela.Rows[i - 1].ItemArray.GetValue(1).ToString();
+
+            return retorno;
+
+        }
+        
     }
 }
