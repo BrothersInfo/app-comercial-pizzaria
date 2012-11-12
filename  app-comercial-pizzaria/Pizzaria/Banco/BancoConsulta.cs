@@ -596,11 +596,14 @@ namespace Pizzaria.Banco
         {
             string query = "select cod_tipo from tipo where ativo  = true and upper(nome) = "
                 +"upper( trim('" + nome + "'))";
-            DataTable dtt = new DataTable();
-            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
-            sql.Fill(dtt);
-            return Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0));
-
+            try
+            {
+                DataTable dtt = new DataTable();
+                NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+                sql.Fill(dtt);
+                return Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0));
+            }
+            catch { return 0; }
         }
 
         public void cadastrarProduto(string nome, string tipo, Tamanho[] tam, bool isPizza)

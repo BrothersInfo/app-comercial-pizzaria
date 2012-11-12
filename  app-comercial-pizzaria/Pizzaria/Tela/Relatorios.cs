@@ -76,14 +76,14 @@ namespace Pizzaria.Tela
             }
             DataTable tabela = new BancoRelatorio().consultaVendaGeral(data, cbOrdenarVenda.SelectedIndex,gbSubFiltro.Visible,cbFiltroVenda.SelectedIndex,cbItem.SelectedIndex,rbVendaCres.Checked );
             carregarListView(tabela);
-            lValor.Text = somarValores(tabela);
+            lValor.Text = somarValores(tabela, 6);
         }
-        public string somarValores(DataTable tabela)
+        public string somarValores(DataTable tabela, int x)
         {
             double valor = 0;
             for (int i = 0; i < tabela.Rows.Count; i++)
                 valor += Convert.ToDouble( tabela.Rows[i].ItemArray.GetValue(6).ToString().Substring(0).Replace('.',','));
-            return "Valor Total : R$"+new Tratamento().retornaValorEscrito(valor);
+            return "Valor Total : R$"+new Tratamento().retornaValorEscrito( Math.Round( valor,2));
         }
         public void carregarVenda()
         {
@@ -128,6 +128,20 @@ namespace Pizzaria.Tela
             cbProdutoAno.SelectedIndex = DateTime.Now.Year - 2012;
 
             cbProdutoData.SelectedIndex = 0;
+
+            cbProdutTipo.DataSource =   new BancoRelatorio().categorias();
+            cbProdutTipo.SelectedIndex = 0;
+            if (cbProdutTipo.SelectedIndex != 0)
+            {
+                gbProduto.Visible = true;
+                gbFiltrarProduto.Visible = true;
+                cbProduto.DataSource = new BancoRelatorio().produtosDoTipo(new BancoConsulta().cod_tipoPeloNome(cbProdutTipo.SelectedItem.ToString()));
+                cbFiltroProduto.DataSource = new BancoRelatorio().tamanhosDoTipo(new BancoConsulta().cod_tipoPeloNome(cbProdutTipo.SelectedItem.ToString()));
+            }
+            else {
+                gbProduto.Visible = false;
+                gbFiltrarProduto.Visible = false;
+            }
         }
         public void carregaGarcon()
         {
@@ -252,7 +266,6 @@ namespace Pizzaria.Tela
             if (data.Length == 1)
             {
                 data[0] = cbGarconDia.SelectedItem + "/" + (cbGarconMes.SelectedIndex + 1) + "/" + cbGarconAno.SelectedItem;
-
             }
             else
             {
@@ -262,15 +275,66 @@ namespace Pizzaria.Tela
             DataTable tabela = new BancoRelatorio().consultaGarconGeral(cbGarconData.SelectedIndex == 2, data, cbGarcon.SelectedIndex != 0, cbGarcon.SelectedItem.ToString(), cbGarconAmbiente.SelectedIndex != 0, cbGarconAmbiente.SelectedItem.ToString(),
                 cbGarconTipo.SelectedIndex != 0, cbGarconTipo.SelectedItem.ToString(), cbOrdenarGarcon.SelectedIndex, rbGarconCres.Checked);
             carregarListView(tabela);
-            lValor.Text = somarValoresGarcon(tabela);
+            lValor.Text = somarValoresGarcon(tabela,8,9);
         }
-        public string somarValoresGarcon(DataTable tabela)
+        public string somarValoresGarcon(DataTable tabela, int x, int y)
         {
             double valor = 0;
             for (int i = 0; i < tabela.Rows.Count; i++)
-                valor += (Convert.ToDouble(tabela.Rows[i].ItemArray.GetValue(8).ToString().Substring(0).Replace('.', ','))*
-                    Convert.ToDouble(tabela.Rows[i].ItemArray.GetValue(9).ToString().Substring(0).Replace('.', ',')));
+                valor += (Convert.ToDouble(tabela.Rows[i].ItemArray.GetValue(x).ToString().Substring(0).Replace('.', ','))*
+                    Convert.ToDouble(tabela.Rows[i].ItemArray.GetValue(y).ToString().Substring(0).Replace('.', ',')));
             return "Valor Total : R$" + new Tratamento().retornaValorEscrito(valor);
+        }
+
+      
+        private void btConsultarProduto_Click(object sender, EventArgs e)
+        {
+            string[] data = new string[cbProdutoData.SelectedIndex + 1];
+
+            if (data.Length == 1)
+            {
+                data[0] = cbProdutoDia.SelectedItem + "/" + (cbProdutoMes.SelectedIndex + 1) + "/" + cbProdutoAno.SelectedItem;
+            }
+            else
+            {
+                data[0] = dtpProdutoUm.Value.ToShortDateString();
+                data[1] = dtpProdutoDois.Value.ToShortDateString();
+            }
+            DataTable tabela;
+            try
+            {
+               tabela = new BancoRelatorio().consultaProdutoGeral(data, rbProdutValor.Checked,
+                    cbProdutTipo.SelectedIndex != 0, new BancoConsulta().cod_tipoPeloNome(cbProdutTipo.SelectedItem.ToString()),
+                    cbFiltroProduto.SelectedIndex != 0, new Banco().codTamanho(cbFiltroProduto.SelectedItem.ToString()),
+                    cbProduto.SelectedIndex != 0, new Banco().codigoProduto(cbProduto.SelectedItem.ToString()));
+            }
+            catch
+            {
+                tabela = new BancoRelatorio().consultaProdutoGeral(data, rbProdutValor.Checked,
+                    cbProdutTipo.SelectedIndex != 0, new BancoConsulta().cod_tipoPeloNome(cbProdutTipo.SelectedItem.ToString()),
+                    false, 1,
+                    false, 1);
+            }
+            carregarListView(tabela);
+            if (rbProdutValor.Checked)
+                lValor.Text = somarValores(tabela,4);
+            else lValor.Text = "";
+        }
+
+        private void cbProdutTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbProdutTipo.SelectedIndex != 0)
+            {
+                gbProduto.Visible = true;
+                gbFiltrarProduto.Visible = true;
+                cbProduto.DataSource = new BancoRelatorio().produtosDoTipo(new BancoConsulta().cod_tipoPeloNome(cbProdutTipo.SelectedItem.ToString()));
+                cbFiltroProduto.DataSource = new BancoRelatorio().tamanhosDoTipo(new BancoConsulta().cod_tipoPeloNome(cbProdutTipo.SelectedItem.ToString()));
+            }
+            else
+            {
+                gbProduto.Visible = false;
+                gbFiltrarProduto.Visible = false;
+            }
         }
 
     }
