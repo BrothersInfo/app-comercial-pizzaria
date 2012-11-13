@@ -25,7 +25,7 @@ namespace Pizzaria.Tela
         private void posicionamento()
         {
             double valr = Screen.PrimaryScreen.Bounds.Height / 100f;
-            double yy = (13.5 * valr) +100;
+            double yy = (13.5 * valr);
             this.Location = new Point((Screen.PrimaryScreen.Bounds.Width - this.Size.Width) / 2, (int)yy);
         }
         

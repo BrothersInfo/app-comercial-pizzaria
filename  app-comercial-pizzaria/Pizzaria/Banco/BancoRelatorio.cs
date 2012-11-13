@@ -108,7 +108,7 @@ namespace Pizzaria.Banco
         {
 
             string query = "select "+ "(select mm.descricao from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) inner join venda vv on (vv.cod_venda = vmm.cod_venda) where v.cod_venda = vv.cod_venda order by vv.cod_venda desc limit 1) as \"Venda\","
-                + " (CASE v.horario > '06:00'  WHEN true THEN to_char(v.dataVenda, 'DD MM YYYY') ELSE to_char( v.dataVenda - 1, 'DD MM YYYY')   end ) as \"Data\", to_char(v.horario, 'HH24:MI:SS') as \"Horario\", x.nomeCaixa as \"Caixa\" ,"
+                + " (CASE v.horario > '06:00'  WHEN true THEN to_char(v.dataVenda, 'DD MM YYYY') ELSE to_char( v.dataVenda - 1, 'DD MM YYYY')||'* Madrugada'   end ) as \"Data\", to_char(v.horario, 'HH24:MI:SS') as \"Horario\", x.nomeCaixa as \"Caixa\" ,"
                 
                 + "(select gg.nome from garcon gg inner join GarconCompleto ccg on (ccg.cod_garcon = gg.cod_garcon) "
                 +" inner join completo cc on (cc.cod_completo = ccg.cod_completo) inner join vendaCompleta vvg on (vvg.cod_completo = cc.cod_completo) "
@@ -170,7 +170,7 @@ namespace Pizzaria.Banco
         ,bool hasAmbiente, string ambiente, bool hasTipo, string tipo, int order , bool ascen)
         {
             string query =
-                "select (CASE v.horario > '06:00'  WHEN true THEN to_char(v.dataVenda, 'DD MM YYYY') ELSE to_char( v.dataVenda - 1, 'DD MM YYYY')   end ) as \"Data da Venda\"" +
+                "select (CASE v.horario > '06:00'  WHEN true THEN to_char(v.dataVenda, 'DD MM YYYY') ELSE to_char( v.dataVenda - 1, 'DD MM YYYY')||'* Madrugada'   end ) as \"Data da Venda\"" +
                 ", g.nome as \"Garcon\"" +
                 ",(select mm.descricao from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) " +
                 " inner join venda vv on (vv.cod_venda = vmm.cod_venda) " +
@@ -212,7 +212,7 @@ namespace Pizzaria.Banco
                 
                 if (!aberta){
                     if (data.Length == 1)
-                        query += "and (v.dataVenda = '" + data[0] + "' and v.horario > ' 06:00' ) or (v.dataVenda = date '" + data[0] + "' + 1 and v.horario < ' 06:00' )";
+                        query += " and (v.dataVenda = '" + data[0] + "' and v.horario > ' 06:00' ) or (v.dataVenda = date '" + data[0] + "' + 1 and v.horario < ' 06:00' )";
                     else
                         query += " and v.dataVenda between '" + data[0] + "' and '" + data[1] + "' ";
                 }
@@ -273,7 +273,7 @@ namespace Pizzaria.Banco
                 " inner join 	venda v			          on (v.cod_venda = vc.cod_venda)" +
                 " where ";
             if (data.Length == 1)
-                query += "and (v.dataVenda = '" + data[0] + "' and v.horario > ' 06:00' ) or (v.dataVenda = date '" + data[0] + "' + 1 and v.horario < ' 06:00' )";
+                query += " (v.dataVenda = '" + data[0] + "' and v.horario > ' 06:00' ) or (v.dataVenda = date '" + data[0] + "' + 1 and v.horario < ' 06:00' )";
             else
                 query += " v.dataVenda between '" + data[0] + "' and '" + data[1] + "' ";
             if (hasTipo)
