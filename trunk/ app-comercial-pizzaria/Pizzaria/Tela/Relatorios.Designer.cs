@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TipoRelatorio));
             this.LTipoRelatorio = new System.Windows.Forms.Label();
-            this.LRelatorio = new System.Windows.Forms.Label();
             this.cbRelatorio = new System.Windows.Forms.ComboBox();
             this.cbVendaDia = new System.Windows.Forms.ComboBox();
             this.gbDataVenda = new System.Windows.Forms.GroupBox();
@@ -57,13 +56,15 @@
             this.cbVendaData = new System.Windows.Forms.ComboBox();
             this.flpProduto = new System.Windows.Forms.FlowLayoutPanel();
             this.btConsultarProduto = new System.Windows.Forms.Button();
-            this.gbOrdenarProduto = new System.Windows.Forms.GroupBox();
-            this.rbProdutValor = new System.Windows.Forms.RadioButton();
-            this.rbProdutQuant = new System.Windows.Forms.RadioButton();
             this.gbFiltrarProduto = new System.Windows.Forms.GroupBox();
             this.cbFiltroProduto = new System.Windows.Forms.ComboBox();
             this.gbProduto = new System.Windows.Forms.GroupBox();
             this.cbProduto = new System.Windows.Forms.ComboBox();
+            this.gbProdutTipo = new System.Windows.Forms.GroupBox();
+            this.cbProdutTipo = new System.Windows.Forms.ComboBox();
+            this.gbOrdenarProduto = new System.Windows.Forms.GroupBox();
+            this.rbProdutValor = new System.Windows.Forms.RadioButton();
+            this.rbProdutQuant = new System.Windows.Forms.RadioButton();
             this.gbProdutoDia = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbProdutoAno = new System.Windows.Forms.ComboBox();
@@ -106,8 +107,7 @@
             this.lvConsInfo = new System.Windows.Forms.ListView();
             this.pValor = new System.Windows.Forms.Panel();
             this.lValor = new System.Windows.Forms.Label();
-            this.gbProdutTipo = new System.Windows.Forms.GroupBox();
-            this.cbProdutTipo = new System.Windows.Forms.ComboBox();
+            this.btEscolhaProduto = new System.Windows.Forms.Button();
             this.gbDataVenda.SuspendLayout();
             this.gbPeriodoVenda.SuspendLayout();
             this.flpPrincipal.SuspendLayout();
@@ -117,9 +117,10 @@
             this.gbFiltroVenda.SuspendLayout();
             this.gbVendaData.SuspendLayout();
             this.flpProduto.SuspendLayout();
-            this.gbOrdenarProduto.SuspendLayout();
             this.gbFiltrarProduto.SuspendLayout();
             this.gbProduto.SuspendLayout();
+            this.gbProdutTipo.SuspendLayout();
+            this.gbOrdenarProduto.SuspendLayout();
             this.gbProdutoDia.SuspendLayout();
             this.gbPeriodoProduto.SuspendLayout();
             this.gbProdutoData.SuspendLayout();
@@ -135,7 +136,6 @@
             this.tlpFundo.SuspendLayout();
             this.pFiltro.SuspendLayout();
             this.pValor.SuspendLayout();
-            this.gbProdutTipo.SuspendLayout();
             this.SuspendLayout();
             // 
             // LTipoRelatorio
@@ -147,16 +147,6 @@
             this.LTipoRelatorio.Size = new System.Drawing.Size(192, 20);
             this.LTipoRelatorio.TabIndex = 0;
             this.LTipoRelatorio.Text = "Escolha o tipo de relatório";
-            // 
-            // LRelatorio
-            // 
-            this.LRelatorio.AutoSize = true;
-            this.LRelatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LRelatorio.Location = new System.Drawing.Point(455, 9);
-            this.LRelatorio.Name = "LRelatorio";
-            this.LRelatorio.Size = new System.Drawing.Size(117, 20);
-            this.LRelatorio.TabIndex = 1;
-            this.LRelatorio.Text = "RELATÓRIOS ";
             // 
             // cbRelatorio
             // 
@@ -211,7 +201,7 @@
             this.cbVendaDia.Location = new System.Drawing.Point(9, 41);
             this.cbVendaDia.Name = "cbVendaDia";
             this.cbVendaDia.Size = new System.Drawing.Size(48, 23);
-            this.cbVendaDia.TabIndex = 4;
+            this.cbVendaDia.TabIndex = 0;
             // 
             // gbDataVenda
             // 
@@ -256,7 +246,7 @@
             this.cbVendaAno.Location = new System.Drawing.Point(167, 41);
             this.cbVendaAno.Name = "cbVendaAno";
             this.cbVendaAno.Size = new System.Drawing.Size(51, 23);
-            this.cbVendaAno.TabIndex = 8;
+            this.cbVendaAno.TabIndex = 2;
             // 
             // lMes
             // 
@@ -287,7 +277,7 @@
             this.cbVendaMes.Location = new System.Drawing.Point(64, 41);
             this.cbVendaMes.Name = "cbVendaMes";
             this.cbVendaMes.Size = new System.Drawing.Size(97, 23);
-            this.cbVendaMes.TabIndex = 6;
+            this.cbVendaMes.TabIndex = 1;
             // 
             // lDia
             // 
@@ -319,7 +309,7 @@
             this.dtpVendaDois.MinDate = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
             this.dtpVendaDois.Name = "dtpVendaDois";
             this.dtpVendaDois.Size = new System.Drawing.Size(101, 23);
-            this.dtpVendaDois.TabIndex = 11;
+            this.dtpVendaDois.TabIndex = 1;
             // 
             // dtpVendaUm
             // 
@@ -329,7 +319,7 @@
             this.dtpVendaUm.MinDate = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
             this.dtpVendaUm.Name = "dtpVendaUm";
             this.dtpVendaUm.Size = new System.Drawing.Size(101, 23);
-            this.dtpVendaUm.TabIndex = 10;
+            this.dtpVendaUm.TabIndex = 0;
             // 
             // flpPrincipal
             // 
@@ -341,7 +331,7 @@
             this.flpPrincipal.Location = new System.Drawing.Point(245, 0);
             this.flpPrincipal.Margin = new System.Windows.Forms.Padding(0);
             this.flpPrincipal.Name = "flpPrincipal";
-            this.flpPrincipal.Size = new System.Drawing.Size(1048, 96);
+            this.flpPrincipal.Size = new System.Drawing.Size(1048, 102);
             this.flpPrincipal.TabIndex = 9;
             // 
             // flpVenda
@@ -357,8 +347,8 @@
             this.flpVenda.Location = new System.Drawing.Point(0, 0);
             this.flpVenda.Margin = new System.Windows.Forms.Padding(0);
             this.flpVenda.Name = "flpVenda";
-            this.flpVenda.Size = new System.Drawing.Size(1048, 100);
-            this.flpVenda.TabIndex = 13;
+            this.flpVenda.Size = new System.Drawing.Size(1048, 97);
+            this.flpVenda.TabIndex = 0;
             // 
             // btConsultarVenda
             // 
@@ -367,7 +357,7 @@
             this.btConsultarVenda.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btConsultarVenda.Name = "btConsultarVenda";
             this.btConsultarVenda.Size = new System.Drawing.Size(100, 31);
-            this.btConsultarVenda.TabIndex = 10;
+            this.btConsultarVenda.TabIndex = 0;
             this.btConsultarVenda.Text = "Consultar";
             this.btConsultarVenda.UseVisualStyleBackColor = true;
             this.btConsultarVenda.Click += new System.EventHandler(this.btConsultarVenda_Click);
@@ -393,7 +383,7 @@
             this.cbOrdenarVenda.Location = new System.Drawing.Point(11, 17);
             this.cbOrdenarVenda.Name = "cbOrdenarVenda";
             this.cbOrdenarVenda.Size = new System.Drawing.Size(102, 23);
-            this.cbOrdenarVenda.TabIndex = 4;
+            this.cbOrdenarVenda.TabIndex = 0;
             // 
             // rbVendaCres
             // 
@@ -402,7 +392,7 @@
             this.rbVendaCres.Location = new System.Drawing.Point(15, 45);
             this.rbVendaCres.Name = "rbVendaCres";
             this.rbVendaCres.Size = new System.Drawing.Size(82, 19);
-            this.rbVendaCres.TabIndex = 3;
+            this.rbVendaCres.TabIndex = 1;
             this.rbVendaCres.TabStop = true;
             this.rbVendaCres.Text = "Crescente";
             this.rbVendaCres.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
@@ -441,7 +431,7 @@
             this.cbItem.Location = new System.Drawing.Point(6, 39);
             this.cbItem.Name = "cbItem";
             this.cbItem.Size = new System.Drawing.Size(96, 23);
-            this.cbItem.TabIndex = 5;
+            this.cbItem.TabIndex = 0;
             // 
             // gbFiltroVenda
             // 
@@ -467,7 +457,7 @@
             this.cbFiltroVenda.Location = new System.Drawing.Point(6, 39);
             this.cbFiltroVenda.Name = "cbFiltroVenda";
             this.cbFiltroVenda.Size = new System.Drawing.Size(119, 23);
-            this.cbFiltroVenda.TabIndex = 5;
+            this.cbFiltroVenda.TabIndex = 0;
             this.cbFiltroVenda.SelectedIndexChanged += new System.EventHandler(this.cbFiltroVenda_SelectedIndexChanged);
             // 
             // gbVendaData
@@ -478,7 +468,7 @@
             this.gbVendaData.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbVendaData.Name = "gbVendaData";
             this.gbVendaData.Size = new System.Drawing.Size(108, 88);
-            this.gbVendaData.TabIndex = 12;
+            this.gbVendaData.TabIndex = 1;
             this.gbVendaData.TabStop = false;
             this.gbVendaData.Text = "Data";
             // 
@@ -492,7 +482,7 @@
             this.cbVendaData.Location = new System.Drawing.Point(6, 39);
             this.cbVendaData.Name = "cbVendaData";
             this.cbVendaData.Size = new System.Drawing.Size(96, 26);
-            this.cbVendaData.TabIndex = 5;
+            this.cbVendaData.TabIndex = 0;
             this.cbVendaData.SelectedIndexChanged += new System.EventHandler(this.cbData_SelectedIndexChanged);
             // 
             // flpProduto
@@ -506,11 +496,11 @@
             this.flpProduto.Controls.Add(this.gbPeriodoProduto);
             this.flpProduto.Controls.Add(this.gbProdutoData);
             this.flpProduto.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flpProduto.Location = new System.Drawing.Point(0, 100);
+            this.flpProduto.Location = new System.Drawing.Point(0, 97);
             this.flpProduto.Margin = new System.Windows.Forms.Padding(0);
             this.flpProduto.Name = "flpProduto";
             this.flpProduto.Size = new System.Drawing.Size(1048, 99);
-            this.flpProduto.TabIndex = 14;
+            this.flpProduto.TabIndex = 1;
             // 
             // btConsultarProduto
             // 
@@ -519,10 +509,74 @@
             this.btConsultarProduto.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btConsultarProduto.Name = "btConsultarProduto";
             this.btConsultarProduto.Size = new System.Drawing.Size(100, 31);
-            this.btConsultarProduto.TabIndex = 11;
+            this.btConsultarProduto.TabIndex = 6;
             this.btConsultarProduto.Text = "Consultar";
             this.btConsultarProduto.UseVisualStyleBackColor = true;
             this.btConsultarProduto.Click += new System.EventHandler(this.btConsultarProduto_Click);
+            // 
+            // gbFiltrarProduto
+            // 
+            this.gbFiltrarProduto.Controls.Add(this.cbFiltroProduto);
+            this.gbFiltrarProduto.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbFiltrarProduto.Location = new System.Drawing.Point(837, 3);
+            this.gbFiltrarProduto.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbFiltrarProduto.Name = "gbFiltrarProduto";
+            this.gbFiltrarProduto.Size = new System.Drawing.Size(105, 88);
+            this.gbFiltrarProduto.TabIndex = 5;
+            this.gbFiltrarProduto.TabStop = false;
+            this.gbFiltrarProduto.Text = "Sub Categoria";
+            // 
+            // cbFiltroProduto
+            // 
+            this.cbFiltroProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFiltroProduto.FormattingEnabled = true;
+            this.cbFiltroProduto.Location = new System.Drawing.Point(8, 39);
+            this.cbFiltroProduto.Name = "cbFiltroProduto";
+            this.cbFiltroProduto.Size = new System.Drawing.Size(91, 23);
+            this.cbFiltroProduto.TabIndex = 0;
+            // 
+            // gbProduto
+            // 
+            this.gbProduto.Controls.Add(this.cbProduto);
+            this.gbProduto.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbProduto.Location = new System.Drawing.Point(720, 3);
+            this.gbProduto.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbProduto.Name = "gbProduto";
+            this.gbProduto.Size = new System.Drawing.Size(113, 88);
+            this.gbProduto.TabIndex = 4;
+            this.gbProduto.TabStop = false;
+            this.gbProduto.Text = "Produto";
+            // 
+            // cbProduto
+            // 
+            this.cbProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProduto.FormattingEnabled = true;
+            this.cbProduto.Location = new System.Drawing.Point(9, 39);
+            this.cbProduto.Name = "cbProduto";
+            this.cbProduto.Size = new System.Drawing.Size(100, 23);
+            this.cbProduto.TabIndex = 0;
+            // 
+            // gbProdutTipo
+            // 
+            this.gbProdutTipo.Controls.Add(this.cbProdutTipo);
+            this.gbProdutTipo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbProdutTipo.Location = new System.Drawing.Point(596, 3);
+            this.gbProdutTipo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbProdutTipo.Name = "gbProdutTipo";
+            this.gbProdutTipo.Size = new System.Drawing.Size(120, 88);
+            this.gbProdutTipo.TabIndex = 3;
+            this.gbProdutTipo.TabStop = false;
+            this.gbProdutTipo.Text = "Categoria de Produto";
+            // 
+            // cbProdutTipo
+            // 
+            this.cbProdutTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProdutTipo.FormattingEnabled = true;
+            this.cbProdutTipo.Location = new System.Drawing.Point(5, 39);
+            this.cbProdutTipo.Name = "cbProdutTipo";
+            this.cbProdutTipo.Size = new System.Drawing.Size(110, 23);
+            this.cbProdutTipo.TabIndex = 0;
+            this.cbProdutTipo.SelectedIndexChanged += new System.EventHandler(this.cbProdutTipo_SelectedIndexChanged);
             // 
             // gbOrdenarProduto
             // 
@@ -533,7 +587,7 @@
             this.gbOrdenarProduto.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbOrdenarProduto.Name = "gbOrdenarProduto";
             this.gbOrdenarProduto.Size = new System.Drawing.Size(100, 88);
-            this.gbOrdenarProduto.TabIndex = 13;
+            this.gbOrdenarProduto.TabIndex = 2;
             this.gbOrdenarProduto.TabStop = false;
             this.gbOrdenarProduto.Text = "Separar por";
             // 
@@ -544,7 +598,7 @@
             this.rbProdutValor.Location = new System.Drawing.Point(9, 28);
             this.rbProdutValor.Name = "rbProdutValor";
             this.rbProdutValor.Size = new System.Drawing.Size(52, 19);
-            this.rbProdutValor.TabIndex = 3;
+            this.rbProdutValor.TabIndex = 0;
             this.rbProdutValor.TabStop = true;
             this.rbProdutValor.Text = "Valor";
             this.rbProdutValor.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
@@ -556,52 +610,10 @@
             this.rbProdutQuant.Location = new System.Drawing.Point(9, 54);
             this.rbProdutQuant.Name = "rbProdutQuant";
             this.rbProdutQuant.Size = new System.Drawing.Size(89, 19);
-            this.rbProdutQuant.TabIndex = 2;
+            this.rbProdutQuant.TabIndex = 1;
             this.rbProdutQuant.Text = "Quantidade";
             this.rbProdutQuant.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.rbProdutQuant.UseVisualStyleBackColor = true;
-            // 
-            // gbFiltrarProduto
-            // 
-            this.gbFiltrarProduto.Controls.Add(this.cbFiltroProduto);
-            this.gbFiltrarProduto.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbFiltrarProduto.Location = new System.Drawing.Point(837, 3);
-            this.gbFiltrarProduto.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gbFiltrarProduto.Name = "gbFiltrarProduto";
-            this.gbFiltrarProduto.Size = new System.Drawing.Size(105, 88);
-            this.gbFiltrarProduto.TabIndex = 12;
-            this.gbFiltrarProduto.TabStop = false;
-            this.gbFiltrarProduto.Text = "Sub Categoria";
-            // 
-            // cbFiltroProduto
-            // 
-            this.cbFiltroProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbFiltroProduto.FormattingEnabled = true;
-            this.cbFiltroProduto.Location = new System.Drawing.Point(8, 39);
-            this.cbFiltroProduto.Name = "cbFiltroProduto";
-            this.cbFiltroProduto.Size = new System.Drawing.Size(91, 23);
-            this.cbFiltroProduto.TabIndex = 5;
-            // 
-            // gbProduto
-            // 
-            this.gbProduto.Controls.Add(this.cbProduto);
-            this.gbProduto.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbProduto.Location = new System.Drawing.Point(720, 3);
-            this.gbProduto.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gbProduto.Name = "gbProduto";
-            this.gbProduto.Size = new System.Drawing.Size(113, 88);
-            this.gbProduto.TabIndex = 5;
-            this.gbProduto.TabStop = false;
-            this.gbProduto.Text = "Produto";
-            // 
-            // cbProduto
-            // 
-            this.cbProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbProduto.FormattingEnabled = true;
-            this.cbProduto.Location = new System.Drawing.Point(9, 39);
-            this.cbProduto.Name = "cbProduto";
-            this.cbProduto.Size = new System.Drawing.Size(100, 23);
-            this.cbProduto.TabIndex = 4;
             // 
             // gbProdutoDia
             // 
@@ -616,7 +628,7 @@
             this.gbProdutoDia.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbProdutoDia.Name = "gbProdutoDia";
             this.gbProdutoDia.Size = new System.Drawing.Size(224, 88);
-            this.gbProdutoDia.TabIndex = 14;
+            this.gbProdutoDia.TabIndex = 1;
             this.gbProdutoDia.TabStop = false;
             this.gbProdutoDia.Text = "Data";
             // 
@@ -646,7 +658,7 @@
             this.cbProdutoAno.Location = new System.Drawing.Point(167, 41);
             this.cbProdutoAno.Name = "cbProdutoAno";
             this.cbProdutoAno.Size = new System.Drawing.Size(51, 23);
-            this.cbProdutoAno.TabIndex = 8;
+            this.cbProdutoAno.TabIndex = 2;
             // 
             // label2
             // 
@@ -677,7 +689,7 @@
             this.cbProdutoMes.Location = new System.Drawing.Point(64, 41);
             this.cbProdutoMes.Name = "cbProdutoMes";
             this.cbProdutoMes.Size = new System.Drawing.Size(97, 23);
-            this.cbProdutoMes.TabIndex = 6;
+            this.cbProdutoMes.TabIndex = 1;
             // 
             // label3
             // 
@@ -727,7 +739,7 @@
             this.cbProdutoDia.Location = new System.Drawing.Point(9, 41);
             this.cbProdutoDia.Name = "cbProdutoDia";
             this.cbProdutoDia.Size = new System.Drawing.Size(48, 23);
-            this.cbProdutoDia.TabIndex = 4;
+            this.cbProdutoDia.TabIndex = 0;
             // 
             // gbPeriodoProduto
             // 
@@ -738,7 +750,7 @@
             this.gbPeriodoProduto.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbPeriodoProduto.Name = "gbPeriodoProduto";
             this.gbPeriodoProduto.Size = new System.Drawing.Size(224, 88);
-            this.gbPeriodoProduto.TabIndex = 9;
+            this.gbPeriodoProduto.TabIndex = 0;
             this.gbPeriodoProduto.TabStop = false;
             this.gbPeriodoProduto.Text = "Período";
             // 
@@ -750,7 +762,7 @@
             this.dtpProdutoDois.MinDate = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
             this.dtpProdutoDois.Name = "dtpProdutoDois";
             this.dtpProdutoDois.Size = new System.Drawing.Size(101, 23);
-            this.dtpProdutoDois.TabIndex = 11;
+            this.dtpProdutoDois.TabIndex = 1;
             // 
             // dtpProdutoUm
             // 
@@ -760,7 +772,7 @@
             this.dtpProdutoUm.MinDate = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
             this.dtpProdutoUm.Name = "dtpProdutoUm";
             this.dtpProdutoUm.Size = new System.Drawing.Size(101, 23);
-            this.dtpProdutoUm.TabIndex = 10;
+            this.dtpProdutoUm.TabIndex = 0;
             // 
             // gbProdutoData
             // 
@@ -784,7 +796,7 @@
             this.cbProdutoData.Location = new System.Drawing.Point(6, 39);
             this.cbProdutoData.Name = "cbProdutoData";
             this.cbProdutoData.Size = new System.Drawing.Size(96, 23);
-            this.cbProdutoData.TabIndex = 5;
+            this.cbProdutoData.TabIndex = 0;
             this.cbProdutoData.SelectedIndexChanged += new System.EventHandler(this.cbProdutoData_SelectedIndexChanged);
             // 
             // flpGarcon
@@ -798,11 +810,11 @@
             this.flpGarcon.Controls.Add(this.gbGarconDia);
             this.flpGarcon.Controls.Add(this.gbGarconData);
             this.flpGarcon.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flpGarcon.Location = new System.Drawing.Point(0, 199);
+            this.flpGarcon.Location = new System.Drawing.Point(0, 196);
             this.flpGarcon.Margin = new System.Windows.Forms.Padding(0);
             this.flpGarcon.Name = "flpGarcon";
             this.flpGarcon.Size = new System.Drawing.Size(1048, 98);
-            this.flpGarcon.TabIndex = 15;
+            this.flpGarcon.TabIndex = 2;
             // 
             // btConsultarGarcon
             // 
@@ -826,7 +838,7 @@
             this.gbOrdenarGarcon.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbOrdenarGarcon.Name = "gbOrdenarGarcon";
             this.gbOrdenarGarcon.Size = new System.Drawing.Size(123, 88);
-            this.gbOrdenarGarcon.TabIndex = 13;
+            this.gbOrdenarGarcon.TabIndex = 6;
             this.gbOrdenarGarcon.TabStop = false;
             this.gbOrdenarGarcon.Text = "Ordenar";
             // 
@@ -842,7 +854,7 @@
             this.cbOrdenarGarcon.Location = new System.Drawing.Point(11, 17);
             this.cbOrdenarGarcon.Name = "cbOrdenarGarcon";
             this.cbOrdenarGarcon.Size = new System.Drawing.Size(102, 23);
-            this.cbOrdenarGarcon.TabIndex = 4;
+            this.cbOrdenarGarcon.TabIndex = 0;
             // 
             // rbGarconCres
             // 
@@ -851,7 +863,7 @@
             this.rbGarconCres.Location = new System.Drawing.Point(15, 45);
             this.rbGarconCres.Name = "rbGarconCres";
             this.rbGarconCres.Size = new System.Drawing.Size(82, 19);
-            this.rbGarconCres.TabIndex = 3;
+            this.rbGarconCres.TabIndex = 1;
             this.rbGarconCres.TabStop = true;
             this.rbGarconCres.Text = "Crescente";
             this.rbGarconCres.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
@@ -876,7 +888,7 @@
             this.bgFiltro2Garcon.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.bgFiltro2Garcon.Name = "bgFiltro2Garcon";
             this.bgFiltro2Garcon.Size = new System.Drawing.Size(117, 88);
-            this.bgFiltro2Garcon.TabIndex = 16;
+            this.bgFiltro2Garcon.TabIndex = 5;
             this.bgFiltro2Garcon.TabStop = false;
             this.bgFiltro2Garcon.Text = "Ambiente";
             // 
@@ -887,7 +899,7 @@
             this.cbGarconAmbiente.Location = new System.Drawing.Point(6, 39);
             this.cbGarconAmbiente.Name = "cbGarconAmbiente";
             this.cbGarconAmbiente.Size = new System.Drawing.Size(103, 23);
-            this.cbGarconAmbiente.TabIndex = 5;
+            this.cbGarconAmbiente.TabIndex = 0;
             // 
             // gbFiltro1Garcon
             // 
@@ -897,7 +909,7 @@
             this.gbFiltro1Garcon.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbFiltro1Garcon.Name = "gbFiltro1Garcon";
             this.gbFiltro1Garcon.Size = new System.Drawing.Size(117, 88);
-            this.gbFiltro1Garcon.TabIndex = 12;
+            this.gbFiltro1Garcon.TabIndex = 4;
             this.gbFiltro1Garcon.TabStop = false;
             this.gbFiltro1Garcon.Text = "Categoria de Produto";
             // 
@@ -908,7 +920,7 @@
             this.cbGarconTipo.Location = new System.Drawing.Point(6, 39);
             this.cbGarconTipo.Name = "cbGarconTipo";
             this.cbGarconTipo.Size = new System.Drawing.Size(105, 23);
-            this.cbGarconTipo.TabIndex = 5;
+            this.cbGarconTipo.TabIndex = 0;
             // 
             // gpGarcon
             // 
@@ -918,7 +930,7 @@
             this.gpGarcon.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gpGarcon.Name = "gpGarcon";
             this.gpGarcon.Size = new System.Drawing.Size(109, 88);
-            this.gpGarcon.TabIndex = 5;
+            this.gpGarcon.TabIndex = 3;
             this.gpGarcon.TabStop = false;
             this.gpGarcon.Text = "Garçon";
             // 
@@ -929,7 +941,7 @@
             this.cbGarcon.Location = new System.Drawing.Point(9, 39);
             this.cbGarcon.Name = "cbGarcon";
             this.cbGarcon.Size = new System.Drawing.Size(90, 23);
-            this.cbGarcon.TabIndex = 4;
+            this.cbGarcon.TabIndex = 0;
             // 
             // gbPeriodoGarcon
             // 
@@ -940,7 +952,7 @@
             this.gbPeriodoGarcon.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbPeriodoGarcon.Name = "gbPeriodoGarcon";
             this.gbPeriodoGarcon.Size = new System.Drawing.Size(224, 88);
-            this.gbPeriodoGarcon.TabIndex = 9;
+            this.gbPeriodoGarcon.TabIndex = 2;
             this.gbPeriodoGarcon.TabStop = false;
             this.gbPeriodoGarcon.Text = "Período";
             // 
@@ -952,7 +964,7 @@
             this.dtpGarconDois.MinDate = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
             this.dtpGarconDois.Name = "dtpGarconDois";
             this.dtpGarconDois.Size = new System.Drawing.Size(101, 23);
-            this.dtpGarconDois.TabIndex = 11;
+            this.dtpGarconDois.TabIndex = 1;
             // 
             // dtpGarconUm
             // 
@@ -962,7 +974,7 @@
             this.dtpGarconUm.MinDate = new System.DateTime(2012, 1, 1, 0, 0, 0, 0);
             this.dtpGarconUm.Name = "dtpGarconUm";
             this.dtpGarconUm.Size = new System.Drawing.Size(101, 23);
-            this.dtpGarconUm.TabIndex = 10;
+            this.dtpGarconUm.TabIndex = 0;
             // 
             // gbGarconDia
             // 
@@ -977,7 +989,7 @@
             this.gbGarconDia.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbGarconDia.Name = "gbGarconDia";
             this.gbGarconDia.Size = new System.Drawing.Size(224, 88);
-            this.gbGarconDia.TabIndex = 14;
+            this.gbGarconDia.TabIndex = 1;
             this.gbGarconDia.TabStop = false;
             this.gbGarconDia.Text = "Data";
             // 
@@ -1007,7 +1019,7 @@
             this.cbGarconAno.Location = new System.Drawing.Point(163, 41);
             this.cbGarconAno.Name = "cbGarconAno";
             this.cbGarconAno.Size = new System.Drawing.Size(53, 23);
-            this.cbGarconAno.TabIndex = 8;
+            this.cbGarconAno.TabIndex = 2;
             // 
             // label5
             // 
@@ -1038,7 +1050,7 @@
             this.cbGarconMes.Location = new System.Drawing.Point(68, 41);
             this.cbGarconMes.Name = "cbGarconMes";
             this.cbGarconMes.Size = new System.Drawing.Size(88, 23);
-            this.cbGarconMes.TabIndex = 6;
+            this.cbGarconMes.TabIndex = 1;
             // 
             // label6
             // 
@@ -1088,7 +1100,7 @@
             this.cbGarconDia.Location = new System.Drawing.Point(9, 41);
             this.cbGarconDia.Name = "cbGarconDia";
             this.cbGarconDia.Size = new System.Drawing.Size(55, 23);
-            this.cbGarconDia.TabIndex = 4;
+            this.cbGarconDia.TabIndex = 0;
             // 
             // gbGarconData
             // 
@@ -1098,7 +1110,7 @@
             this.gbGarconData.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbGarconData.Name = "gbGarconData";
             this.gbGarconData.Size = new System.Drawing.Size(123, 88);
-            this.gbGarconData.TabIndex = 15;
+            this.gbGarconData.TabIndex = 0;
             this.gbGarconData.TabStop = false;
             this.gbGarconData.Text = "Data";
             // 
@@ -1113,7 +1125,7 @@
             this.cbGarconData.Location = new System.Drawing.Point(7, 39);
             this.cbGarconData.Name = "cbGarconData";
             this.cbGarconData.Size = new System.Drawing.Size(110, 23);
-            this.cbGarconData.TabIndex = 5;
+            this.cbGarconData.TabIndex = 0;
             this.cbGarconData.SelectedIndexChanged += new System.EventHandler(this.cbGarconData_SelectedIndexChanged);
             // 
             // pTipoRelatorio
@@ -1124,7 +1136,7 @@
             this.pTipoRelatorio.Location = new System.Drawing.Point(0, 0);
             this.pTipoRelatorio.Margin = new System.Windows.Forms.Padding(0);
             this.pTipoRelatorio.Name = "pTipoRelatorio";
-            this.pTipoRelatorio.Size = new System.Drawing.Size(245, 96);
+            this.pTipoRelatorio.Size = new System.Drawing.Size(245, 102);
             this.pTipoRelatorio.TabIndex = 1;
             // 
             // tlpFundo
@@ -1140,7 +1152,7 @@
             this.tlpFundo.Location = new System.Drawing.Point(0, 0);
             this.tlpFundo.Name = "tlpFundo";
             this.tlpFundo.RowCount = 3;
-            this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 102F));
             this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tlpFundo.Size = new System.Drawing.Size(1338, 487);
@@ -1154,7 +1166,7 @@
             this.pFiltro.Location = new System.Drawing.Point(25, 0);
             this.pFiltro.Margin = new System.Windows.Forms.Padding(0);
             this.pFiltro.Name = "pFiltro";
-            this.pFiltro.Size = new System.Drawing.Size(1293, 96);
+            this.pFiltro.Size = new System.Drawing.Size(1293, 102);
             this.pFiltro.TabIndex = 0;
             // 
             // lvConsInfo
@@ -1165,25 +1177,26 @@
             this.lvConsInfo.FullRowSelect = true;
             this.lvConsInfo.GridLines = true;
             this.lvConsInfo.HoverSelection = true;
-            this.lvConsInfo.Location = new System.Drawing.Point(25, 96);
+            this.lvConsInfo.Location = new System.Drawing.Point(25, 102);
             this.lvConsInfo.Margin = new System.Windows.Forms.Padding(0);
             this.lvConsInfo.Name = "lvConsInfo";
-            this.lvConsInfo.Size = new System.Drawing.Size(1293, 341);
+            this.lvConsInfo.Size = new System.Drawing.Size(1293, 335);
             this.lvConsInfo.TabIndex = 45;
             this.lvConsInfo.UseCompatibleStateImageBehavior = false;
             this.lvConsInfo.View = System.Windows.Forms.View.Details;
             // 
             // pValor
             // 
-            this.pValor.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pValor.BackColor = System.Drawing.Color.White;
             this.pValor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pValor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pValor.Controls.Add(this.btEscolhaProduto);
             this.pValor.Controls.Add(this.lValor);
-            this.pValor.Location = new System.Drawing.Point(872, 442);
-            this.pValor.Margin = new System.Windows.Forms.Padding(2);
+            this.pValor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pValor.Location = new System.Drawing.Point(30, 442);
+            this.pValor.Margin = new System.Windows.Forms.Padding(5);
             this.pValor.Name = "pValor";
-            this.pValor.Size = new System.Drawing.Size(444, 39);
+            this.pValor.Size = new System.Drawing.Size(1283, 40);
             this.pValor.TabIndex = 46;
             // 
             // lValor
@@ -1192,32 +1205,24 @@
             this.lValor.AutoSize = true;
             this.lValor.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.lValor.ForeColor = System.Drawing.Color.Red;
-            this.lValor.Location = new System.Drawing.Point(218, 10);
+            this.lValor.Location = new System.Drawing.Point(1072, 11);
             this.lValor.Name = "lValor";
             this.lValor.Size = new System.Drawing.Size(0, 18);
             this.lValor.TabIndex = 37;
             // 
-            // gbProdutTipo
+            // btEscolhaProduto
             // 
-            this.gbProdutTipo.Controls.Add(this.cbProdutTipo);
-            this.gbProdutTipo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbProdutTipo.Location = new System.Drawing.Point(596, 3);
-            this.gbProdutTipo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gbProdutTipo.Name = "gbProdutTipo";
-            this.gbProdutTipo.Size = new System.Drawing.Size(120, 88);
-            this.gbProdutTipo.TabIndex = 13;
-            this.gbProdutTipo.TabStop = false;
-            this.gbProdutTipo.Text = "Categoria de Produto";
-            // 
-            // cbProdutTipo
-            // 
-            this.cbProdutTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbProdutTipo.FormattingEnabled = true;
-            this.cbProdutTipo.Location = new System.Drawing.Point(5, 39);
-            this.cbProdutTipo.Name = "cbProdutTipo";
-            this.cbProdutTipo.Size = new System.Drawing.Size(110, 23);
-            this.cbProdutTipo.TabIndex = 5;
-            this.cbProdutTipo.SelectedIndexChanged += new System.EventHandler(this.cbProdutTipo_SelectedIndexChanged);
+            this.btEscolhaProduto.BackgroundImage = global::Pizzaria.Properties.Resources.backf;
+            this.btEscolhaProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btEscolhaProduto.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btEscolhaProduto.ForeColor = System.Drawing.Color.Maroon;
+            this.btEscolhaProduto.Location = new System.Drawing.Point(495, 3);
+            this.btEscolhaProduto.Name = "btEscolhaProduto";
+            this.btEscolhaProduto.Size = new System.Drawing.Size(291, 33);
+            this.btEscolhaProduto.TabIndex = 47;
+            this.btEscolhaProduto.Text = "EXPORTAR PARA PDF";
+            this.btEscolhaProduto.UseVisualStyleBackColor = true;
+            this.btEscolhaProduto.Click += new System.EventHandler(this.btEscolhaProduto_Click);
             // 
             // TipoRelatorio
             // 
@@ -1227,7 +1232,6 @@
             this.ClientSize = new System.Drawing.Size(1338, 487);
             this.ControlBox = false;
             this.Controls.Add(this.tlpFundo);
-            this.Controls.Add(this.LRelatorio);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -1248,10 +1252,11 @@
             this.gbFiltroVenda.ResumeLayout(false);
             this.gbVendaData.ResumeLayout(false);
             this.flpProduto.ResumeLayout(false);
-            this.gbOrdenarProduto.ResumeLayout(false);
-            this.gbOrdenarProduto.PerformLayout();
             this.gbFiltrarProduto.ResumeLayout(false);
             this.gbProduto.ResumeLayout(false);
+            this.gbProdutTipo.ResumeLayout(false);
+            this.gbOrdenarProduto.ResumeLayout(false);
+            this.gbOrdenarProduto.PerformLayout();
             this.gbProdutoDia.ResumeLayout(false);
             this.gbProdutoDia.PerformLayout();
             this.gbPeriodoProduto.ResumeLayout(false);
@@ -1272,16 +1277,13 @@
             this.pFiltro.ResumeLayout(false);
             this.pValor.ResumeLayout(false);
             this.pValor.PerformLayout();
-            this.gbProdutTipo.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Label LTipoRelatorio;
-        private System.Windows.Forms.Label LRelatorio;
         private System.Windows.Forms.ComboBox cbRelatorio;
         private System.Windows.Forms.ComboBox cbVendaDia;
         private System.Windows.Forms.GroupBox gbDataVenda;
@@ -1359,5 +1361,6 @@
         private System.Windows.Forms.ComboBox cbGarconAmbiente;
         private System.Windows.Forms.GroupBox gbProdutTipo;
         private System.Windows.Forms.ComboBox cbProdutTipo;
+        private System.Windows.Forms.Button btEscolhaProduto;
     }
 }

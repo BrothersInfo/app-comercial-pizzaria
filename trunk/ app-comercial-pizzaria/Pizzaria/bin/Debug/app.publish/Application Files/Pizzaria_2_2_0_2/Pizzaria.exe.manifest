@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1">
-  <asmv1:assemblyIdentity name="Pizzaria.exe" version="2.2.0.3" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
+  <asmv1:assemblyIdentity name="Pizzaria.exe" version="2.2.0.2" publicKeyToken="1530ade5c7f1705c" language="neutral" processorArchitecture="x86" type="win32" />
   <description asmv2:iconFile="icone.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -84,14 +84,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pizzaria.exe" size="1699328">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pizzaria.exe" size="1723392">
       <assemblyIdentity name="Pizzaria" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>wNa/Kn7CojrDXHb2YkWJ2B+gjY8=</dsig:DigestValue>
+        <dsig:DigestValue>OyPkiezL3pwDwRWq5rN+gOVUjB8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -113,4 +113,4 @@
       <dsig:DigestValue>BtnRoKxhZ/bA555WT7U355It2wU=</dsig:DigestValue>
     </hash>
   </file>
-</asmv1:assembly>
+<publisherIdentity name="CN=Cainita\Tremere" issuerKeyHash="fa3ea8512feac0f0935ab81318b312d862b759de" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>FOYUN+zhzE9yaMsfFmMS1QhcSE4=</DigestValue></Reference></SignedInfo><SignatureValue>hf2Qne2D8/s2mZQWptkFEDn0d4sYI4+BLGj9H92Y5E7WkYIT8ohthdZs5xFn01QlMBC86KHmGOKPD2ANNgP765dAY8Kwh+QKOPYSRd8nQChIDb3TZjQctZzX/jEYOXzqvlN0B8tUkwAMO/oQX6XQ7R0DMG7Tee7N0l5UmVZQa6g=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>rcp7iDglr9fO8RTVlngQlZehALonP0pUwKXC9zW0/+ubVZ/aPyEE8wzel7ePDpUj1TGDT+bOWLO110oRoiQnijgWhOZM2mGQZb0f3ez5AMko0CcbmJ93HMn7wLjb4JdAK5Csn26GvxrkhtQPF3mpbEYwCnGWrpf7oYgUpvwqeq0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="4e485c08d51263161fcb68724fcce1ec3714e614" Description="" Url=""><as:assemblyIdentity name="Pizzaria.exe" version="2.2.0.2" publicKeyToken="1530ade5c7f1705c" language="neutral" processorArchitecture="x86" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=Cainita\Tremere</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>ubBAo2b3Wu7LR/Xn9RbpUYDAEX8=</DigestValue></Reference></SignedInfo><SignatureValue>A8EMLiOA4XQYhdjxyI6YUBFQ/zs81dcRHxo4C8mdsCRXH9p5Z3SKUdaNbru/XqEMFuoMfXuHj9JY9dwaYluPgdEAy/wS7kOtRSej0I/5O1VLAZ0vago/jphXg1xHdOZY4Jf+5d5VCWE0HeLh4ogcrxEXB+gV0budD6+sz7QknH8=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>rcp7iDglr9fO8RTVlngQlZehALonP0pUwKXC9zW0/+ubVZ/aPyEE8wzel7ePDpUj1TGDT+bOWLO110oRoiQnijgWhOZM2mGQZb0f3ez5AMko0CcbmJ93HMn7wLjb4JdAK5Csn26GvxrkhtQPF3mpbEYwCnGWrpf7oYgUpvwqeq0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB1TCCAT6gAwIBAgIQEfVUszhNH5pIYu4XS8AaMjANBgkqhkiG9w0BAQUFADApMScwJQYDVQQDHh4AQwBhAGkAbgBpAHQAYQBcAFQAcgBlAG0AZQByAGUwHhcNMTIwOTIyMjEyNzA0WhcNMTMwOTIzMDMyNzA0WjApMScwJQYDVQQDHh4AQwBhAGkAbgBpAHQAYQBcAFQAcgBlAG0AZQByAGUwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAK3Ke4g4Ja/XzvEU1ZZ4EJWXoQC6Jz9KVMClwvc1tP/rm1Wf2j8hBPMM3pe3jw6VI9Uxg0/mzliztddKEaIkJ4o4FoTmTNphkGW9H93s+QDJKNAnG5ifdxzJ+8C42+CXQCuQrJ9uhr8a5IbUDxd5qWxGMApxlq6X+6GIFKb8KnqtAgMBAAEwDQYJKoZIhvcNAQEFBQADgYEAE5/Em5ctFVVfOSy86Hs+8kw3vGuAVnMDupdxW9FxnL7xqfLb8V6bH0GwL/ZX0eiyg8ReHuHf8v97IeVKLgUAXMtW3E1nvuUkrUyBvnNjnquShkNKt2lhONp7yE/xAiIq9zC1445dvo0rvCGKWkCe8ow15k1Wwr9XMGHa0eNJxas=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

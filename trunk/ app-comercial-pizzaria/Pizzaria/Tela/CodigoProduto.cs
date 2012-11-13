@@ -20,14 +20,12 @@ namespace Pizzaria.Tela
             carregarTipos();
             lvTipo.Focus();
             lvTipo.Select();
-            regularTamanho();
-        //    cbTipo_SelectedIndexChanged(null, null);
             posicionamento();
         }
         private void posicionamento()
         {
             double valr = Screen.PrimaryScreen.Bounds.Height / 100f;
-            double yy = (13.5 * valr) +150;
+            double yy = (13.5 * valr) +100;
             this.Location = new Point((Screen.PrimaryScreen.Bounds.Width - this.Size.Width) / 2, (int)yy);
         }
         
@@ -36,39 +34,46 @@ namespace Pizzaria.Tela
             return codigoProduto.ToString();
         }
         private int codigoProduto;
-        public void regularTamanho()
-        {
 
-            this.categoria.Width = lvTipo.Width-25;
-            this.Codigo.Width = (int)65;
-            this.Produto.Width = this.lvCodigo.Width -90;
-        }
         public void carregarTipos()
         {
+            conjItem = new List<ListViewItem>();
             DataTable t = new DataTable();
             t = new Banco().carregarCodigo();
+            lvTipo.LargeImageList = imageList1;
             for (int i = 0; i < t.Rows.Count; i++)
             {
-                lvTipo.Items.Add(t.Rows[i].ItemArray.GetValue(0).ToString());
-            }
+                conjItem.Add(
+                    new ListViewItem(
+                        t.Rows[i].ItemArray.GetValue(0).ToString(), 
+                        Convert.ToInt16(  t.Rows[i].ItemArray.GetValue(1).ToString()   )-1
+                                    )
+                             );
+                lvTipo.Items.Add(conjItem.Last());
+            } 
         }
+        List<ListViewItem> conjItem;
+        List<ListViewItem> conjProduto;
         public void carregarProdutos(string nome)
         {
-
+            conjProduto = new List<ListViewItem>();
             lvCodigo.Items.Clear();
             DataTable produtos = new Banco().carregarNomeProdutoPeloTipo(nome);
             for (int i = 0; i < produtos.Rows.Count; i++)
             {
-                //codigo
-                lvCodigo.Items.Add(produtos.Rows[i].ItemArray.GetValue(0).ToString());
-                //nome            
-                lvCodigo.Items[i].SubItems.Add(produtos.Rows[i].ItemArray.GetValue(1).ToString());
+                conjProduto.Add(
+                  new ListViewItem(
+                      produtos.Rows[i].ItemArray.GetValue(0).ToString() + " : " + produtos.Rows[i].ItemArray.GetValue(1).ToString(), new Banco().carregarCodigoFoto( Convert.ToInt16( produtos.Rows[i].ItemArray.GetValue(0))))
+                    
+                           );
+                lvCodigo.Items.Add(conjProduto.Last());
+
             }
         }
 
         private void lvCodigo_ItemActivate(object sender, EventArgs e)
         {
-            codigoProduto = Convert.ToInt16(lvCodigo.FocusedItem.Text);
+            codigoProduto = Convert.ToInt16(lvCodigo.FocusedItem.Text.Split(':')[0].ToString());
             this.Close();
         }
 
@@ -116,5 +121,6 @@ namespace Pizzaria.Tela
                     break;
             }
         }
+
     }
 }

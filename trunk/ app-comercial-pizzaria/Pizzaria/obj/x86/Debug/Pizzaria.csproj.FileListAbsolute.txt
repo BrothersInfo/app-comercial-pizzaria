@@ -113,7 +113,6 @@ D:\Tortoise\Pizzaria\obj\x86\Debug\Pizzaria.Tela.ConsultaForm.resources
 D:\Tortoise\Pizzaria\obj\x86\Debug\Pizzaria.Tela.Fundo.resources
 D:\Tortoise\Pizzaria\obj\x86\Debug\Pizzaria.Tela.Garcon.resources
 D:\Tortoise\Pizzaria\obj\x86\Debug\Pizzaria.Tela.Principal.resources
-D:\Tortoise\Pizzaria\obj\x86\Debug\Pizzaria.Tela.RelatorioForm.resources
 D:\Tortoise\Pizzaria\obj\x86\Debug\Pizzaria.Tela.TipoRelatorio.resources
 D:\Tortoise\Pizzaria\obj\x86\Debug\Pizzaria.Tela.RemoverProduto.resources
 D:\Tortoise\Pizzaria\bin\Debug\Pizzaria.exe.manifest

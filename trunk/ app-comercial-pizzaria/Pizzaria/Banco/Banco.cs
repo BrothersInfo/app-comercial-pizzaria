@@ -493,12 +493,32 @@ namespace Pizzaria.Banco
         public DataTable carregarCodigo()
         {
             DataTable dttTamanho = new DataTable();
-            new NpgsqlDataAdapter("select nome from tipo where ativo = true order by cod_tipo", Conectar()).
+            new NpgsqlDataAdapter("select nome,cod_foto from tipo where ativo = true order by cod_tipo", Conectar()).
             Fill(dttTamanho);
             return dttTamanho;
 
         }
+        public int  carregarCodigoFoto(int cod_produto)
+        {
+            DataTable dttTamanho = new DataTable();
+            new NpgsqlDataAdapter("select t.cod_foto from tipo t inner join produto p on (p.cod_tipo = t.cod_tipo) Where p.cod_produto = "+cod_produto , Conectar()).
+            Fill(dttTamanho);
+            try
+            {
+                return Convert.ToInt16(dttTamanho.Rows[0].ItemArray.GetValue(0)) - 1;
+            }
+            catch { return 1; }
+        }
         public DataTable carregarNomeProdutoPeloTipo(string nomeTipo)
+        {
+            string query = "select p.cod_produto, p.descricao from produto p inner join tipo t on (t.cod_tipo = p.Cod_tipo )"
+                + "where t.ativo = true and p.ativo = true and t.nome = '" + nomeTipo + "' order by p.cod_produto";
+            DataTable dttTamanho = new DataTable();
+            new NpgsqlDataAdapter(query, Conectar()).
+            Fill(dttTamanho);
+            return dttTamanho;
+        }
+        public DataTable carregarFotoPeloProdutoTipo(string nomeTipo)
         {
             string query = "select p.cod_produto, p.descricao from produto p inner join tipo t on (t.cod_tipo = p.Cod_tipo )"
                 + "where t.ativo = true and p.ativo = true and t.nome = '" + nomeTipo + "' order by p.cod_produto";
