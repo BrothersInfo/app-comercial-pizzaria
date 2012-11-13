@@ -68,7 +68,7 @@ namespace Pizzaria.Tela
         {
             string[] data = new string [cbVendaData.SelectedIndex+1];
             if (data.Length == 1)
-                data[0] = cbVendaDia.SelectedItem+"/"+(cbVendaMes.SelectedIndex+1)+"/"+cbVendaAno.SelectedItem;
+                data[0] = cbVendaDia.Text+"/"+(cbVendaMes.SelectedIndex+1)+"/"+cbVendaAno.SelectedItem;
             else
             {
                 data[0] = dtpVendaUm.Value.ToShortDateString();
@@ -82,7 +82,7 @@ namespace Pizzaria.Tela
         {
             double valor = 0;
             for (int i = 0; i < tabela.Rows.Count; i++)
-                valor += Convert.ToDouble( tabela.Rows[i].ItemArray.GetValue(6).ToString().Substring(0).Replace('.',','));
+                valor += Convert.ToDouble( tabela.Rows[i].ItemArray.GetValue(x).ToString().Substring(0).Replace('.',','));
             return "Valor Total : R$"+new Tratamento().retornaValorEscrito( Math.Round( valor,2));
         }
         public void carregarVenda()
@@ -335,6 +335,11 @@ namespace Pizzaria.Tela
                 gbProduto.Visible = false;
                 gbFiltrarProduto.Visible = false;
             }
+        }
+
+        private void btEscolhaProduto_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

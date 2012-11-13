@@ -72,7 +72,7 @@ namespace Pizzaria.Tela
             double valr = Screen.PrimaryScreen.Bounds.Height/100f;
             double yy = (13.5 * valr) + 345;
             this.Location = new Point((Screen.PrimaryScreen.Bounds.Width - this.Size.Width) / 2, (int)yy);
-            this.TopMost = true;
+           this.TopMost = true;
             
             // Screen.PrimaryScreen
         }

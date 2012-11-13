@@ -93,6 +93,7 @@
             // 
             // listVenda
             // 
+            this.listVenda.ContextMenuStrip = this.menuDireito;
             this.listVenda.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listVenda.Location = new System.Drawing.Point(0, 4);

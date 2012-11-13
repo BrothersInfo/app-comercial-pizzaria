@@ -67,6 +67,13 @@ namespace Pizzaria.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap backf {
+            get {
+                object obj = ResourceManager.GetObject("backf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap BRAjuda3 {
             get {
                 object obj = ResourceManager.GetObject("BRAjuda3", resourceCulture);
