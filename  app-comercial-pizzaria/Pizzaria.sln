@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizzaria", "Pizzaria\Pizzaria.csproj", "{13A5418D-E1EB-42AF-8754-A79BDE0E90CB}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Instalador", "Instalador\Instalador.vdproj", "{EA030500-A766-4F2A-B170-5327F5D4F03B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,6 +15,8 @@ Global
 		{13A5418D-E1EB-42AF-8754-A79BDE0E90CB}.Debug|x86.Build.0 = Debug|x86
 		{13A5418D-E1EB-42AF-8754-A79BDE0E90CB}.Release|x86.ActiveCfg = Release|x86
 		{13A5418D-E1EB-42AF-8754-A79BDE0E90CB}.Release|x86.Build.0 = Release|x86
+		{EA030500-A766-4F2A-B170-5327F5D4F03B}.Debug|x86.ActiveCfg = Debug
+		{EA030500-A766-4F2A-B170-5327F5D4F03B}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

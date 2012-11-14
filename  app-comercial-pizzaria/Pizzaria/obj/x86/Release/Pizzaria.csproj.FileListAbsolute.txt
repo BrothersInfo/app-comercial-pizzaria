@@ -18,3 +18,25 @@ F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Release\Pizzaria.SubVenda.res
 F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Release\Pizzaria.Venda.resources
 F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Release\GenerateResource.read.1.tlog
 F:\Dropbox\EMPRESA TITÃ\Pizzaria\Pizzaria\obj\x86\Release\GenerateResource.write.1.tlog
+D:\Tortoise\Pizzaria\bin\Release\Pizzaria.exe.config
+D:\Tortoise\Pizzaria\obj\x86\Release\ResolveAssemblyReference.cache
+D:\Tortoise\Pizzaria\obj\x86\Release\Pizzaria.Tela.Abertura.resources
+D:\Tortoise\Pizzaria\obj\x86\Release\Pizzaria.Tela.AddProduto.resources
+D:\Tortoise\Pizzaria\obj\x86\Release\Pizzaria.Tela.AlterarForm.resources
+D:\Tortoise\Pizzaria\obj\x86\Release\Pizzaria.Tela.AlterarMesa.resources
+D:\Tortoise\Pizzaria\obj\x86\Release\Pizzaria.Tela.CadastroForm.resources
+D:\Tortoise\Pizzaria\obj\x86\Release\Pizzaria.Tela.CodigoProduto.resources
+D:\Tortoise\Pizzaria\obj\x86\Release\Pizzaria.Tela.ConsultaForm.resources
+D:\Tortoise\Pizzaria\obj\x86\Release\Pizzaria.Tela.Encerrar.resources
+D:\Tortoise\Pizzaria\obj\x86\Release\Pizzaria.Tela.Fundo.resources
+D:\Tortoise\Pizzaria\obj\x86\Release\Pizzaria.Tela.Garcon.resources
+D:\Tortoise\Pizzaria\obj\x86\Release\Pizzaria.Tela.Principal.resources
+D:\Tortoise\Pizzaria\obj\x86\Release\Pizzaria.Properties.Resources.resources
+D:\Tortoise\Pizzaria\obj\x86\Release\Pizzaria.Tela.TipoRelatorio.resources
+D:\Tortoise\Pizzaria\obj\x86\Release\Pizzaria.Tela.RemoverProduto.resources
+D:\Tortoise\Pizzaria\obj\x86\Release\Pizzaria.Tela.SenhaAcesso.resources
+D:\Tortoise\Pizzaria\obj\x86\Release\Pizzaria.Tela.SubVenda.resources
+D:\Tortoise\Pizzaria\obj\x86\Release\Pizzaria.Tela.Teclado.resources
+D:\Tortoise\Pizzaria\obj\x86\Release\Pizzaria.Tela.Venda.resources
+D:\Tortoise\Pizzaria\obj\x86\Release\GenerateResource.read.1.tlog
+D:\Tortoise\Pizzaria\obj\x86\Release\GenerateResource.write.1.tlog
