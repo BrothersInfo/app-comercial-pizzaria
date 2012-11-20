@@ -62,17 +62,15 @@ namespace Pizzaria.Banco
             //-----------GARCON DA VENDA ---------------------------------------------------------
             DataTable garc = new DataTable();
 
-            string garcon = "select g.cod_garcon, g.nome, vg.quantidade from venda v"
-                            + " inner join vendaGarcon vg on (v.cod_venda = vg.cod_venda)"
-                            + " inner join garcon g on (g.cod_garcon = vg.cod_garcon) where v.cod_venda = " + cod_venda;
+            string garcon;
              garcon =
-            "select g.cod_garcon, g.nome,  cg.quantidade " +
+            "select g.cod_garcon, g.nome " +
             "from garcon g inner join GarconCompleto cg " +
             "on (cg.cod_garcon = g.cod_garcon) 	inner join completo c " +
             "on (c.cod_completo = cg.cod_completo)	inner join vendaCompleta vg " +
             "on (vg.cod_completo = c.cod_completo)	inner join venda v " +
             "on (v.cod_venda = vg.cod_venda)	" +
-            "where v.cod_venda = "+cod_venda+" group by g.nome, g.cod_garcon, cg.quantidade	";
+            "where v.cod_venda = "+cod_venda+" group by g.nome, g.cod_garcon";
 
 
 

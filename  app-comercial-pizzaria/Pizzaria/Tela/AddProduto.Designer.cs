@@ -126,7 +126,7 @@
             this.pGarLivre.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pGarLivre.Controls.Add(this.lGarLivre);
             this.pGarLivre.Controls.Add(this.cbGarLivre);
-            this.pGarLivre.Location = new System.Drawing.Point(165, 88);
+            this.pGarLivre.Location = new System.Drawing.Point(166, 87);
             this.pGarLivre.Name = "pGarLivre";
             this.pGarLivre.Size = new System.Drawing.Size(110, 71);
             this.pGarLivre.TabIndex = 23;
@@ -145,6 +145,7 @@
             // cbGarLivre
             // 
             this.cbGarLivre.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbGarLivre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGarLivre.Font = new System.Drawing.Font("Comic Sans MS", 12F);
             this.cbGarLivre.FormattingEnabled = true;
             this.cbGarLivre.Location = new System.Drawing.Point(4, 33);
@@ -156,6 +157,7 @@
             // cbGarVen
             // 
             this.cbGarVen.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbGarVen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGarVen.Font = new System.Drawing.Font("Comic Sans MS", 12F);
             this.cbGarVen.FormattingEnabled = true;
             this.cbGarVen.Location = new System.Drawing.Point(172, 123);
@@ -168,6 +170,7 @@
             // cbTamanho
             // 
             this.cbTamanho.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbTamanho.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTamanho.Font = new System.Drawing.Font("Comic Sans MS", 12F);
             this.cbTamanho.FormattingEnabled = true;
             this.cbTamanho.Location = new System.Drawing.Point(19, 123);
@@ -180,6 +183,7 @@
             // cbMista
             // 
             this.cbMista.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbMista.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMista.Font = new System.Drawing.Font("Comic Sans MS", 12F);
             this.cbMista.FormattingEnabled = true;
             this.cbMista.Items.AddRange(new object[] {
@@ -221,7 +225,7 @@
             0,
             0});
             this.numQuantidade.Name = "numQuantidade";
-            this.numQuantidade.Size = new System.Drawing.Size(89, 32);
+            this.numQuantidade.Size = new System.Drawing.Size(93, 32);
             this.numQuantidade.TabIndex = 12;
             this.numQuantidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numQuantidade.Value = new decimal(new int[] {
@@ -464,7 +468,6 @@
             this.mtCodigo.ValidatingType = typeof(int);
             this.mtCodigo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtCodigo_MouseClick);
             this.mtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtCodigo_KeyPress);
-
             // 
             // btConsulta2
             // 

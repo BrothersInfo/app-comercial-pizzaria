@@ -33,6 +33,11 @@
             this.pLoadForm = new System.Windows.Forms.Panel();
             this.tlpColuna = new System.Windows.Forms.TableLayoutPanel();
             this.listVenda = new System.Windows.Forms.ListView();
+            this.menuDireito = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.MSImprimir = new System.Windows.Forms.ToolStripMenuItem();
+            this.MSEncerrar = new System.Windows.Forms.ToolStripMenuItem();
+            this.separador = new System.Windows.Forms.ToolStripSeparator();
+            this.MSProduto = new System.Windows.Forms.ToolStripMenuItem();
             this.tabLayFullEsquerda = new System.Windows.Forms.TableLayoutPanel();
             this.lvInfo = new System.Windows.Forms.ListView();
             this.aparelho = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -49,19 +54,14 @@
             this.lValor = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.menuDireito = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.MSImprimir = new System.Windows.Forms.ToolStripMenuItem();
-            this.MSEncerrar = new System.Windows.Forms.ToolStripMenuItem();
-            this.separador = new System.Windows.Forms.ToolStripSeparator();
-            this.MSProduto = new System.Windows.Forms.ToolStripMenuItem();
             this.pLoadForm.SuspendLayout();
             this.tlpColuna.SuspendLayout();
+            this.menuDireito.SuspendLayout();
             this.tabLayFullEsquerda.SuspendLayout();
             this.tlpLivreOcupado.SuspendLayout();
             this.pLivre.SuspendLayout();
             this.pOcupada.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.menuDireito.SuspendLayout();
             this.SuspendLayout();
             // 
             // pLoadForm
@@ -107,6 +107,42 @@
             this.listVenda.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listVenda_ItemSelectionChanged);
             this.listVenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listVenda_KeyPress);
             this.listVenda.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listVenda_MouseClick);
+            // 
+            // menuDireito
+            // 
+            this.menuDireito.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MSImprimir,
+            this.MSEncerrar,
+            this.separador,
+            this.MSProduto});
+            this.menuDireito.Name = "menuDireito";
+            this.menuDireito.Size = new System.Drawing.Size(174, 76);
+            // 
+            // MSImprimir
+            // 
+            this.MSImprimir.Name = "MSImprimir";
+            this.MSImprimir.Size = new System.Drawing.Size(173, 22);
+            this.MSImprimir.Text = "Imprimir ( I )";
+            this.MSImprimir.Click += new System.EventHandler(this.MSImprimir_Click);
+            // 
+            // MSEncerrar
+            // 
+            this.MSEncerrar.Name = "MSEncerrar";
+            this.MSEncerrar.Size = new System.Drawing.Size(173, 22);
+            this.MSEncerrar.Text = "Encerrar ( V )";
+            this.MSEncerrar.Click += new System.EventHandler(this.MSEncerrar_Click);
+            // 
+            // separador
+            // 
+            this.separador.Name = "separador";
+            this.separador.Size = new System.Drawing.Size(170, 6);
+            // 
+            // MSProduto
+            // 
+            this.MSProduto.Name = "MSProduto";
+            this.MSProduto.Size = new System.Drawing.Size(173, 22);
+            this.MSProduto.Text = "Novo Produto ( P )";
+            this.MSProduto.Click += new System.EventHandler(this.MSProduto_Click);
             // 
             // tabLayFullEsquerda
             // 
@@ -244,7 +280,7 @@
             // ptitulo
             // 
             this.ptitulo.BackColor = System.Drawing.Color.White;
-            this.ptitulo.BackgroundImage = global::Pizzaria.Properties.Resources.logo;
+            this.ptitulo.BackgroundImage = global::Pizzaria.Properties.Resources.Delirios;
             this.ptitulo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ptitulo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ptitulo.Location = new System.Drawing.Point(1, 0);
@@ -299,42 +335,6 @@
             this.imageList1.Images.SetKeyName(1, "BRtent2.png");
             this.imageList1.Images.SetKeyName(2, "BRtent1.png");
             // 
-            // menuDireito
-            // 
-            this.menuDireito.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MSImprimir,
-            this.MSEncerrar,
-            this.separador,
-            this.MSProduto});
-            this.menuDireito.Name = "menuDireito";
-            this.menuDireito.Size = new System.Drawing.Size(174, 76);
-            // 
-            // MSImprimir
-            // 
-            this.MSImprimir.Name = "MSImprimir";
-            this.MSImprimir.Size = new System.Drawing.Size(173, 22);
-            this.MSImprimir.Text = "Imprimir ( I )";
-            this.MSImprimir.Click += new System.EventHandler(this.MSImprimir_Click);
-            // 
-            // MSEncerrar
-            // 
-            this.MSEncerrar.Name = "MSEncerrar";
-            this.MSEncerrar.Size = new System.Drawing.Size(173, 22);
-            this.MSEncerrar.Text = "Encerrar ( V )";
-            this.MSEncerrar.Click += new System.EventHandler(this.MSEncerrar_Click);
-            // 
-            // separador
-            // 
-            this.separador.Name = "separador";
-            this.separador.Size = new System.Drawing.Size(170, 6);
-            // 
-            // MSProduto
-            // 
-            this.MSProduto.Name = "MSProduto";
-            this.MSProduto.Size = new System.Drawing.Size(173, 22);
-            this.MSProduto.Text = "Novo Produto ( P )";
-            this.MSProduto.Click += new System.EventHandler(this.MSProduto_Click);
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,6 +353,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Principal_KeyDown);
             this.pLoadForm.ResumeLayout(false);
             this.tlpColuna.ResumeLayout(false);
+            this.menuDireito.ResumeLayout(false);
             this.tabLayFullEsquerda.ResumeLayout(false);
             this.tlpLivreOcupado.ResumeLayout(false);
             this.pLivre.ResumeLayout(false);
@@ -361,7 +362,6 @@
             this.pOcupada.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.menuDireito.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

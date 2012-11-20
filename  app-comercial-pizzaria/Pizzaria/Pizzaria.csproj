@@ -15,7 +15,7 @@
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Tremere\Desktop\inst13112012.1\</PublishUrl>
+    <PublishUrl>C:\Users\Tremere\Desktop\inst14112012.-OK\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -25,8 +25,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>5</ApplicationRevision>
-    <ApplicationVersion>2.2.0.%2a</ApplicationVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>2.3.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -80,16 +80,20 @@
     <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="Devart.Data, Version=5.0.431.0, Culture=neutral, PublicKeyToken=09af7300eec23701" />
-    <Reference Include="Devart.Data.PostgreSql, Version=5.80.332.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
-    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="itextsharp">
+      <HintPath>..\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>..\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>..\itextsharp.xtra.dll</HintPath>
+    </Reference>
     <Reference Include="MatrixReporter">
       <HintPath>..\..\Delirius\Delirius\Projeto Delirius\bin\Debug\MatrixReporter.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Mono.Security">
@@ -113,6 +117,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\CRelatorio.cs" />
     <Compile Include="Tela\Abertura.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +185,12 @@
       <DependentUpon>Garcon.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Impressao.cs" />
+    <Compile Include="Tela\PdfGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tela\PdfGenerator.Designer.cs">
+      <DependentUpon>PdfGenerator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tela\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +241,7 @@
     </Compile>
     <Compile Include="Classes\VendaFull.cs" />
     <Compile Include="Classes\VendaHalf.cs" />
+    <EmbeddedResource Include="ReportView.rdlc" />
     <EmbeddedResource Include="Tela\Abertura.resx">
       <DependentUpon>Abertura.cs</DependentUpon>
     </EmbeddedResource>
@@ -259,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tela\Garcon.resx">
       <DependentUpon>Garcon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tela\PdfGenerator.resx">
+      <DependentUpon>PdfGenerator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tela\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
@@ -292,6 +307,7 @@
       <DependentUpon>Venda.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="Pizzaria.Classes.CRelatorio.datasource" />
     <None Include="Pizzaria_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -358,6 +374,7 @@
     <None Include="Resources\FUNDO PAINEL.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="fotos Produtos\Delirios.png" />
     <Content Include="icone.ico" />
     <None Include="Resources\backf.png" />
   </ItemGroup>

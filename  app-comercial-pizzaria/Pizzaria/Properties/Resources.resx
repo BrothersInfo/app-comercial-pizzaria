@@ -124,20 +124,23 @@
   <data name="BRFechar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BRFechar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="setPreto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\setPreto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BRRelatorio2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BRRelatorio2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BRAjuda3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BRAjuda3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="setverde" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\setverde.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BRtent2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BRtent2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="backf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BRtent1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BRtent1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,13 +169,13 @@
   <data name="AFOTO" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AFOTO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="setPreto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\setPreto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BRAjuda3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BRAjuda3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BRAlterar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BRAlterar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="backf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Delirios" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\fotos Produtos\Delirios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

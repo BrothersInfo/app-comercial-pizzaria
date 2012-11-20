@@ -229,19 +229,23 @@ namespace Pizzaria.Tela
         }
         private void btImprimir_Click(object sender, EventArgs e)
         {
+            Impressao p;
             try
             {
-                Impressao p;
+              
                 p = new Impressao(venda);
                 new BancoVenda().imprimiu(venda.cod_venda);
                 p.gerarComprovante();
                 p.lerArquivo();
+               
             }
             catch
             {
-                MessageBox.Show(" Erro 011 - informe a fabricio do ocorrido ");
+                MessageBox.Show(" Erro 011 - informe a fabricio do ocorrido - Abertura de Classe ");
                 return;
             }
+            
+
         }
         private void btEncerrar_Click(object sender, EventArgs e)
         {

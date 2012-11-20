@@ -459,58 +459,53 @@ namespace Pizzaria.Tela
                 //esses metodos irao dar confirmacao a venda
                 if (e.KeyChar == '\r')
                 {
+                    
                     cbTamanho.Visible = true;
                     lTamanho.Visible = true;
                     // aqui eu tenho os tamanhos referentes ao produto
-                    try
-                    {
-                        cbTamanho.DataSource = b.tamanhoProduto(Convert.ToInt16(mtCodigo.Text));
-                        cbTamanho.DisplayMember = "descricao";
-                        cbTamanho.SelectedIndex = 0;
-                        if (b.isPizza(Convert.ToInt16(mtCodigo.Text)))
+                        try
                         {
-                            lTamanho.Text = "TAMANHO";
-                            cbMista.Visible = true;
-                            lbMista.Visible = true; lbGarcon.Visible = true;
-                            garconDaVenda();
-                            numQuantidade.Visible = true;
-                            LQuantidade.Visible = true;
+                            cbTamanho.DataSource = b.tamanhoProduto(Convert.ToInt16(mtCodigo.Text));
+                            cbTamanho.DisplayMember = "descricao";
+                            cbTamanho.SelectedIndex = 0;
 
-                            int codTamanho = b.codTamanho(cbTamanho.Text);
-                            cbMista.Items.Clear();
-                            if (codTamanho == 1) cbMista.Items.AddRange(divisao1);
-                            else cbMista.Items.AddRange(divisao2);
+                            if (b.isPizza(Convert.ToInt16(mtCodigo.Text)) )
+                            {
+                                lTamanho.Text = "TAMANHO";
+                                cbMista.Visible = true;lbMista.Visible = true; lbGarcon.Visible = true;
+                                garconDaVenda();
+                                numQuantidade.Visible = true;  LQuantidade.Visible = true;
 
-                            cbMista.SelectedIndex = 0;
+                                int codTamanho = b.codTamanho(cbTamanho.Text);
+                                cbMista.Items.Clear();
+                                if (codTamanho == 1) cbMista.Items.AddRange(divisao1);
+                                else cbMista.Items.AddRange(divisao2);
+
+                                cbMista.SelectedIndex = 0;
+                            }
+                            else
+                            {
+                                lTamanho.Text = "CATEGORIA";
+                                cbMista.Visible = false;lbMista.Visible = false;
+                                garconDaVenda();
+                                LQuantidade.Visible = true; numQuantidade.Visible = true;
+                            }
+                            if (cbTamanho.Items.Count == 0)
+                            { cbTamanho.Visible = false; lTamanho.Visible = false; }
+                            //------------------------------------
+                            string categoria = new Banco().categoriaProduto(Convert.ToInt16(mtCodigo.Text));
+                            lbNomePizza1.Text = new Banco().preencherNomeProduct(Convert.ToInt16(mtCodigo.Text));
+                            panelValor.Visible = true;           lbNomePizza1.Visible = true;
+
+                            preencherValorProduto();    cbTamanho.Focus();    nomesVisiveis();
                         }
-                        else
+
+                        catch
                         {
-                            lTamanho.Text = "CATEGORIA";
-                            cbMista.Visible = false;
-                            lbMista.Visible = false;
-                            garconDaVenda();
-                            LQuantidade.Visible = true;
-                            numQuantidade.Visible = true;
+                            cbTamanho.Visible = false; lTamanho.Visible = false;
+                            mtCodigo.Clear();    panelValor.Visible = false;
                         }
-                        if (cbTamanho.Items.Count == 0)
-                        { cbTamanho.Visible = false; lTamanho.Visible = false; }
-                        //------------------------------------
-                        string categoria = new Banco().categoriaProduto(Convert.ToInt16(mtCodigo.Text));
-                        lbNomePizza1.Text = new Banco().preencherNomeProduct(Convert.ToInt16(mtCodigo.Text));
-                        panelValor.Visible = true;
-                        lbNomePizza1.Visible = true;
-
-                        preencherValorProduto();
-                        cbTamanho.Focus();
-                        nomesVisiveis();
-
-                    }
-                    catch
-                    {
-                        cbTamanho.Visible = false; lTamanho.Visible = false;
-                        mtCodigo.Clear();
-                        panelValor.Visible = false;
-                    }
+                 
                 }
             }
             catch
@@ -532,6 +527,60 @@ namespace Pizzaria.Tela
             catch { }
 
         }
+
+        private bool metodoValida(int numero, int posicao)
+        {
+            switch (posicao)
+            {
+                case 0:
+                    {
+                        if (!mtCodigo1.Visible && !mtCodigo2.Visible && !mtCodigo3.Visible)
+                            return true;
+                        else
+                        {
+                            if (mtCodigo1.Visible && mtCodigo1.Text.Length > 0 && numero == Convert.ToInt16(mtCodigo1.Text))
+                                return false;
+                            if (mtCodigo2.Visible && mtCodigo2.Text.Length > 0 && numero == Convert.ToInt16(mtCodigo2.Text))
+                                return false;
+                            if (mtCodigo3.Visible && mtCodigo2.Text.Length > 0 && numero == Convert.ToInt16(mtCodigo3.Text))
+                                return false;
+
+                            return true;
+                        }
+                    }
+                case 1:
+                    {
+                            if ( numero == Convert.ToInt16(mtCodigo.Text))
+                                return false;
+                            if (mtCodigo2.Visible && mtCodigo2.Text.Length >0 && numero == Convert.ToInt16(mtCodigo2.Text))
+                                return false;
+                            if (mtCodigo3.Visible && mtCodigo3.Text.Length > 0 && numero == Convert.ToInt16(mtCodigo3.Text))
+                                return false;
+                            return true;
+                    }
+                case 2:
+                    {
+                        if (numero == Convert.ToInt16(mtCodigo.Text))
+                            return false;
+                        if (mtCodigo1.Visible && mtCodigo1.Text.Length > 0 && numero == Convert.ToInt16(mtCodigo1.Text))
+                            return false;
+                        if (mtCodigo3.Visible && mtCodigo3.Text.Length > 0 && numero == Convert.ToInt16(mtCodigo3.Text))
+                            return false;
+                        return true;
+                    }
+                case 3:
+                    {
+                        if (numero == Convert.ToInt16(mtCodigo.Text))
+                            return false;
+                        if (mtCodigo2.Visible && mtCodigo2.Text.Length > 0 && numero == Convert.ToInt16(mtCodigo2.Text))
+                            return false;
+                        if (mtCodigo1.Visible && mtCodigo1.Text.Length > 0 && numero == Convert.ToInt16(mtCodigo1.Text))
+                            return false;
+                        return true;
+                    }
+            }
+            return true;
+        }
         private void mtCodigo1_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
@@ -540,25 +589,32 @@ namespace Pizzaria.Tela
                 //esses metodos irao dar confirmacao a venda
                 if (e.KeyChar == '\r')
                 {
-                    if (b.isPizza(Convert.ToInt16(mtCodigo1.Text)))
-                        try
+                    if (metodoValida(Convert.ToInt16(mtCodigo1.Text), 1))
+                    {
+                        if (b.isPizza(Convert.ToInt16(mtCodigo1.Text)))
                         {
-                            mtValor.Visible = true;
-                            preencherValorProduto();
-                            nomesVisiveis();
-                            lbNomePizza2.Text = new Banco().preencherNomeProduct(Convert.ToInt16(mtCodigo1.Text));
-                            lbNomePizza2.Visible = true;
+                            try
+                            {
+                                mtValor.Visible = true;
+                                preencherValorProduto();
+                                nomesVisiveis();
+                                lbNomePizza2.Text = new Banco().preencherNomeProduct(Convert.ToInt16(mtCodigo1.Text));
+                                lbNomePizza2.Visible = true;
+                            }
+                            catch
+                            {
+                                mtValor.Visible = false;
+                                nomesVisiveis();
+                                lbNomePizza2.Text = new Banco().preencherNomeProduct(Convert.ToInt16(mtCodigo1.Text));
+                            }
+
+                            if (mtCodigo2.Visible)
+                                mtCodigo2.Focus();
+                            else numQuantidade.Focus();
                         }
-                        catch
-                        {
-                            mtValor.Visible = false;
-                            nomesVisiveis();
-                            lbNomePizza2.Text = new Banco().preencherNomeProduct(Convert.ToInt16(mtCodigo1.Text));
-                        }
-                    else mtCodigo1.Clear();
-                    if (mtCodigo2.Visible)
-                        mtCodigo2.Focus();
-                    else numQuantidade.Focus();
+                        else { mtCodigo1.Clear(); lbNomePizza2.Visible = false; };
+                    }
+                    else { mtCodigo1.Clear(); }
                 }
 
             }
@@ -576,29 +632,36 @@ namespace Pizzaria.Tela
                 //esses metodos irao dar confirmacao a venda
                 if (e.KeyChar == '\r')
                 {
-                    if (b.isPizza(Convert.ToInt16(mtCodigo2.Text)))
-                        try
+                    if (metodoValida(Convert.ToInt16(mtCodigo2.Text), 2))
+                    {
+                        if (b.isPizza(Convert.ToInt16(mtCodigo2.Text)))
                         {
-                            panelValor.Visible = true;
-                            preencherValorProduto();
-                            nomesVisiveis();
-                            lbNomePizza3.Text = new Banco().preencherNomeProduct(Convert.ToInt16(mtCodigo2.Text));
-                            lbNomePizza3.Visible = true;
+                            try
+                            {
+                                panelValor.Visible = true;
+                                preencherValorProduto();
+                                nomesVisiveis();
+                                lbNomePizza3.Text = new Banco().preencherNomeProduct(Convert.ToInt16(mtCodigo2.Text));
+                                lbNomePizza3.Visible = true;
+                            }
+                            catch
+                            {
+
+                                nomesVisiveis();
+                                lbNomePizza3.Text = new Banco().preencherNomeProduct(Convert.ToInt16(mtCodigo2.Text));
+                                lbNomePizza3.Visible = true;
+
+                            }
+
+                            if (mtCodigo3.Visible)
+                                mtCodigo3.Focus();
+                            else numQuantidade.Focus();
                         }
-                        catch
-                        {
-
-                            nomesVisiveis();
-                            lbNomePizza3.Text = new Banco().preencherNomeProduct(Convert.ToInt16(mtCodigo2.Text));
-                            lbNomePizza3.Visible = true;
-
-                        }
-                    else mtCodigo2.Clear();
-                    if (mtCodigo3.Visible)
-                        mtCodigo3.Focus();
-                    else numQuantidade.Focus();
-
+                        else { mtCodigo2.Clear(); lbNomePizza3.Visible = false; };
+                    }
+                    else { mtCodigo2.Clear(); }
                 }
+                
             }
             catch
             {
@@ -613,23 +676,30 @@ namespace Pizzaria.Tela
                 //esses metodos irao dar confirmacao a venda
                 if (e.KeyChar == '\r')
                 {
-                    if (b.isPizza(Convert.ToInt16(mtCodigo3.Text)))
-                        try
+                    if (metodoValida(Convert.ToInt16(mtCodigo3.Text), 3))
+                    {
+                        if (b.isPizza(Convert.ToInt16(mtCodigo3.Text)))
                         {
-                            panelValor.Visible = true;
-                            preencherValorProduto();
-                            nomesVisiveis();
-                            lbNomePizza4.Text = new Banco().preencherNomeProduct(Convert.ToInt16(mtCodigo3.Text));
-                            lbNomePizza4.Visible = true;
+                            try
+                            {
+                                panelValor.Visible = true;
+                                preencherValorProduto();
+                                nomesVisiveis();
+                                lbNomePizza4.Text = new Banco().preencherNomeProduct(Convert.ToInt16(mtCodigo3.Text));
+                                lbNomePizza4.Visible = true;
+                            }
+                            catch
+                            {
+                                nomesVisiveis();
+                                lbNomePizza4.Text = new Banco().preencherNomeProduct(Convert.ToInt16(mtCodigo3.Text));
+                                lbNomePizza4.Visible = true;
+                            }
+
+                            numQuantidade.Focus();
                         }
-                        catch
-                        {
-                            nomesVisiveis();
-                            lbNomePizza4.Text = new Banco().preencherNomeProduct(Convert.ToInt16(mtCodigo3.Text));
-                            lbNomePizza4.Visible = true;
-                        }
-                    else mtCodigo3.Clear();
-                    numQuantidade.Focus();
+                        else { mtCodigo3.Clear(); lbNomePizza4.Visible = false; };
+                    }
+                    else { mtCodigo3.Clear(); }
                 }
             }
             catch { }
@@ -658,17 +728,28 @@ namespace Pizzaria.Tela
                 int Xcod_garcon = new Banco().codGarconByNome(getGarcon());
                 int XquantidadeProduto = Convert.ToInt16(numQuantidade.Text);
                 preecherTodosProdutos();
-                if (!(new Banco().jaTemProduto(cod_venda, XcodigoProduto, XcodTamanho, val, prod.Length == 1, XquantidadeProduto, Xcod_garcon)))//se ja houver produtos, aqui altera quantidade.
+                if ((new Banco().jaTemProduto(cod_venda, XcodigoProduto, XcodTamanho, val, prod.Length == 1, XquantidadeProduto, Xcod_garcon)))//se ja houver produtos, aqui altera quantidade.
                 {
+
+                }
+                else {
+
                     preecherTodosProdutos();
                     int cod_completo = new Banco().novoCompleto(prod, Convert.ToDouble(mtValor.Text), Convert.ToInt16(numQuantidade.Text));
                     new Banco().makeVendaCompleto(cod_venda, cod_completo);
                     new Banco().GarconCompleto(Xcod_garcon, cod_completo, XquantidadeProduto);
-              
                 }
                 if ((MessageBox.Show("Deseja acrescentar outro Produto? ", "Pizzaria Delirius", MessageBoxButtons.YesNo)) == DialogResult.Yes)
                 {
+                    mtCodigo1.Clear();
+                    mtCodigo2.Clear();
+                    mtCodigo3.Clear();
+                    mtCodigo1.Visible = false;
+                    mtCodigo2.Visible = false;
+                    mtCodigo.Visible = false;
                     mtCodigo.Clear();
+                    nomesVisiveis();
+                    mtCodigo.Visible = true;
                     mtCodigo.Focus();
                     limpaCampo();
                     limpeza();

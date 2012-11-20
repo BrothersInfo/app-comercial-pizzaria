@@ -106,8 +106,8 @@
             this.pFiltro = new System.Windows.Forms.Panel();
             this.lvConsInfo = new System.Windows.Forms.ListView();
             this.pValor = new System.Windows.Forms.Panel();
-            this.lValor = new System.Windows.Forms.Label();
             this.btEscolhaProduto = new System.Windows.Forms.Button();
+            this.lValor = new System.Windows.Forms.Label();
             this.gbDataVenda.SuspendLayout();
             this.gbPeriodoVenda.SuspendLayout();
             this.flpPrincipal.SuspendLayout();
@@ -1199,17 +1199,6 @@
             this.pValor.Size = new System.Drawing.Size(1283, 40);
             this.pValor.TabIndex = 46;
             // 
-            // lValor
-            // 
-            this.lValor.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lValor.AutoSize = true;
-            this.lValor.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
-            this.lValor.ForeColor = System.Drawing.Color.Red;
-            this.lValor.Location = new System.Drawing.Point(1072, 11);
-            this.lValor.Name = "lValor";
-            this.lValor.Size = new System.Drawing.Size(0, 18);
-            this.lValor.TabIndex = 37;
-            // 
             // btEscolhaProduto
             // 
             this.btEscolhaProduto.BackgroundImage = global::Pizzaria.Properties.Resources.backf;
@@ -1222,8 +1211,18 @@
             this.btEscolhaProduto.TabIndex = 47;
             this.btEscolhaProduto.Text = "EXPORTAR PARA PDF";
             this.btEscolhaProduto.UseVisualStyleBackColor = true;
-            this.btEscolhaProduto.Visible = false;
             this.btEscolhaProduto.Click += new System.EventHandler(this.btEscolhaProduto_Click);
+            // 
+            // lValor
+            // 
+            this.lValor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lValor.AutoSize = true;
+            this.lValor.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.lValor.ForeColor = System.Drawing.Color.Red;
+            this.lValor.Location = new System.Drawing.Point(1072, 11);
+            this.lValor.Name = "lValor";
+            this.lValor.Size = new System.Drawing.Size(0, 18);
+            this.lValor.TabIndex = 37;
             // 
             // TipoRelatorio
             // 
