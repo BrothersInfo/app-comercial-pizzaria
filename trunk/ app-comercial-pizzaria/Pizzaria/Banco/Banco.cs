@@ -34,24 +34,13 @@ namespace Pizzaria.Banco
         }
         public void mudarQuantidade(int cod_venda, int cod_completo, int qtd, int cod_garcon)
         {
-
-            new Banco().GarconCompleto(cod_garcon, cod_completo, qtd);
+            GarconCompleto(cod_garcon, cod_completo, qtd);
             DataTable dtt = new DataTable();
             string query1 = "UPDATE completo   SET  quantidade=(quantidade+ " + qtd + ")  WHERE cod_completo = " + cod_completo;
             NpgsqlDataAdapter sql = new NpgsqlDataAdapter
                 (query1, Conectar());
             sql.Fill(dtt);
-
             return;
-          
-        }
-        public int codGarconPeloCompleto(int cod_completo)
-        {
-            DataTable dtt = new DataTable();
-            string query = "select cod_garcon from garconCompleto where cod_completo =" + cod_completo + "order by horario desc limit 1";
-            NpgsqlDataAdapter sql = new NpgsqlDataAdapter               (query, Conectar());
-            sql.Fill(dtt);
-            return Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0));
         }
         public bool jaTemProduto(int cod_venda, int cod_produto, int XcodTamanho, double valor, bool pct, int qtdade, int cod_garcon)
         {
@@ -68,11 +57,25 @@ namespace Pizzaria.Banco
             if (dtt.Rows.Count > 0)
             {
                 mudarQuantidade(cod_venda, Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0)), qtdade, cod_garcon);
-
-                new Banco().GarconCompleto(cod_garcon, Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0)), qtdade);
                 return true;
             }
             return false;
+        }
+       
+        public void GarconCompleto(int cod_garcon, int cod_completo, int quantidade)
+        {
+            DataTable dtt = new DataTable();
+            string query = "INSERT INTO garconcompleto( cod_garcon, cod_completo, quantidade)    VALUES (" + cod_garcon + "," + cod_completo + "," + quantidade + ")";
+            new NpgsqlDataAdapter(query, Conectar()).
+              Fill(dtt);
+        }
+        public int codGarconPeloCompleto(int cod_completo)
+        {
+            DataTable dtt = new DataTable();
+            string query = "select cod_garcon from garconCompleto where cod_completo =" + cod_completo + "order by horario desc limit 1";
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(dtt);
+            return Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0));
         }
         public string trazerNomeMesa(int cod_venda)
         {
@@ -559,15 +562,7 @@ namespace Pizzaria.Banco
             }
             return x;
         }
-
-        public void GarconCompleto(int cod_garcon, int cod_completo, int quantidade)
-        {
-            DataTable dtt = new DataTable();
-            string query = "INSERT INTO garconcompleto( cod_garcon, cod_completo, quantidade)    VALUES ("+cod_garcon+","+cod_completo+ "," +quantidade+")";
-            new NpgsqlDataAdapter(query, Conectar()).
-              Fill(dtt);
-        }
-        
+     
         public void scriptLimpezaBanco()
         {
             DataTable t = new DataTable();
@@ -577,7 +572,7 @@ namespace Pizzaria.Banco
             string query2 = "delete from completoProduto";
             new NpgsqlDataAdapter(query2, Conectar()).Fill(t);
             t = new DataTable();
-            string query3 = "delete from vendaGarcon";
+            string query3 = "delete from GarconCompleto";
             new NpgsqlDataAdapter(query3, Conectar()).Fill(t);
             t = new DataTable();
             string query4 = "delete from vendaCompleta";

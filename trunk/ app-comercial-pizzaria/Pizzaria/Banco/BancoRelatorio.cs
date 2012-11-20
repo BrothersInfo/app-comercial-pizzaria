@@ -104,52 +104,16 @@ namespace Pizzaria.Banco
             }
 
         }
-        public DataTable consultaVendaGeral(string []data, int order, bool hasFiltro, int filtro, int valorFiltro, bool ascen)
-        {
-
-            string query = "select "+ "(select mm.descricao from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) inner join venda vv on (vv.cod_venda = vmm.cod_venda) where v.cod_venda = vv.cod_venda order by vv.cod_venda desc limit 1) as \"Venda\","
-                + " (CASE v.horario > '06:00'  WHEN true THEN to_char(v.dataVenda, 'DD MM YYYY') ELSE to_char( v.dataVenda - 1, 'DD MM YYYY')||'* Madrugada'   end ) as \"Data\", to_char(v.horario, 'HH24:MI:SS') as \"Horario\", x.nomeCaixa as \"Caixa\" ,"
-                
-                + "(select gg.nome from garcon gg inner join GarconCompleto ccg on (ccg.cod_garcon = gg.cod_garcon) "
-                +" inner join completo cc on (cc.cod_completo = ccg.cod_completo) inner join vendaCompleta vvg on (vvg.cod_completo = cc.cod_completo) "
-                +" inner join venda vv on (vv.cod_venda = vvg.cod_venda) where vvg.cod_venda =  v.cod_venda order by vv.cod_venda desc limit 1) as \"Garcon\","
-                
-                + " p.descricao as \"Pagamento\",(CASE v.valortotal >0  WHEN true THEN (trim(to_char( v.valorTotal,'9999.99'))) ELSE '0.00'  end ) as \"Valor\",    a.descricao as \"Ambiente\""
-                +" from  venda v " 
-                +" inner join vendaMesa vm              on (vm.cod_venda    = v.cod_venda) "    
-                +" inner join mesa m                    on (m.cod_mesa      = vm.cod_mesa) "
-                +" inner join caixa x                   on (x.cod_caixa     = v.cod_caixa) "
-                +" inner join pagamento p               on (p.cod_pagamento = v.cod_pagamento) "
-                +" inner join ambiente a                on (a.cod_ambiente  = m.cod_ambiente) "
-                +" where v.aberta = false ";
-            if (hasFiltro)
-                query += " and "+ filtroQuery(  filtro) +" = "+ (1+valorFiltro);
-            if (data.Length == 1)
-                query += "and (v.dataVenda = '" + data[0] + "' and v.horario > ' 06:00' ) or (v.dataVenda = date '" + data[0] + "' + 1 and v.horario < ' 06:00' )";
-                
-            else
-                query += " and v.dataVenda between '" + data[0] + "' and '" + data[1] + "' ";
-                    //--filtros
-            query +=
-             " order by " + orderQuery(  order);
-            if (ascen) query += " asc";
-            else query += " desc";
-            DataTable tabela = new DataTable();
-            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
-            sql.Fill(tabela);
-            return tabela;
-        }
-        //--------------------------ok GARCON
         public string[] garcons()
         {
             DataTable tabela = new DataTable();
             string query = "select nome as \"Garcon\" from garcon";
             NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
             sql.Fill(tabela);
-            string[] retorno = new string[tabela.Rows.Count+1];
+            string[] retorno = new string[tabela.Rows.Count + 1];
             retorno[0] = "Todos";
             for (int i = 1; i < retorno.Length; i++)
-                retorno[i] = tabela.Rows[i-1].ItemArray.GetValue(0).ToString();
+                retorno[i] = tabela.Rows[i - 1].ItemArray.GetValue(0).ToString();
 
             return retorno;
         }
@@ -162,39 +126,129 @@ namespace Pizzaria.Banco
             string[] retorno = new string[tabela.Rows.Count + 1];
             retorno[0] = "Todos";
             for (int i = 1; i < retorno.Length; i++)
-                retorno[i] = tabela.Rows[i-1].ItemArray.GetValue(0).ToString();
+                retorno[i] = tabela.Rows[i - 1].ItemArray.GetValue(0).ToString();
 
             return retorno;
         }
+        public string[] tamanhosDoTipo(int cod_tipo)
+        {
+            string query =
+            " select tt.cod_tamanho, tt.descricao " +
+            " from 	produto p      	  " +
+            " inner join 	produtoTamanho pt         on (pt.cod_produto  = p.cod_produto)" +
+            " inner join 	tamanho tt    	     	  on (tt.cod_tamanho  = pt.cod_tamanho )" +
+            " inner join	tipo t			  on (t.cod_tipo      = p.cod_tipo)" +
+            " where t.cod_tipo = " + cod_tipo +
+            " group by tt.cod_tamanho, tt.descricao order by tt.cod_tamanho ";
+            DataTable tabela = new DataTable();
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(tabela);
+
+            string[] retorno = new string[tabela.Rows.Count + 1];
+            retorno[0] = "Todos";
+            for (int i = 1; i < retorno.Length; i++)
+                retorno[i] = tabela.Rows[i - 1].ItemArray.GetValue(1).ToString();
+
+            return retorno;
+
+        }
+        public string[] produtosDoTipo(int cod_tipo)
+        {
+            string query =
+            " select p.cod_produto, p.descricao " +
+            " from 	produto p      	  " +
+            " inner join 	produtoTamanho pt         on (pt.cod_produto  = p.cod_produto)" +
+            " inner join 	tamanho tt    	     	  on (tt.cod_tamanho  = pt.cod_tamanho )" +
+            " inner join	tipo t			  on (t.cod_tipo      = p.cod_tipo)" +
+            " where t.cod_tipo = " + cod_tipo +
+            " group by p.cod_produto, p.descricao order by p.cod_produto ";
+            DataTable tabela = new DataTable();
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(tabela);
+
+            string[] retorno = new string[tabela.Rows.Count + 1];
+            retorno[0] = "Todos";
+            for (int i = 1; i < retorno.Length; i++)
+                retorno[i] = tabela.Rows[i - 1].ItemArray.GetValue(1).ToString();
+
+            return retorno;
+
+        }
+        public string orderGarcon(int numero)
+        {
+            switch (numero)
+            {
+                case 0: return " v.datavenda";
+                case 1: return " g.cod_garcon";
+
+                case 2: return " t.cod_tipo";
+                case 3: return " c.valorUnitarioCompleto";
+                default: return " v.dataVenda";
+            }
+
+        }
+        public DataTable consultaVendaGeral(string []data, int order, bool hasFiltro, int filtro, int valorFiltro, bool ascen)
+        {
+            string query = "select "
+                + "(select mm.descricao from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) inner join venda vv on (vv.cod_venda = vmm.cod_venda) where v.cod_venda = vv.cod_venda order by vv.cod_venda desc limit 1) as \"Venda\","
+                + " (CASE v.horario > '06:00'  WHEN true THEN to_char(v.dataVenda, 'DD MM YYYY') ELSE to_char( v.dataVenda - 1, 'DD MM YYYY')||'* Madrugada'   end ) as \"Data\", to_char(v.horario, 'HH24:MI:SS') as \"Horario\", x.nomeCaixa as \"Caixa\" ," 
+                + "(select gg.nome from garcon gg inner join GarconCompleto ccg on (ccg.cod_garcon = gg.cod_garcon) "
+                     +" inner join completo cc on (cc.cod_completo = ccg.cod_completo) inner join vendaCompleta vvg on (vvg.cod_completo = cc.cod_completo) "
+                     +" inner join venda vv on (vv.cod_venda = vvg.cod_venda) where vvg.cod_venda =  v.cod_venda order by vv.cod_venda desc limit 1) as \"Garcon\","
+                + " p.descricao as \"Pagamento\","
+                +" (CASE v.valortotal >0  WHEN true THEN (trim(to_char( v.valorTotal,'9999.99'))) ELSE '0.00'  end ) as \"Valor\","
+                +"  a.descricao as \"Ambiente\""
+                +" from  venda v " 
+                +" inner join vendaMesa vm              on (vm.cod_venda    = v.cod_venda) "    
+                +" inner join mesa m                    on (m.cod_mesa      = vm.cod_mesa) "
+                +" inner join caixa x                   on (x.cod_caixa     = v.cod_caixa) "
+                +" inner join pagamento p               on (p.cod_pagamento = v.cod_pagamento) "
+                +" inner join ambiente a                on (a.cod_ambiente  = m.cod_ambiente) "
+                +" where v.aberta = false ";
+            if (hasFiltro)
+                query += " and "+ filtroQuery(  filtro) +" = "+ (1+valorFiltro);
+            if (data.Length == 1)
+                query += "and (v.dataVenda = '" + data[0] + "' and v.horario > ' 06:00' ) or (v.dataVenda = date '" + data[0] + "' + 1 and v.horario < ' 06:00' )";     
+            else
+                query += " and v.dataVenda between '" + data[0] + "' and '" + data[1] + "' ";
+                    //--filtros
+            query +=
+             " order by " + orderQuery(  order);
+            if (ascen) query += " asc";
+            else query += " desc";
+            DataTable tabela = new DataTable();
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(tabela);
+            return tabela;
+        }      
         public DataTable consultaGarconGeral(bool aberta, string[] data,bool hasGarcon, string garcon
         ,bool hasAmbiente, string ambiente, bool hasTipo, string tipo, int order , bool ascen)
         {
             string query =
-                "select (CASE v.horario > '06:00'  WHEN true THEN to_char(v.dataVenda, 'DD MM YYYY') ELSE to_char( v.dataVenda - 1, 'DD MM YYYY')||'* Madrugada'   end ) as \"Data da Venda\"" +
+                "select (CASE v.horario > '06:00'  WHEN true THEN to_char(v.dataVenda, 'DD MM YYYY') ELSE"+
+                    " to_char( v.dataVenda - 1, 'DD MM YYYY')||'* Madrugada'   end ) as \"Data da Venda\"" +
                 ", g.nome as \"Garcon\"" +
                 ",(select mm.descricao from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) " +
-                " inner join venda vv on (vv.cod_venda = vmm.cod_venda) " +
-                " where v.cod_venda = vv.cod_venda order by vv.cod_venda desc limit 1) as \"Mesa\" ," +
-
+                    " inner join venda vv on (vv.cod_venda = vmm.cod_venda) " +
+                    " where v.cod_venda = vv.cod_venda order by vv.cod_venda desc limit 1) as \"Mesa\" ," +
                 " (select aa.descricao from ambiente aa inner join  mesa mm on (mm.cod_ambiente = aa.cod_ambiente) " +
-                " inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) " +
-                " inner join venda vv on (vv.cod_venda = vmm.cod_venda) ";
-            if (hasAmbiente)
-                query += " where v.cod_venda = vv.cod_venda and aa.cod_ambiente = " + new BancoConsulta().codAmbientePelaDescricao(ambiente) + " order by vv.cod_venda desc limit 1) as \"Ambiente\",";
-
-            else
-                query += " where v.cod_venda = vv.cod_venda  order by vv.cod_venda desc limit 1) as \"Ambiente\",";
-            query +=
-               
+                    " inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) " +
+                    " inner join venda vv on (vv.cod_venda = vmm.cod_venda) ";
+                    if (hasAmbiente)
+                        query += " where v.cod_venda = vv.cod_venda and aa.cod_ambiente = " 
+                              + new BancoConsulta().codAmbientePelaDescricao(ambiente) + " order by vv.cod_venda desc limit 1) as \"Ambiente\",";
+                    else
+                        query += " where v.cod_venda = vv.cod_venda  order by vv.cod_venda desc limit 1) as \"Ambiente\",";
+                query +=
                 " t.nome as \"Categoria\" " +
                 ",p.descricao as \"Produto\" " +
                 ",tt.descricao as \"Tamanho\" " +
                 ",(CASE cp.porcentagem = 100 when true then	(CASE (t.cod_tipo = 1)when true then 'Inteiro' ELSE 'Unico' end ) else " +
-                "    (CASE (cp.porcentagem = 50 )when true then 'Metade' ELSE " +
-                "        (CASE (cp.porcentagem = 25 )when true then '1/4' " +
-                "            ELSE ('Desconhecido') end ) end )  end)as \"Divisao\", " +
-
-                "(CASE (c.valorUnitarioCompleto*(cast(cp.porcentagem as double precision) /100)) >0  WHEN true THEN (trim(to_char( (c.valorUnitarioCompleto*(cast(cp.porcentagem as double precision) /100)),'9999.99'))) ELSE '0.00'  end ) as \"Valor Unitario\"," +
+                    " (CASE (cp.porcentagem = 50 )when true then 'Metade' ELSE " +
+                    "    (CASE (cp.porcentagem = 25 )when true then '1/4' " +
+                    "        ELSE ('Desconhecido') end ) end )  end)as \"Divisao\", " +
+                "(CASE (c.valorUnitarioCompleto*(cast(cp.porcentagem as double precision) /100)) >0  WHEN true THEN "+
+                    "(trim(to_char( (c.valorUnitarioCompleto*(cast(cp.porcentagem as double precision) /100)),'9999.99'))) ELSE '0.00'  end ) as \"Valor Unitario\"," +
                 " gc.quantidade as \"Quantidade\" " +
                 ", to_char(gc.horario, 'HH24:MI:SS') as \"Hora Entrega\" " +
                 "from garcon g " +
@@ -230,19 +284,7 @@ namespace Pizzaria.Banco
             return tabela;
 
         }
-        public string orderGarcon(int numero)
-        {
-            switch (numero)
-            {
-                case 0: return " v.datavenda";
-                case 1: return " g.cod_garcon";
-
-                case 2: return " t.cod_tipo";
-                case 3: return " c.valorUnitarioCompleto";
-                default: return " v.dataVenda";
-            }
-
-        }
+       
         public DataTable consultaProdutoGeral(string[] data, bool hasValor, bool hasTipo, int cod_tipo, bool hasTamanho, int cod_tamanho, 
             bool hasProduto, int cod_produto)
         {
@@ -296,50 +338,7 @@ namespace Pizzaria.Banco
             sql.Fill(tabela);
             return tabela;
         }
-        public string[] tamanhosDoTipo(int cod_tipo)
-        {
-            string query = 
-            " select tt.cod_tamanho, tt.descricao " +
-            " from 	produto p      	  "+
-            " inner join 	produtoTamanho pt         on (pt.cod_produto  = p.cod_produto)"+  
-            " inner join 	tamanho tt    	     	  on (tt.cod_tamanho  = pt.cod_tamanho )"+
-            " inner join	tipo t			  on (t.cod_tipo      = p.cod_tipo)"+
-            " where t.cod_tipo = "+cod_tipo +
-            " group by tt.cod_tamanho, tt.descricao order by tt.cod_tamanho ";
-            DataTable tabela = new DataTable();
-            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
-            sql.Fill(tabela);
-
-            string[] retorno = new string[tabela.Rows.Count + 1];
-            retorno[0] = "Todos";
-            for (int i = 1; i < retorno.Length; i++)
-                retorno[i] = tabela.Rows[i - 1].ItemArray.GetValue(1).ToString();
-
-            return retorno;
-        
-        }
-        public string[] produtosDoTipo(int cod_tipo)
-        {
-            string query =
-            " select p.cod_produto, p.descricao " +
-            " from 	produto p      	  " +
-            " inner join 	produtoTamanho pt         on (pt.cod_produto  = p.cod_produto)" +
-            " inner join 	tamanho tt    	     	  on (tt.cod_tamanho  = pt.cod_tamanho )" +
-            " inner join	tipo t			  on (t.cod_tipo      = p.cod_tipo)" +
-            " where t.cod_tipo = " + cod_tipo +
-            " group by p.cod_produto, p.descricao order by p.cod_produto ";
-            DataTable tabela = new DataTable();
-            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
-            sql.Fill(tabela);
-
-            string[] retorno = new string[tabela.Rows.Count + 1];
-            retorno[0] = "Todos";
-            for (int i = 1; i < retorno.Length; i++)
-                retorno[i] = tabela.Rows[i - 1].ItemArray.GetValue(1).ToString();
-
-            return retorno;
-
-        }
+       
         
     }
 }

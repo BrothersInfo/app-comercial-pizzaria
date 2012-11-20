@@ -53,12 +53,13 @@ namespace Pizzaria.Classes
         {
             try
             {
+                
+
                 //quem vai imprimir
                 Reporter mr = new Reporter();
                 //quem vai colocar em italico e talz
                 EpsonCodes mer = new EpsonCodes();
                 //mer.SetPageSize(40);
-
 
                 if (File.Exists(endereco))
                     File.Delete(endereco);
@@ -66,10 +67,9 @@ namespace Pizzaria.Classes
                 mr.Output = endereco;
                 mr.StartJob();
                 //--------------------------------------------------------------------------------
-
+                
 
                 Comanda cc = new Comanda();
-
                 string pont = "|----------------------------------------|";
 
                 mr.PrintText(01, 02, cc.empresa);
@@ -84,7 +84,6 @@ namespace Pizzaria.Classes
                 mr.PrintText(line++, 01, pont);
 
                 i = venda.Completos.Length;
-
                 while (ii < i)
                 {
                     string prod = new Banco().preencherNomeProdctAll(venda.Completos[ii].produto[0].cod_produto);
@@ -101,6 +100,7 @@ namespace Pizzaria.Classes
                     mr.PrintText(line, 35, new Tratamento().retornaValorEscrito((venda.Completos[ii].valorUnitario * venda.Completos[ii++].quantidade)));
                     mr.PrintText(line++, 42, "|");
                 }
+                
                 mr.PrintText(line++, 01, pont);
                 mr.PrintText(line++, 01, cc.fixRightPont("TOTAL RS : " + new Tratamento().retornaValorEscrito(venda.valorTotal)));
                 mr.PrintText(line++, 01, pont);
@@ -109,7 +109,7 @@ namespace Pizzaria.Classes
                 int gPos = 12;
                 string garc = "";
                 int x = 0;
-
+                
                 string garc3 = new BancoVenda().nomeGarcon(venda.garcon[x++]);
 
                 garc += garc3;
@@ -119,6 +119,8 @@ namespace Pizzaria.Classes
                     garc += " | " + new BancoVenda().nomeGarcon(venda.garcon[x++]);
                     gPos = 12 + garc.Length;
                 }
+                
+
                 mr.PrintText(line, 01, "| GARCON : " + garc); mr.PrintText(line++, 42, "|");
 
                 mr.PrintText(line++, 01, pont);
@@ -147,9 +149,11 @@ namespace Pizzaria.Classes
                 mr.PrintText(line++, 01, cc.progNome);
                 mr.PrintText(line++, 01, cc.progTelefone);
                 mr.PrintText(line++, 01, "|________________________________________|");
+                
 
                 mr.PrintJob();
                 mr.EndJob();
+
 
             }
             catch { }

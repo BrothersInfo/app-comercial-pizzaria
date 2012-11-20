@@ -149,3 +149,9 @@ F:\Proj\app_pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.exe.manifest
 F:\Proj\app_pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.application
 D:\Tortoise\Pizzaria\obj\x86\Debug\Pizzaria.Tela.Teclado.resources
 D:\Tortoise\Pizzaria\obj\x86\Debug\Pizzaria.Tela.SenhaAcesso.resources
+D:\Tortoise\Pizzaria\obj\x86\Debug\Pizzaria.Tela.PdfGenerator.resources
+D:\Tortoise\Pizzaria\obj\x86\Debug\RdlCompile.cache
+D:\Tortoise\Pizzaria\obj\x86\Debug\RdlCompile.compiled
+D:\Tortoise\Pizzaria\bin\Debug\itextsharp.dll
+D:\Tortoise\Pizzaria\bin\Debug\itextsharp.pdfa.dll
+D:\Tortoise\Pizzaria\bin\Debug\itextsharp.xtra.dll
