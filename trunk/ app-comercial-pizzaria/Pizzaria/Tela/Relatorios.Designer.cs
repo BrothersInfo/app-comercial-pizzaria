@@ -1141,6 +1141,7 @@
             // 
             // tlpFundo
             // 
+            this.tlpFundo.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tlpFundo.ColumnCount = 3;
             this.tlpFundo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tlpFundo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));

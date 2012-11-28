@@ -19,7 +19,7 @@ namespace Pizzaria.Tela
             InitializeComponent();
             carregarTipos();
             lvTipo.Focus();
-            lvTipo.Select();
+            lvTipo.Select();    
             posicionamento();
         }
         private void posicionamento()
