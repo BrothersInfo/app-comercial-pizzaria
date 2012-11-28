@@ -74,6 +74,48 @@ namespace Pizzaria.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap botaoCINCO {
+            get {
+                object obj = ResourceManager.GetObject("botaoCINCO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap botaoDOIS {
+            get {
+                object obj = ResourceManager.GetObject("botaoDOIS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap botaoQUATRO {
+            get {
+                object obj = ResourceManager.GetObject("botaoQUATRO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap botaoSEIS {
+            get {
+                object obj = ResourceManager.GetObject("botaoSEIS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap botaoTREZ {
+            get {
+                object obj = ResourceManager.GetObject("botaoTREZ", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap botaoUM {
+            get {
+                object obj = ResourceManager.GetObject("botaoUM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap BRAjuda3 {
             get {
                 object obj = ResourceManager.GetObject("BRAjuda3", resourceCulture);
@@ -154,13 +196,6 @@ namespace Pizzaria.Properties {
         internal static System.Drawing.Bitmap FUNDO_PAINEL {
             get {
                 object obj = ResourceManager.GetObject("FUNDO PAINEL", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap logo {
-            get {
-                object obj = ResourceManager.GetObject("logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

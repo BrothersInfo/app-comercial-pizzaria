@@ -36,6 +36,7 @@ namespace Pizzaria.Tela
         private void carregarFormPrincipal(Principal obj) {
 
             //obj = new Principal(1);
+            tlpBotoes.Visible = true;
             pLoadForm.Visible = true;
 
             this.IsMdiContainer = true;
@@ -43,7 +44,6 @@ namespace Pizzaria.Tela
             obj.Visible = true;
             obj.WindowState = FormWindowState.Maximized;
             obj.StartPosition = FormStartPosition.CenterScreen;
-
 
             obj.Size = new System.Drawing.Size(pLoadForm.Size.Width, pLoadForm.Size.Height);
             pLoadForm.Controls.Add(obj);
@@ -66,12 +66,8 @@ namespace Pizzaria.Tela
             tlpBotoes.Visible = true;
          /*/
         }
-        
-        CadastroForm cf;
-        AlterarForm af;
-        ConsultaForm cof;
-        
-        TipoRelatorio rf;
+        CadastroForm cf;        AlterarForm af;
+        ConsultaForm cof;       TipoRelatorio rf;
         private void expandirConsulta()
         {
             cof = new ConsultaForm();
@@ -216,8 +212,7 @@ namespace Pizzaria.Tela
                 removeAllForm();
             }
 
-        }
-     
+        }     
         private void removeAllForm()
         {
             pLoadForm.Controls.Remove(cf);
@@ -232,7 +227,6 @@ namespace Pizzaria.Tela
             pbAlterar.BorderStyle = BorderStyle.FixedSingle;
             pbConsulta.BorderStyle = BorderStyle.FixedSingle;
         }
-
   
     }
 }

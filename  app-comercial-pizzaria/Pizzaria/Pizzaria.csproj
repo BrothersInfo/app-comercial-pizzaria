@@ -15,7 +15,7 @@
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Tremere\Desktop\inst14112012.-OK\</PublishUrl>
+    <PublishUrl>C:\Users\Tremere\Desktop\inst21112012.1\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -25,8 +25,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>2.3.0.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>2.3.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -353,9 +353,6 @@
     <None Include="Resources\AFOTO.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\BTnewAvancar.png" />
   </ItemGroup>
   <ItemGroup>
@@ -374,6 +371,12 @@
     <None Include="Resources\FUNDO PAINEL.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\botaoTREZ.png" />
+    <None Include="Resources\botaoSEIS.png" />
+    <None Include="Resources\botaoQUATRO.png" />
+    <None Include="Resources\botaoDOIS.png" />
+    <None Include="Resources\botaoCINCO.png" />
+    <None Include="Resources\botaoUM.png" />
     <None Include="fotos Produtos\Delirios.png" />
     <Content Include="icone.ico" />
     <None Include="Resources\backf.png" />

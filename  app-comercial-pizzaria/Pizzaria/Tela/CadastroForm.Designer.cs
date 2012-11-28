@@ -783,7 +783,7 @@
             this.tpTamanho.Name = "tpTamanho";
             this.tpTamanho.Size = new System.Drawing.Size(865, 424);
             this.tpTamanho.TabIndex = 4;
-            this.tpTamanho.Text = "Tamanho";
+            this.tpTamanho.Text = "Sub Categoria";
             this.tpTamanho.UseVisualStyleBackColor = true;
             // 
             // tlpInternaColunaTamanho
@@ -885,11 +885,11 @@
             this.lTituloTamanho.AutoSize = true;
             this.lTituloTamanho.Font = new System.Drawing.Font("Arial", 18F);
             this.lTituloTamanho.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lTituloTamanho.Location = new System.Drawing.Point(207, 14);
+            this.lTituloTamanho.Location = new System.Drawing.Point(168, 14);
             this.lTituloTamanho.Name = "lTituloTamanho";
-            this.lTituloTamanho.Size = new System.Drawing.Size(126, 27);
+            this.lTituloTamanho.Size = new System.Drawing.Size(205, 27);
             this.lTituloTamanho.TabIndex = 40;
-            this.lTituloTamanho.Text = "TAMANHO";
+            this.lTituloTamanho.Text = "SUB-CATEGORIA";
             // 
             // label9
             // 
