@@ -51,7 +51,7 @@ namespace Pizzaria.Tela
                   regularTamanho(lvInfo.Width);
 
                   double valr = Screen.PrimaryScreen.Bounds.Height / 100f;
-                  double yy = (13.5 * valr)+10 ;
+                  double yy = ((13.5-10) * valr)+10 ;
                   this.Location = new Point((Screen.PrimaryScreen.Bounds.Width - this.Size.Width) / 2, (int)yy);
         }
         //---------------------------------------------------------------------------------------

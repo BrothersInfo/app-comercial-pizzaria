@@ -19,12 +19,16 @@ namespace Pizzaria.Tela
         List<ListViewItem> conjItem;
         bool vendendo;
         short cod_caixa;
-        public Principal(short cod_caixa)
+    
+        public TableLayoutPanel tlpBotoes;
+        public Principal(short cod_caixa,TableLayoutPanel fnd)
         {
+            tlpBotoes = fnd;
             this.cod_caixa = cod_caixa;
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             conjItem = new List<ListViewItem>();
+            tlpBotoes.Visible = false;
             try
             {
                 pOcupada_MouseEnter(null, null);
@@ -211,7 +215,9 @@ namespace Pizzaria.Tela
             else
             {
                 this.Visible = false;
+                tlpBotoes.Visible = !tlpBotoes.Visible;
                 new Venda(listVenda.FocusedItem.Text).ShowDialog();
+                tlpBotoes.Visible = !tlpBotoes.Visible;
                 try
                 {
                     pOcupada_MouseEnter(null, null);
@@ -281,6 +287,11 @@ namespace Pizzaria.Tela
         {
             hei = Screen.PrimaryScreen.Bounds.Height;
             wig = Screen.PrimaryScreen.Bounds.Width;
+        }
+
+        private void ptitulo_Click(object sender, EventArgs e)
+        {
+            tlpBotoes.Visible = !tlpBotoes.Visible;
         }
 
     }

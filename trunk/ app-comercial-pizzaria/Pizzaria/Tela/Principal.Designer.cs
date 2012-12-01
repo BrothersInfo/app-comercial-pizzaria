@@ -288,6 +288,7 @@
             this.ptitulo.Name = "ptitulo";
             this.ptitulo.Size = new System.Drawing.Size(446, 201);
             this.ptitulo.TabIndex = 36;
+            this.ptitulo.Click += new System.EventHandler(this.ptitulo_Click);
             // 
             // panel1
             // 
