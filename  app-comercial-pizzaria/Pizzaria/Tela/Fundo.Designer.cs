@@ -34,14 +34,14 @@
             this.pCentroFundo = new System.Windows.Forms.Panel();
             this.pLoadForm = new System.Windows.Forms.Panel();
             this.tlpBotoes = new System.Windows.Forms.TableLayoutPanel();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.ttBotao = new System.Windows.Forms.ToolTip(this.components);
             this.pbFechar = new System.Windows.Forms.Panel();
             this.pbAjuda = new System.Windows.Forms.Panel();
             this.pbRelatorio = new System.Windows.Forms.Panel();
             this.pbAlterar = new System.Windows.Forms.Panel();
             this.pbConsulta = new System.Windows.Forms.Panel();
             this.pbCadastro = new System.Windows.Forms.Panel();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.ttBotao = new System.Windows.Forms.ToolTip(this.components);
             this.tlpFundo.SuspendLayout();
             this.pCentroFundo.SuspendLayout();
             this.tlpBotoes.SuspendLayout();
@@ -78,10 +78,10 @@
             // 
             this.pLoadForm.BackColor = System.Drawing.Color.White;
             this.pLoadForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pLoadForm.Location = new System.Drawing.Point(0, 54);
+            this.pLoadForm.Location = new System.Drawing.Point(0, 0);
             this.pLoadForm.Margin = new System.Windows.Forms.Padding(0);
             this.pLoadForm.Name = "pLoadForm";
-            this.pLoadForm.Size = new System.Drawing.Size(593, 362);
+            this.pLoadForm.Size = new System.Drawing.Size(593, 416);
             this.pLoadForm.TabIndex = 4;
             // 
             // tlpBotoes
@@ -109,24 +109,6 @@
             this.tlpBotoes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpBotoes.Size = new System.Drawing.Size(593, 54);
             this.tlpBotoes.TabIndex = 3;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "BRtent1.png");
-            this.imageList1.Images.SetKeyName(1, "Sem título.png");
-            this.imageList1.Images.SetKeyName(2, "favicon.ico");
-            this.imageList1.Images.SetKeyName(3, "teste.jpg");
-            this.imageList1.Images.SetKeyName(4, "mesawhite.jpg");
-            this.imageList1.Images.SetKeyName(5, "BOTAO X @.jpg");
-            this.imageList1.Images.SetKeyName(6, "BRtent2.png");
-            // 
-            // ttBotao
-            // 
-            this.ttBotao.IsBalloon = true;
-            this.ttBotao.ShowAlways = true;
-            this.ttBotao.ToolTipTitle = "INFORMAÇÃO";
             // 
             // pbFechar
             // 
@@ -206,6 +188,38 @@
             this.ttBotao.SetToolTip(this.pbCadastro, "Cadastrar Usuarios, Produtos , Mesas e etc");
             this.pbCadastro.Click += new System.EventHandler(this.pbCadastro_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "BRtent1.png");
+            this.imageList1.Images.SetKeyName(1, "Sem título.png");
+            this.imageList1.Images.SetKeyName(2, "favicon.ico");
+            this.imageList1.Images.SetKeyName(3, "teste.jpg");
+            this.imageList1.Images.SetKeyName(4, "mesawhite.jpg");
+            this.imageList1.Images.SetKeyName(5, "BOTAO X @.jpg");
+            this.imageList1.Images.SetKeyName(6, "BRtent2.png");
+            // 
+            // ttBotao
+            // 
+            this.ttBotao.IsBalloon = true;
+            this.ttBotao.ShowAlways = true;
+            this.ttBotao.ToolTipTitle = "INFORMAÇÃO";
+            // 
+            // obj
+            // 
+            this.obj.ClientSize = new System.Drawing.Size(1366, 768);
+            this.obj.ControlBox = false;
+            this.obj.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.obj.Icon = ((System.Drawing.Icon)(resources.GetObject("obj.Icon")));
+            this.obj.KeyPreview = true;
+            this.obj.Location = new System.Drawing.Point(0, 0);
+            this.obj.Name = "obj";
+            this.obj.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.obj.Text = "Principal";
+            this.obj.Visible = false;
+            this.obj.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            // 
             // Fundo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -228,9 +242,9 @@
         }
 
         #endregion
-
+        
         private System.Windows.Forms.TableLayoutPanel tlpFundo;
-        private System.Windows.Forms.TableLayoutPanel tlpBotoes;
+        public System.Windows.Forms.TableLayoutPanel tlpBotoes;
         private System.Windows.Forms.Panel pbFechar;
         private System.Windows.Forms.Panel pbAjuda;
         private System.Windows.Forms.Panel pbRelatorio;

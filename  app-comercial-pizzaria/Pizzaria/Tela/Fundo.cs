@@ -32,13 +32,13 @@ namespace Pizzaria.Tela
         }
         //---------------Forms responsaveis por carregar formularios no painel = pLoadForm
 
-        Principal obj = new Principal(1);
+        Principal obj;
         private void carregarFormPrincipal(Principal obj) {
-
+         
             //obj = new Principal(1);
             tlpBotoes.Visible = true;
             pLoadForm.Visible = true;
-
+            
             this.IsMdiContainer = true;
             obj.MdiParent = this;
             obj.Visible = true;
