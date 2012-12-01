@@ -217,9 +217,9 @@
             this.mtValor.Font = new System.Drawing.Font("Arial", 18F);
             this.mtValor.ForeColor = System.Drawing.Color.DarkRed;
             this.mtValor.Location = new System.Drawing.Point(159, 10);
-            this.mtValor.Mask = "000,00";
+            this.mtValor.Mask = "00,000";
             this.mtValor.Name = "mtValor";
-            this.mtValor.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.mtValor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.mtValor.Size = new System.Drawing.Size(86, 35);
             this.mtValor.TabIndex = 0;
             this.mtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtValor_KeyPress);

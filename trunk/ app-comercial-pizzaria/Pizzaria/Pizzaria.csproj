@@ -371,6 +371,9 @@
     <None Include="Resources\FUNDO PAINEL.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\botaoUM3.png" />
+    <None Include="Resources\botaoUM2.png" />
+    <None Include="Resources\botaoUM1.png" />
     <None Include="Resources\botaoTREZ.png" />
     <None Include="Resources\botaoSEIS.png" />
     <None Include="Resources\botaoQUATRO.png" />

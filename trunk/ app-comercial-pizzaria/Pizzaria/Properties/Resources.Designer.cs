@@ -116,6 +116,27 @@ namespace Pizzaria.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap botaoUM1 {
+            get {
+                object obj = ResourceManager.GetObject("botaoUM1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap botaoUM2 {
+            get {
+                object obj = ResourceManager.GetObject("botaoUM2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap botaoUM3 {
+            get {
+                object obj = ResourceManager.GetObject("botaoUM3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap BRAjuda3 {
             get {
                 object obj = ResourceManager.GetObject("BRAjuda3", resourceCulture);
