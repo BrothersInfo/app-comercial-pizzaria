@@ -15,11 +15,13 @@ namespace Pizzaria.Tela
     using Pizzaria.Classes;
     public partial class Fundo : Form
     {
+        Principal obj;
         public Fundo()
         {
-         
+          
             InitializeComponent();
             {
+                obj = new Principal(1, tlpBotoes);
                 carregarFormPrincipal(obj);
             }
             ordenarTamanhoBotoesCima();
@@ -31,8 +33,6 @@ namespace Pizzaria.Tela
             this.tlpBotoes.Size = new System.Drawing.Size(this.tlpBotoes.Size.Height, 80);
         }
         //---------------Forms responsaveis por carregar formularios no painel = pLoadForm
-
-        Principal obj;
         private void carregarFormPrincipal(Principal obj) {
          
             //obj = new Principal(1);
