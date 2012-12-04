@@ -47,7 +47,7 @@
             this.listVenda.MultiSelect = false;
             this.listVenda.Name = "listVenda";
             this.listVenda.ShowItemToolTips = true;
-            this.listVenda.Size = new System.Drawing.Size(328, 198);
+            this.listVenda.Size = new System.Drawing.Size(324, 194);
             this.listVenda.TabIndex = 8;
             this.listVenda.UseCompatibleStateImageBehavior = false;
             this.listVenda.ItemActivate += new System.EventHandler(this.listVenda_ItemActivate);
@@ -66,7 +66,7 @@
             this.pUnico.Location = new System.Drawing.Point(0, 0);
             this.pUnico.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.pUnico.Name = "pUnico";
-            this.pUnico.Size = new System.Drawing.Size(328, 52);
+            this.pUnico.Size = new System.Drawing.Size(324, 52);
             this.pUnico.TabIndex = 9;
             // 
             // bUnico
@@ -74,7 +74,7 @@
             this.bUnico.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bUnico.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bUnico.ForeColor = System.Drawing.Color.Red;
-            this.bUnico.Location = new System.Drawing.Point(305, 0);
+            this.bUnico.Location = new System.Drawing.Point(301, 0);
             this.bUnico.Margin = new System.Windows.Forms.Padding(0);
             this.bUnico.Name = "bUnico";
             this.bUnico.Size = new System.Drawing.Size(23, 23);
@@ -98,7 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(328, 250);
+            this.ClientSize = new System.Drawing.Size(324, 246);
             this.ControlBox = false;
             this.Controls.Add(this.listVenda);
             this.Controls.Add(this.pUnico);

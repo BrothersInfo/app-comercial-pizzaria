@@ -59,7 +59,7 @@
             this.tLPGeral.Name = "tLPGeral";
             this.tLPGeral.RowCount = 1;
             this.tLPGeral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tLPGeral.Size = new System.Drawing.Size(1066, 526);
+            this.tLPGeral.Size = new System.Drawing.Size(1062, 522);
             this.tLPGeral.TabIndex = 1;
             // 
             // tlpVenda
@@ -70,14 +70,14 @@
             this.tlpVenda.Controls.Add(this.lvCodigo, 0, 1);
             this.tlpVenda.Controls.Add(this.lvTipo, 0, 0);
             this.tlpVenda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpVenda.Location = new System.Drawing.Point(186, 2);
+            this.tlpVenda.Location = new System.Drawing.Point(182, 2);
             this.tlpVenda.Margin = new System.Windows.Forms.Padding(0);
             this.tlpVenda.Name = "tlpVenda";
             this.tlpVenda.RowCount = 2;
             this.tlpVenda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.95519F));
             this.tlpVenda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.04481F));
             this.tlpVenda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpVenda.Size = new System.Drawing.Size(878, 522);
+            this.tlpVenda.Size = new System.Drawing.Size(878, 518);
             this.tlpVenda.TabIndex = 11;
             // 
             // lvCodigo
@@ -89,10 +89,10 @@
             this.lvCodigo.GridLines = true;
             this.lvCodigo.HoverSelection = true;
             this.lvCodigo.LargeImageList = this.imageList1;
-            this.lvCodigo.Location = new System.Drawing.Point(1, 220);
+            this.lvCodigo.Location = new System.Drawing.Point(1, 218);
             this.lvCodigo.Margin = new System.Windows.Forms.Padding(1);
             this.lvCodigo.Name = "lvCodigo";
-            this.lvCodigo.Size = new System.Drawing.Size(876, 301);
+            this.lvCodigo.Size = new System.Drawing.Size(876, 299);
             this.lvCodigo.SmallImageList = this.imageList1;
             this.lvCodigo.TabIndex = 1;
             this.lvCodigo.UseCompatibleStateImageBehavior = false;
@@ -127,7 +127,7 @@
             this.lvTipo.Location = new System.Drawing.Point(1, 1);
             this.lvTipo.Margin = new System.Windows.Forms.Padding(1);
             this.lvTipo.Name = "lvTipo";
-            this.lvTipo.Size = new System.Drawing.Size(876, 217);
+            this.lvTipo.Size = new System.Drawing.Size(876, 215);
             this.lvTipo.TabIndex = 0;
             this.lvTipo.UseCompatibleStateImageBehavior = false;
             this.lvTipo.ItemActivate += new System.EventHandler(this.lvTipo_ItemActivate);
@@ -148,12 +148,12 @@
             this.pEsquerda.Location = new System.Drawing.Point(3, 3);
             this.pEsquerda.Margin = new System.Windows.Forms.Padding(1);
             this.pEsquerda.Name = "pEsquerda";
-            this.pEsquerda.Size = new System.Drawing.Size(180, 520);
+            this.pEsquerda.Size = new System.Drawing.Size(176, 516);
             this.pEsquerda.TabIndex = 1;
             // 
             // btConfirmar
             // 
-            this.btConfirmar.BackgroundImage = global::Pizzaria.Properties.Resources.setverde;
+            this.btConfirmar.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
             this.btConfirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btConfirmar.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btConfirmar.ForeColor = System.Drawing.Color.Maroon;
@@ -161,13 +161,12 @@
             this.btConfirmar.Name = "btConfirmar";
             this.btConfirmar.Size = new System.Drawing.Size(136, 66);
             this.btConfirmar.TabIndex = 2;
-            this.btConfirmar.Text = "CONFIRMAR";
             this.btConfirmar.UseVisualStyleBackColor = true;
             this.btConfirmar.Click += new System.EventHandler(this.btConfirmar_Click);
             // 
             // btCancelar
             // 
-            this.btCancelar.BackgroundImage = global::Pizzaria.Properties.Resources.setVermelhor;
+            this.btCancelar.BackgroundImage = global::Pizzaria.Properties.Resources.BtCancelar;
             this.btCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btCancelar.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCancelar.ForeColor = System.Drawing.Color.White;
@@ -175,7 +174,6 @@
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(90, 52);
             this.btCancelar.TabIndex = 3;
-            this.btCancelar.Text = "SAIR";
             this.btCancelar.UseVisualStyleBackColor = true;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
@@ -183,7 +181,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1066, 526);
+            this.ClientSize = new System.Drawing.Size(1062, 522);
             this.ControlBox = false;
             this.Controls.Add(this.tLPGeral);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

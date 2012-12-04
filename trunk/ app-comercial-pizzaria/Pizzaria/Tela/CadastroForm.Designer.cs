@@ -253,8 +253,6 @@
             // 
             // btConfCadastro
             // 
-            this.btConfCadastro.BackgroundImage = global::Pizzaria.Properties.Resources.setverde;
-            this.btConfCadastro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btConfCadastro.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btConfCadastro.ForeColor = System.Drawing.Color.Maroon;
             this.btConfCadastro.Location = new System.Drawing.Point(153, 248);
@@ -453,7 +451,6 @@
             // 
             // btCadCaixConfirm
             // 
-            this.btCadCaixConfirm.BackgroundImage = global::Pizzaria.Properties.Resources.setverde;
             this.btCadCaixConfirm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btCadCaixConfirm.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCadCaixConfirm.ForeColor = System.Drawing.Color.Maroon;
@@ -656,8 +653,6 @@
             // 
             // btConf
             // 
-            this.btConf.BackgroundImage = global::Pizzaria.Properties.Resources.setverde;
-            this.btConf.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btConf.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btConf.ForeColor = System.Drawing.Color.Maroon;
             this.btConf.Location = new System.Drawing.Point(153, 248);
@@ -752,8 +747,6 @@
             // 
             // btContinue
             // 
-            this.btContinue.BackgroundImage = global::Pizzaria.Properties.Resources.setverde;
-            this.btContinue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btContinue.Font = new System.Drawing.Font("Comic Sans MS", 7.5F, System.Drawing.FontStyle.Bold);
             this.btContinue.ForeColor = System.Drawing.Color.Maroon;
             this.btContinue.Location = new System.Drawing.Point(326, 120);
@@ -857,8 +850,6 @@
             // 
             // btCadTamanho
             // 
-            this.btCadTamanho.BackgroundImage = global::Pizzaria.Properties.Resources.setverde;
-            this.btCadTamanho.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btCadTamanho.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCadTamanho.ForeColor = System.Drawing.Color.Maroon;
             this.btCadTamanho.Location = new System.Drawing.Point(153, 248);
@@ -983,8 +974,6 @@
             // 
             // btCadTipCadastrar
             // 
-            this.btCadTipCadastrar.BackgroundImage = global::Pizzaria.Properties.Resources.setverde;
-            this.btCadTipCadastrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btCadTipCadastrar.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCadTipCadastrar.ForeColor = System.Drawing.Color.Maroon;
             this.btCadTipCadastrar.Location = new System.Drawing.Point(153, 248);
@@ -1122,8 +1111,6 @@
             // 
             // btMesaCad
             // 
-            this.btMesaCad.BackgroundImage = global::Pizzaria.Properties.Resources.setverde;
-            this.btMesaCad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btMesaCad.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btMesaCad.ForeColor = System.Drawing.Color.Maroon;
             this.btMesaCad.Location = new System.Drawing.Point(153, 248);
@@ -1248,8 +1235,6 @@
             // 
             // btCadAmbCadastrar
             // 
-            this.btCadAmbCadastrar.BackgroundImage = global::Pizzaria.Properties.Resources.setverde;
-            this.btCadAmbCadastrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btCadAmbCadastrar.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCadAmbCadastrar.ForeColor = System.Drawing.Color.Maroon;
             this.btCadAmbCadastrar.Location = new System.Drawing.Point(153, 248);

@@ -282,15 +282,14 @@
             // 
             // btBack
             // 
-            this.btBack.BackgroundImage = global::Pizzaria.Properties.Resources.setVermelhor;
+            this.btBack.BackgroundImage = global::Pizzaria.Properties.Resources.BtCancelar;
             this.btBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btBack.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Bold);
             this.btBack.ForeColor = System.Drawing.Color.White;
             this.btBack.Location = new System.Drawing.Point(758, 182);
             this.btBack.Name = "btBack";
-            this.btBack.Size = new System.Drawing.Size(66, 44);
+            this.btBack.Size = new System.Drawing.Size(70, 44);
             this.btBack.TabIndex = 21;
-            this.btBack.Text = "VOLTAR";
             this.btBack.UseVisualStyleBackColor = true;
             this.btBack.Click += new System.EventHandler(this.btBack_Click);
             // 
@@ -587,15 +586,14 @@
             // 
             // btEscolhaProduto
             // 
-            this.btEscolhaProduto.BackgroundImage = global::Pizzaria.Properties.Resources.setverde;
+            this.btEscolhaProduto.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
             this.btEscolhaProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btEscolhaProduto.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btEscolhaProduto.ForeColor = System.Drawing.Color.Maroon;
-            this.btEscolhaProduto.Location = new System.Drawing.Point(830, 182);
+            this.btEscolhaProduto.Location = new System.Drawing.Point(834, 182);
             this.btEscolhaProduto.Name = "btEscolhaProduto";
-            this.btEscolhaProduto.Size = new System.Drawing.Size(108, 44);
+            this.btEscolhaProduto.Size = new System.Drawing.Size(104, 44);
             this.btEscolhaProduto.TabIndex = 11;
-            this.btEscolhaProduto.Text = "CONFIRMAR";
             this.btEscolhaProduto.UseVisualStyleBackColor = true;
             this.btEscolhaProduto.Click += new System.EventHandler(this.btEscolhaProduto_Click);
             // 

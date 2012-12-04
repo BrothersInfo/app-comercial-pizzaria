@@ -60,142 +60,65 @@ namespace Pizzaria.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap AFOTO {
+        internal static System.Drawing.Bitmap BtAlterar {
             get {
-                object obj = ResourceManager.GetObject("AFOTO", resourceCulture);
+                object obj = ResourceManager.GetObject("BtAlterar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap backf {
+        internal static System.Drawing.Bitmap BtCadastro {
             get {
-                object obj = ResourceManager.GetObject("backf", resourceCulture);
+                object obj = ResourceManager.GetObject("BtCadastro", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap botaoCINCO {
+        internal static System.Drawing.Bitmap BtCancelar {
             get {
-                object obj = ResourceManager.GetObject("botaoCINCO", resourceCulture);
+                object obj = ResourceManager.GetObject("BtCancelar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap botaoDOIS {
+        internal static System.Drawing.Bitmap BtConfirmar {
             get {
-                object obj = ResourceManager.GetObject("botaoDOIS", resourceCulture);
+                object obj = ResourceManager.GetObject("BtConfirmar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap botaoQUATRO {
+        internal static System.Drawing.Bitmap BtConsulta {
             get {
-                object obj = ResourceManager.GetObject("botaoQUATRO", resourceCulture);
+                object obj = ResourceManager.GetObject("BtConsulta", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap botaoSEIS {
+        internal static System.Drawing.Bitmap BtEncerrar {
             get {
-                object obj = ResourceManager.GetObject("botaoSEIS", resourceCulture);
+                object obj = ResourceManager.GetObject("BtEncerrar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap botaoTREZ {
+        internal static System.Drawing.Bitmap BtImprimir {
             get {
-                object obj = ResourceManager.GetObject("botaoTREZ", resourceCulture);
+                object obj = ResourceManager.GetObject("BtImprimir", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap botaoUM {
+        internal static System.Drawing.Bitmap BtInserir {
             get {
-                object obj = ResourceManager.GetObject("botaoUM", resourceCulture);
+                object obj = ResourceManager.GetObject("BtInserir", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap botaoUM1 {
+        internal static System.Drawing.Bitmap BtManutencao {
             get {
-                object obj = ResourceManager.GetObject("botaoUM1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap botaoUM2 {
-            get {
-                object obj = ResourceManager.GetObject("botaoUM2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap botaoUM3 {
-            get {
-                object obj = ResourceManager.GetObject("botaoUM3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap BRAjuda3 {
-            get {
-                object obj = ResourceManager.GetObject("BRAjuda3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap BRAlterar {
-            get {
-                object obj = ResourceManager.GetObject("BRAlterar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap BRCadastro {
-            get {
-                object obj = ResourceManager.GetObject("BRCadastro", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap BRConsulta {
-            get {
-                object obj = ResourceManager.GetObject("BRConsulta", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap BREcluir {
-            get {
-                object obj = ResourceManager.GetObject("BREcluir", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap BRFechar {
-            get {
-                object obj = ResourceManager.GetObject("BRFechar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap BRRelatorio2 {
-            get {
-                object obj = ResourceManager.GetObject("BRRelatorio2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap BRtent1 {
-            get {
-                object obj = ResourceManager.GetObject("BRtent1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap BRtent2 {
-            get {
-                object obj = ResourceManager.GetObject("BRtent2", resourceCulture);
+                object obj = ResourceManager.GetObject("BtManutencao", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -207,51 +130,44 @@ namespace Pizzaria.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap BtParcial {
+            get {
+                object obj = ResourceManager.GetObject("BtParcial", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BtRelatorio {
+            get {
+                object obj = ResourceManager.GetObject("BtRelatorio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BtRemover {
+            get {
+                object obj = ResourceManager.GetObject("BtRemover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BtSair {
+            get {
+                object obj = ResourceManager.GetObject("BtSair", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap BtTrocar {
+            get {
+                object obj = ResourceManager.GetObject("BtTrocar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Delirios {
             get {
                 object obj = ResourceManager.GetObject("Delirios", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap FUNDO_PAINEL {
-            get {
-                object obj = ResourceManager.GetObject("FUNDO PAINEL", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap mesawhite {
-            get {
-                object obj = ResourceManager.GetObject("mesawhite", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap setAzul {
-            get {
-                object obj = ResourceManager.GetObject("setAzul", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap setPreto {
-            get {
-                object obj = ResourceManager.GetObject("setPreto", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap setverde {
-            get {
-                object obj = ResourceManager.GetObject("setverde", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap setVermelhor {
-            get {
-                object obj = ResourceManager.GetObject("setVermelhor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

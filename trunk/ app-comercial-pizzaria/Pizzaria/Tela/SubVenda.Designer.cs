@@ -301,7 +301,7 @@
             // btEncerrar
             // 
             this.btEncerrar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btEncerrar.BackgroundImage = global::Pizzaria.Properties.Resources.setverde;
+            this.btEncerrar.BackgroundImage = global::Pizzaria.Properties.Resources.BtEncerrar;
             this.btEncerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btEncerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btEncerrar.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -311,14 +311,13 @@
             this.btEncerrar.Name = "btEncerrar";
             this.btEncerrar.Size = new System.Drawing.Size(87, 43);
             this.btEncerrar.TabIndex = 1;
-            this.btEncerrar.Text = "ENCERRAR";
             this.btEncerrar.UseVisualStyleBackColor = true;
             this.btEncerrar.Click += new System.EventHandler(this.btEncerrar_Click);
             // 
             // btVoltar
             // 
             this.btVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btVoltar.BackgroundImage = global::Pizzaria.Properties.Resources.setVermelhor;
+            this.btVoltar.BackgroundImage = global::Pizzaria.Properties.Resources.BtCancelar;
             this.btVoltar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btVoltar.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -328,14 +327,13 @@
             this.btVoltar.Name = "btVoltar";
             this.btVoltar.Size = new System.Drawing.Size(87, 43);
             this.btVoltar.TabIndex = 2;
-            this.btVoltar.Text = "VOLTAR";
             this.btVoltar.UseVisualStyleBackColor = true;
             this.btVoltar.Click += new System.EventHandler(this.btVoltar_Click);
             // 
             // btImprimir
             // 
             this.btImprimir.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btImprimir.BackgroundImage = global::Pizzaria.Properties.Resources.setPreto;
+            this.btImprimir.BackgroundImage = global::Pizzaria.Properties.Resources.BtImprimir;
             this.btImprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btImprimir.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -345,7 +343,6 @@
             this.btImprimir.Name = "btImprimir";
             this.btImprimir.Size = new System.Drawing.Size(87, 43);
             this.btImprimir.TabIndex = 2;
-            this.btImprimir.Text = "IMPRIMIR";
             this.btImprimir.UseVisualStyleBackColor = true;
             this.btImprimir.Click += new System.EventHandler(this.btImprimir_Click);
             // 

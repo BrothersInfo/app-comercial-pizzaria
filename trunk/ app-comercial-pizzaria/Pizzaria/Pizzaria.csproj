@@ -320,69 +320,26 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\BRCadastro.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BRAjuda3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BRAlterar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BRConsulta.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BREcluir.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BRRelatorio2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BRtent1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BRtent2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mesawhite.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BRFechar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\AFOTO.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\BTnewAvancar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\setverde.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\setVermelhor.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\setAzul.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\setPreto.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\FUNDO PAINEL.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\botaoUM3.png" />
-    <None Include="Resources\botaoUM2.png" />
-    <None Include="Resources\botaoUM1.png" />
-    <None Include="Resources\botaoTREZ.png" />
-    <None Include="Resources\botaoSEIS.png" />
-    <None Include="Resources\botaoQUATRO.png" />
-    <None Include="Resources\botaoDOIS.png" />
-    <None Include="Resources\botaoCINCO.png" />
-    <None Include="Resources\botaoUM.png" />
+    <None Include="Resources\Delirios.png" />
+    <None Include="Resources\BtTrocar.png" />
+    <None Include="Resources\BtSair.png" />
+    <None Include="Resources\BtRemover.png" />
+    <None Include="Resources\BtRelatorio.png" />
+    <None Include="Resources\BtParcial.png" />
+    <None Include="Resources\BtManutencao.png" />
+    <None Include="Resources\BtInserir.png" />
+    <None Include="Resources\BtImprimir.png" />
+    <None Include="Resources\BtEncerrar.png" />
+    <None Include="Resources\BtConsulta.png" />
+    <None Include="Resources\BtConfirmar.png" />
+    <None Include="Resources\BtCancelar.png" />
+    <None Include="Resources\BtCadastro.png" />
+    <None Include="Resources\BtAlterar.png" />
     <None Include="fotos Produtos\Delirios.png" />
     <Content Include="icone.ico" />
-    <None Include="Resources\backf.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
