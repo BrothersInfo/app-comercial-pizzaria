@@ -114,7 +114,7 @@
             // 
             // btEncerrar
             // 
-            this.btEncerrar.BackgroundImage = global::Pizzaria.Properties.Resources.setverde;
+            this.btEncerrar.BackgroundImage = global::Pizzaria.Properties.Resources.BtEncerrar;
             this.btEncerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btEncerrar.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btEncerrar.ForeColor = System.Drawing.Color.Maroon;
@@ -122,13 +122,12 @@
             this.btEncerrar.Name = "btEncerrar";
             this.btEncerrar.Size = new System.Drawing.Size(158, 50);
             this.btEncerrar.TabIndex = 0;
-            this.btEncerrar.Text = "CONFIRMAR";
             this.btEncerrar.UseVisualStyleBackColor = true;
             this.btEncerrar.Click += new System.EventHandler(this.btEncerrar_Click);
             // 
             // btAnular
             // 
-            this.btAnular.BackgroundImage = global::Pizzaria.Properties.Resources.setVermelhor;
+            this.btAnular.BackgroundImage = global::Pizzaria.Properties.Resources.BtCancelar;
             this.btAnular.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btAnular.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAnular.ForeColor = System.Drawing.Color.White;
@@ -136,7 +135,6 @@
             this.btAnular.Name = "btAnular";
             this.btAnular.Size = new System.Drawing.Size(126, 41);
             this.btAnular.TabIndex = 1;
-            this.btAnular.Text = "VOLTAR";
             this.btAnular.UseVisualStyleBackColor = true;
             this.btAnular.Click += new System.EventHandler(this.btAnular_Click);
             // 

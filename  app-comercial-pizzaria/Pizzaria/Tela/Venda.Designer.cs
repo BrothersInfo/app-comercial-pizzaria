@@ -380,7 +380,7 @@
             // btProduto
             // 
             this.btProduto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btProduto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btProduto.BackgroundImage")));
+            this.btProduto.BackgroundImage = global::Pizzaria.Properties.Resources.BtInserir;
             this.btProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btProduto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btProduto.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Bold);
@@ -389,7 +389,6 @@
             this.btProduto.Name = "btProduto";
             this.btProduto.Size = new System.Drawing.Size(120, 50);
             this.btProduto.TabIndex = 5;
-            this.btProduto.Text = "INSERIR";
             this.ttEncerrar.SetToolTip(this.btProduto, "Inserir Produto - (P)");
             this.btProduto.UseVisualStyleBackColor = true;
             this.btProduto.Click += new System.EventHandler(this.btProduto_Click);
@@ -397,7 +396,7 @@
             // btRemoveProd
             // 
             this.btRemoveProd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btRemoveProd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btRemoveProd.BackgroundImage")));
+            this.btRemoveProd.BackgroundImage = global::Pizzaria.Properties.Resources.BtRemover;
             this.btRemoveProd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btRemoveProd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btRemoveProd.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Bold);
@@ -406,7 +405,6 @@
             this.btRemoveProd.Name = "btRemoveProd";
             this.btRemoveProd.Size = new System.Drawing.Size(120, 50);
             this.btRemoveProd.TabIndex = 6;
-            this.btRemoveProd.Text = "REMOVER";
             this.ttEncerrar.SetToolTip(this.btRemoveProd, "Remover Produto - (R)");
             this.btRemoveProd.UseVisualStyleBackColor = true;
             this.btRemoveProd.Click += new System.EventHandler(this.btRemoveProd_Click);
@@ -428,7 +426,7 @@
             // btInseMesa
             // 
             this.btInseMesa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btInseMesa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btInseMesa.BackgroundImage")));
+            this.btInseMesa.BackgroundImage = global::Pizzaria.Properties.Resources.BtInserir;
             this.btInseMesa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btInseMesa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btInseMesa.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Bold);
@@ -438,7 +436,6 @@
             this.btInseMesa.Name = "btInseMesa";
             this.btInseMesa.Size = new System.Drawing.Size(120, 50);
             this.btInseMesa.TabIndex = 1;
-            this.btInseMesa.Text = "INSERIR";
             this.ttEncerrar.SetToolTip(this.btInseMesa, "Inserir Mesa - (M)");
             this.btInseMesa.UseVisualStyleBackColor = true;
             this.btInseMesa.Click += new System.EventHandler(this.btInseMesa_Click);
@@ -470,7 +467,7 @@
             // btMesaTrocar
             // 
             this.btMesaTrocar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btMesaTrocar.BackgroundImage = global::Pizzaria.Properties.Resources.setPreto;
+            this.btMesaTrocar.BackgroundImage = global::Pizzaria.Properties.Resources.BtTrocar;
             this.btMesaTrocar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btMesaTrocar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btMesaTrocar.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Bold);
@@ -480,7 +477,6 @@
             this.btMesaTrocar.Name = "btMesaTrocar";
             this.btMesaTrocar.Size = new System.Drawing.Size(120, 50);
             this.btMesaTrocar.TabIndex = 2;
-            this.btMesaTrocar.Text = "TROCAR";
             this.ttEncerrar.SetToolTip(this.btMesaTrocar, "Trocar Mesa - (T)");
             this.btMesaTrocar.UseVisualStyleBackColor = true;
             this.btMesaTrocar.Click += new System.EventHandler(this.btMesaTrocar_Click);
@@ -488,7 +484,7 @@
             // btRemoMesa
             // 
             this.btRemoMesa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btRemoMesa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btRemoMesa.BackgroundImage")));
+            this.btRemoMesa.BackgroundImage = global::Pizzaria.Properties.Resources.BtRemover;
             this.btRemoMesa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btRemoMesa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btRemoMesa.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Bold);
@@ -497,7 +493,6 @@
             this.btRemoMesa.Name = "btRemoMesa";
             this.btRemoMesa.Size = new System.Drawing.Size(120, 50);
             this.btRemoMesa.TabIndex = 2;
-            this.btRemoMesa.Text = "REMOVER";
             this.ttEncerrar.SetToolTip(this.btRemoMesa, "Remover Mesa - (N)");
             this.btRemoMesa.UseVisualStyleBackColor = true;
             this.btRemoMesa.Click += new System.EventHandler(this.btRemoMesa_Click);
@@ -568,8 +563,6 @@
             // btAnular
             // 
             this.btAnular.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btAnular.BackgroundImage = global::Pizzaria.Properties.Resources.setVermelhor;
-            this.btAnular.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btAnular.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btAnular.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAnular.ForeColor = System.Drawing.Color.White;
@@ -585,7 +578,7 @@
             // btParcial
             // 
             this.btParcial.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btParcial.BackgroundImage = global::Pizzaria.Properties.Resources.setPreto;
+            this.btParcial.BackgroundImage = global::Pizzaria.Properties.Resources.BtParcial;
             this.btParcial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btParcial.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btParcial.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -595,7 +588,6 @@
             this.btParcial.Name = "btParcial";
             this.btParcial.Size = new System.Drawing.Size(102, 43);
             this.btParcial.TabIndex = 2;
-            this.btParcial.Text = "PARCIAL";
             this.ttEncerrar.SetToolTip(this.btParcial, "Venda Parcial - Atalho (S)");
             this.btParcial.UseVisualStyleBackColor = true;
             this.btParcial.Click += new System.EventHandler(this.btParcial_Click);
@@ -603,7 +595,7 @@
             // btEncerrar
             // 
             this.btEncerrar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btEncerrar.BackgroundImage = global::Pizzaria.Properties.Resources.setverde;
+            this.btEncerrar.BackgroundImage = global::Pizzaria.Properties.Resources.BtEncerrar;
             this.btEncerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btEncerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btEncerrar.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Bold);
@@ -613,7 +605,6 @@
             this.btEncerrar.Name = "btEncerrar";
             this.btEncerrar.Size = new System.Drawing.Size(162, 62);
             this.btEncerrar.TabIndex = 1;
-            this.btEncerrar.Text = "ENCERRAR";
             this.ttEncerrar.SetToolTip(this.btEncerrar, "Encerrar Venda  - (V)");
             this.btEncerrar.UseVisualStyleBackColor = true;
             this.btEncerrar.Click += new System.EventHandler(this.btEncerrar_Click);
@@ -640,7 +631,7 @@
             // btVoltar
             // 
             this.btVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btVoltar.BackgroundImage = global::Pizzaria.Properties.Resources.setVermelhor;
+            this.btVoltar.BackgroundImage = global::Pizzaria.Properties.Resources.BtSair;
             this.btVoltar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btVoltar.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btVoltar.ForeColor = System.Drawing.Color.White;
@@ -648,7 +639,6 @@
             this.btVoltar.Name = "btVoltar";
             this.btVoltar.Size = new System.Drawing.Size(84, 38);
             this.btVoltar.TabIndex = 2;
-            this.btVoltar.Text = "VOLTAR";
             this.ttEncerrar.SetToolTip(this.btVoltar, "Retornar - (ESC)");
             this.btVoltar.UseVisualStyleBackColor = true;
             this.btVoltar.Click += new System.EventHandler(this.btVoltar_Click);
@@ -656,7 +646,7 @@
             // btImprimir
             // 
             this.btImprimir.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btImprimir.BackgroundImage = global::Pizzaria.Properties.Resources.setPreto;
+            this.btImprimir.BackgroundImage = global::Pizzaria.Properties.Resources.BtImprimir;
             this.btImprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btImprimir.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
@@ -666,7 +656,6 @@
             this.btImprimir.Name = "btImprimir";
             this.btImprimir.Size = new System.Drawing.Size(162, 52);
             this.btImprimir.TabIndex = 0;
-            this.btImprimir.Text = "IMPRIMIR";
             this.ttEncerrar.SetToolTip(this.btImprimir, "Imprimir - (I)");
             this.btImprimir.UseVisualStyleBackColor = true;
             this.btImprimir.Click += new System.EventHandler(this.btImprimir_Click);

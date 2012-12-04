@@ -41,7 +41,7 @@
             // 
             // btCancelar
             // 
-            this.btCancelar.BackgroundImage = global::Pizzaria.Properties.Resources.setVermelhor;
+            this.btCancelar.BackgroundImage = global::Pizzaria.Properties.Resources.BtCancelar;
             this.btCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btCancelar.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCancelar.ForeColor = System.Drawing.Color.White;
@@ -49,7 +49,6 @@
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(95, 40);
             this.btCancelar.TabIndex = 6;
-            this.btCancelar.Text = "SAIR";
             this.btCancelar.UseVisualStyleBackColor = true;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
@@ -89,7 +88,7 @@
             // 
             // btConfirmar
             // 
-            this.btConfirmar.BackgroundImage = global::Pizzaria.Properties.Resources.setverde;
+            this.btConfirmar.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
             this.btConfirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btConfirmar.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btConfirmar.ForeColor = System.Drawing.Color.Maroon;
@@ -97,7 +96,6 @@
             this.btConfirmar.Name = "btConfirmar";
             this.btConfirmar.Size = new System.Drawing.Size(130, 49);
             this.btConfirmar.TabIndex = 5;
-            this.btConfirmar.Text = "CONFIRMAR";
             this.btConfirmar.UseVisualStyleBackColor = true;
             this.btConfirmar.Click += new System.EventHandler(this.btConfirmar_Click);
             // 

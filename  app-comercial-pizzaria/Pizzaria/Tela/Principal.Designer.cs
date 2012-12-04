@@ -49,11 +49,11 @@
             this.linutil1 = new System.Windows.Forms.Label();
             this.pOcupada = new System.Windows.Forms.Panel();
             this.lInutil2 = new System.Windows.Forms.Label();
-            this.ptitulo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lValor = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.ptitulo = new System.Windows.Forms.Panel();
             this.pLoadForm.SuspendLayout();
             this.tlpColuna.SuspendLayout();
             this.menuDireito.SuspendLayout();
@@ -87,7 +87,7 @@
             this.tlpColuna.Name = "tlpColuna";
             this.tlpColuna.RowCount = 1;
             this.tlpColuna.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpColuna.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 446F));
+            this.tlpColuna.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 567F));
             this.tlpColuna.Size = new System.Drawing.Size(920, 567);
             this.tlpColuna.TabIndex = 0;
             // 
@@ -219,7 +219,7 @@
             this.tlpLivreOcupado.Name = "tlpLivreOcupado";
             this.tlpLivreOcupado.RowCount = 1;
             this.tlpLivreOcupado.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpLivreOcupado.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 94F));
+            this.tlpLivreOcupado.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 102F));
             this.tlpLivreOcupado.Size = new System.Drawing.Size(448, 102);
             this.tlpLivreOcupado.TabIndex = 32;
             // 
@@ -277,19 +277,6 @@
             this.lInutil2.TabIndex = 2;
             this.lInutil2.Text = "OCUPADA ( O )";
             // 
-            // ptitulo
-            // 
-            this.ptitulo.BackColor = System.Drawing.Color.White;
-            this.ptitulo.BackgroundImage = global::Pizzaria.Properties.Resources.Delirios;
-            this.ptitulo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ptitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ptitulo.Location = new System.Drawing.Point(1, 0);
-            this.ptitulo.Margin = new System.Windows.Forms.Padding(1, 0, 1, 1);
-            this.ptitulo.Name = "ptitulo";
-            this.ptitulo.Size = new System.Drawing.Size(446, 201);
-            this.ptitulo.TabIndex = 36;
-            this.ptitulo.Click += new System.EventHandler(this.ptitulo_Click);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
@@ -335,6 +322,19 @@
             this.imageList1.Images.SetKeyName(0, "mesawhite.jpg");
             this.imageList1.Images.SetKeyName(1, "BRtent2.png");
             this.imageList1.Images.SetKeyName(2, "BRtent1.png");
+            // 
+            // ptitulo
+            // 
+            this.ptitulo.BackColor = System.Drawing.Color.White;
+            this.ptitulo.BackgroundImage = global::Pizzaria.Properties.Resources.Delirios;
+            this.ptitulo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ptitulo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ptitulo.Location = new System.Drawing.Point(1, 0);
+            this.ptitulo.Margin = new System.Windows.Forms.Padding(1, 0, 1, 1);
+            this.ptitulo.Name = "ptitulo";
+            this.ptitulo.Size = new System.Drawing.Size(446, 201);
+            this.ptitulo.TabIndex = 36;
+            this.ptitulo.Click += new System.EventHandler(this.ptitulo_Click);
             // 
             // Principal
             // 

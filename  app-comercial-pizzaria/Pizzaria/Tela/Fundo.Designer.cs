@@ -34,14 +34,14 @@
             this.pCentroFundo = new System.Windows.Forms.Panel();
             this.pLoadForm = new System.Windows.Forms.Panel();
             this.tlpBotoes = new System.Windows.Forms.TableLayoutPanel();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.ttBotao = new System.Windows.Forms.ToolTip(this.components);
             this.pbFechar = new System.Windows.Forms.Panel();
             this.pbAjuda = new System.Windows.Forms.Panel();
             this.pbRelatorio = new System.Windows.Forms.Panel();
             this.pbAlterar = new System.Windows.Forms.Panel();
             this.pbConsulta = new System.Windows.Forms.Panel();
             this.pbCadastro = new System.Windows.Forms.Panel();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.ttBotao = new System.Windows.Forms.ToolTip(this.components);
             this.tlpFundo.SuspendLayout();
             this.pCentroFundo.SuspendLayout();
             this.tlpBotoes.SuspendLayout();
@@ -110,27 +110,9 @@
             this.tlpBotoes.Size = new System.Drawing.Size(593, 54);
             this.tlpBotoes.TabIndex = 3;
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "BRtent1.png");
-            this.imageList1.Images.SetKeyName(1, "Sem título.png");
-            this.imageList1.Images.SetKeyName(2, "favicon.ico");
-            this.imageList1.Images.SetKeyName(3, "teste.jpg");
-            this.imageList1.Images.SetKeyName(4, "mesawhite.jpg");
-            this.imageList1.Images.SetKeyName(5, "BOTAO X @.jpg");
-            this.imageList1.Images.SetKeyName(6, "BRtent2.png");
-            // 
-            // ttBotao
-            // 
-            this.ttBotao.IsBalloon = true;
-            this.ttBotao.ShowAlways = true;
-            this.ttBotao.ToolTipTitle = "INFORMAÇÃO";
-            // 
             // pbFechar
             // 
-            this.pbFechar.BackgroundImage = global::Pizzaria.Properties.Resources.botaoSEIS;
+            this.pbFechar.BackgroundImage = global::Pizzaria.Properties.Resources.BtSair;
             this.pbFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbFechar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbFechar.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -143,7 +125,7 @@
             // 
             // pbAjuda
             // 
-            this.pbAjuda.BackgroundImage = global::Pizzaria.Properties.Resources.botaoCINCO;
+            this.pbAjuda.BackgroundImage = global::Pizzaria.Properties.Resources.BtManutencao;
             this.pbAjuda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbAjuda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbAjuda.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -155,8 +137,8 @@
             // 
             // pbRelatorio
             // 
-            this.pbRelatorio.BackColor = System.Drawing.Color.Transparent;
-            this.pbRelatorio.BackgroundImage = global::Pizzaria.Properties.Resources.botaoQUATRO;
+            this.pbRelatorio.BackColor = System.Drawing.SystemColors.Control;
+            this.pbRelatorio.BackgroundImage = global::Pizzaria.Properties.Resources.BtRelatorio;
             this.pbRelatorio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbRelatorio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbRelatorio.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -169,7 +151,7 @@
             // 
             // pbAlterar
             // 
-            this.pbAlterar.BackgroundImage = global::Pizzaria.Properties.Resources.botaoTREZ;
+            this.pbAlterar.BackgroundImage = global::Pizzaria.Properties.Resources.BtAlterar;
             this.pbAlterar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbAlterar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbAlterar.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -182,7 +164,7 @@
             // 
             // pbConsulta
             // 
-            this.pbConsulta.BackgroundImage = global::Pizzaria.Properties.Resources.botaoDOIS;
+            this.pbConsulta.BackgroundImage = global::Pizzaria.Properties.Resources.BtConsulta;
             this.pbConsulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbConsulta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbConsulta.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -195,7 +177,7 @@
             // 
             // pbCadastro
             // 
-            this.pbCadastro.BackgroundImage = global::Pizzaria.Properties.Resources.botaoUM3;
+            this.pbCadastro.BackgroundImage = global::Pizzaria.Properties.Resources.BtCadastro;
             this.pbCadastro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbCadastro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbCadastro.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -205,6 +187,20 @@
             this.pbCadastro.TabIndex = 0;
             this.ttBotao.SetToolTip(this.pbCadastro, "Cadastrar Usuarios, Produtos , Mesas e etc");
             this.pbCadastro.Click += new System.EventHandler(this.pbCadastro_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "BRtent1.png");
+            this.imageList1.Images.SetKeyName(1, "BRtent2.png");
+            this.imageList1.Images.SetKeyName(2, "mesawhite.jpg");
+            // 
+            // ttBotao
+            // 
+            this.ttBotao.IsBalloon = true;
+            this.ttBotao.ShowAlways = true;
+            this.ttBotao.ToolTipTitle = "INFORMAÇÃO";
             // 
             // Fundo
             // 

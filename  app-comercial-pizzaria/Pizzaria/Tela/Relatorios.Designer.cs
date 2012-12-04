@@ -1202,7 +1202,6 @@
             // 
             // btEscolhaProduto
             // 
-            this.btEscolhaProduto.BackgroundImage = global::Pizzaria.Properties.Resources.backf;
             this.btEscolhaProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btEscolhaProduto.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btEscolhaProduto.ForeColor = System.Drawing.Color.Maroon;

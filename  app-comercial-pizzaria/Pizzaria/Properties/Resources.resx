@@ -118,88 +118,52 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="BRAlterar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BRAlterar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BtTrocar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtTrocar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BtParcial" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtParcial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BtAlterar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtAlterar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BtConfirmar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtConfirmar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BtInserir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtInserir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BtConsulta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtConsulta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BtCancelar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtCancelar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BtEncerrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtEncerrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BtRemover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtRemover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BtRelatorio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtRelatorio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BTnewAvancar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BTnewAvancar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="botaoUM2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\botaoUM2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BtManutencao" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtManutencao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BRAjuda3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BRAjuda3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BtImprimir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtImprimir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="botaoQUATRO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\botaoQUATRO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BtCadastro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtCadastro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="botaoDOIS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\botaoDOIS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AFOTO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AFOTO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="setAzul" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\setAzul.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="setVermelhor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\setVermelhor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="setverde" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\setverde.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="botaoCINCO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\botaoCINCO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BRtent2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BRtent2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BRFechar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BRFechar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="setPreto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\setPreto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BRCadastro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BRCadastro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="botaoSEIS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\botaoSEIS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FUNDO PAINEL" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FUNDO PAINEL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BRRelatorio2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BRRelatorio2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BRtent1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BRtent1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="botaoUM1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\botaoUM1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BRConsulta" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BRConsulta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="backf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BREcluir" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BREcluir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="botaoTREZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\botaoTREZ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mesawhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mesawhite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="botaoUM" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\botaoUM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BtSair" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtSair.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Delirios" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\fotos Produtos\Delirios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="botaoUM3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\botaoUM3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\Delirios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

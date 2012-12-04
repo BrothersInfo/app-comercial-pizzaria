@@ -118,7 +118,7 @@
             // btConsImprimir
             // 
             this.btConsImprimir.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btConsImprimir.BackgroundImage = global::Pizzaria.Properties.Resources.setPreto;
+            this.btConsImprimir.BackgroundImage = global::Pizzaria.Properties.Resources.BtImprimir;
             this.btConsImprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btConsImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btConsImprimir.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -127,7 +127,6 @@
             this.btConsImprimir.Name = "btConsImprimir";
             this.btConsImprimir.Size = new System.Drawing.Size(132, 44);
             this.btConsImprimir.TabIndex = 42;
-            this.btConsImprimir.Text = "IMPRIMIR";
             this.btConsImprimir.UseVisualStyleBackColor = true;
             this.btConsImprimir.Click += new System.EventHandler(this.btConsImprimir_Click);
             // 
@@ -224,7 +223,7 @@
             // btImprimir1
             // 
             this.btImprimir1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btImprimir1.BackgroundImage = global::Pizzaria.Properties.Resources.setPreto;
+            this.btImprimir1.BackgroundImage = global::Pizzaria.Properties.Resources.BtImprimir;
             this.btImprimir1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btImprimir1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btImprimir1.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -233,7 +232,6 @@
             this.btImprimir1.Name = "btImprimir1";
             this.btImprimir1.Size = new System.Drawing.Size(132, 44);
             this.btImprimir1.TabIndex = 42;
-            this.btImprimir1.Text = "IMPRIMIR";
             this.btImprimir1.UseVisualStyleBackColor = true;
             this.btImprimir1.Click += new System.EventHandler(this.btImprimir1_Click);
             // 
