@@ -323,6 +323,13 @@
     <None Include="Resources\BTnewAvancar.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Voltar_64.png" />
+    <None Include="Resources\BtSair1.png" />
+    <None Include="Resources\BtRelatorio1.png" />
+    <None Include="Resources\BtManutencao1.png" />
+    <None Include="Resources\BtConsulta1.png" />
+    <None Include="Resources\BtCadastro1.png" />
+    <None Include="Resources\BtAlterar1.png" />
     <None Include="Resources\Delirios.png" />
     <None Include="Resources\BtTrocar.png" />
     <None Include="Resources\BtSair.png" />
