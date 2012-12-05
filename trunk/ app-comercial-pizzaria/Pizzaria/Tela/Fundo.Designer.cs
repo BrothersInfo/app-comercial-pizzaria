@@ -34,14 +34,14 @@
             this.pCentroFundo = new System.Windows.Forms.Panel();
             this.pLoadForm = new System.Windows.Forms.Panel();
             this.tlpBotoes = new System.Windows.Forms.TableLayoutPanel();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.ttBotao = new System.Windows.Forms.ToolTip(this.components);
             this.pbFechar = new System.Windows.Forms.Panel();
             this.pbAjuda = new System.Windows.Forms.Panel();
             this.pbRelatorio = new System.Windows.Forms.Panel();
             this.pbAlterar = new System.Windows.Forms.Panel();
             this.pbConsulta = new System.Windows.Forms.Panel();
             this.pbCadastro = new System.Windows.Forms.Panel();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.ttBotao = new System.Windows.Forms.ToolTip(this.components);
             this.tlpFundo.SuspendLayout();
             this.pCentroFundo.SuspendLayout();
             this.tlpBotoes.SuspendLayout();
@@ -110,84 +110,6 @@
             this.tlpBotoes.Size = new System.Drawing.Size(593, 54);
             this.tlpBotoes.TabIndex = 3;
             // 
-            // pbFechar
-            // 
-            this.pbFechar.BackgroundImage = global::Pizzaria.Properties.Resources.BtSair;
-            this.pbFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbFechar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbFechar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbFechar.Location = new System.Drawing.Point(494, 4);
-            this.pbFechar.Name = "pbFechar";
-            this.pbFechar.Size = new System.Drawing.Size(95, 46);
-            this.pbFechar.TabIndex = 4;
-            this.ttBotao.SetToolTip(this.pbFechar, "ENCERRAR SISTEMA");
-            this.pbFechar.Click += new System.EventHandler(this.pbFechar_Click);
-            // 
-            // pbAjuda
-            // 
-            this.pbAjuda.BackgroundImage = global::Pizzaria.Properties.Resources.BtManutencao;
-            this.pbAjuda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbAjuda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbAjuda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbAjuda.Location = new System.Drawing.Point(396, 4);
-            this.pbAjuda.Name = "pbAjuda";
-            this.pbAjuda.Size = new System.Drawing.Size(91, 46);
-            this.pbAjuda.TabIndex = 3;
-            this.ttBotao.SetToolTip(this.pbAjuda, "Serviços de Manutenção");
-            // 
-            // pbRelatorio
-            // 
-            this.pbRelatorio.BackColor = System.Drawing.SystemColors.Control;
-            this.pbRelatorio.BackgroundImage = global::Pizzaria.Properties.Resources.BtRelatorio;
-            this.pbRelatorio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbRelatorio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbRelatorio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbRelatorio.Location = new System.Drawing.Point(298, 4);
-            this.pbRelatorio.Name = "pbRelatorio";
-            this.pbRelatorio.Size = new System.Drawing.Size(91, 46);
-            this.pbRelatorio.TabIndex = 2;
-            this.ttBotao.SetToolTip(this.pbRelatorio, "Relatórios do Sistema");
-            this.pbRelatorio.Click += new System.EventHandler(this.pbRelatorio_Click);
-            // 
-            // pbAlterar
-            // 
-            this.pbAlterar.BackgroundImage = global::Pizzaria.Properties.Resources.BtAlterar;
-            this.pbAlterar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbAlterar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbAlterar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbAlterar.Location = new System.Drawing.Point(200, 4);
-            this.pbAlterar.Name = "pbAlterar";
-            this.pbAlterar.Size = new System.Drawing.Size(91, 46);
-            this.pbAlterar.TabIndex = 1;
-            this.ttBotao.SetToolTip(this.pbAlterar, "Alterar Cadastros, Itens, Preços e etc");
-            this.pbAlterar.Click += new System.EventHandler(this.pbAlterar_Click);
-            // 
-            // pbConsulta
-            // 
-            this.pbConsulta.BackgroundImage = global::Pizzaria.Properties.Resources.BtConsulta;
-            this.pbConsulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbConsulta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbConsulta.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbConsulta.Location = new System.Drawing.Point(102, 4);
-            this.pbConsulta.Name = "pbConsulta";
-            this.pbConsulta.Size = new System.Drawing.Size(91, 46);
-            this.pbConsulta.TabIndex = 1;
-            this.ttBotao.SetToolTip(this.pbConsulta, "Consultar Cadastros, Itens, Produtos e etc");
-            this.pbConsulta.Click += new System.EventHandler(this.pbConsulta_Click);
-            // 
-            // pbCadastro
-            // 
-            this.pbCadastro.BackgroundImage = global::Pizzaria.Properties.Resources.BtCadastro;
-            this.pbCadastro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbCadastro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbCadastro.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbCadastro.Location = new System.Drawing.Point(4, 4);
-            this.pbCadastro.Name = "pbCadastro";
-            this.pbCadastro.Size = new System.Drawing.Size(91, 46);
-            this.pbCadastro.TabIndex = 0;
-            this.ttBotao.SetToolTip(this.pbCadastro, "Cadastrar Usuarios, Produtos , Mesas e etc");
-            this.pbCadastro.Click += new System.EventHandler(this.pbCadastro_Click);
-            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -201,6 +123,84 @@
             this.ttBotao.IsBalloon = true;
             this.ttBotao.ShowAlways = true;
             this.ttBotao.ToolTipTitle = "INFORMAÇÃO";
+            // 
+            // pbFechar
+            // 
+            this.pbFechar.BackgroundImage = global::Pizzaria.Properties.Resources.BtSair1;
+            this.pbFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbFechar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbFechar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbFechar.Location = new System.Drawing.Point(494, 4);
+            this.pbFechar.Name = "pbFechar";
+            this.pbFechar.Size = new System.Drawing.Size(95, 46);
+            this.pbFechar.TabIndex = 4;
+            this.ttBotao.SetToolTip(this.pbFechar, "ENCERRAR SISTEMA");
+            this.pbFechar.Click += new System.EventHandler(this.pbFechar_Click);
+            // 
+            // pbAjuda
+            // 
+            this.pbAjuda.BackgroundImage = global::Pizzaria.Properties.Resources.BtManutencao1;
+            this.pbAjuda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbAjuda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbAjuda.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbAjuda.Location = new System.Drawing.Point(396, 4);
+            this.pbAjuda.Name = "pbAjuda";
+            this.pbAjuda.Size = new System.Drawing.Size(91, 46);
+            this.pbAjuda.TabIndex = 3;
+            this.ttBotao.SetToolTip(this.pbAjuda, "Serviços de Manutenção");
+            // 
+            // pbRelatorio
+            // 
+            this.pbRelatorio.BackColor = System.Drawing.SystemColors.Control;
+            this.pbRelatorio.BackgroundImage = global::Pizzaria.Properties.Resources.BtRelatorio1;
+            this.pbRelatorio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbRelatorio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbRelatorio.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbRelatorio.Location = new System.Drawing.Point(298, 4);
+            this.pbRelatorio.Name = "pbRelatorio";
+            this.pbRelatorio.Size = new System.Drawing.Size(91, 46);
+            this.pbRelatorio.TabIndex = 2;
+            this.ttBotao.SetToolTip(this.pbRelatorio, "Relatórios do Sistema");
+            this.pbRelatorio.Click += new System.EventHandler(this.pbRelatorio_Click);
+            // 
+            // pbAlterar
+            // 
+            this.pbAlterar.BackgroundImage = global::Pizzaria.Properties.Resources.BtAlterar1;
+            this.pbAlterar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbAlterar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbAlterar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbAlterar.Location = new System.Drawing.Point(200, 4);
+            this.pbAlterar.Name = "pbAlterar";
+            this.pbAlterar.Size = new System.Drawing.Size(91, 46);
+            this.pbAlterar.TabIndex = 1;
+            this.ttBotao.SetToolTip(this.pbAlterar, "Alterar Cadastros, Itens, Preços e etc");
+            this.pbAlterar.Click += new System.EventHandler(this.pbAlterar_Click);
+            // 
+            // pbConsulta
+            // 
+            this.pbConsulta.BackgroundImage = global::Pizzaria.Properties.Resources.BtConsulta1;
+            this.pbConsulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbConsulta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbConsulta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbConsulta.Location = new System.Drawing.Point(102, 4);
+            this.pbConsulta.Name = "pbConsulta";
+            this.pbConsulta.Size = new System.Drawing.Size(91, 46);
+            this.pbConsulta.TabIndex = 1;
+            this.ttBotao.SetToolTip(this.pbConsulta, "Consultar Cadastros, Itens, Produtos e etc");
+            this.pbConsulta.Click += new System.EventHandler(this.pbConsulta_Click);
+            // 
+            // pbCadastro
+            // 
+            this.pbCadastro.BackgroundImage = global::Pizzaria.Properties.Resources.BtCadastro1;
+            this.pbCadastro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbCadastro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbCadastro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbCadastro.Location = new System.Drawing.Point(4, 4);
+            this.pbCadastro.Name = "pbCadastro";
+            this.pbCadastro.Size = new System.Drawing.Size(91, 46);
+            this.pbCadastro.TabIndex = 0;
+            this.ttBotao.SetToolTip(this.pbCadastro, "Cadastrar Usuarios, Produtos , Mesas e etc");
+            this.pbCadastro.Click += new System.EventHandler(this.pbCadastro_Click);
             // 
             // Fundo
             // 
