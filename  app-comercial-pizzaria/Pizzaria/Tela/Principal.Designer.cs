@@ -49,11 +49,12 @@
             this.linutil1 = new System.Windows.Forms.Label();
             this.pOcupada = new System.Windows.Forms.Panel();
             this.lInutil2 = new System.Windows.Forms.Label();
+            this.ptitulo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lValor = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.ptitulo = new System.Windows.Forms.Panel();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.pLoadForm.SuspendLayout();
             this.tlpColuna.SuspendLayout();
             this.menuDireito.SuspendLayout();
@@ -277,6 +278,19 @@
             this.lInutil2.TabIndex = 2;
             this.lInutil2.Text = "OCUPADA ( O )";
             // 
+            // ptitulo
+            // 
+            this.ptitulo.BackColor = System.Drawing.Color.White;
+            this.ptitulo.BackgroundImage = global::Pizzaria.Properties.Resources.Delirios;
+            this.ptitulo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ptitulo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ptitulo.Location = new System.Drawing.Point(1, 0);
+            this.ptitulo.Margin = new System.Windows.Forms.Padding(1, 0, 1, 1);
+            this.ptitulo.Name = "ptitulo";
+            this.ptitulo.Size = new System.Drawing.Size(446, 201);
+            this.ptitulo.TabIndex = 36;
+            this.ptitulo.Click += new System.EventHandler(this.ptitulo_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
@@ -319,22 +333,15 @@
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "mesawhite.jpg");
-            this.imageList1.Images.SetKeyName(1, "BRtent2.png");
-            this.imageList1.Images.SetKeyName(2, "BRtent1.png");
+            this.imageList1.Images.SetKeyName(0, "mesaLivre.jpg");
+            this.imageList1.Images.SetKeyName(1, "mesa Impressa 3.jpg");
+            this.imageList1.Images.SetKeyName(2, "mesa Ocupada 2.jpg");
             // 
-            // ptitulo
+            // imageList2
             // 
-            this.ptitulo.BackColor = System.Drawing.Color.White;
-            this.ptitulo.BackgroundImage = global::Pizzaria.Properties.Resources.Delirios;
-            this.ptitulo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ptitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ptitulo.Location = new System.Drawing.Point(1, 0);
-            this.ptitulo.Margin = new System.Windows.Forms.Padding(1, 0, 1, 1);
-            this.ptitulo.Name = "ptitulo";
-            this.ptitulo.Size = new System.Drawing.Size(446, 201);
-            this.ptitulo.TabIndex = 36;
-            this.ptitulo.Click += new System.EventHandler(this.ptitulo_Click);
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "mesaLivre.jpg");
             // 
             // Principal
             // 
@@ -393,5 +400,6 @@
         private System.Windows.Forms.ToolStripMenuItem MSProduto;
         private System.Windows.Forms.Label lValor;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ImageList imageList2;
     }
 }

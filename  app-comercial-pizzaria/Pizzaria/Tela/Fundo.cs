@@ -82,27 +82,59 @@ namespace Pizzaria.Tela
         }
         private void expandirCadastro()
         {
-            cf = new CadastroForm();
-            cf.Visible = true;
-            cf.WindowState = FormWindowState.Maximized;
-            cf.StartPosition = FormStartPosition.CenterScreen;
-            cf.TopLevel = false;
-            cf.Size = new System.Drawing.Size(pLoadForm.Size.Width, pLoadForm.Size.Height);
-            pLoadForm.Controls.Add(cf);
-            cf.Location = new Point(0, 0);
-            obj.Visible = false;
+
+            SenhaAcesso sa = new SenhaAcesso();
+            sa.ShowDialog();
+            if (sa.acesso)
+            {
+                cf = new CadastroForm();
+                cf.Visible = true;
+                cf.WindowState = FormWindowState.Maximized;
+                cf.StartPosition = FormStartPosition.CenterScreen;
+                cf.TopLevel = false;
+                cf.Size = new System.Drawing.Size(pLoadForm.Size.Width, pLoadForm.Size.Height);
+                pLoadForm.Controls.Add(cf);
+                cf.Location = new Point(0, 0);
+                obj.Visible = false;
+
+
+            }
+            else
+            {
+                allFixedSingle();
+                // rf.Visible = false;
+                obj.Visible = true;
+                removeAllForm();
+            }
+
         }
         private void expandirAlterar()
         {
-            af = new AlterarForm();
-            af.Visible = true;
-            af.WindowState = FormWindowState.Maximized;
-            af.StartPosition = FormStartPosition.CenterScreen;
-            af.TopLevel = false;
-            af.Size = new System.Drawing.Size(pLoadForm.Size.Width, pLoadForm.Size.Height);
-            pLoadForm.Controls.Add(af);
-            af.Location = new Point(0, 0);
-            obj.Visible = false;
+            SenhaAcesso sa = new SenhaAcesso();
+            sa.ShowDialog();
+            if (sa.acesso)
+            {
+
+                af = new AlterarForm();
+                af.Visible = true;
+                af.WindowState = FormWindowState.Maximized;
+                af.StartPosition = FormStartPosition.CenterScreen;
+                af.TopLevel = false;
+                af.Size = new System.Drawing.Size(pLoadForm.Size.Width, pLoadForm.Size.Height);
+                pLoadForm.Controls.Add(af);
+                af.Location = new Point(0, 0);
+                obj.Visible = false;
+
+
+            }
+            else
+            {
+                allFixedSingle();
+                // rf.Visible = false;
+                obj.Visible = true;
+                removeAllForm();
+            }
+
         }
         private void expandirRelatorios()
         {

@@ -96,6 +96,7 @@ namespace Pizzaria.Tela
                 string[] mesa = new Banco().mesasIndisponiveis();
                 for (int i = 0; i < mesa.Length; i++)
                 {
+                    listVenda.LargeImageList = imageList1;
                     if (new BancoConsulta().mesaImpressa(mesa[i]))
                     {
                         conjItem.Add(new ListViewItem(mesa[i], 1));
@@ -119,7 +120,7 @@ namespace Pizzaria.Tela
             else
             {
                 listVenda.Clear();
-                listVenda.LargeImageList = imageList1;
+                listVenda.LargeImageList = imageList2;
 
                 string[] mesa = new Banco().mesasDisponiveis();
                 for (int i = 0; i < mesa.Length; i++)

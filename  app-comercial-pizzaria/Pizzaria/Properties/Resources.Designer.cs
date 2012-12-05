@@ -60,23 +60,9 @@ namespace Pizzaria.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap BtAlterar {
-            get {
-                object obj = ResourceManager.GetObject("BtAlterar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap BtAlterar1 {
             get {
                 object obj = ResourceManager.GetObject("BtAlterar1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap BtCadastro {
-            get {
-                object obj = ResourceManager.GetObject("BtCadastro", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -98,13 +84,6 @@ namespace Pizzaria.Properties {
         internal static System.Drawing.Bitmap BtConfirmar {
             get {
                 object obj = ResourceManager.GetObject("BtConfirmar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap BtConsulta {
-            get {
-                object obj = ResourceManager.GetObject("BtConsulta", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -137,13 +116,6 @@ namespace Pizzaria.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap BtManutencao {
-            get {
-                object obj = ResourceManager.GetObject("BtManutencao", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap BtManutencao1 {
             get {
                 object obj = ResourceManager.GetObject("BtManutencao1", resourceCulture);
@@ -165,13 +137,6 @@ namespace Pizzaria.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap BtRelatorio {
-            get {
-                object obj = ResourceManager.GetObject("BtRelatorio", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap BtRelatorio1 {
             get {
                 object obj = ResourceManager.GetObject("BtRelatorio1", resourceCulture);
@@ -182,13 +147,6 @@ namespace Pizzaria.Properties {
         internal static System.Drawing.Bitmap BtRemover {
             get {
                 object obj = ResourceManager.GetObject("BtRemover", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap BtSair {
-            get {
-                object obj = ResourceManager.GetObject("BtSair", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
