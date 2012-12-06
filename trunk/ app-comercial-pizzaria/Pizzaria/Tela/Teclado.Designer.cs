@@ -185,7 +185,7 @@
             this.tlpFundo.Name = "tlpFundo";
             this.tlpFundo.RowCount = 1;
             this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpFundo.Size = new System.Drawing.Size(721, 410);
+            this.tlpFundo.Size = new System.Drawing.Size(717, 406);
             this.tlpFundo.TabIndex = 12;
             // 
             // pDireita
@@ -196,7 +196,7 @@
             this.pDireita.Location = new System.Drawing.Point(400, 0);
             this.pDireita.Margin = new System.Windows.Forms.Padding(0);
             this.pDireita.Name = "pDireita";
-            this.pDireita.Size = new System.Drawing.Size(321, 410);
+            this.pDireita.Size = new System.Drawing.Size(317, 406);
             this.pDireita.TabIndex = 1;
             // 
             // lSabor
@@ -238,7 +238,7 @@
             this.pEsquerda.Location = new System.Drawing.Point(0, 0);
             this.pEsquerda.Margin = new System.Windows.Forms.Padding(0);
             this.pEsquerda.Name = "pEsquerda";
-            this.pEsquerda.Size = new System.Drawing.Size(400, 410);
+            this.pEsquerda.Size = new System.Drawing.Size(400, 406);
             this.pEsquerda.TabIndex = 0;
             // 
             // bLimpar
@@ -265,7 +265,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(721, 410);
+            this.ClientSize = new System.Drawing.Size(717, 406);
             this.ControlBox = false;
             this.Controls.Add(this.tlpFundo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;

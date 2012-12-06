@@ -67,6 +67,13 @@ namespace Pizzaria.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap BtAnular {
+            get {
+                object obj = ResourceManager.GetObject("BtAnular", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap BtCadastro1 {
             get {
                 object obj = ResourceManager.GetObject("BtCadastro1", resourceCulture);
@@ -168,6 +175,13 @@ namespace Pizzaria.Properties {
         internal static System.Drawing.Bitmap Delirios {
             get {
                 object obj = ResourceManager.GetObject("Delirios", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Register_128 {
+            get {
+                object obj = ResourceManager.GetObject("Register-128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -34,5 +34,6 @@ namespace Pizzaria.Tela
         {
             this.Close();
         }
+
     }
 }

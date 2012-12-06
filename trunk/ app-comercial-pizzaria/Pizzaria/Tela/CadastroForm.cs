@@ -141,7 +141,10 @@ namespace Pizzaria.Tela
         private void btConfCadastro_Click(object sender, EventArgs e)
         {
             if (!new BancoConsulta().existeGarcon(tbNewGarcon.Text))
+            {
                 new BancoConsulta().novoGarcon(tbNewGarcon.Text);
+                MessageBox.Show("Cadastro Realizado com Sucesso", "Cadastro");
+            }
             limparTudoCaixaGarc();
         }
         private void btCadCaixConfirm_Click(object sender, EventArgs e)
