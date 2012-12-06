@@ -118,25 +118,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="BtSair1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BtSair1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BtManutencao1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtManutencao1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
- 
-  <data name="BtTrocar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BtTrocar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Voltar_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Voltar_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BtParcial" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BtParcial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  
+  <data name="BtTrocar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtTrocar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BtAlterar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BtAlterar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BtConfirmar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BtConfirmar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BtManutencao1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BtManutencao1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Register-128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Register-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BtInserir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BtInserir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -144,8 +142,8 @@
   <data name="Delirios" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Delirios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BtConsulta1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BtConsulta1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BtRelatorio1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtRelatorio1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BtCancelar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BtCancelar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -153,25 +151,28 @@
   <data name="BtEncerrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BtEncerrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BtRelatorio1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BtRelatorio1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="BtCadastro1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BtCadastro1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BtConsulta1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtConsulta1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BtRemover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BtRemover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
- 
   <data name="BTnewAvancar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BTnewAvancar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  
+  <data name="BtConfirmar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtConfirmar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BtImprimir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BtImprimir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-
-  <data name="Voltar_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Voltar_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BtSair1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtSair1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BtAnular" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtAnular1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
