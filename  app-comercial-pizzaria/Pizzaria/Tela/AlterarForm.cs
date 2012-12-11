@@ -25,8 +25,15 @@ namespace Pizzaria.Tela
         short cod_caixa;
         private void btConfAlterar_Click(object sender, EventArgs e)
         {
-            if (!new BancoConsulta().existeGarcon(tbAltNomeGarcon.Text))
-                alterarGarcon();
+            if (!tbAltNomeGarcon.Text.Equals(""))
+            {
+                if (!new BancoConsulta().existeGarcon(tbAltNomeGarcon.Text))
+                {
+                    alterarGarcon();
+                    MessageBox.Show("Alteração realizada com Sucesso", "Alterar");
+                }
+            }
+            else MessageBox.Show("Campo em branco, favor preencher para alterar", "Aviso");
             limparGarcon(); carregarAlterar();
         }       
         private void btAltSub_Click(object sender, EventArgs e)

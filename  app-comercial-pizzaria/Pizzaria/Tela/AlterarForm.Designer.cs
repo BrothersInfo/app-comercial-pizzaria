@@ -75,16 +75,6 @@
             this.lbProdAltNome = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.btAltProdAtivo = new System.Windows.Forms.Button();
-            this.gBoxProdAlt2 = new System.Windows.Forms.GroupBox();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.lbAltProdValNome = new System.Windows.Forms.Label();
-            this.mtbAltProdValor = new System.Windows.Forms.MaskedTextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tbAltProdValCodProd = new System.Windows.Forms.TextBox();
-            this.cbAltProdValTamanho = new System.Windows.Forms.ComboBox();
-            this.btProdAltValor = new System.Windows.Forms.Button();
-            this.label21 = new System.Windows.Forms.Label();
             this.gBoxProdAlt4 = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
             this.lbSegmentoAtual = new System.Windows.Forms.Label();
@@ -119,6 +109,16 @@
             this.clbSegmento = new System.Windows.Forms.CheckedListBox();
             this.btAltProdSegUpdat = new System.Windows.Forms.Button();
             this.label42 = new System.Windows.Forms.Label();
+            this.gBoxProdAlt2 = new System.Windows.Forms.GroupBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.lbAltProdValNome = new System.Windows.Forms.Label();
+            this.mtbAltProdValor = new System.Windows.Forms.MaskedTextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbAltProdValCodProd = new System.Windows.Forms.TextBox();
+            this.cbAltProdValTamanho = new System.Windows.Forms.ComboBox();
+            this.btProdAltValor = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
             this.btClick4 = new System.Windows.Forms.Button();
             this.btClick3 = new System.Windows.Forms.Button();
             this.btClick2 = new System.Windows.Forms.Button();
@@ -198,11 +198,11 @@
             this.pAlterarProduto.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.gBoxProdAlt1.SuspendLayout();
-            this.gBoxProdAlt2.SuspendLayout();
             this.gBoxProdAlt4.SuspendLayout();
             this.gBoxProdAlt3.SuspendLayout();
             this.gBoxProdAlt55.SuspendLayout();
             this.gBoxProdAlt5.SuspendLayout();
+            this.gBoxProdAlt2.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
@@ -346,7 +346,7 @@
             // 
             this.lbQuadroGarcon.AutoSize = true;
             this.lbQuadroGarcon.Font = new System.Drawing.Font("Arial", 13F);
-            this.lbQuadroGarcon.Location = new System.Drawing.Point(55, 79);
+            this.lbQuadroGarcon.Location = new System.Drawing.Point(70, 75);
             this.lbQuadroGarcon.Name = "lbQuadroGarcon";
             this.lbQuadroGarcon.Size = new System.Drawing.Size(88, 21);
             this.lbQuadroGarcon.TabIndex = 32;
@@ -364,6 +364,7 @@
             // 
             // btConfAlterar
             // 
+            this.btConfAlterar.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
             this.btConfAlterar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btConfAlterar.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btConfAlterar.ForeColor = System.Drawing.Color.Maroon;
@@ -386,7 +387,7 @@
             // 
             this.lbNovoNomeGarcon.AutoSize = true;
             this.lbNovoNomeGarcon.Font = new System.Drawing.Font("Arial", 13F);
-            this.lbNovoNomeGarcon.Location = new System.Drawing.Point(22, 140);
+            this.lbNovoNomeGarcon.Location = new System.Drawing.Point(37, 136);
             this.lbNovoNomeGarcon.Name = "lbNovoNomeGarcon";
             this.lbNovoNomeGarcon.Size = new System.Drawing.Size(121, 21);
             this.lbNovoNomeGarcon.TabIndex = 28;
@@ -395,11 +396,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 18F);
+            this.label5.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label5.Location = new System.Drawing.Point(212, 14);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(116, 27);
+            this.label5.Size = new System.Drawing.Size(112, 31);
             this.label5.TabIndex = 40;
             this.label5.Text = "GARÇON";
             // 
@@ -615,6 +616,7 @@
             // 
             // btAltCaixConfirmar
             // 
+            this.btAltCaixConfirmar.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
             this.btAltCaixConfirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btAltCaixConfirmar.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAltCaixConfirmar.ForeColor = System.Drawing.Color.Maroon;
@@ -629,11 +631,11 @@
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arial", 18F);
+            this.label15.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label15.Location = new System.Drawing.Point(230, 14);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(80, 27);
+            this.label15.Size = new System.Drawing.Size(83, 31);
             this.label15.TabIndex = 40;
             this.label15.Text = "CAIXA";
             // 
@@ -660,7 +662,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 558F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 496F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(936, 496);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
@@ -798,6 +800,7 @@
             // 
             // btAltProdAtivo
             // 
+            this.btAltProdAtivo.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
             this.btAltProdAtivo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btAltProdAtivo.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAltProdAtivo.ForeColor = System.Drawing.Color.Maroon;
@@ -807,124 +810,6 @@
             this.btAltProdAtivo.TabIndex = 25;
             this.btAltProdAtivo.UseVisualStyleBackColor = true;
             this.btAltProdAtivo.Click += new System.EventHandler(this.btAltProdAtivo_Click);
-            // 
-            // gBoxProdAlt2
-            // 
-            this.gBoxProdAlt2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.gBoxProdAlt2.BackColor = System.Drawing.Color.White;
-            this.gBoxProdAlt2.Controls.Add(this.label41);
-            this.gBoxProdAlt2.Controls.Add(this.label40);
-            this.gBoxProdAlt2.Controls.Add(this.lbAltProdValNome);
-            this.gBoxProdAlt2.Controls.Add(this.mtbAltProdValor);
-            this.gBoxProdAlt2.Controls.Add(this.label10);
-            this.gBoxProdAlt2.Controls.Add(this.tbAltProdValCodProd);
-            this.gBoxProdAlt2.Controls.Add(this.cbAltProdValTamanho);
-            this.gBoxProdAlt2.Controls.Add(this.btProdAltValor);
-            this.gBoxProdAlt2.Controls.Add(this.label21);
-            this.gBoxProdAlt2.Font = new System.Drawing.Font("Arial", 16F);
-            this.gBoxProdAlt2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.gBoxProdAlt2.Location = new System.Drawing.Point(0, 1106);
-            this.gBoxProdAlt2.Margin = new System.Windows.Forms.Padding(0);
-            this.gBoxProdAlt2.Name = "gBoxProdAlt2";
-            this.gBoxProdAlt2.Size = new System.Drawing.Size(408, 220);
-            this.gBoxProdAlt2.TabIndex = 24;
-            this.gBoxProdAlt2.TabStop = false;
-            this.gBoxProdAlt2.Text = "ALTERAR VALOR";
-            this.gBoxProdAlt2.Visible = false;
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Arial", 14F);
-            this.label41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label41.Location = new System.Drawing.Point(6, 101);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(169, 22);
-            this.label41.TabIndex = 49;
-            this.label41.Text = "SUB-CATEGORIA";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Arial", 14F);
-            this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label40.Location = new System.Drawing.Point(86, 65);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(89, 22);
-            this.label40.TabIndex = 48;
-            this.label40.Text = "CODIGO";
-            // 
-            // lbAltProdValNome
-            // 
-            this.lbAltProdValNome.AutoSize = true;
-            this.lbAltProdValNome.Font = new System.Drawing.Font("Arial Narrow", 15F);
-            this.lbAltProdValNome.Location = new System.Drawing.Point(176, 28);
-            this.lbAltProdValNome.Name = "lbAltProdValNome";
-            this.lbAltProdValNome.Size = new System.Drawing.Size(0, 24);
-            this.lbAltProdValNome.TabIndex = 47;
-            this.lbAltProdValNome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // mtbAltProdValor
-            // 
-            this.mtbAltProdValor.Font = new System.Drawing.Font("Arial", 18F);
-            this.mtbAltProdValor.ForeColor = System.Drawing.Color.DarkRed;
-            this.mtbAltProdValor.Location = new System.Drawing.Point(180, 129);
-            this.mtbAltProdValor.Mask = "000,00";
-            this.mtbAltProdValor.Name = "mtbAltProdValor";
-            this.mtbAltProdValor.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.mtbAltProdValor.Size = new System.Drawing.Size(86, 35);
-            this.mtbAltProdValor.TabIndex = 44;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 16F);
-            this.label10.Location = new System.Drawing.Point(134, 139);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(40, 25);
-            this.label10.TabIndex = 46;
-            this.label10.Text = "R$";
-            // 
-            // tbAltProdValCodProd
-            // 
-            this.tbAltProdValCodProd.Font = new System.Drawing.Font("Arial", 14F);
-            this.tbAltProdValCodProd.Location = new System.Drawing.Point(180, 58);
-            this.tbAltProdValCodProd.Name = "tbAltProdValCodProd";
-            this.tbAltProdValCodProd.Size = new System.Drawing.Size(86, 29);
-            this.tbAltProdValCodProd.TabIndex = 42;
-            this.tbAltProdValCodProd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbAltProdValCodProd_KeyUp);
-            // 
-            // cbAltProdValTamanho
-            // 
-            this.cbAltProdValTamanho.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAltProdValTamanho.FormattingEnabled = true;
-            this.cbAltProdValTamanho.Location = new System.Drawing.Point(180, 93);
-            this.cbAltProdValTamanho.Name = "cbAltProdValTamanho";
-            this.cbAltProdValTamanho.Size = new System.Drawing.Size(152, 30);
-            this.cbAltProdValTamanho.TabIndex = 43;
-            this.cbAltProdValTamanho.SelectedIndexChanged += new System.EventHandler(this.cbAltProdValTamanho_SelectedIndexChanged);
-            // 
-            // btProdAltValor
-            // 
-            this.btProdAltValor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btProdAltValor.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btProdAltValor.ForeColor = System.Drawing.Color.Maroon;
-            this.btProdAltValor.Location = new System.Drawing.Point(171, 170);
-            this.btProdAltValor.Name = "btProdAltValor";
-            this.btProdAltValor.Size = new System.Drawing.Size(67, 35);
-            this.btProdAltValor.TabIndex = 45;
-            this.btProdAltValor.UseVisualStyleBackColor = true;
-            this.btProdAltValor.Click += new System.EventHandler(this.btProdAltValor_Click);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Arial", 18F);
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label21.Location = new System.Drawing.Point(6, 39);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(0, 27);
-            this.label21.TabIndex = 18;
             // 
             // gBoxProdAlt4
             // 
@@ -1322,6 +1207,124 @@
             this.label42.Size = new System.Drawing.Size(0, 27);
             this.label42.TabIndex = 18;
             // 
+            // gBoxProdAlt2
+            // 
+            this.gBoxProdAlt2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.gBoxProdAlt2.BackColor = System.Drawing.Color.White;
+            this.gBoxProdAlt2.Controls.Add(this.label41);
+            this.gBoxProdAlt2.Controls.Add(this.label40);
+            this.gBoxProdAlt2.Controls.Add(this.lbAltProdValNome);
+            this.gBoxProdAlt2.Controls.Add(this.mtbAltProdValor);
+            this.gBoxProdAlt2.Controls.Add(this.label10);
+            this.gBoxProdAlt2.Controls.Add(this.tbAltProdValCodProd);
+            this.gBoxProdAlt2.Controls.Add(this.cbAltProdValTamanho);
+            this.gBoxProdAlt2.Controls.Add(this.btProdAltValor);
+            this.gBoxProdAlt2.Controls.Add(this.label21);
+            this.gBoxProdAlt2.Font = new System.Drawing.Font("Arial", 16F);
+            this.gBoxProdAlt2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.gBoxProdAlt2.Location = new System.Drawing.Point(0, 1106);
+            this.gBoxProdAlt2.Margin = new System.Windows.Forms.Padding(0);
+            this.gBoxProdAlt2.Name = "gBoxProdAlt2";
+            this.gBoxProdAlt2.Size = new System.Drawing.Size(408, 220);
+            this.gBoxProdAlt2.TabIndex = 24;
+            this.gBoxProdAlt2.TabStop = false;
+            this.gBoxProdAlt2.Text = "ALTERAR VALOR";
+            this.gBoxProdAlt2.Visible = false;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Arial", 14F);
+            this.label41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label41.Location = new System.Drawing.Point(6, 101);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(169, 22);
+            this.label41.TabIndex = 49;
+            this.label41.Text = "SUB-CATEGORIA";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Arial", 14F);
+            this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label40.Location = new System.Drawing.Point(86, 65);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(89, 22);
+            this.label40.TabIndex = 48;
+            this.label40.Text = "CODIGO";
+            // 
+            // lbAltProdValNome
+            // 
+            this.lbAltProdValNome.AutoSize = true;
+            this.lbAltProdValNome.Font = new System.Drawing.Font("Arial Narrow", 15F);
+            this.lbAltProdValNome.Location = new System.Drawing.Point(176, 28);
+            this.lbAltProdValNome.Name = "lbAltProdValNome";
+            this.lbAltProdValNome.Size = new System.Drawing.Size(0, 24);
+            this.lbAltProdValNome.TabIndex = 47;
+            this.lbAltProdValNome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // mtbAltProdValor
+            // 
+            this.mtbAltProdValor.Font = new System.Drawing.Font("Arial", 18F);
+            this.mtbAltProdValor.ForeColor = System.Drawing.Color.DarkRed;
+            this.mtbAltProdValor.Location = new System.Drawing.Point(180, 129);
+            this.mtbAltProdValor.Mask = "000,00";
+            this.mtbAltProdValor.Name = "mtbAltProdValor";
+            this.mtbAltProdValor.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.mtbAltProdValor.Size = new System.Drawing.Size(86, 35);
+            this.mtbAltProdValor.TabIndex = 44;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 16F);
+            this.label10.Location = new System.Drawing.Point(134, 139);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(40, 25);
+            this.label10.TabIndex = 46;
+            this.label10.Text = "R$";
+            // 
+            // tbAltProdValCodProd
+            // 
+            this.tbAltProdValCodProd.Font = new System.Drawing.Font("Arial", 14F);
+            this.tbAltProdValCodProd.Location = new System.Drawing.Point(180, 58);
+            this.tbAltProdValCodProd.Name = "tbAltProdValCodProd";
+            this.tbAltProdValCodProd.Size = new System.Drawing.Size(86, 29);
+            this.tbAltProdValCodProd.TabIndex = 42;
+            this.tbAltProdValCodProd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbAltProdValCodProd_KeyUp);
+            // 
+            // cbAltProdValTamanho
+            // 
+            this.cbAltProdValTamanho.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAltProdValTamanho.FormattingEnabled = true;
+            this.cbAltProdValTamanho.Location = new System.Drawing.Point(180, 93);
+            this.cbAltProdValTamanho.Name = "cbAltProdValTamanho";
+            this.cbAltProdValTamanho.Size = new System.Drawing.Size(152, 30);
+            this.cbAltProdValTamanho.TabIndex = 43;
+            this.cbAltProdValTamanho.SelectedIndexChanged += new System.EventHandler(this.cbAltProdValTamanho_SelectedIndexChanged);
+            // 
+            // btProdAltValor
+            // 
+            this.btProdAltValor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btProdAltValor.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btProdAltValor.ForeColor = System.Drawing.Color.Maroon;
+            this.btProdAltValor.Location = new System.Drawing.Point(171, 170);
+            this.btProdAltValor.Name = "btProdAltValor";
+            this.btProdAltValor.Size = new System.Drawing.Size(67, 35);
+            this.btProdAltValor.TabIndex = 45;
+            this.btProdAltValor.UseVisualStyleBackColor = true;
+            this.btProdAltValor.Click += new System.EventHandler(this.btProdAltValor_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Arial", 18F);
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label21.Location = new System.Drawing.Point(6, 39);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(0, 27);
+            this.label21.TabIndex = 18;
+            // 
             // btClick4
             // 
             this.btClick4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -1382,11 +1385,11 @@
             // 
             this.label26.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Arial", 18F);
+            this.label26.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label26.Location = new System.Drawing.Point(205, 14);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(131, 27);
+            this.label26.Size = new System.Drawing.Size(125, 31);
             this.label26.TabIndex = 17;
             this.label26.Text = "PRODUTO";
             // 
@@ -1508,6 +1511,7 @@
             // 
             // btAltSub
             // 
+            this.btAltSub.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
             this.btAltSub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btAltSub.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAltSub.ForeColor = System.Drawing.Color.Maroon;
@@ -1539,11 +1543,11 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Arial", 18F);
+            this.label28.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label28.Location = new System.Drawing.Point(207, 14);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(205, 27);
+            this.label28.Size = new System.Drawing.Size(201, 31);
             this.label28.TabIndex = 40;
             this.label28.Text = "SUB-CATEGORIA";
             // 
@@ -1687,6 +1691,7 @@
             // 
             // btAltSeg
             // 
+            this.btAltSeg.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
             this.btAltSeg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btAltSeg.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAltSeg.ForeColor = System.Drawing.Color.Maroon;
@@ -1718,11 +1723,11 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Arial", 18F);
+            this.label31.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label31.Location = new System.Drawing.Point(196, 14);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(148, 27);
+            this.label31.Size = new System.Drawing.Size(141, 31);
             this.label31.TabIndex = 40;
             this.label31.Text = "SEGMENTO";
             // 
@@ -1872,6 +1877,7 @@
             // 
             // btAltMesa
             // 
+            this.btAltMesa.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
             this.btAltMesa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btAltMesa.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAltMesa.ForeColor = System.Drawing.Color.Maroon;
@@ -1885,11 +1891,11 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Arial", 18F);
+            this.label35.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label35.Location = new System.Drawing.Point(231, 14);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(78, 27);
+            this.label35.Size = new System.Drawing.Size(78, 31);
             this.label35.TabIndex = 40;
             this.label35.Text = "MESA";
             // 
@@ -2010,6 +2016,7 @@
             // 
             // btAltAmb
             // 
+            this.btAltAmb.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
             this.btAltAmb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btAltAmb.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAltAmb.ForeColor = System.Drawing.Color.Maroon;
@@ -2041,11 +2048,11 @@
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Arial", 18F);
+            this.label38.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label38.Location = new System.Drawing.Point(214, 14);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(131, 27);
+            this.label38.Size = new System.Drawing.Size(130, 31);
             this.label38.TabIndex = 40;
             this.label38.Text = "AMBIENTE";
             // 
@@ -2100,8 +2107,6 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.gBoxProdAlt1.ResumeLayout(false);
             this.gBoxProdAlt1.PerformLayout();
-            this.gBoxProdAlt2.ResumeLayout(false);
-            this.gBoxProdAlt2.PerformLayout();
             this.gBoxProdAlt4.ResumeLayout(false);
             this.gBoxProdAlt4.PerformLayout();
             this.gBoxProdAlt3.ResumeLayout(false);
@@ -2110,6 +2115,8 @@
             this.gBoxProdAlt55.PerformLayout();
             this.gBoxProdAlt5.ResumeLayout(false);
             this.gBoxProdAlt5.PerformLayout();
+            this.gBoxProdAlt2.ResumeLayout(false);
+            this.gBoxProdAlt2.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
