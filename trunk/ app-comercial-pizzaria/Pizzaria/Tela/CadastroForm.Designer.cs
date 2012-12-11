@@ -253,13 +253,14 @@
             // 
             // btConfCadastro
             // 
+            this.btConfCadastro.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
+            this.btConfCadastro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btConfCadastro.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btConfCadastro.ForeColor = System.Drawing.Color.Maroon;
             this.btConfCadastro.Location = new System.Drawing.Point(153, 248);
             this.btConfCadastro.Name = "btConfCadastro";
             this.btConfCadastro.Size = new System.Drawing.Size(118, 44);
             this.btConfCadastro.TabIndex = 24;
-            this.btConfCadastro.Text = "CONFIRMAR";
             this.btConfCadastro.UseVisualStyleBackColor = true;
             this.btConfCadastro.Click += new System.EventHandler(this.btConfCadastro_Click);
             // 
@@ -276,7 +277,7 @@
             this.lbValor.AutoSize = true;
             this.lbValor.Font = new System.Drawing.Font("Arial", 14F);
             this.lbValor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbValor.Location = new System.Drawing.Point(62, 143);
+            this.lbValor.Location = new System.Drawing.Point(81, 135);
             this.lbValor.Name = "lbValor";
             this.lbValor.Size = new System.Drawing.Size(66, 22);
             this.lbValor.TabIndex = 13;
@@ -285,11 +286,11 @@
             // lbTituloGarcon
             // 
             this.lbTituloGarcon.AutoSize = true;
-            this.lbTituloGarcon.Font = new System.Drawing.Font("Arial", 18F);
+            this.lbTituloGarcon.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTituloGarcon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbTituloGarcon.Location = new System.Drawing.Point(212, 14);
+            this.lbTituloGarcon.Location = new System.Drawing.Point(213, 17);
             this.lbTituloGarcon.Name = "lbTituloGarcon";
-            this.lbTituloGarcon.Size = new System.Drawing.Size(116, 27);
+            this.lbTituloGarcon.Size = new System.Drawing.Size(112, 31);
             this.lbTituloGarcon.TabIndex = 40;
             this.lbTituloGarcon.Text = "GARÇON";
             // 
@@ -451,6 +452,7 @@
             // 
             // btCadCaixConfirm
             // 
+            this.btCadCaixConfirm.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
             this.btCadCaixConfirm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btCadCaixConfirm.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCadCaixConfirm.ForeColor = System.Drawing.Color.Maroon;
@@ -458,7 +460,6 @@
             this.btCadCaixConfirm.Name = "btCadCaixConfirm";
             this.btCadCaixConfirm.Size = new System.Drawing.Size(118, 44);
             this.btCadCaixConfirm.TabIndex = 24;
-            this.btCadCaixConfirm.Text = "CONFIRMAR";
             this.btCadCaixConfirm.UseVisualStyleBackColor = true;
             this.btCadCaixConfirm.Click += new System.EventHandler(this.btCadCaixConfirm_Click);
             // 
@@ -485,11 +486,11 @@
             // 
             this.lCaixaTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lCaixaTitulo.AutoSize = true;
-            this.lCaixaTitulo.Font = new System.Drawing.Font("Arial", 18F);
+            this.lCaixaTitulo.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lCaixaTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lCaixaTitulo.Location = new System.Drawing.Point(230, 14);
+            this.lCaixaTitulo.Location = new System.Drawing.Point(232, 17);
             this.lCaixaTitulo.Name = "lCaixaTitulo";
-            this.lCaixaTitulo.Size = new System.Drawing.Size(80, 27);
+            this.lCaixaTitulo.Size = new System.Drawing.Size(83, 31);
             this.lCaixaTitulo.TabIndex = 40;
             this.lCaixaTitulo.Text = "CAIXA";
             // 
@@ -653,13 +654,14 @@
             // 
             // btConf
             // 
+            this.btConf.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
+            this.btConf.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btConf.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btConf.ForeColor = System.Drawing.Color.Maroon;
             this.btConf.Location = new System.Drawing.Point(153, 248);
             this.btConf.Name = "btConf";
             this.btConf.Size = new System.Drawing.Size(118, 44);
             this.btConf.TabIndex = 25;
-            this.btConf.Text = "CONFIRMAR";
             this.btConf.UseVisualStyleBackColor = true;
             this.btConf.Click += new System.EventHandler(this.btConf_Click);
             // 
@@ -761,11 +763,11 @@
             // 
             this.lTitulo2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lTitulo2.AutoSize = true;
-            this.lTitulo2.Font = new System.Drawing.Font("Arial", 18F);
+            this.lTitulo2.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTitulo2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lTitulo2.Location = new System.Drawing.Point(205, 14);
             this.lTitulo2.Name = "lTitulo2";
-            this.lTitulo2.Size = new System.Drawing.Size(131, 27);
+            this.lTitulo2.Size = new System.Drawing.Size(125, 31);
             this.lTitulo2.TabIndex = 17;
             this.lTitulo2.Text = "PRODUTO";
             // 
@@ -850,13 +852,14 @@
             // 
             // btCadTamanho
             // 
+            this.btCadTamanho.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
+            this.btCadTamanho.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btCadTamanho.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCadTamanho.ForeColor = System.Drawing.Color.Maroon;
             this.btCadTamanho.Location = new System.Drawing.Point(153, 248);
             this.btCadTamanho.Name = "btCadTamanho";
             this.btCadTamanho.Size = new System.Drawing.Size(118, 44);
             this.btCadTamanho.TabIndex = 24;
-            this.btCadTamanho.Text = "CONFIRMAR";
             this.btCadTamanho.UseVisualStyleBackColor = true;
             this.btCadTamanho.Click += new System.EventHandler(this.btCadTamanho_Click);
             // 
@@ -874,11 +877,11 @@
             // lTituloTamanho
             // 
             this.lTituloTamanho.AutoSize = true;
-            this.lTituloTamanho.Font = new System.Drawing.Font("Arial", 18F);
+            this.lTituloTamanho.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTituloTamanho.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lTituloTamanho.Location = new System.Drawing.Point(168, 14);
             this.lTituloTamanho.Name = "lTituloTamanho";
-            this.lTituloTamanho.Size = new System.Drawing.Size(205, 27);
+            this.lTituloTamanho.Size = new System.Drawing.Size(201, 31);
             this.lTituloTamanho.TabIndex = 40;
             this.lTituloTamanho.Text = "SUB-CATEGORIA";
             // 
@@ -974,13 +977,14 @@
             // 
             // btCadTipCadastrar
             // 
+            this.btCadTipCadastrar.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
+            this.btCadTipCadastrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btCadTipCadastrar.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCadTipCadastrar.ForeColor = System.Drawing.Color.Maroon;
             this.btCadTipCadastrar.Location = new System.Drawing.Point(153, 248);
             this.btCadTipCadastrar.Name = "btCadTipCadastrar";
             this.btCadTipCadastrar.Size = new System.Drawing.Size(118, 44);
             this.btCadTipCadastrar.TabIndex = 24;
-            this.btCadTipCadastrar.Text = "CONFIRMAR";
             this.btCadTipCadastrar.UseVisualStyleBackColor = true;
             this.btCadTipCadastrar.Click += new System.EventHandler(this.btCadTipCadastrar_Click);
             // 
@@ -998,11 +1002,11 @@
             // lTipoTitulo
             // 
             this.lTipoTitulo.AutoSize = true;
-            this.lTipoTitulo.Font = new System.Drawing.Font("Arial", 18F);
+            this.lTipoTitulo.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTipoTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lTipoTitulo.Location = new System.Drawing.Point(196, 14);
             this.lTipoTitulo.Name = "lTipoTitulo";
-            this.lTipoTitulo.Size = new System.Drawing.Size(148, 27);
+            this.lTipoTitulo.Size = new System.Drawing.Size(141, 31);
             this.lTipoTitulo.TabIndex = 40;
             this.lTipoTitulo.Text = "SEGMENTO";
             // 
@@ -1103,7 +1107,7 @@
             this.lAmbMesaNovo.AutoSize = true;
             this.lAmbMesaNovo.Font = new System.Drawing.Font("Arial", 14F);
             this.lAmbMesaNovo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lAmbMesaNovo.Location = new System.Drawing.Point(31, 143);
+            this.lAmbMesaNovo.Location = new System.Drawing.Point(39, 135);
             this.lAmbMesaNovo.Name = "lAmbMesaNovo";
             this.lAmbMesaNovo.Size = new System.Drawing.Size(108, 22);
             this.lAmbMesaNovo.TabIndex = 25;
@@ -1111,13 +1115,14 @@
             // 
             // btMesaCad
             // 
+            this.btMesaCad.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
+            this.btMesaCad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btMesaCad.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btMesaCad.ForeColor = System.Drawing.Color.Maroon;
             this.btMesaCad.Location = new System.Drawing.Point(153, 248);
             this.btMesaCad.Name = "btMesaCad";
             this.btMesaCad.Size = new System.Drawing.Size(118, 44);
             this.btMesaCad.TabIndex = 24;
-            this.btMesaCad.Text = "CONFIRMAR";
             this.btMesaCad.UseVisualStyleBackColor = true;
             this.btMesaCad.Click += new System.EventHandler(this.btMesaCad_Click);
             // 
@@ -1131,15 +1136,16 @@
             this.lNomeMesa.Size = new System.Drawing.Size(66, 22);
             this.lNomeMesa.TabIndex = 13;
             this.lNomeMesa.Text = "NOME";
+            this.lNomeMesa.Visible = false;
             // 
             // lMesaTitulo
             // 
             this.lMesaTitulo.AutoSize = true;
-            this.lMesaTitulo.Font = new System.Drawing.Font("Arial", 18F);
+            this.lMesaTitulo.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lMesaTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lMesaTitulo.Location = new System.Drawing.Point(231, 14);
             this.lMesaTitulo.Name = "lMesaTitulo";
-            this.lMesaTitulo.Size = new System.Drawing.Size(78, 27);
+            this.lMesaTitulo.Size = new System.Drawing.Size(78, 31);
             this.lMesaTitulo.TabIndex = 40;
             this.lMesaTitulo.Text = "MESA";
             // 
@@ -1235,13 +1241,14 @@
             // 
             // btCadAmbCadastrar
             // 
+            this.btCadAmbCadastrar.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
+            this.btCadAmbCadastrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btCadAmbCadastrar.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCadAmbCadastrar.ForeColor = System.Drawing.Color.Maroon;
             this.btCadAmbCadastrar.Location = new System.Drawing.Point(153, 248);
             this.btCadAmbCadastrar.Name = "btCadAmbCadastrar";
             this.btCadAmbCadastrar.Size = new System.Drawing.Size(118, 44);
             this.btCadAmbCadastrar.TabIndex = 24;
-            this.btCadAmbCadastrar.Text = "CONFIRMAR";
             this.btCadAmbCadastrar.UseVisualStyleBackColor = true;
             this.btCadAmbCadastrar.Click += new System.EventHandler(this.btCadAmbCadastrar_Click);
             // 
@@ -1250,7 +1257,7 @@
             this.lbCadNome.AutoSize = true;
             this.lbCadNome.Font = new System.Drawing.Font("Arial", 14F);
             this.lbCadNome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbCadNome.Location = new System.Drawing.Point(62, 143);
+            this.lbCadNome.Location = new System.Drawing.Point(81, 135);
             this.lbCadNome.Name = "lbCadNome";
             this.lbCadNome.Size = new System.Drawing.Size(66, 22);
             this.lbCadNome.TabIndex = 13;
@@ -1259,11 +1266,11 @@
             // lTituloAmbiente
             // 
             this.lTituloAmbiente.AutoSize = true;
-            this.lTituloAmbiente.Font = new System.Drawing.Font("Arial", 18F);
+            this.lTituloAmbiente.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTituloAmbiente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lTituloAmbiente.Location = new System.Drawing.Point(214, 14);
             this.lTituloAmbiente.Name = "lTituloAmbiente";
-            this.lTituloAmbiente.Size = new System.Drawing.Size(131, 27);
+            this.lTituloAmbiente.Size = new System.Drawing.Size(130, 31);
             this.lTituloAmbiente.TabIndex = 40;
             this.lTituloAmbiente.Text = "AMBIENTE";
             // 

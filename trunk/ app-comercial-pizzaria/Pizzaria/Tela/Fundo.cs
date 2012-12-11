@@ -21,7 +21,12 @@ namespace Pizzaria.Tela
           
             InitializeComponent();
             {
-                obj = new Principal(1, tlpBotoes);
+                Abertura ab = new Abertura();
+                
+                ab.ShowDialog();
+
+
+                obj = new Principal((short)ab.cod_caixa, tlpBotoes);
                 carregarFormPrincipal(obj);
             }
             ordenarTamanhoBotoesCima();

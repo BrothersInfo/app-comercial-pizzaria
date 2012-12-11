@@ -130,11 +130,14 @@
   <data name="BtTrocar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BtTrocar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BtAlterar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BtAlterar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BtRemover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtRemover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Register-128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Register-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BtAnular" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtAnular1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BtInserir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BtInserir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,8 +160,8 @@
   <data name="BtConsulta1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BtConsulta1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BtRemover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BtRemover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BtAlterar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BtAlterar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BTnewAvancar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BTnewAvancar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,7 +175,7 @@
   <data name="BtSair1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BtSair1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BtAnular" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BtAnular1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cadastro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cadastro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

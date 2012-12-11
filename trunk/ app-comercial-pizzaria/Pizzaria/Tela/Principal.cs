@@ -18,7 +18,7 @@ namespace Pizzaria.Tela
         int wig;
         List<ListViewItem> conjItem;
         bool vendendo;
-        short cod_caixa;
+        public short cod_caixa;
     
         public TableLayoutPanel tlpBotoes;
         public Principal(short cod_caixa,TableLayoutPanel fnd)

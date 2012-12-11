@@ -19,6 +19,7 @@ namespace Pizzaria.Banco
         {
             return new NpgsqlConnection(conexao);
         }
+
         public bool isAdm(string usuario, string senha)
         {
             DataTable dtt = new DataTable();
@@ -31,6 +32,19 @@ namespace Pizzaria.Banco
               return Convert.ToBoolean(dtt.Rows[0].ItemArray.GetValue(0));
           }
           catch { return false; }
+        }
+        public bool temUsuario(string nome, string senha)
+        {
+            DataTable dtt = new DataTable();
+            string query = "select count(*) from caixa where (id = '" + nome + "' or nomeCaixa = '" + nome + "') and senha = '" + senha + "'";
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter
+               (query, Conectar());
+            sql.Fill(dtt);
+            try
+            {
+                return Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0))==1;
+            }
+            catch { return false; } 
         }
         public void mudarQuantidade(int cod_venda, int cod_completo, int qtd, int cod_garcon)
         {
@@ -97,6 +111,18 @@ namespace Pizzaria.Banco
                 DataTable dtt = new DataTable();
                 NpgsqlDataAdapter sql = new NpgsqlDataAdapter(
                 "select cod_produto from produto where ativo = true and descricao =  '" + nomeProduto + "'", Conectar());
+                sql.Fill(dtt);
+                return Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0));
+            }
+            catch { return 0; }
+        }
+        public int cod_caixaByNome(string nome)
+        {
+            try
+            {
+                DataTable dtt = new DataTable();
+                NpgsqlDataAdapter sql = new NpgsqlDataAdapter(
+                "select cod_caixa from caixa where id ='" + nome + "'or nomeCaixa ='" + nome + "'", Conectar());
                 sql.Fill(dtt);
                 return Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0));
             }

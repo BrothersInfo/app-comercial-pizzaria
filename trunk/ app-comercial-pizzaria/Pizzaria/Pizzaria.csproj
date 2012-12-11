@@ -323,6 +323,7 @@
     <None Include="Resources\BTnewAvancar.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\cadastro.png" />
     <None Include="Resources\BtAnular1.png" />
     <None Include="Resources\Register-128.png" />
     <None Include="Resources\Voltar_64.png" />

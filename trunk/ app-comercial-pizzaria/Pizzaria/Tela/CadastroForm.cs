@@ -116,6 +116,7 @@ namespace Pizzaria.Tela
                 bgAlterarTamanho.Visible = false;
                 lbTamanho.Text = t[0].nome2;
                 lbProduto.Text = tbNome.Text;
+                MessageBox.Show("Cadastro Realizado com Sucesso", "Cadastro");
             }
             else MessageBox.Show("PRODUTO JA EXISTENTE");
         }
@@ -140,42 +141,76 @@ namespace Pizzaria.Tela
         }
         private void btConfCadastro_Click(object sender, EventArgs e)
         {
-            if (!new BancoConsulta().existeGarcon(tbNewGarcon.Text))
+            if (!tbNewGarcon.Text.Equals(""))
             {
-                new BancoConsulta().novoGarcon(tbNewGarcon.Text);
-                MessageBox.Show("Cadastro Realizado com Sucesso", "Cadastro");
+                if (!new BancoConsulta().existeGarcon(tbNewGarcon.Text))
+                {
+                    new BancoConsulta().novoGarcon(tbNewGarcon.Text);
+                    MessageBox.Show("Cadastro Realizado com Sucesso", "Cadastro");
+                }
             }
+            else
+                MessageBox.Show("Campo Vazio, Preencha para realizar Cadastro", "Aviso");            
             limparTudoCaixaGarc();
         }
         private void btCadCaixConfirm_Click(object sender, EventArgs e)
         {
             if (!new BancoConsulta().existeCaixa(tbCCNome.Text, tbCCId.Text))
+            {
                 new BancoConsulta().novoCaixa(tbCCNome.Text, tbCCId.Text, tbCCPass.Text, cbCCAdm.Checked);
+                MessageBox.Show("Cadastro Realizado com Sucesso", "Cadastro");
+            }
             else MessageBox.Show("USUARIO/ID EXISTENTE");
             limparTudoCaixaGarc();
         }
         private void btCadTamanho_Click(object sender, EventArgs e)
         {
-            if (!new BancoConsulta().existeTamanho(tbCadTamNome.Text))
-                new BancoConsulta().novoTamanho(tbCadTamNome.Text);
+            if (!tbCadTamNome.Text.Equals(""))
+            {
+                if (!new BancoConsulta().existeTamanho(tbCadTamNome.Text))
+                {
+                    new BancoConsulta().novoTamanho(tbCadTamNome.Text);
+                    MessageBox.Show("Cadastro Realizado com Sucesso", "Cadastro");
+                }
+            }
+            else MessageBox.Show("Campo Vazio, Preencha para realizar Cadastro", "Aviso");    
             limparTudoTamanhoTipo();
         }
         private void btCadTipCadastrar_Click(object sender, EventArgs e)
         {
-            if (!new BancoConsulta().existeTipo(tbNovoTipo.Text))
-                new BancoConsulta().novoTipo(tbNovoTipo.Text);
-
+            if (!tbNovoTipo.Text.Equals(""))
+            {
+                if (!new BancoConsulta().existeTipo(tbNovoTipo.Text))
+                {
+                    new BancoConsulta().novoTipo(tbNovoTipo.Text);
+                    MessageBox.Show("Cadastro Realizado com Sucesso", "Cadastro");
+                }
+            }
+            else MessageBox.Show("Campo Vazio, Preencha para realizar Cadastro", "Aviso"); 
             limparTudoTamanhoTipo();
         }
         private void btMesaCad_Click(object sender, EventArgs e)
         {
-            new BancoConsulta().novaMesa(lNomeMesa.Text, cbAmbiente.Text);
+            if (!cbAmbiente.Text.Equals(""))
+            {
+                new BancoConsulta().novaMesa(lNomeMesa.Text, cbAmbiente.Text);
+                MessageBox.Show("Cadastro Realizado com Sucesso", "Cadastro");
+            }
+            else MessageBox.Show("Campo Vazio, Preencha para realizar Cadastro", "Aviso");
+            
             limparTudoMesaAmbi();
         }        
         private void btCadAmbCadastrar_Click(object sender, EventArgs e)
         {
-            if (!new BancoConsulta().existeAmbiente(tbNovoAmbiente.Text))
-                new BancoConsulta().novoAmbiente(tbNovoAmbiente.Text);
+            if (!tbNovoAmbiente.Text.Equals(""))
+            {
+                if (!new BancoConsulta().existeAmbiente(tbNovoAmbiente.Text))
+                {
+                    new BancoConsulta().novoAmbiente(tbNovoAmbiente.Text);
+                    MessageBox.Show("Cadastro Realizado com Sucesso", "Cadastro");
+                }
+            }
+            else MessageBox.Show("Campo Vazio, Preencha para realizar Cadastro", "Aviso");
             limparTudoMesaAmbi();
         }
 
