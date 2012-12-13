@@ -32,7 +32,8 @@ namespace Pizzaria.Tela
             posicionamento();
             
         }
-        public Encerrar(int cod_venda , double valor_venda, string [] mesa)
+         public bool isBalcao = false;
+        public Encerrar(int cod_venda , double valor_venda, string [] mesa, bool balcao)
         {
             InitializeComponent();
             this.cod_venda = cod_venda;
@@ -41,6 +42,7 @@ namespace Pizzaria.Tela
             mesas = mesa;
             mtValor.Focus();
             posicionamento();
+            isBalcao = balcao;
            
         }
         public void carregandoTudo()
@@ -81,7 +83,7 @@ namespace Pizzaria.Tela
                         pag = 4;
                     else pag = 5;
                     new BancoVenda().receber(pag, cod_venda);
-                    new BancoVenda().encerrarVenda((valor - desconto), cod_venda, mesas);
+                    new BancoVenda().encerrarVenda((valor - desconto), cod_venda, mesas,isBalcao);
                     new BancoVenda().atualizaSuper(new BancoVenda().consultaSuper(cod_venda), (valor - desconto));
                 }
                 else

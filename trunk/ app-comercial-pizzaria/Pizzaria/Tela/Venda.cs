@@ -223,7 +223,7 @@ namespace Pizzaria.Tela
         {
             if (MessageBox.Show("Deseja ANULAR esta venda?", "Confirme sua Opcao", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                new BancoVenda().anularVenda(venda.cod_venda);
+                new BancoVenda().anularVenda(venda.cod_venda,false);
                 this.Close();
             }
         }
@@ -252,7 +252,7 @@ namespace Pizzaria.Tela
            
                 if (new BancoVenda().isImpresso(venda.cod_venda) || (MessageBox.Show("COMANDA DESATUALIZADA \n DESEJA ENCERRAR MESMO ASSIM?", "Confirme sua Opcao", MessageBoxButtons.YesNo) == DialogResult.Yes))
                 {
-                    Encerrar rec = new Encerrar(venda.cod_venda, venda.valorTotal, venda.mesa);
+                    Encerrar rec = new Encerrar(venda.cod_venda, venda.valorTotal, venda.mesa,false);
                    
                     rec.ShowDialog();
                     if (rec.encerrou)

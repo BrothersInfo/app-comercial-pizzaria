@@ -193,7 +193,7 @@ namespace Pizzaria.Tela
         {
             if (!cbAmbiente.Text.Equals(""))
             {
-                new BancoConsulta().novaMesa(lNomeMesa.Text, cbAmbiente.Text);
+                new BancoConsulta().novaMesa( cbAmbiente.Text);
                 MessageBox.Show("Cadastro Realizado com Sucesso", "Cadastro");
             }
             else MessageBox.Show("Campo Vazio, Preencha para realizar Cadastro", "Aviso");

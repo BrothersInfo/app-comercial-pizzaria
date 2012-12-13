@@ -56,7 +56,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::Pizzaria.Properties.Resources.cadastro;
+           // this.pictureBox1.BackgroundImage = global::Pizzaria.Properties.Resources.cadastro;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(58, 158);
             this.pictureBox1.Name = "pictureBox1";

@@ -81,7 +81,7 @@ namespace Pizzaria.Classes
         }
         public void encerraVenda()
         {
-            new BancoVenda().encerrarVenda(valorTotal, cod_venda, mesa);
+            new BancoVenda().encerrarVenda(valorTotal, cod_venda, mesa,false);
         }
 
 

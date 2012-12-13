@@ -435,6 +435,10 @@ namespace Pizzaria.Banco
             sql.Fill(dttTamanho);
             return Convert.ToInt16(dttTamanho.Rows[0].ItemArray.GetValue(0)); ;
         }
+        public int codBalcao()
+        {
+            return 1;
+        }
         // todas as mesas disponiveis.
         public string[] mesasDisponiveis()// mesas ativas , ammbiente ativo, mesas disponiveis
         {

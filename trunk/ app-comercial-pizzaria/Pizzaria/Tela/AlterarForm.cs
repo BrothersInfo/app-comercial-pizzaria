@@ -16,11 +16,12 @@ namespace Pizzaria.Tela
 
     public partial class AlterarForm : Form
     {
-        public AlterarForm()
+        public AlterarForm(short cod)
         {
             InitializeComponent();
             carregarAlterar();
             carregarCaixa();
+            cod_caixa = cod;
         }
         short cod_caixa;
         private void btConfAlterar_Click(object sender, EventArgs e)

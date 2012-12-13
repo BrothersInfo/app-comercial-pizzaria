@@ -16,6 +16,7 @@ namespace Pizzaria.Tela
     public partial class Fundo : Form
     {
         Principal obj;
+        short cod_caixa;
         public Fundo()
         {
           
@@ -25,8 +26,8 @@ namespace Pizzaria.Tela
                 
                 ab.ShowDialog();
 
-
-                obj = new Principal((short)ab.cod_caixa, tlpBotoes);
+                cod_caixa = (short)ab.cod_caixa;
+                obj = new Principal(cod_caixa, tlpBotoes);
                 carregarFormPrincipal(obj);
             }
             ordenarTamanhoBotoesCima();
@@ -120,7 +121,7 @@ namespace Pizzaria.Tela
             if (sa.acesso)
             {
 
-                af = new AlterarForm();
+                af = new AlterarForm(cod_caixa);
                 af.Visible = true;
                 af.WindowState = FormWindowState.Maximized;
                 af.StartPosition = FormStartPosition.CenterScreen;

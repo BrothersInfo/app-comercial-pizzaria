@@ -172,13 +172,6 @@ namespace Pizzaria.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap cadastro {
-            get {
-                object obj = ResourceManager.GetObject("cadastro", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap Delirios {
             get {
                 object obj = ResourceManager.GetObject("Delirios", resourceCulture);
