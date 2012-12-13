@@ -170,7 +170,7 @@ namespace Pizzaria.Tela
 
                 if (new BancoVenda().isImpresso(f.cod_venda) || (MessageBox.Show("COMANDA DESATUALIZADA \n DESEJA ENCERRAR MESMO ASSIM?", "Confirme sua Opcao", MessageBoxButtons.YesNo) == DialogResult.Yes))
                 {
-                   Encerrar rec = new Encerrar(f.cod_venda, f.valorTotal, f.mesa);
+                   Encerrar rec = new Encerrar(f.cod_venda, f.valorTotal, f.mesa, false);
                     rec.ShowDialog();
                     if (rec.encerrou)
                     {
@@ -293,6 +293,26 @@ namespace Pizzaria.Tela
         private void ptitulo_Click(object sender, EventArgs e)
         {
             tlpBotoes.Visible = !tlpBotoes.Visible;
+        }
+
+        private void pBalcao_MouseEnter(object sender, EventArgs e)
+        {
+
+            pBalcao.BorderStyle = BorderStyle.Fixed3D;
+            lBalcao.ForeColor = Color.Red;
+        }
+
+        private void pBalcao_Click(object sender, EventArgs e)
+        {
+            pBalcao.BorderStyle = BorderStyle.Fixed3D;
+            new AddProduto(true, cod_caixa).ShowDialog();
+            pBalcao.BorderStyle = BorderStyle.FixedSingle;
+        }
+
+        private void pBalcao_MouseLeave(object sender, EventArgs e)
+        {
+            pBalcao.BorderStyle = BorderStyle.FixedSingle;
+            lBalcao.ForeColor = Color.Black;
         }
 
     }

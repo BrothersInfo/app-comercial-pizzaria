@@ -346,11 +346,11 @@ namespace Pizzaria.Banco
 
             return Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0));
         }
-        public void novaMesa(string novo, string ambiente)
+        public void novaMesa(string ambiente)
         {
 
-            string query = "INSERT INTO mesa(cod_mesa, descricao, cod_ambiente, status) VALUES (" 
-                + novoCod_Mesa() + ", '" + novo + "'," + codAmbientePelaDescricao(ambiente) + ", true)";
+            string query = "INSERT INTO mesa(cod_mesa, descricao, cod_ambiente, status) VALUES ("
+                + novoCod_Mesa() + ", 'Mesa " + novoCod_Mesa() + "'," + codAmbientePelaDescricao(ambiente) + ", true)";
             DataTable dtt = new DataTable();
             NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
             sql.Fill(dtt);

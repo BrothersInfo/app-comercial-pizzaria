@@ -58,6 +58,31 @@ namespace Pizzaria.Tela
 
             this.TopMost = true;
         }
+        public AddProduto(bool isBalcao, int cod_caixa)
+        {
+            
+            InitializeComponent();
+            isBalcao = true;
+            this.cod_venda = new Banco().novaVenda(cod_caixa,new int[]{ new Banco().codBalcao()});
+
+            divisao1 = new string[] { "INTEIRA", "50% | 50%", "50% | 2 x 25%", "4 x 25%" };
+            divisao2 = new string[] { "INTEIRA", "50% | 50%" };
+
+
+            load(cod_venda);
+
+            new BancoVenda().superVenda(this.cod_venda);//cria a super venda e associa a venda criada
+            //mtCodigo.Focus();
+            mtCodigo_KeyPress(null, null);
+            preencherTexto(new string []{ "BALCAO ", " ATENDIMENTO RAPIDO"});
+            garconDaVenda();
+            double valr = Screen.PrimaryScreen.Bounds.Height / 100f;
+            double yy = (13.5 * valr) + 345;
+            this.Location = new Point((Screen.PrimaryScreen.Bounds.Width - this.Size.Width) / 2, (int)yy);
+
+            this.TopMost = true;
+        }
+        public bool isBalcao = false;
         public AddProduto(int cod_venda)
         {
             InitializeComponent();
@@ -732,7 +757,8 @@ namespace Pizzaria.Tela
                 {
 
                 }
-                else {
+                else
+                {
 
                     preecherTodosProdutos();
                     int cod_completo = new Banco().novoCompleto(prod, Convert.ToDouble(mtValor.Text), Convert.ToInt16(numQuantidade.Text));
@@ -754,14 +780,39 @@ namespace Pizzaria.Tela
                     limpaCampo();
                     limpeza();
                 }
-                else this.Close();
+                else
+                {
+                    if (!( new Banco().codBalcao()== new BancoVenda().codMesaPelaDescricao(mesas[0]))) this.Close();
+                    else
+                    {
+                        try
+                        {
+                            VendaFull f = (new BancoVenda().carregaVenda(cod_venda));
+                            Encerrar rec = new Encerrar(f.cod_venda, f.valorTotal, f.mesa,true);
+                            rec.ShowDialog();
+                            if (rec.encerrou)
+                            {
+                                MessageBox.Show("VENDA REALIZADA COM SUCESSO", "ATENDIMENDO BALCAO");
+                                this.Close();
+                            }
+                            else {
+                                new BancoVenda().anularVenda(cod_venda, true);
 
-            }
-            catch { };
+                                this.Close();
+                            }
+                        }    catch { }
+                    }
+                }
+
+            } catch { };
         }
+        
         private void btBack_Click(object sender, EventArgs e)
         {
+            if (isBalcao) new BancoVenda().anularVenda(cod_venda, true);
+            
             this.Close();
+            
         }
         private void AddProduto_KeyDown(object sender, KeyEventArgs e)
         {

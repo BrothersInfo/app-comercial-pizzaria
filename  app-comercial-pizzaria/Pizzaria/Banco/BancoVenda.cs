@@ -19,12 +19,13 @@ namespace Pizzaria.Banco
         {
             return new NpgsqlConnection(conexao);
         }
-        public void encerrarVenda(double valor, int cod_venda, string[] mesas)
+        public void encerrarVenda(double valor, int cod_venda, string[] mesas, bool isBalcao)
         {
 
             new NpgsqlDataAdapter("UPDATE venda   SET aberta = false, valortotal = '" + new Tratamento().retornaValorEscrito(valor).Replace(',', '.') + "' WHERE cod_venda = " + cod_venda, Conectar()).Fill(new DataTable());
 
             int[] i = new Banco().cod_mesa(mesas);
+            if(!isBalcao)
             for (int j = 0; j < i.Length; j++)
                 new Banco().disponibilizarMesa(i[j]);
         }
@@ -245,7 +246,7 @@ namespace Pizzaria.Banco
 
         }
         //------------------------------------------------ ANULAR VENDA
-        public void anularVenda(int cod_venda)
+        public void anularVenda(int cod_venda, bool isBalcao)
         {
             DataTable compl = new DataTable();
             DataTable conjCompleto = new DataTable();
@@ -273,7 +274,9 @@ namespace Pizzaria.Banco
                 tt = new DataTable();
                 new NpgsqlDataAdapter(completo, Conectar()).Fill(tt);
             }
+            
             string[] mesas = mesasDaVenda(cod_venda);
+            if(!isBalcao)
             for (int i = 0; i < mesas.Length; i++)
                 retirarMesa(codMesaPelaDescricao(mesas[i]), cod_venda);
 

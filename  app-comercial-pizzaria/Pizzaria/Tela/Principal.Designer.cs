@@ -55,6 +55,9 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.tlpLO = new System.Windows.Forms.TableLayoutPanel();
+            this.pBalcao = new System.Windows.Forms.Panel();
+            this.lBalcao = new System.Windows.Forms.Label();
             this.pLoadForm.SuspendLayout();
             this.tlpColuna.SuspendLayout();
             this.menuDireito.SuspendLayout();
@@ -63,6 +66,8 @@
             this.pLivre.SuspendLayout();
             this.pOcupada.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tlpLO.SuspendLayout();
+            this.pBalcao.SuspendLayout();
             this.SuspendLayout();
             // 
             // pLoadForm
@@ -159,7 +164,7 @@
             this.tabLayFullEsquerda.Name = "tabLayFullEsquerda";
             this.tabLayFullEsquerda.RowCount = 4;
             this.tabLayFullEsquerda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 202F));
-            this.tabLayFullEsquerda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 102F));
+            this.tabLayFullEsquerda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 151F));
             this.tabLayFullEsquerda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tabLayFullEsquerda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tabLayFullEsquerda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -179,10 +184,10 @@
             this.lvInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.lvInfo.GridLines = true;
             this.lvInfo.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.lvInfo.Location = new System.Drawing.Point(1, 308);
+            this.lvInfo.Location = new System.Drawing.Point(1, 357);
             this.lvInfo.Margin = new System.Windows.Forms.Padding(1, 4, 1, 4);
             this.lvInfo.Name = "lvInfo";
-            this.lvInfo.Size = new System.Drawing.Size(446, 206);
+            this.lvInfo.Size = new System.Drawing.Size(446, 157);
             this.lvInfo.TabIndex = 31;
             this.lvInfo.UseCompatibleStateImageBehavior = false;
             this.lvInfo.View = System.Windows.Forms.View.Details;
@@ -209,19 +214,19 @@
             // 
             // tlpLivreOcupado
             // 
-            this.tlpLivreOcupado.ColumnCount = 2;
+            this.tlpLivreOcupado.ColumnCount = 1;
             this.tlpLivreOcupado.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpLivreOcupado.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpLivreOcupado.Controls.Add(this.pLivre, 0, 0);
-            this.tlpLivreOcupado.Controls.Add(this.pOcupada, 1, 0);
+            this.tlpLivreOcupado.Controls.Add(this.pBalcao, 0, 1);
+            this.tlpLivreOcupado.Controls.Add(this.tlpLO, 0, 0);
             this.tlpLivreOcupado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpLivreOcupado.Location = new System.Drawing.Point(0, 202);
             this.tlpLivreOcupado.Margin = new System.Windows.Forms.Padding(0);
             this.tlpLivreOcupado.Name = "tlpLivreOcupado";
-            this.tlpLivreOcupado.RowCount = 1;
+            this.tlpLivreOcupado.RowCount = 2;
             this.tlpLivreOcupado.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpLivreOcupado.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tlpLivreOcupado.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 102F));
-            this.tlpLivreOcupado.Size = new System.Drawing.Size(448, 102);
+            this.tlpLivreOcupado.Size = new System.Drawing.Size(448, 151);
             this.tlpLivreOcupado.TabIndex = 32;
             // 
             // pLivre
@@ -231,10 +236,10 @@
             this.pLivre.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pLivre.Controls.Add(this.linutil1);
             this.pLivre.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pLivre.Location = new System.Drawing.Point(0, 4);
+            this.pLivre.Location = new System.Drawing.Point(224, 4);
             this.pLivre.Margin = new System.Windows.Forms.Padding(0, 4, 4, 4);
             this.pLivre.Name = "pLivre";
-            this.pLivre.Size = new System.Drawing.Size(220, 94);
+            this.pLivre.Size = new System.Drawing.Size(220, 93);
             this.pLivre.TabIndex = 3;
             this.pLivre.MouseEnter += new System.EventHandler(this.pLivre_MouseEnter);
             // 
@@ -245,11 +250,11 @@
             this.linutil1.BackColor = System.Drawing.Color.Transparent;
             this.linutil1.Font = new System.Drawing.Font("Arial Narrow", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linutil1.ForeColor = System.Drawing.Color.Black;
-            this.linutil1.Location = new System.Drawing.Point(54, 32);
+            this.linutil1.Location = new System.Drawing.Point(54, 31);
             this.linutil1.Name = "linutil1";
             this.linutil1.Size = new System.Drawing.Size(108, 27);
             this.linutil1.TabIndex = 2;
-            this.linutil1.Text = "LIVRE ( L )";
+            this.linutil1.Text = "LIVRE [ L ]";
             // 
             // pOcupada
             // 
@@ -258,10 +263,10 @@
             this.pOcupada.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pOcupada.Controls.Add(this.lInutil2);
             this.pOcupada.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pOcupada.Location = new System.Drawing.Point(228, 4);
+            this.pOcupada.Location = new System.Drawing.Point(4, 4);
             this.pOcupada.Margin = new System.Windows.Forms.Padding(4, 4, 0, 4);
             this.pOcupada.Name = "pOcupada";
-            this.pOcupada.Size = new System.Drawing.Size(220, 94);
+            this.pOcupada.Size = new System.Drawing.Size(220, 93);
             this.pOcupada.TabIndex = 4;
             this.pOcupada.MouseEnter += new System.EventHandler(this.pOcupada_MouseEnter);
             // 
@@ -272,11 +277,11 @@
             this.lInutil2.BackColor = System.Drawing.Color.Transparent;
             this.lInutil2.Font = new System.Drawing.Font("Arial Narrow", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lInutil2.ForeColor = System.Drawing.Color.Black;
-            this.lInutil2.Location = new System.Drawing.Point(32, 32);
+            this.lInutil2.Location = new System.Drawing.Point(32, 31);
             this.lInutil2.Name = "lInutil2";
             this.lInutil2.Size = new System.Drawing.Size(152, 27);
             this.lInutil2.TabIndex = 2;
-            this.lInutil2.Text = "OCUPADA ( O )";
+            this.lInutil2.Text = "OCUPADA [ O ]";
             // 
             // ptitulo
             // 
@@ -343,6 +348,51 @@
             this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList2.Images.SetKeyName(0, "mesaLivre.jpg");
             // 
+            // tlpLO
+            // 
+            this.tlpLO.ColumnCount = 2;
+            this.tlpLO.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpLO.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpLO.Controls.Add(this.pLivre, 1, 0);
+            this.tlpLO.Controls.Add(this.pOcupada, 0, 0);
+            this.tlpLO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpLO.Location = new System.Drawing.Point(0, 0);
+            this.tlpLO.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpLO.Name = "tlpLO";
+            this.tlpLO.RowCount = 1;
+            this.tlpLO.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpLO.Size = new System.Drawing.Size(448, 101);
+            this.tlpLO.TabIndex = 33;
+            // 
+            // pBalcao
+            // 
+            this.pBalcao.BackColor = System.Drawing.Color.White;
+            this.pBalcao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pBalcao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pBalcao.Controls.Add(this.lBalcao);
+            this.pBalcao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pBalcao.Location = new System.Drawing.Point(4, 105);
+            this.pBalcao.Margin = new System.Windows.Forms.Padding(4);
+            this.pBalcao.Name = "pBalcao";
+            this.pBalcao.Size = new System.Drawing.Size(440, 42);
+            this.pBalcao.TabIndex = 34;
+            this.pBalcao.Click += new System.EventHandler(this.pBalcao_Click);
+            this.pBalcao.MouseEnter += new System.EventHandler(this.pBalcao_MouseEnter);
+            this.pBalcao.MouseLeave += new System.EventHandler(this.pBalcao_MouseLeave);
+            // 
+            // lBalcao
+            // 
+            this.lBalcao.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lBalcao.AutoSize = true;
+            this.lBalcao.BackColor = System.Drawing.Color.Transparent;
+            this.lBalcao.Font = new System.Drawing.Font("Arial Narrow", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lBalcao.ForeColor = System.Drawing.Color.Black;
+            this.lBalcao.Location = new System.Drawing.Point(151, 7);
+            this.lBalcao.Name = "lBalcao";
+            this.lBalcao.Size = new System.Drawing.Size(136, 27);
+            this.lBalcao.TabIndex = 2;
+            this.lBalcao.Text = "BALCAO [ B ]";
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,6 +420,9 @@
             this.pOcupada.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tlpLO.ResumeLayout(false);
+            this.pBalcao.ResumeLayout(false);
+            this.pBalcao.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -401,5 +454,8 @@
         private System.Windows.Forms.Label lValor;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ImageList imageList2;
+        private System.Windows.Forms.Panel pBalcao;
+        private System.Windows.Forms.Label lBalcao;
+        private System.Windows.Forms.TableLayoutPanel tlpLO;
     }
 }
