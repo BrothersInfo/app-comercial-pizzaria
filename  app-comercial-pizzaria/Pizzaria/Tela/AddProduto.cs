@@ -60,29 +60,25 @@ namespace Pizzaria.Tela
         }
         public AddProduto(bool isBalcao, int cod_caixa)
         {
-            
             InitializeComponent();
-            isBalcao = true;
-            this.cod_venda = new Banco().novaVenda(cod_caixa,new int[]{ new Banco().codBalcao()});
+            this.cod_venda = new Banco().novaVenda(cod_caixa, new int[] { new Banco().codBalcao() });
 
             divisao1 = new string[] { "INTEIRA", "50% | 50%", "50% | 2 x 25%", "4 x 25%" };
             divisao2 = new string[] { "INTEIRA", "50% | 50%" };
-
-
             load(cod_venda);
-
             new BancoVenda().superVenda(this.cod_venda);//cria a super venda e associa a venda criada
             //mtCodigo.Focus();
             mtCodigo_KeyPress(null, null);
-            preencherTexto(new string []{ "BALCAO ", " ATENDIMENTO RAPIDO"});
+            preencherTexto(new string[] { "BALCAO ", " ATENDIMENTO RAPIDO" });
             garconDaVenda();
+            {
+                pGarLivre.Visible = false; lbGarcon.Visible = false; cbGarVen.Visible = false;
+            }
             double valr = Screen.PrimaryScreen.Bounds.Height / 100f;
             double yy = (13.5 * valr) + 345;
             this.Location = new Point((Screen.PrimaryScreen.Bounds.Width - this.Size.Width) / 2, (int)yy);
-
             this.TopMost = true;
         }
-        public bool isBalcao = false;
         public AddProduto(int cod_venda)
         {
             InitializeComponent();
@@ -109,6 +105,7 @@ namespace Pizzaria.Tela
         public void garconDaVenda()
         {
             Banco bg = new Banco();
+
             if (bg.temGarconIn(cod_venda))
             {
                 lbGarcon.Visible = true;
@@ -484,7 +481,6 @@ namespace Pizzaria.Tela
                 //esses metodos irao dar confirmacao a venda
                 if (e.KeyChar == '\r')
                 {
-                    
                     cbTamanho.Visible = true;
                     lTamanho.Visible = true;
                     // aqui eu tenho os tamanhos referentes ao produto
@@ -497,8 +493,17 @@ namespace Pizzaria.Tela
                             if (b.isPizza(Convert.ToInt16(mtCodigo.Text)) )
                             {
                                 lTamanho.Text = "TAMANHO";
-                                cbMista.Visible = true;lbMista.Visible = true; lbGarcon.Visible = true;
-                                garconDaVenda();
+
+                                if (new Banco().isVendaBalcao(cod_venda))
+                                {
+                                     lbGarcon.Visible = false; cbMista.Visible = true; lbMista.Visible = true; 
+                                }
+                                else
+                                {
+                                    cbMista.Visible = true; lbMista.Visible = true; lbGarcon.Visible = true;
+                                    garconDaVenda();
+                                } 
+                               
                                 numQuantidade.Visible = true;  LQuantidade.Visible = true;
 
                                 int codTamanho = b.codTamanho(cbTamanho.Text);
@@ -550,7 +555,6 @@ namespace Pizzaria.Tela
                 }
             }
             catch { }
-
         }
 
         private bool metodoValida(int numero, int posicao)
@@ -729,7 +733,6 @@ namespace Pizzaria.Tela
             }
             catch { }
         }
-
         private void btEscolhaProduto_Click(object sender, EventArgs e)
         {
             try
@@ -751,6 +754,8 @@ namespace Pizzaria.Tela
                 double Xvalor = val;
 
                 int Xcod_garcon = new Banco().codGarconByNome(getGarcon());
+                if (new Banco().isVendaBalcao(cod_venda)) { Xcod_garcon = new Banco().cod_garconBalcao(); }
+
                 int XquantidadeProduto = Convert.ToInt16(numQuantidade.Text);
                 preecherTodosProdutos();
                 if ((new Banco().jaTemProduto(cod_venda, XcodigoProduto, XcodTamanho, val, prod.Length == 1, XquantidadeProduto, Xcod_garcon)))//se ja houver produtos, aqui altera quantidade.
@@ -782,13 +787,14 @@ namespace Pizzaria.Tela
                 }
                 else
                 {
-                    if (!( new Banco().codBalcao()== new BancoVenda().codMesaPelaDescricao(mesas[0]))) this.Close();
+                    if (!(new Banco().isVendaBalcao(cod_venda))) this.Close();
                     else
                     {
                         try
                         {
                             VendaFull f = (new BancoVenda().carregaVenda(cod_venda));
                             Encerrar rec = new Encerrar(f.cod_venda, f.valorTotal, f.mesa,true);
+                            this.Visible = false;
                             rec.ShowDialog();
                             if (rec.encerrou)
                             {
@@ -800,16 +806,18 @@ namespace Pizzaria.Tela
 
                                 this.Close();
                             }
+                            this.Visible = true;
+                        
                         }    catch { }
                     }
                 }
 
             } catch { };
-        }
-        
+        }        
         private void btBack_Click(object sender, EventArgs e)
         {
-            if (isBalcao) new BancoVenda().anularVenda(cod_venda, true);
+            if (new Banco().isVendaBalcao(cod_venda)       )
+                new BancoVenda().anularVenda(cod_venda, true);
             
             this.Close();
             
@@ -911,8 +919,6 @@ namespace Pizzaria.Tela
             preencherValorProduto();
 
         }
-
-
         private void mtCodigo_MouseClick(object sender, MouseEventArgs e)
         {
            /* {

@@ -28,7 +28,7 @@ namespace Pizzaria.Tela
             venda = vend;
             InitializeComponent();
             carregandoTudo();
-            mtValor.Focus();
+           // mtValor.Focus();
             posicionamento();
             
         }
@@ -40,7 +40,7 @@ namespace Pizzaria.Tela
             this.valor = valor_venda;
             carregandoTudo();
             mesas = mesa;
-            mtValor.Focus();
+            //mtValor.Focus();
             posicionamento();
             isBalcao = balcao;
            
@@ -49,7 +49,7 @@ namespace Pizzaria.Tela
         {
             lbTrocoNumero.Visible = false;
             lbTroco.Visible = false;
-            mtValor.Text = "000.00";
+          //  mtValor.Text = "000.00";
             mtDesconto.Text = "000.00";
             if (venda == null)
                 lbTotal.Text = "R$ " + new Tratamento().retornaValorEscrito(valor);
@@ -126,6 +126,20 @@ namespace Pizzaria.Tela
             }
         }
 
+        private void mtDesconto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (mtDesconto.MaskFull && mtDesconto.Text == "000.00")
+            {
+                mtDesconto.Text = "";
+                mtDesconto.Focus();
+            }
+            try
+            {
+                desconto = Convert.ToDouble(mtDesconto.Text.Replace('.', ','));
+            }
+            catch { }
+        }
+        
         private void mtValor_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
@@ -161,16 +175,8 @@ namespace Pizzaria.Tela
                 mtValor.ResetText();
                 mtValor.Text = "000.00";
             }
+
         }
 
-        private void mtDesconto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (mtDesconto.MaskFull && mtDesconto.Text == "000.00")
-            {
-                mtDesconto.Text = "";
-                mtDesconto.Focus();
-            }
-        }
-     
     }
 }

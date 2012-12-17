@@ -63,6 +63,11 @@ namespace Pizzaria.Tela
             }
         }
 
+        private void btAnular_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
      
        
 

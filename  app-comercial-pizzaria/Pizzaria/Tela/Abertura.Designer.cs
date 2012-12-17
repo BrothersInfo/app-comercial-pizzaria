@@ -40,6 +40,7 @@
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.btAnular = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +57,6 @@
             // 
             // pictureBox1
             // 
-           // this.pictureBox1.BackgroundImage = global::Pizzaria.Properties.Resources.cadastro;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(58, 158);
             this.pictureBox1.Name = "pictureBox1";
@@ -153,12 +153,26 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Solução de fluxo de vendas para restaurantes";
             // 
+            // btAnular
+            // 
+            this.btAnular.BackgroundImage = global::Pizzaria.Properties.Resources.BtCancelar;
+            this.btAnular.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btAnular.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAnular.ForeColor = System.Drawing.Color.White;
+            this.btAnular.Location = new System.Drawing.Point(209, 286);
+            this.btAnular.Name = "btAnular";
+            this.btAnular.Size = new System.Drawing.Size(126, 41);
+            this.btAnular.TabIndex = 13;
+            this.btAnular.UseVisualStyleBackColor = true;
+            this.btAnular.Click += new System.EventHandler(this.btAnular_Click);
+            // 
             // Abertura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(540, 385);
             this.ControlBox = false;
+            this.Controls.Add(this.btAnular);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btConfirmar);
@@ -195,6 +209,7 @@
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btAnular;
     }
 }
 

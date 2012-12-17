@@ -27,8 +27,17 @@ namespace Pizzaria.Tela
                 ab.ShowDialog();
 
                 cod_caixa = (short)ab.cod_caixa;
-                obj = new Principal(cod_caixa, tlpBotoes);
-                carregarFormPrincipal(obj);
+                if (cod_caixa == 0)
+                {
+                    Application.Exit();
+                    this.Close();
+                }
+                else
+                {
+
+                    obj = new Principal(cod_caixa, tlpBotoes);
+                    carregarFormPrincipal(obj);
+                }
             }
             ordenarTamanhoBotoesCima();
             tlpBotoes.Visible = true;

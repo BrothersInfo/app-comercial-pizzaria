@@ -38,8 +38,8 @@
             this.mtDesconto = new System.Windows.Forms.MaskedTextBox();
             this.lbDesconto = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbValDesc = new System.Windows.Forms.Label();
             this.mtValor = new System.Windows.Forms.MaskedTextBox();
+            this.lbValDesc = new System.Windows.Forms.Label();
             this.lbTrocoNumero = new System.Windows.Forms.Label();
             this.lbTroco = new System.Windows.Forms.Label();
             this.pCentro = new System.Windows.Forms.Panel();
@@ -192,12 +192,24 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.lbValDesc);
             this.panel1.Controls.Add(this.mtValor);
+            this.panel1.Controls.Add(this.lbValDesc);
             this.panel1.Location = new System.Drawing.Point(12, 25);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(254, 55);
             this.panel1.TabIndex = 0;
+            // 
+            // mtValor
+            // 
+            this.mtValor.Font = new System.Drawing.Font("Arial", 18F);
+            this.mtValor.ForeColor = System.Drawing.Color.DarkRed;
+            this.mtValor.Location = new System.Drawing.Point(161, 10);
+            this.mtValor.Mask = "000.00";
+            this.mtValor.Name = "mtValor";
+            this.mtValor.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.mtValor.Size = new System.Drawing.Size(86, 35);
+            this.mtValor.TabIndex = 27;
+            this.mtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtValor_KeyPress);
             // 
             // lbValDesc
             // 
@@ -209,18 +221,6 @@
             this.lbValDesc.Size = new System.Drawing.Size(125, 23);
             this.lbValDesc.TabIndex = 25;
             this.lbValDesc.Text = "Recebimento";
-            // 
-            // mtValor
-            // 
-            this.mtValor.Font = new System.Drawing.Font("Arial", 18F);
-            this.mtValor.ForeColor = System.Drawing.Color.DarkRed;
-            this.mtValor.Location = new System.Drawing.Point(159, 10);
-            this.mtValor.Mask = "00,000";
-            this.mtValor.Name = "mtValor";
-            this.mtValor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.mtValor.Size = new System.Drawing.Size(86, 35);
-            this.mtValor.TabIndex = 0;
-            this.mtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtValor_KeyPress);
             // 
             // lbTrocoNumero
             // 
@@ -430,7 +430,6 @@
         private System.Windows.Forms.Label lbDesconto;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbValDesc;
-        private System.Windows.Forms.MaskedTextBox mtValor;
         private System.Windows.Forms.Label lbTrocoNumero;
         private System.Windows.Forms.Label lbTroco;
         private System.Windows.Forms.Panel pCentro;
@@ -439,5 +438,6 @@
         private System.Windows.Forms.Label lbTotal;
         private System.Windows.Forms.Label lvValorConta;
         private System.Windows.Forms.Panel pFundo;
+        private System.Windows.Forms.MaskedTextBox mtValor;
     }
 }
