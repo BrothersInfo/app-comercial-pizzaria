@@ -17,18 +17,18 @@ namespace Pizzaria
         [STAThread]
         static void Main()
         {
-         //   try            {
+            try            {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 
                 
-                Fundo f = new Fundo();
-                f.ShowDialog();
-                f.ShowIcon = true;
+            //    Fundo f = new Fundo();
+             //   f.ShowDialog();
+              //  f.ShowIcon = true;
 
 
-           //       Application.Run(new Fundo()                    );
-          // }            catch { return; }
+                 Application.Run(new Fundo()                    );
+           }            catch { return; }
             
         }
     }

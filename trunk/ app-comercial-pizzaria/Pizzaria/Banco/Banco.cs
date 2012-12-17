@@ -435,9 +435,48 @@ namespace Pizzaria.Banco
             sql.Fill(dttTamanho);
             return Convert.ToInt16(dttTamanho.Rows[0].ItemArray.GetValue(0)); ;
         }
+        public bool isVendaBalcao(int cod_venda) {
+
+            string query = "select vm.cod_mesa = (select m.cod_mesa from mesa m where m.descricao = 'Balcao' order by m.cod_mesa desc limit 1) "+ 
+                            " from venda v inner join vendaMesa vm on(v.cod_venda = vm.cod_venda)"+
+                            " where v.cod_venda = "+cod_venda;
+            try
+            {
+                DataTable dttTamanho = new DataTable();
+                NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+                sql.Fill(dttTamanho);
+                return Convert.ToBoolean(dttTamanho.Rows[0].ItemArray.GetValue(0));
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public int cod_garconBalcao()
+        {
+            try
+            {
+                string query = "select cod_garcon from garcon where nome = 'Balcao' order by cod_garcon desc limit 1";
+
+                DataTable dttTamanho = new DataTable();
+                NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+                sql.Fill(dttTamanho);
+                return Convert.ToInt16(dttTamanho.Rows[0].ItemArray.GetValue(0));
+            }
+            catch { return 1; }
+        }
         public int codBalcao()
         {
-            return 1;
+            try
+            {
+                string query = "select m.cod_mesa from mesa m where m.descricao = 'Balcao' order by m.cod_mesa desc limit 1";
+
+                DataTable dttTamanho = new DataTable();
+                NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+                sql.Fill(dttTamanho);
+                return Convert.ToInt16(dttTamanho.Rows[0].ItemArray.GetValue(0));
+            }
+            catch { return 1; }
         }
         // todas as mesas disponiveis.
         public string[] mesasDisponiveis()// mesas ativas , ammbiente ativo, mesas disponiveis
