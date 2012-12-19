@@ -54,8 +54,8 @@ namespace Pizzaria.Classes
         private string fixEmpresa(string empresa)
         {
             empresa = " " + empresa + " ";
-            char[] c = new char[41];
-            c[0] = ' '; c[40] = ' ';
+            char[] c = new char[36];
+            c[0] = ' '; c[35] = ' ';
             for (int i = 1; i < c.Length - 1; i++)
                 c[i] = '-';
 
@@ -71,8 +71,8 @@ namespace Pizzaria.Classes
         private string fixCenterPont(string vari)
         {
             vari = " " + vari + " ";
-            char[] c = new char[42];
-            c[0] = '|'; c[41] = '|';
+            char[] c = new char[37];
+            c[0] = '|'; c[36] = '|';
             for (int i = 1; i < c.Length - 1; i++)
                 c[i] = '-';
 
@@ -87,8 +87,8 @@ namespace Pizzaria.Classes
         private string fixCenter(string vari)
         {
             vari = " " + vari + " ";
-            char[] c = new char[42];
-            c[0] = '|'; c[41] = '|';
+            char[] c = new char[37];
+            c[0] = '|'; c[36] = '|';
             for (int i = 1; i < c.Length - 1; i++)
                 c[i] = ' ';
 
@@ -103,8 +103,8 @@ namespace Pizzaria.Classes
         public string fixRightPont(string vari)
         {
             vari = " " + vari + " ";
-            char[] c = new char[42];
-            c[0] = '|'; c[41] = '|';
+            char[] c = new char[37];
+            c[0] = '|'; c[36] = '|';
             for (int i = 1; i < c.Length - 1; i++)
                 c[i] = '-';
 
