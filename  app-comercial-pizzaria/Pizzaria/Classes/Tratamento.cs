@@ -9,6 +9,15 @@ namespace Pizzaria.Classes
     using Pizzaria.Banco;
     public class Tratamento
     {
+
+        public string makeId(int numero)
+        {
+            if (numero < 10)
+                return "00" + numero;
+            else if (numero < 100)
+                return "0" + numero;
+            else return ""+numero;
+        }
         public string[] ordenaBolha(string[] mesa)
         {
             int[] x = new int[mesa.Length];
