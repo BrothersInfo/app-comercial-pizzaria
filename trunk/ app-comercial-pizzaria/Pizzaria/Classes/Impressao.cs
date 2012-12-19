@@ -11,32 +11,40 @@ using System.Windows.Forms;
 using System.Drawing.Printing;
 namespace Pizzaria.Classes
 {
-
+    
     using Pizzaria.Banco;
+
     public class Impressao
     {
         VendaFull venda;
         public Impressao(VendaFull v)
         {
+            //28+ qtd produto
+            int qtdLinha = 28 + v.Completos.Length ;
             venda = v;
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("comanda", 380, 1200);
+            qtdLinha *= 10;
+            qtdLinha += 70;
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument(); 
+            this.printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("comanda", 304, qtdLinha);
+         
             printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            printDocument1.PrinterSettings.PrinterName = "UNo";
+            printDocument1.PrinterSettings.PrintFileName = "Duno";
         }
 
         StringReader leitor;
         private System.Drawing.Printing.PrintDocument printDocument1;
-
-        string endereco = " F:\\comanda.txt"; string comanda = "";
+        string endereco = "comanda.txt"; string comanda = "";
         public void gerarComprovante()
         {
             try
             {
-                
+                //ImprimeImpressora();
 
                 //quem vai imprimir
                 Reporter mr = new Reporter();
                 //quem vai colocar em italico e talz
+                
                 EpsonCodes mer = new EpsonCodes();
                 //mer.SetPageSize(40);
 
@@ -48,7 +56,7 @@ namespace Pizzaria.Classes
                 //--------------------------------------------------------------------------------
                 
 
-                Comanda cc = new Comanda();
+                Comanda cc = new Comanda(venda.cod_venda);
                 string pont = "|-----------------------------------|";
 
                 mr.PrintText(01, 02, cc.empresa);
@@ -78,7 +86,10 @@ namespace Pizzaria.Classes
                     mr.PrintText(line, 26, "|");
                     mr.PrintText(line, 28, "" + venda.Completos[ii].quantidade);
                     mr.PrintText(line, 30, "|");
-                    mr.PrintText(line, 31, new Tratamento().retornaValorEscritoCo((venda.Completos[ii].valorUnitario * venda.Completos[ii++].quantidade)));
+                    if ((venda.Completos[ii].valorUnitario * venda.Completos[ii].quantidade)>=100)
+                        mr.PrintText(line, 31, new Tratamento().retornaValorEscritoCo((venda.Completos[ii].valorUnitario * venda.Completos[ii++].quantidade)));
+                    else
+                        mr.PrintText(line, 32, new Tratamento().retornaValorEscritoCo((venda.Completos[ii].valorUnitario * venda.Completos[ii++].quantidade)));
                     mr.PrintText(line++, 37, "|");
                 }
                 
@@ -117,7 +128,7 @@ namespace Pizzaria.Classes
                 mr.PrintText(line++, 01, pont);
                 mr.PrintText(line, 01, "| CAIXA : "); mr.PrintText(line, 11, new BancoVenda().nomeVendedor(venda.cod_caixa)); mr.PrintText(line++, 37, "|");
                 mr.PrintText(line++, 01, pont);
-
+                mr.PrintText(line++, 01, cc.data);
                 mr.PrintText(line, 01, "| Inicio :" + new Banco().getHorarioVenda(venda.cod_venda)+ " |  Final : "+ DateTime.Now.ToShortTimeString()) ; mr.PrintText(line++, 37, "|");
                 mr.PrintText(line++, 01, pont);
 
@@ -178,8 +189,13 @@ namespace Pizzaria.Classes
                     int u = 0;
                     while (u <= 37)
                     {
-                        try
+                        x += 7;
+                        e.Graphics.DrawString
+                            (letra[u++].ToString(), fonteImpressao, mCaneta,
+                            (x), yPosicao, ww);
+                      /*  try
                         {
+
                             x += 7;
                             x = x + 0.5f;
                             if (letra[u].Equals('i') || letra[u].Equals('l') || letra[u].Equals('I'))
@@ -211,7 +227,7 @@ namespace Pizzaria.Classes
                             e.Graphics.DrawString
                                 (letra[u++].ToString(), fonteImpressao, mCaneta,
                                 (x), yPosicao, ww);
-                        }
+                        }*/
                     }
                     contador++;
                 }

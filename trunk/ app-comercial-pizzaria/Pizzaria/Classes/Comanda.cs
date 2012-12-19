@@ -18,14 +18,17 @@ namespace Pizzaria.Classes
         public string cidade;
         public string progNome;
         public string progTelefone;
-
-        public Comanda()
+        public string data;
+        public int cod_venda;
+        public Comanda(int codVenda)
         {
             DataTable dtt = new Banco().carregaComanda();
             setFull(dtt.Rows[0].ItemArray.GetValue(0).ToString(), dtt.Rows[0].ItemArray.GetValue(1).ToString(),
                 dtt.Rows[0].ItemArray.GetValue(2).ToString(), dtt.Rows[0].ItemArray.GetValue(3).ToString(),
                 dtt.Rows[0].ItemArray.GetValue(4).ToString(), dtt.Rows[0].ItemArray.GetValue(5).ToString(),
-                dtt.Rows[0].ItemArray.GetValue(6).ToString(), dtt.Rows[0].ItemArray.GetValue(7).ToString() );
+                dtt.Rows[0].ItemArray.GetValue(6).ToString(), dtt.Rows[0].ItemArray.GetValue(7).ToString());
+            this.cod_venda = codVenda;
+            this.data = fixCenter(new Banco().dataVenda(cod_venda));
         }
 
         public void setFull(string empresa, string rua, string telefone, string titulo, string mensagem, string cidade, string progNome, string progTelefone)
@@ -46,8 +49,11 @@ namespace Pizzaria.Classes
 
             this.progNome = progNome;
             this.progNome = fixRightPont(this.progNome);
+            
             this.progTelefone = progTelefone;
             this.progTelefone = fixRightPont(this.progTelefone);
+
+
         }
 
 

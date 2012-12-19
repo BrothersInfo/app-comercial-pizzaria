@@ -667,7 +667,14 @@ namespace Pizzaria.Banco
             new NpgsqlDataAdapter(query9, Conectar()).Fill(t);
             t = new DataTable();
         }
-
+        public string dataVenda(int cod_venda)
+        {
+            DataTable dtt = new DataTable();
+            string query = "select to_char(dataVenda, 'DD MM YYYY') from venda where cod_venda =" + cod_venda;
+            new NpgsqlDataAdapter(query, Conectar()).Fill(dtt);
+            return dtt.Rows[0].ItemArray.GetValue(0).ToString();
+            
+        }
         public DataTable carregaComanda()
         {
             DataTable dtt = new DataTable();
