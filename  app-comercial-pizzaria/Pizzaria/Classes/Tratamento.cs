@@ -40,6 +40,28 @@ namespace Pizzaria.Classes
             return valor.ToString().Replace('.', ',') + "0";
             //return null;
         }
+        public string retornaValorEscritoCo(double valor)
+        {
+            decimal d = Convert.ToDecimal(valor);
+            double b = ((int)d) % 1;
+
+
+            if (d % 1 == 0)
+                if(d<10)
+                return " "+d + ",00";
+                else 
+                return d + ",00";
+
+            char[] ttt = valor.ToString().Replace('.', ',').ToCharArray();
+            if (ttt[ttt.Length - 2] != ',')
+                if (d < 10)
+                return " "+valor.ToString().Replace('.', ',');
+                else return valor.ToString().Replace('.', ','); 
+            if (d<10)
+            return " "+valor.ToString().Replace('.', ',') + "0";
+            else return valor.ToString().Replace('.', ',') + "0";
+            //return null;
+        }
 
         public double stringToDouble(string valor)
         {

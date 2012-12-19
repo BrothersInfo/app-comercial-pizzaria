@@ -20,35 +20,14 @@ namespace Pizzaria.Classes
         {
             venda = v;
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("comanda", 400, 600);
-            this.printDocument1.PrinterSettings.DefaultPageSettings.Margins = new System.Drawing.Printing.Margins(10, 10, 10, 100);
-            PrinterSettings pss = new PrinterSettings();
-
-
-            //   this.printDocument1.PrinterSettings.DefaultPageSettings.PaperSize = PaperSourceKind.TractorFeed;  
-            // this.printDocument1.PrinterSettings.se
-            // printDocument1.DefaultPageSettings.
-            //  PrinterSettings pss = new PrinterSettings();
-            //  pss.DefaultPageSettings.
-            //    System.Drawing.Printing.PageSettings pag = new System.Drawing.Printing.PageSettings(
-
-            PrintDialog pd = new PrintDialog();
-            // PageSetupDialog psd = new PageSetupDialog();
-            //  psd.PageSettings =
-            // new System.Drawing.Printing.PageSettings();
-
-            // Initialize dialog's PrinterSettings property to hold user
-            // set printer settings.
-            // psd.PrinterSettings =
-            //   new System.Drawing.Printing.PrinterSettings();
-            // printDocument1.DefaultPageSettings = 
+            this.printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("comanda", 380, 1200);
             printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
         }
 
         StringReader leitor;
         private System.Drawing.Printing.PrintDocument printDocument1;
 
-        string endereco = " D:\\comanda.txt"; string comanda = "";
+        string endereco = " F:\\comanda.txt"; string comanda = "";
         public void gerarComprovante()
         {
             try
@@ -70,7 +49,7 @@ namespace Pizzaria.Classes
                 
 
                 Comanda cc = new Comanda();
-                string pont = "|----------------------------------------|";
+                string pont = "|-----------------------------------|";
 
                 mr.PrintText(01, 02, cc.empresa);
                 //o \n serve como paper feed na impressora...
@@ -80,7 +59,7 @@ namespace Pizzaria.Classes
                 mr.PrintText(05, 01, cc.titulo);
                 int line = 6; int i = 0; int ii = 0;
                 mr.PrintText(line++, 01, pont);
-                mr.PrintText(line++, 01, "|    PRODUTO        |  TAM  | Q | VALOR  |");
+                mr.PrintText(line++, 01, "|      PRODUTO     | TAM | Q |VALOR |");
                 mr.PrintText(line++, 01, pont);
 
                 i = venda.Completos.Length;
@@ -88,17 +67,19 @@ namespace Pizzaria.Classes
                 {
                     string prod = new Banco().preencherNomeProdctAll(venda.Completos[ii].produto[0].cod_produto);
                     mr.PrintText(line, 01, "|");
-                    if (venda.Completos[ii].produto.Length > 1) prod = "mis. " + prod;
+                    if (venda.Completos[ii].produto.Length > 1) prod = "mist " + prod;
 
-                    if (prod.Length >= 19) prod = prod.Substring(0, 18); mr.PrintText(line, 3, prod);
-                    mr.PrintText(line, 21, "|");
+                    if (prod.Length >= 18) 
+                        prod = prod.Substring(0, 14); 
+                    mr.PrintText(line, 2, prod);
+                    mr.PrintText(line, 20, "|");
                     string tam = new BancoVenda().tamanhoDescricao(venda.Completos[ii].produto[0].cod_tamanho);
-                    if (tam.Length > 5) tam = tam.Substring(0, 5); mr.PrintText(line, 23, tam);
-                    mr.PrintText(line, 29, "|");
-                    mr.PrintText(line, 31, "" + venda.Completos[ii].quantidade);
-                    mr.PrintText(line, 33, "|");
-                    mr.PrintText(line, 35, new Tratamento().retornaValorEscrito((venda.Completos[ii].valorUnitario * venda.Completos[ii++].quantidade)));
-                    mr.PrintText(line++, 42, "|");
+                    if (tam.Length > 5) tam = tam.Substring(0, 5); mr.PrintText(line, 21, tam);
+                    mr.PrintText(line, 26, "|");
+                    mr.PrintText(line, 28, "" + venda.Completos[ii].quantidade);
+                    mr.PrintText(line, 30, "|");
+                    mr.PrintText(line, 31, new Tratamento().retornaValorEscritoCo((venda.Completos[ii].valorUnitario * venda.Completos[ii++].quantidade)));
+                    mr.PrintText(line++, 37, "|");
                 }
                 
                 mr.PrintText(line++, 01, pont);
@@ -114,14 +95,14 @@ namespace Pizzaria.Classes
 
                 garc += garc3;
 
-                while (gPos < 41 && x < venda.garcon.Length)
+                while (gPos < 36 && x < venda.garcon.Length)
                 {
                     garc += " | " + new BancoVenda().nomeGarcon(venda.garcon[x++]);
                     gPos = 12 + garc.Length;
                 }
                 
 
-                mr.PrintText(line, 01, "| GARCON : " + garc); mr.PrintText(line++, 42, "|");
+                mr.PrintText(line, 01, "| GARCON : " + garc); mr.PrintText(line++, 37, "|");
 
                 mr.PrintText(line++, 01, pont);
                 mr.PrintText(line, 01, "|");
@@ -132,23 +113,23 @@ namespace Pizzaria.Classes
                     mr.PrintText(line, xx, venda.mesa[ii] + " | ");
                     xx = xx + venda.mesa[ii++].Length + 3;
                 }
-                mr.PrintText(line++, 42, "|");
+                mr.PrintText(line++, 37, "|");
                 mr.PrintText(line++, 01, pont);
-                mr.PrintText(line, 01, "| CAIXA : "); mr.PrintText(line, 11, new BancoVenda().nomeVendedor(venda.cod_caixa)); mr.PrintText(line++, 42, "|");
-                mr.PrintText(line++, 01, pont);
-
-                mr.PrintText(line, 01, "| Inicio :" + new Banco().getHorarioVenda(venda.cod_venda)+ " |  Final : "+ DateTime.Now.ToShortTimeString()) ; mr.PrintText(line++, 42, "|");
+                mr.PrintText(line, 01, "| CAIXA : "); mr.PrintText(line, 11, new BancoVenda().nomeVendedor(venda.cod_caixa)); mr.PrintText(line++, 37, "|");
                 mr.PrintText(line++, 01, pont);
 
-                mr.PrintText(line, 01, "|"); mr.PrintText(line++, 42, "|");
+                mr.PrintText(line, 01, "| Inicio :" + new Banco().getHorarioVenda(venda.cod_venda)+ " |  Final : "+ DateTime.Now.ToShortTimeString()) ; mr.PrintText(line++, 37, "|");
+                mr.PrintText(line++, 01, pont);
+
+                mr.PrintText(line, 01, "|"); mr.PrintText(line++, 37, "|");
                 mr.PrintText(line++, 01, cc.mensagem);
-                mr.PrintText(line, 01, "|"); mr.PrintText(line++, 42, "|");
+                mr.PrintText(line, 01, "|"); mr.PrintText(line++, 37, "|");
                 mr.PrintText(line++, 01, pont);
                 mr.PrintText(line++, 01, cc.cidade);
                 mr.PrintText(line++, 01, pont);
                 mr.PrintText(line++, 01, cc.progNome);
                 mr.PrintText(line++, 01, cc.progTelefone);
-                mr.PrintText(line++, 01, "|________________________________________|");
+                mr.PrintText(line++, 01, "|___________________________________|");
                 
 
                 mr.PrintJob();
@@ -165,10 +146,10 @@ namespace Pizzaria.Classes
                 float linhasPorPagina = 0;
                 float yPosicao = 0;
                 int contador = 0;
-                float margemEsquerda = 5;//e.MarginBounds.Left;
-                float margemSuperior = 20;// e.MarginBounds.Top;
+                float margemEsquerda = 0;//e.MarginBounds.Left;
+                float margemSuperior = 10;// e.MarginBounds.Top;
                 string linha = null;
-                Font fonteImpressao = new Font("ARIAL", 8);
+                Font fonteImpressao = new Font("ARIAL", 7);
 
                 SolidBrush mCaneta = new SolidBrush(Color.Black);
 
@@ -195,7 +176,7 @@ namespace Pizzaria.Classes
                     char[] letra = linha.ToCharArray();
                     float x = margemEsquerda;
                     int u = 0;
-                    while (u <= 42)
+                    while (u <= 37)
                     {
                         try
                         {
@@ -260,8 +241,8 @@ namespace Pizzaria.Classes
         {
             PrintDialog print = new PrintDialog();
 
-            print.PrinterSettings.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("comanda", 500, 300);    // 500;
-            print.PrinterSettings.DefaultPageSettings.Margins = new System.Drawing.Printing.Margins(5, 10, 10, 100);
+            print.PrinterSettings.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("comanda", 380, 600);    // 500;
+            print.PrinterSettings.DefaultPageSettings.Margins = new System.Drawing.Printing.Margins(0, 0, 0, 10);
             //  printDialog1.PrinterSettings.DefaultPageSettings.PaperSize = print.PrinterSettings.DefaultPageSettings.PaperSize; //.PaperSize = new System.Drawing.Printing.PaperSize("fabricio", 300, 600);
 
             // printDialog1.Document = printDocument1;
@@ -270,10 +251,10 @@ namespace Pizzaria.Classes
             leitor = new StringReader(x);
             printDocument1.DocumentName = "comanda.txt";
             // printDocument1.OriginAtMargins = true;
-            printDocument1.DefaultPageSettings.Margins.Left = 5;
-            printDocument1.DefaultPageSettings.Margins.Right = 10;
-            printDocument1.DefaultPageSettings.Margins.Top = 5;
-            printDocument1.DefaultPageSettings.Margins.Bottom = 10;
+            printDocument1.DefaultPageSettings.Margins.Left = 0;
+            printDocument1.DefaultPageSettings.Margins.Right = 0;
+            printDocument1.DefaultPageSettings.Margins.Top = 0;
+            printDocument1.DefaultPageSettings.Margins.Bottom = 0;
             
             printDocument1.Print();
         }
