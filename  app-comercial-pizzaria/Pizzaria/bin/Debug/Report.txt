@@ -6,19 +6,21 @@
  |-----------------------------------|
  |      PRODUTO     | TAM | Q |VALOR |
  |-----------------------------------|
- |mist Carne Seca   |Grand| 2 |47,00 |
- |Presunto          |Grand| 1 |20,00 |
- |Presunto          |Grand| 1 |21,00 |
+ |Skoll             |600 M| 1 |  4,50|
+ |mist Carne Seca   |Media| 1 | 21,50|
+ |Caipirosca        |Sminn| 1 |  5,00|
+ |RED LABEL LITRO   |Garra| 1 |100,00|
  |-----------------------------------|
- |----------------- TOTAL RS : 88,00 |
+ |---------------- TOTAL RS : 131,00 |
  |-----------------------------------|
- | GARCON : Gledston                 |
+ | GARCON : Nailton | Gledston       |
  |-----------------------------------|
- | Mesa 15 |                         |
+ | Mesa 1 |                          |
  |-----------------------------------|
  | CAIXA : Cleriston                 |
  |-----------------------------------|
- | Inicio : 17:31:09 |  Final : 00:14|
+ |            14 11 2012             |
+ | Inicio : 21:19:32 |  Final : 16:52|
  |-----------------------------------|
  |                                   |
  |    OBRIGADO PELA PREFERENCIA!     |
