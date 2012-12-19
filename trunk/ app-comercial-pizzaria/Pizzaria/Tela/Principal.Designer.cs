@@ -45,6 +45,9 @@
             this.fim = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.qtd = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tlpLivreOcupado = new System.Windows.Forms.TableLayoutPanel();
+            this.pBalcao = new System.Windows.Forms.Panel();
+            this.lBalcao = new System.Windows.Forms.Label();
+            this.tlpLO = new System.Windows.Forms.TableLayoutPanel();
             this.pLivre = new System.Windows.Forms.Panel();
             this.linutil1 = new System.Windows.Forms.Label();
             this.pOcupada = new System.Windows.Forms.Panel();
@@ -55,19 +58,16 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.tlpLO = new System.Windows.Forms.TableLayoutPanel();
-            this.pBalcao = new System.Windows.Forms.Panel();
-            this.lBalcao = new System.Windows.Forms.Label();
             this.pLoadForm.SuspendLayout();
             this.tlpColuna.SuspendLayout();
             this.menuDireito.SuspendLayout();
             this.tabLayFullEsquerda.SuspendLayout();
             this.tlpLivreOcupado.SuspendLayout();
+            this.pBalcao.SuspendLayout();
+            this.tlpLO.SuspendLayout();
             this.pLivre.SuspendLayout();
             this.pOcupada.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tlpLO.SuspendLayout();
-            this.pBalcao.SuspendLayout();
             this.SuspendLayout();
             // 
             // pLoadForm
@@ -229,6 +229,51 @@
             this.tlpLivreOcupado.Size = new System.Drawing.Size(448, 151);
             this.tlpLivreOcupado.TabIndex = 32;
             // 
+            // pBalcao
+            // 
+            this.pBalcao.BackColor = System.Drawing.Color.White;
+            this.pBalcao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pBalcao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pBalcao.Controls.Add(this.lBalcao);
+            this.pBalcao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pBalcao.Location = new System.Drawing.Point(4, 105);
+            this.pBalcao.Margin = new System.Windows.Forms.Padding(4);
+            this.pBalcao.Name = "pBalcao";
+            this.pBalcao.Size = new System.Drawing.Size(440, 42);
+            this.pBalcao.TabIndex = 34;
+            this.pBalcao.Click += new System.EventHandler(this.pBalcao_Click);
+            this.pBalcao.MouseEnter += new System.EventHandler(this.pBalcao_MouseEnter);
+            this.pBalcao.MouseLeave += new System.EventHandler(this.pBalcao_MouseLeave);
+            // 
+            // lBalcao
+            // 
+            this.lBalcao.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lBalcao.AutoSize = true;
+            this.lBalcao.BackColor = System.Drawing.Color.Transparent;
+            this.lBalcao.Font = new System.Drawing.Font("Arial Narrow", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lBalcao.ForeColor = System.Drawing.Color.Black;
+            this.lBalcao.Location = new System.Drawing.Point(151, 7);
+            this.lBalcao.Name = "lBalcao";
+            this.lBalcao.Size = new System.Drawing.Size(136, 27);
+            this.lBalcao.TabIndex = 2;
+            this.lBalcao.Text = "BALCAO [ B ]";
+            // 
+            // tlpLO
+            // 
+            this.tlpLO.ColumnCount = 2;
+            this.tlpLO.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpLO.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpLO.Controls.Add(this.pLivre, 1, 0);
+            this.tlpLO.Controls.Add(this.pOcupada, 0, 0);
+            this.tlpLO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpLO.Location = new System.Drawing.Point(0, 0);
+            this.tlpLO.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpLO.Name = "tlpLO";
+            this.tlpLO.RowCount = 1;
+            this.tlpLO.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpLO.Size = new System.Drawing.Size(448, 101);
+            this.tlpLO.TabIndex = 33;
+            // 
             // pLivre
             // 
             this.pLivre.BackColor = System.Drawing.Color.White;
@@ -348,51 +393,6 @@
             this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList2.Images.SetKeyName(0, "mesaLivre.jpg");
             // 
-            // tlpLO
-            // 
-            this.tlpLO.ColumnCount = 2;
-            this.tlpLO.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpLO.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpLO.Controls.Add(this.pLivre, 1, 0);
-            this.tlpLO.Controls.Add(this.pOcupada, 0, 0);
-            this.tlpLO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpLO.Location = new System.Drawing.Point(0, 0);
-            this.tlpLO.Margin = new System.Windows.Forms.Padding(0);
-            this.tlpLO.Name = "tlpLO";
-            this.tlpLO.RowCount = 1;
-            this.tlpLO.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpLO.Size = new System.Drawing.Size(448, 101);
-            this.tlpLO.TabIndex = 33;
-            // 
-            // pBalcao
-            // 
-            this.pBalcao.BackColor = System.Drawing.Color.White;
-            this.pBalcao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pBalcao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pBalcao.Controls.Add(this.lBalcao);
-            this.pBalcao.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pBalcao.Location = new System.Drawing.Point(4, 105);
-            this.pBalcao.Margin = new System.Windows.Forms.Padding(4);
-            this.pBalcao.Name = "pBalcao";
-            this.pBalcao.Size = new System.Drawing.Size(440, 42);
-            this.pBalcao.TabIndex = 34;
-            this.pBalcao.Click += new System.EventHandler(this.pBalcao_Click);
-            this.pBalcao.MouseEnter += new System.EventHandler(this.pBalcao_MouseEnter);
-            this.pBalcao.MouseLeave += new System.EventHandler(this.pBalcao_MouseLeave);
-            // 
-            // lBalcao
-            // 
-            this.lBalcao.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lBalcao.AutoSize = true;
-            this.lBalcao.BackColor = System.Drawing.Color.Transparent;
-            this.lBalcao.Font = new System.Drawing.Font("Arial Narrow", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lBalcao.ForeColor = System.Drawing.Color.Black;
-            this.lBalcao.Location = new System.Drawing.Point(151, 7);
-            this.lBalcao.Name = "lBalcao";
-            this.lBalcao.Size = new System.Drawing.Size(136, 27);
-            this.lBalcao.TabIndex = 2;
-            this.lBalcao.Text = "BALCAO [ B ]";
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,15 +414,15 @@
             this.menuDireito.ResumeLayout(false);
             this.tabLayFullEsquerda.ResumeLayout(false);
             this.tlpLivreOcupado.ResumeLayout(false);
+            this.pBalcao.ResumeLayout(false);
+            this.pBalcao.PerformLayout();
+            this.tlpLO.ResumeLayout(false);
             this.pLivre.ResumeLayout(false);
             this.pLivre.PerformLayout();
             this.pOcupada.ResumeLayout(false);
             this.pOcupada.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tlpLO.ResumeLayout(false);
-            this.pBalcao.ResumeLayout(false);
-            this.pBalcao.PerformLayout();
             this.ResumeLayout(false);
 
         }

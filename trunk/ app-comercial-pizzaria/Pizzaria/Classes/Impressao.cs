@@ -20,7 +20,7 @@ namespace Pizzaria.Classes
         public Impressao(VendaFull v)
         {
             //28+ qtd produto
-            int qtdLinha = 28 + v.Completos.Length ;
+            int qtdLinha = 28 + (v.Completos.Length*2) ;
             venda = v;
             qtdLinha *= 10;
             qtdLinha += 70;
@@ -28,8 +28,8 @@ namespace Pizzaria.Classes
             this.printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("comanda", 304, qtdLinha);
          
             printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            printDocument1.PrinterSettings.PrinterName = "UNo";
-            printDocument1.PrinterSettings.PrintFileName = "Duno";
+          //  printDocument1.PrinterSettings.PrinterName = "UNo";
+           // printDocument1.PrinterSettings.PrintFileName = "Duno";
         }
 
         StringReader leitor;
@@ -67,29 +67,34 @@ namespace Pizzaria.Classes
                 mr.PrintText(05, 01, cc.titulo);
                 int line = 6; int i = 0; int ii = 0;
                 mr.PrintText(line++, 01, pont);
-                mr.PrintText(line++, 01, "|      PRODUTO     | TAM | Q |VALOR |");
+                mr.PrintText(line++, 01, "| ID |COD |     DESCRICAO     |CATEG|");//id casa 1  - cod casa 7 -  desc - casa 12 - categ casa 32
+                mr.PrintText(line++, 01, "|    QTD Un X VL Un   =  SUB-TOTAL  |");// qtd - casa 6  - X na casa 7 - val Uni - casa 8 - sub total casa 18
                 mr.PrintText(line++, 01, pont);
 
                 i = venda.Completos.Length;
                 while (ii < i)
                 {
+                    mr.PrintText(line, 01, "|"); mr.PrintText(line, 02, "" + new Tratamento().makeId(ii+1) ); mr.PrintText(line, 06, "|");
+                    mr.PrintText(line, 07, "" + venda.Completos[ii].produto[0].cod_produto); mr.PrintText(line, 11, "|");
                     string prod = new Banco().preencherNomeProdctAll(venda.Completos[ii].produto[0].cod_produto);
-                    mr.PrintText(line, 01, "|");
                     if (venda.Completos[ii].produto.Length > 1) prod = "mist " + prod;
-
-                    if (prod.Length >= 18) 
-                        prod = prod.Substring(0, 14); 
-                    mr.PrintText(line, 2, prod);
-                    mr.PrintText(line, 20, "|");
+                    if (prod.Length > 16)          prod = prod.Substring(0, 16); 
+                    mr.PrintText(line, 12, prod);
+                    mr.PrintText(line, 28, "|");
                     string tam = new BancoVenda().tamanhoDescricao(venda.Completos[ii].produto[0].cod_tamanho);
-                    if (tam.Length > 5) tam = tam.Substring(0, 5); mr.PrintText(line, 21, tam);
-                    mr.PrintText(line, 26, "|");
-                    mr.PrintText(line, 28, "" + venda.Completos[ii].quantidade);
-                    mr.PrintText(line, 30, "|");
+                    if (tam.Length > 7) tam = tam.Substring(0, 7); mr.PrintText(line, 29, tam);
+                    mr.PrintText(line++, 37, "|");
+
+
+                    mr.PrintText(line, 01, "|"); mr.PrintText(line, 08, "" + venda.Completos[ii].quantidade); mr.PrintText(line, 11, "X");
+
+                    mr.PrintText(line, 15,new Tratamento().retornaValorEscritoCo(venda.Completos[ii].valorUnitario ));
+                    mr.PrintText(line, 23, "=");
+                    
                     if ((venda.Completos[ii].valorUnitario * venda.Completos[ii].quantidade)>=100)
-                        mr.PrintText(line, 31, new Tratamento().retornaValorEscritoCo((venda.Completos[ii].valorUnitario * venda.Completos[ii++].quantidade)));
+                        mr.PrintText(line, 26, new Tratamento().retornaValorEscritoCo((venda.Completos[ii].valorUnitario * venda.Completos[ii++].quantidade)));
                     else
-                        mr.PrintText(line, 32, new Tratamento().retornaValorEscritoCo((venda.Completos[ii].valorUnitario * venda.Completos[ii++].quantidade)));
+                        mr.PrintText(line, 25, new Tratamento().retornaValorEscritoCo((venda.Completos[ii].valorUnitario * venda.Completos[ii++].quantidade)));
                     mr.PrintText(line++, 37, "|");
                 }
                 
@@ -152,15 +157,14 @@ namespace Pizzaria.Classes
         }
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            try
-            {
+            
                 float linhasPorPagina = 0;
                 float yPosicao = 0;
                 int contador = 0;
                 float margemEsquerda = 0;//e.MarginBounds.Left;
                 float margemSuperior = 10;// e.MarginBounds.Top;
                 string linha = null;
-                Font fonteImpressao = new Font("ARIAL", 7);
+                Font fonteImpressao = new Font("Arial", 7);
 
                 SolidBrush mCaneta = new SolidBrush(Color.Black);
 
@@ -189,11 +193,11 @@ namespace Pizzaria.Classes
                     int u = 0;
                     while (u <= 37)
                     {
-                        x += 7;
-                        e.Graphics.DrawString
-                            (letra[u++].ToString(), fonteImpressao, mCaneta,
-                            (x), yPosicao, ww);
-                      /*  try
+                //        x += 7;
+                 //       e.Graphics.DrawString
+                 //           (letra[u++].ToString(), fonteImpressao, mCaneta,
+                  //          (x), yPosicao, ww);
+                        try
                         {
 
                             x += 7;
@@ -227,7 +231,7 @@ namespace Pizzaria.Classes
                             e.Graphics.DrawString
                                 (letra[u++].ToString(), fonteImpressao, mCaneta,
                                 (x), yPosicao, ww);
-                        }*/
+                        }//*/
                     }
                     contador++;
                 }
@@ -244,8 +248,7 @@ namespace Pizzaria.Classes
 
                 if (File.Exists(endereco))
                     File.Delete(endereco);
-            }
-            catch { MessageBox.Show("erro dentro da edicao de impressao"); }
+            //}            catch { MessageBox.Show("erro dentro da edicao de impressao"); }
         }
         public bool letraGrande(char ant, char atual)
         {
