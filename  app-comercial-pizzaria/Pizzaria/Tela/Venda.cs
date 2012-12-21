@@ -236,8 +236,6 @@ namespace Pizzaria.Tela
                 p = new Impressao(venda);
                 new BancoVenda().imprimiu(venda.cod_venda);
                 p.gerarComprovante();
-                p.lerArquivo();
-               
             }
             catch
             {
@@ -530,13 +528,31 @@ namespace Pizzaria.Tela
                     Garcon g = new Garcon(venda.cod_venda);
                     g.ShowDialog();
                     new Banco().mudarQuantidade(venda.cod_venda, asd, 1, g.getRetorno());
+                    
+                   
+                     Completa cc = new BancoVenda().getCompleta(asd);
+                     if (cc.needImpress)
+                     {
+                         cc.quantidade = 1;
+                         Impressao p = new Impressao(venda);
+                         p.gerarComandaInterna(new Completa[] { cc }, new string[] { new BancoVenda().nomeGarcon(g.getRetorno()) }, venda.mesa);
+                     }
                 }
                 else
-                if (MessageBox.Show("Acrescentar Mais Um ?", "Confirme sua Opcao", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    new Banco().mudarQuantidade(venda.cod_venda, asd, 1,
-                            new Banco().codGarconPeloCompleto(asd));
-                }
+                    if (MessageBox.Show("Acrescentar Mais Um ?", "Confirme sua Opcao", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        new Banco().mudarQuantidade(venda.cod_venda, asd, 1,
+                                new Banco().codGarconPeloCompleto(asd));
+
+                       
+                        Completa cc = new BancoVenda().getCompleta(asd);
+                        if (cc.needImpress)
+                        {
+                            cc.quantidade = 1;
+                            Impressao p = new Impressao(venda);
+                            p.gerarComandaInterna(new Completa[] { cc }, new string[] { new BancoVenda().nomeGarcon(new Banco().codGarconPeloCompleto(asd)) }, venda.mesa);
+                        }
+                    }
 
                 venda = new BancoVenda().carregaVenda(venda.cod_venda);
                 tamanhoMTVALOR(venda);

@@ -107,7 +107,9 @@ namespace Pizzaria.Banco
                         Convert.ToInt16(sub.Rows[k].ItemArray.GetValue(1)),
                         Convert.ToDouble(sub.Rows[k].ItemArray.GetValue(2)),
                         Convert.ToInt16(sub.Rows[k].ItemArray.GetValue(4)),
-                        Convert.ToInt16(sub.Rows[k].ItemArray.GetValue(3)));
+                        Convert.ToInt16(sub.Rows[k].ItemArray.GetValue(3))
+                        , new Banco().isImpressoProduto(Convert.ToInt16(sub.Rows[k].ItemArray.GetValue(0)))
+                        );
 
                 }
                 conjCompleto[j] = new Completa(subProdutos, Convert.ToInt16(sub.Rows[0].ItemArray.GetValue(3)),
@@ -120,8 +122,16 @@ namespace Pizzaria.Banco
 
             try
             {
-                VendaFull saida = new VendaFull(conjCompleto, cod_venda, (int)numero.Rows[0].ItemArray.GetValue(3), (double)numero.Rows[0].ItemArray.GetValue(0),
-                    numero.Rows[0].ItemArray.GetValue(2).ToString(), numero.Rows[0].ItemArray.GetValue(1).ToString(), mesa, garcons);
+                VendaFull saida = 
+                    new VendaFull(
+                        conjCompleto, 
+                        cod_venda, 
+                        (int)numero.Rows[0].ItemArray.GetValue(3), 
+                        (double)numero.Rows[0].ItemArray.GetValue(0),
+                    numero.Rows[0].ItemArray.GetValue(2).ToString(), 
+                    numero.Rows[0].ItemArray.GetValue(1).ToString(), 
+                    mesa, 
+                    garcons);
 
                 saida.super = retornoSuper(cod_venda);
                 return saida;
@@ -463,10 +473,19 @@ namespace Pizzaria.Banco
                                     Convert.ToDouble(t.Rows[i].ItemArray.GetValue(1)),
                                     Convert.ToDouble(t.Rows[i].ItemArray.GetValue(2)),
                                     Convert.ToInt16(t.Rows[i].ItemArray.GetValue(3)),
-                                    Convert.ToInt16(t.Rows[i].ItemArray.GetValue(4)));
+                                    Convert.ToInt16(t.Rows[i].ItemArray.GetValue(4)),
+                                     new Banco().isImpressoProduto(Convert.ToInt16(t.Rows[i].ItemArray.GetValue(0)))
+                                    );
             }
 
             return conjunto;
+        }
+        public string formaPagamento(int codPagamento){
+
+            string query = "select descricao from pagamento where cod_pagamento = " + codPagamento;
+            DataTable dtt = new DataTable();
+            new NpgsqlDataAdapter(query, Conectar()).Fill(dtt);
+        return dtt.Rows[0].ItemArray.GetValue(0).ToString();
         }
         public Completa getCompleta(int cod_completa)
         {

@@ -11,7 +11,7 @@ namespace Pizzaria.Classes
         public double valorUnitario;
         public int quantidade;
         public int cod_completo;
-
+        public bool needImpress;
         public Completa(Produto[] produto, int qtd, int codCompleto)
         {
             this.cod_completo = codCompleto;
@@ -25,6 +25,7 @@ namespace Pizzaria.Classes
 
             }
 
+            needImpress = new Banco.Banco().isImpressoCompleto(cod_completo);
 
         }
     }

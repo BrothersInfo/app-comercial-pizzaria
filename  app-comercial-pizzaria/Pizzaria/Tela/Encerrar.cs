@@ -82,9 +82,13 @@ namespace Pizzaria.Tela
                     else if (rbCheque.Checked)
                         pag = 4;
                     else pag = 5;
+                    
                     new BancoVenda().receber(pag, cod_venda);
                     new BancoVenda().encerrarVenda((valor - desconto), cod_venda, mesas,isBalcao);
                     new BancoVenda().atualizaSuper(new BancoVenda().consultaSuper(cod_venda), (valor - desconto));
+                    VendaFull temp = new BancoVenda().carregaVenda(cod_venda);
+                    Impressao p = new Impressao(temp);
+                    p.gerarComandaNaoFiscal(new BancoVenda().formaPagamento(pag), recebimento, troco);
                 }
                 else
                 {
@@ -103,6 +107,8 @@ namespace Pizzaria.Tela
 
 
                     new BancoVenda().atualizaSuper(venda.super, venda.valorTotal);
+                    Impressao p = new Impressao(new BancoVenda().carregaVenda(cod_venda));
+                    p.gerarComandaNaoFiscal(new BancoVenda().formaPagamento(venda.cod_pagamento), recebimento, troco);
 
                 }
                 encerrou = true;
@@ -158,6 +164,7 @@ namespace Pizzaria.Tela
                     {
                         lbTroco.Visible = true;
                         lbTrocoNumero.Visible = true;
+                        
                         lbTrocoNumero.Text = "RS " + new Tratamento().retornaValorEscrito(troco);
                         btEncerrar.Focus();
                     }

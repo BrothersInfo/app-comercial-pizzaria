@@ -74,6 +74,7 @@ namespace Pizzaria.Classes
                 this.horario = horario;
                 this.dia = dia;
                 this.mesa = mesas;
+                if(this.valorTotal ==0)
                 for (int i = 0; i < conjProd.Length; i++)
                     this.valorTotal += (conjProd[i].valorUnitario * conjProd[i].quantidade);
             }

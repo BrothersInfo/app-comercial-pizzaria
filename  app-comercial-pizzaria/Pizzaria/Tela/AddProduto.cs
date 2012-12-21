@@ -213,7 +213,7 @@ namespace Pizzaria.Tela
                             {
                                 prod = new Produto[1];
                                 prod[0] = new Produto();
-                                prod[0].setInfo(Convert.ToInt16(mtCodigo.Text), 100, new Banco().valorProduto(Convert.ToInt16(mtCodigo.Text), cbTamanho.Text), cod_tamanho);
+                                prod[0].setInfo(Convert.ToInt16(mtCodigo.Text), 100, new Banco().valorProduto(Convert.ToInt16(mtCodigo.Text), cbTamanho.Text), cod_tamanho, new Banco().isImpressoProduto(Convert.ToInt16(mtCodigo.Text)) );
 
 
                                 break;
@@ -222,8 +222,8 @@ namespace Pizzaria.Tela
                             {
                                 prod = new Produto[2]; prod[0] = new Produto(); prod[1] = new Produto();
                                 double rr = new Banco().valorProduto(Convert.ToInt16(mtCodigo.Text), cbTamanho.Text);
-                                prod[0].setInfo(Convert.ToInt16(mtCodigo.Text), 50, rr, cod_tamanho);
-                                prod[1].setInfo(Convert.ToInt16(mtCodigo1.Text), 50, new Banco().valorProduto(Convert.ToInt16(mtCodigo1.Text), cbTamanho.Text), cod_tamanho);
+                                prod[0].setInfo(Convert.ToInt16(mtCodigo.Text), 50, rr, cod_tamanho, new Banco().isImpressoProduto(Convert.ToInt16(mtCodigo.Text)));
+                                prod[1].setInfo(Convert.ToInt16(mtCodigo1.Text), 50, new Banco().valorProduto(Convert.ToInt16(mtCodigo1.Text), cbTamanho.Text), cod_tamanho, new Banco().isImpressoProduto(Convert.ToInt16(mtCodigo1.Text)));
 
                                 break;
                             }
@@ -231,9 +231,9 @@ namespace Pizzaria.Tela
                             {
                                 prod = new Produto[3]; prod[0] = new Produto(); prod[1] = new Produto(); prod[2] = new Produto();
 
-                                prod[0].setInfo(Convert.ToInt16(mtCodigo.Text), 50, new Banco().valorProduto(Convert.ToInt16(mtCodigo.Text), cbTamanho.Text), cod_tamanho);
-                                prod[1].setInfo(Convert.ToInt16(mtCodigo1.Text), 25, new Banco().valorProduto(Convert.ToInt16(mtCodigo1.Text), cbTamanho.Text), cod_tamanho);
-                                prod[2].setInfo(Convert.ToInt16(mtCodigo2.Text), 25, new Banco().valorProduto(Convert.ToInt16(mtCodigo2.Text), cbTamanho.Text), cod_tamanho);
+                                prod[0].setInfo(Convert.ToInt16(mtCodigo.Text), 50, new Banco().valorProduto(Convert.ToInt16(mtCodigo.Text), cbTamanho.Text), cod_tamanho, new Banco().isImpressoProduto(Convert.ToInt16(mtCodigo.Text)));
+                                prod[1].setInfo(Convert.ToInt16(mtCodigo1.Text), 25, new Banco().valorProduto(Convert.ToInt16(mtCodigo1.Text), cbTamanho.Text), cod_tamanho, new Banco().isImpressoProduto(Convert.ToInt16(mtCodigo1.Text)));
+                                prod[2].setInfo(Convert.ToInt16(mtCodigo2.Text), 25, new Banco().valorProduto(Convert.ToInt16(mtCodigo2.Text), cbTamanho.Text), cod_tamanho, new Banco().isImpressoProduto(Convert.ToInt16(mtCodigo2.Text)));
 
                                 break;
                             }
@@ -242,10 +242,10 @@ namespace Pizzaria.Tela
                                 prod = new Produto[4]; prod[0] = new Produto(); prod[1] = new Produto();
                                 prod[2] = new Produto(); prod[3] = new Produto();
 
-                                prod[0].setInfo(Convert.ToInt16(mtCodigo.Text), 25, new Banco().valorProduto(Convert.ToInt16(mtCodigo.Text), cbTamanho.Text), cod_tamanho);
-                                prod[1].setInfo(Convert.ToInt16(mtCodigo1.Text), 25, new Banco().valorProduto(Convert.ToInt16(mtCodigo1.Text), cbTamanho.Text), cod_tamanho);
-                                prod[2].setInfo(Convert.ToInt16(mtCodigo2.Text), 25, new Banco().valorProduto(Convert.ToInt16(mtCodigo2.Text), cbTamanho.Text), cod_tamanho);
-                                prod[3].setInfo(Convert.ToInt16(mtCodigo3.Text), 25, new Banco().valorProduto(Convert.ToInt16(mtCodigo3.Text), cbTamanho.Text), cod_tamanho);
+                                prod[0].setInfo(Convert.ToInt16(mtCodigo.Text), 25, new Banco().valorProduto(Convert.ToInt16(mtCodigo.Text), cbTamanho.Text), cod_tamanho, new Banco().isImpressoProduto(Convert.ToInt16(mtCodigo.Text)));
+                                prod[1].setInfo(Convert.ToInt16(mtCodigo1.Text), 25, new Banco().valorProduto(Convert.ToInt16(mtCodigo1.Text), cbTamanho.Text), cod_tamanho, new Banco().isImpressoProduto(Convert.ToInt16(mtCodigo1.Text)));
+                                prod[2].setInfo(Convert.ToInt16(mtCodigo2.Text), 25, new Banco().valorProduto(Convert.ToInt16(mtCodigo2.Text), cbTamanho.Text), cod_tamanho, new Banco().isImpressoProduto(Convert.ToInt16(mtCodigo2.Text)));
+                                prod[3].setInfo(Convert.ToInt16(mtCodigo3.Text), 25, new Banco().valorProduto(Convert.ToInt16(mtCodigo3.Text), cbTamanho.Text), cod_tamanho, new Banco().isImpressoProduto(Convert.ToInt16(mtCodigo3.Text)));
 
                                 break;
                             }
@@ -255,7 +255,7 @@ namespace Pizzaria.Tela
                 {
 
                     prod = new Produto[1]; prod[0] = new Produto();
-                    prod[0].setInfo(Convert.ToInt16(mtCodigo.Text), 100, new Banco().valorProduto(Convert.ToInt16(mtCodigo.Text), cbTamanho.Text), cod_tamanho);
+                    prod[0].setInfo(Convert.ToInt16(mtCodigo.Text), 100, new Banco().valorProduto(Convert.ToInt16(mtCodigo.Text), cbTamanho.Text), cod_tamanho, new Banco().isImpressoProduto(Convert.ToInt16(mtCodigo.Text)));
                 }
             }
         }
@@ -697,6 +697,8 @@ namespace Pizzaria.Tela
 
             }
         }
+        List<string> conjGarc = new List<string>();
+        List<Completa> listaProd = new List<Completa>();
         private void mtCodigo3_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
@@ -733,6 +735,7 @@ namespace Pizzaria.Tela
             }
             catch { }
         }
+        
         private void btEscolhaProduto_Click(object sender, EventArgs e)
         {
             try
@@ -753,24 +756,43 @@ namespace Pizzaria.Tela
                 int XcodTamanho = new Banco().codTamanho(cbTamanho.Text);
                 double Xvalor = val;
 
-                int Xcod_garcon = new Banco().codGarconByNome(getGarcon());
-                if (new Banco().isVendaBalcao(cod_venda)) { Xcod_garcon = new Banco().cod_garconBalcao(); }
+                int Xcod_garcon;
+                if (new Banco().isVendaBalcao(cod_venda)) { 
+                    Xcod_garcon = new Banco().cod_garconBalcao(); }
+                else Xcod_garcon = new Banco().codGarconByNome(getGarcon());
 
                 int XquantidadeProduto = Convert.ToInt16(numQuantidade.Text);
                 preecherTodosProdutos();
+                int cod_completo= 0;
                 if ((new Banco().jaTemProduto(cod_venda, XcodigoProduto, XcodTamanho, val, prod.Length == 1, XquantidadeProduto, Xcod_garcon)))//se ja houver produtos, aqui altera quantidade.
                 {
-
+                    cod_completo = new Banco().addQuantidade(cod_venda, XcodigoProduto, XcodTamanho, val);
                 }
                 else
                 {
 
                     preecherTodosProdutos();
-                    int cod_completo = new Banco().novoCompleto(prod, Convert.ToDouble(mtValor.Text), Convert.ToInt16(numQuantidade.Text));
+                    cod_completo = new Banco().novoCompleto(prod, Convert.ToDouble(mtValor.Text), Convert.ToInt16(numQuantidade.Text));
                     new Banco().makeVendaCompleto(cod_venda, cod_completo);
                     new Banco().GarconCompleto(Xcod_garcon, cod_completo, XquantidadeProduto);
                 }
-                if ((MessageBox.Show("Deseja acrescentar outro Produto? ", "Pizzaria Delirius", MessageBoxButtons.YesNo)) == DialogResult.Yes)
+
+                Completa cc = new BancoVenda().getCompleta(cod_completo);
+                cc.quantidade = (int)  numQuantidade.Value;
+                if (cc.needImpress)
+                {
+                    listaProd.Add(cc);
+                    bool can = true;
+                    for (int y = 0; y < conjGarc.ToArray().Length && can; y++)
+                    {
+                        if (conjGarc.ToArray()[y] == getGarcon())
+                            can = !can;
+                    }
+
+                    if (can)
+                        conjGarc.Add(getGarcon());
+                }
+                    if ((MessageBox.Show("Deseja acrescentar outro Produto? ", "Pizzaria Delirius", MessageBoxButtons.YesNo)) == DialogResult.Yes)
                 {
                     mtCodigo1.Clear();
                     mtCodigo2.Clear();
@@ -787,28 +809,46 @@ namespace Pizzaria.Tela
                 }
                 else
                 {
-                    if (!(new Banco().isVendaBalcao(cod_venda))) this.Close();
+                    if (!(new Banco().isVendaBalcao(cod_venda))) { 
+                        //imprimir
+                        if (listaProd.Count > 0)
+                        {
+                            Impressao p = new Impressao(new BancoVenda().carregaVenda(cod_venda));
+                            p.gerarComandaInterna(listaProd.ToArray(), conjGarc.ToArray(), mesas);
+                        }
+                        this.Close(); 
+                    }
                     else
                     {
                         try
                         {
                             VendaFull f = (new BancoVenda().carregaVenda(cod_venda));
-                            Encerrar rec = new Encerrar(f.cod_venda, f.valorTotal, f.mesa,true);
+                            Encerrar rec = new Encerrar(f.cod_venda, f.valorTotal, f.mesa, true);
                             this.Visible = false;
                             rec.ShowDialog();
                             if (rec.encerrou)
                             {
+
+
+                                if (listaProd.Count > 0)
+                                {
+                                    Impressao p = new Impressao(new BancoVenda().carregaVenda(cod_venda));
+                                    p.gerarComandaInterna(listaProd.ToArray(), conjGarc.ToArray(), mesas);
+                                }
+
                                 MessageBox.Show("VENDA REALIZADA COM SUCESSO", "ATENDIMENDO BALCAO");
                                 this.Close();
                             }
-                            else {
+                            else
+                            {
                                 new BancoVenda().anularVenda(cod_venda, true);
 
                                 this.Close();
                             }
                             this.Visible = true;
-                        
-                        }    catch { }
+
+                        }
+                        catch { }
                     }
                 }
 
