@@ -153,7 +153,6 @@ namespace Pizzaria.Tela
                     Impressao p = new Impressao(new BancoVenda().carregaVenda(cod_venda));
                     new BancoVenda().imprimiu(cod_venda);
                     p.gerarComprovante();
-                    p.lerArquivo();
                     new BancoVenda().imprimiu(cod_venda);
                     carregarMesa(true);
 

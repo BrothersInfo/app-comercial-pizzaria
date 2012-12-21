@@ -136,7 +136,6 @@ namespace Pizzaria.Tela
                 p = new Impressao(venda);
                 new BancoVenda().imprimiu(venda.cod_venda);
                 p.gerarComprovante();
-                p.lerArquivo();
             }
             catch
             {

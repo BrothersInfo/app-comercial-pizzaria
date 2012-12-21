@@ -56,6 +56,22 @@ namespace Pizzaria.Banco
             sql.Fill(dtt);
             return;
         }
+        //
+        public int addQuantidade(int cod_venda, int cod_produto, int cod_tamanho, double valorEscrito)
+        {
+            string query = " select  c.cod_completo from venda v " +
+                           "inner join vendaCompleta vc    on (vc.cod_venda    = v.cod_venda)" +
+                           "inner join completo c          on (vc.cod_completo = c.cod_completo)" +
+                           "inner join completoProduto cp  on (cp.cod_completo = c.cod_completo)" +
+                               "where v.cod_venda = " + cod_venda + " and cp.cod_produto = " + cod_produto + " and cp.cod_tamanho = "
+                               + cod_tamanho + " and valorUnitarioCompleto = '" + new Tratamento().retornaValorEscrito(valorEscrito).Replace(',', '.') + "'";
+            DataTable dtt = new DataTable();
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(dtt);
+
+            return Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0));
+
+        }
         public bool jaTemProduto(int cod_venda, int cod_produto, int XcodTamanho, double valor, bool pct, int qtdade, int cod_garcon)
         {
             if (!pct) return false;
@@ -64,7 +80,8 @@ namespace Pizzaria.Banco
                             "inner join vendaCompleta vc    on (vc.cod_venda    = v.cod_venda)" +
                             "inner join completo c          on (vc.cod_completo = c.cod_completo)" +
                             "inner join completoProduto cp  on (cp.cod_completo = c.cod_completo)" +
-                                "where v.cod_venda = " + cod_venda + " and cp.cod_produto = " + cod_produto + " and cp.cod_tamanho = " + XcodTamanho + " and valorUnitarioCompleto = '" + new Tratamento().retornaValorEscrito(valor).Replace(',', '.') + "'";
+                                "where v.cod_venda = " + cod_venda + " and cp.cod_produto = " + cod_produto + " and cp.cod_tamanho = " 
+                                + XcodTamanho + " and valorUnitarioCompleto = '" + new Tratamento().retornaValorEscrito(valor).Replace(',', '.') + "'";
             DataTable dtt = new DataTable();
             NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
             sql.Fill(dtt);
@@ -75,7 +92,6 @@ namespace Pizzaria.Banco
             }
             return false;
         }
-       
         public void GarconCompleto(int cod_garcon, int cod_completo, int quantidade)
         {
             DataTable dtt = new DataTable();
@@ -243,7 +259,11 @@ namespace Pizzaria.Banco
         //-------------------------------------
         public int novoCompleto(Produto[] itens, double valor, int quantidade)
         {
-            makeCompleto(valor, quantidade);
+            bool impresso = true;
+            for (int i = 0; i < itens.Length && impresso; i++)
+                if (!itens[i].impresso)
+                    impresso = !impresso;
+                makeCompleto(valor, quantidade, impresso);
 
             int cod_completo = resgatarUltimaCompleto();//codigo do produto atual
             for (int i = 0; i < itens.Length; i++)
@@ -252,13 +272,14 @@ namespace Pizzaria.Banco
 
             return cod_completo;
         }
-        public void makeCompleto(double valor, int quantidade)
+        public void makeCompleto(double valor, int quantidade, bool impresso)
         {
             NpgsqlConnection conn = new NpgsqlConnection(conexao);
             NpgsqlCommand cmd = new NpgsqlCommand
-                ("insert into Completo (valorUnitarioCompleto,quantidade) values (@valorUnitario,@quantidade)", conn);
+                ("insert into Completo (valorUnitarioCompleto,quantidade,impresso) values (@valorUnitario,@quantidade,@impresso)", conn);
             cmd.Parameters.Add("@valorUnitario", valor);
             cmd.Parameters.Add("@quantidade", quantidade);
+            cmd.Parameters.Add("@impresso", impresso);
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
@@ -343,6 +364,30 @@ namespace Pizzaria.Banco
             sql.Fill(dttTamanho);
             return dttTamanho;
 
+        }
+        public bool isImpressoProduto(int cod_produto)
+        {
+            try{
+            DataTable dtt = new DataTable();
+            string query = "select impresso from produto where cod_produto = "+ cod_produto;
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter
+                   (query, Conectar());
+            sql.Fill(dtt);
+            return Convert.ToBoolean(dtt.Rows[0].ItemArray.GetValue(0));
+            }catch{return false;}
+        }
+        public bool isImpressoCompleto(int cod_Completo)
+        {
+            try
+            {
+                DataTable dtt = new DataTable();
+                string query = "select impresso from completo where cod_completo = " + cod_Completo;
+                NpgsqlDataAdapter sql = new NpgsqlDataAdapter
+                       (query, Conectar());
+                sql.Fill(dtt);
+                return Convert.ToBoolean(dtt.Rows[0].ItemArray.GetValue(0).ToString());
+            }
+            catch { return false; }
         }
         public double valorProduto(int cod_produto, string Tamanho)
         {

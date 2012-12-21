@@ -90,7 +90,7 @@ namespace Pizzaria.Classes
                 vari += c[i];
             return vari;
         }
-        private string fixCenter(string vari)
+        public string fixCenter(string vari)
         {
             vari = " " + vari + " ";
             char[] c = new char[37];
@@ -113,6 +113,22 @@ namespace Pizzaria.Classes
             c[0] = '|'; c[36] = '|';
             for (int i = 1; i < c.Length - 1; i++)
                 c[i] = '-';
+
+            int ini = (c.Length) - (vari.Length + 1);
+            for (int i = 0; i < vari.Length; i++)
+                c[ini + i] = vari.ToCharArray()[i];
+            vari = "";
+            for (int i = 0; i < c.Length; i++)
+                vari += c[i];
+            return vari;
+        }
+        public string fixRightPontClear(string vari)
+        {
+            vari = " " + vari + " ";
+            char[] c = new char[37];
+            c[0] = '|'; c[36] = '|';
+            for (int i = 1; i < c.Length - 1; i++)
+                c[i] = ' ';
 
             int ini = (c.Length) - (vari.Length + 1);
             for (int i = 0; i < vari.Length; i++)
