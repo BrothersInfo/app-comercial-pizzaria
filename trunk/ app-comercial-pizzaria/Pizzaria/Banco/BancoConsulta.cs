@@ -156,13 +156,19 @@ namespace Pizzaria.Banco
             catch { return false; }
         }
 
-        public DataTable descricaoTipo()
+        public string[] descricaoTipo()
         {
-            string query = "select nome from tipo where ativo  = true order by cod_tipo";
+
             DataTable dtt = new DataTable();
+            string query = "select nome from tipo where ativo  = true order by cod_tipo";
             NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
             sql.Fill(dtt);
-            return dtt;
+            string[] retorno = new string[dtt.Rows.Count];
+            for (int i = 0; i < retorno.Length; i++)
+                retorno[i] = dtt.Rows[i].ItemArray.GetValue(0).ToString();
+
+            return retorno;
+
         }
         public bool existeTipo(string descricao)
         {
@@ -557,10 +563,17 @@ namespace Pizzaria.Banco
             sql.Fill(dtt);
             return (Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0))) == 1;
         }
+        public void produtoAlterarImpresso(int cod_produto, bool impresso)
+        {
+            string query = "UPDATE produto   SET  impresso = " + impresso + "  WHERE cod_produto =  " + cod_produto + " ";
+            DataTable dtt = new DataTable();
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(dtt);
+        }
         public void produtoAlterarAll(int cod_produto, string descricao, int codTipo, bool ativo)
         {
             string query = "UPDATE produto   SET descricao= '" + descricao + "' , cod_tipo= '" 
-                + codTipo + "' , ativo= " + ativo + "   WHERE cod_produto =  " + cod_produto + " ";
+                + codTipo + "' , ativo= " + ativo + "  WHERE cod_produto =  " + cod_produto + " ";
             DataTable dtt = new DataTable();
             NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
             sql.Fill(dtt);
@@ -606,12 +619,12 @@ namespace Pizzaria.Banco
             catch { return 0; }
         }
 
-        public void cadastrarProduto(string nome, string tipo, Tamanho[] tam, bool isPizza)
+        public void cadastrarProduto(string nome, string tipo, Tamanho[] tam, bool isPizza, bool impresso)
         {
             int cod_produto = novoCod_Produto();
 
-            string query = "INSERT INTO produto(cod_produto, descricao, cod_tipo, isPizza)  VALUES ("
-                + cod_produto + " , '" + nome + "' , " + cod_tipoPeloNome(tipo) + " , " + isPizza + " )";
+            string query = "INSERT INTO produto(cod_produto, descricao, cod_tipo, isPizza, impresso)  VALUES ("
+                + cod_produto + " , '" + nome + "' , " + cod_tipoPeloNome(tipo) + " , " + isPizza + ", " + impresso + "  )";
             DataTable dtt = new DataTable();
             NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
             sql.Fill(dtt);

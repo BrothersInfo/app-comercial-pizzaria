@@ -46,6 +46,7 @@
             this.tbUsuario.Name = "tbUsuario";
             this.tbUsuario.Size = new System.Drawing.Size(162, 32);
             this.tbUsuario.TabIndex = 0;
+            this.tbUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbUsuario_KeyPress);
             // 
             // lbNovoNomeGarcon
             // 
@@ -66,6 +67,7 @@
             this.tbSenha.PasswordChar = '*';
             this.tbSenha.Size = new System.Drawing.Size(162, 32);
             this.tbSenha.TabIndex = 1;
+            this.tbSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSenha_KeyPress);
             // 
             // label1
             // 
@@ -126,7 +128,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(445, 175);
+            this.ClientSize = new System.Drawing.Size(441, 171);
             this.ControlBox = false;
             this.Controls.Add(this.tbUsuario);
             this.Controls.Add(this.btCancelar);

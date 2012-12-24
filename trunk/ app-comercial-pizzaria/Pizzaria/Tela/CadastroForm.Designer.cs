@@ -119,6 +119,7 @@
             this.lbCadNome = new System.Windows.Forms.Label();
             this.lTituloAmbiente = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.cbComanda = new System.Windows.Forms.CheckBox();
             this.painelCadastroGeral.SuspendLayout();
             this.tpGarcon.SuspendLayout();
             this.tlpInternaColunaGarcon.SuspendLayout();
@@ -578,6 +579,7 @@
             // 
             this.bgAlterarTamanho.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.bgAlterarTamanho.BackColor = System.Drawing.Color.White;
+            this.bgAlterarTamanho.Controls.Add(this.cbComanda);
             this.bgAlterarTamanho.Controls.Add(this.lProdTamanho);
             this.bgAlterarTamanho.Controls.Add(this.cLboxTamanho);
             this.bgAlterarTamanho.Controls.Add(this.tbNome);
@@ -1285,6 +1287,19 @@
             this.label11.TabIndex = 39;
             this.label11.Text = "* Atenção - Não é permitido o cadastro de dois nomes iguais";
             // 
+            // cbComanda
+            // 
+            this.cbComanda.AutoSize = true;
+            this.cbComanda.Checked = true;
+            this.cbComanda.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbComanda.Font = new System.Drawing.Font("Arial", 12F);
+            this.cbComanda.Location = new System.Drawing.Point(11, 164);
+            this.cbComanda.Name = "cbComanda";
+            this.cbComanda.Size = new System.Drawing.Size(161, 22);
+            this.cbComanda.TabIndex = 39;
+            this.cbComanda.Text = "Deve Ser Impresso";
+            this.cbComanda.UseVisualStyleBackColor = true;
+            // 
             // CadastroForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1451,5 +1466,6 @@
         private System.Windows.Forms.Label lbCadNome;
         private System.Windows.Forms.Label lTituloAmbiente;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.CheckBox cbComanda;
     }
 }

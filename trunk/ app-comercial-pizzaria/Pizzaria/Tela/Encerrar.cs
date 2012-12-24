@@ -87,8 +87,11 @@ namespace Pizzaria.Tela
                     new BancoVenda().encerrarVenda((valor - desconto), cod_venda, mesas,isBalcao);
                     new BancoVenda().atualizaSuper(new BancoVenda().consultaSuper(cod_venda), (valor - desconto));
                     VendaFull temp = new BancoVenda().carregaVenda(cod_venda);
-                    Impressao p = new Impressao(temp);
-                    p.gerarComandaNaoFiscal(new BancoVenda().formaPagamento(pag), recebimento, troco);
+                    if (rbSim.Checked)
+                    {
+                        Impressao p = new Impressao(temp);
+                        p.gerarComandaNaoFiscal(new BancoVenda().formaPagamento(pag), recebimento, troco);
+                    }
                 }
                 else
                 {
@@ -184,6 +187,7 @@ namespace Pizzaria.Tela
             }
 
         }
+
 
     }
 }

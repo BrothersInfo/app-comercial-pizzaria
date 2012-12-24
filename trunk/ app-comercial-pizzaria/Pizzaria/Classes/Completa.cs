@@ -25,7 +25,12 @@ namespace Pizzaria.Classes
 
             }
 
-            needImpress = new Banco.Banco().isImpressoCompleto(cod_completo);
+            needImpress = false;
+
+            for (int i = 0; i < produto.Length; i++ ) {
+                if (produto[i].impresso) { needImpress = true; break; }
+            }
+
 
         }
     }
