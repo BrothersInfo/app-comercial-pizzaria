@@ -63,159 +63,11 @@ namespace Pizzaria.Tela
                 alterarAmbiente();
             limpaTipo(); carregarAlterar();
         }
-
-        private void btAltProdAtivo_Click(object sender, EventArgs e)
-        {
-            if (!lbProdAltNome.Text.Equals(""))
-                new BancoConsulta().produtoAlterarAll(Convert.ToInt16(tbAlterarProdCod1.Text),
-                    lbProdAltNome.Text, new BancoConsulta().cod_tipoPeloNome(new Banco().categoriaProdutoAll(Convert.ToInt16(tbAlterarProdCod1.Text))), cbAltProdAtivo.Checked);
-        }
         private void btAltCaixConfirmar_Click(object sender, EventArgs e)
         {
             if (new BancoConsulta().isAdm(new BancoConsulta().getNome_Caixa((int)cod_caixa)))
                 new BancoConsulta().caixaOpcoes(cbCAQuadroAlterar.Text, tbCANomeAlterar.Text, tbCAIdAlterar.Text, tbCAPassAlterar.Text, cbCAAdm.Checked);
         }
-        private void btAltProdSeg_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (new BancoConsulta().prodExiste(Convert.ToInt16(tbAltProdSegCodProd.Text)))
-                {
-                    int a = Convert.ToInt16(tbAltProdSegCodProd.Text);//codigo
-                    string b = lbAltProdSeg.Text;
-                    int c = new BancoConsulta().cod_tipoPeloNome(cbAltProdSegTipo.Text);
-                    bool d = new BancoConsulta().produtoIsAtivo(Convert.ToInt16(tbAltProdSegCodProd.Text));
-                    new BancoConsulta().produtoAlterarAll(a, b, c, d);
-                }
-                tbAltProdSegCodProd.Clear();
-                lbAltProdSeg.Text = "";
-                tbAltProdSegCodProd.Focus();
-                lbSegmentoAtual.Text = "";
-                cbAltProdSegTipo.DataSource = null;
-            }
-            catch
-            {
-                tbAltProdSegCodProd.Clear();
-                lbAltProdSeg.Text = "";
-                tbAltProdSegCodProd.Focus();
-                lbSegmentoAtual.Text = "";
-                cbAltProdSegTipo.DataSource = null;
-                return;
-            }
-        }
-        private void btAltProdNome_Click(object sender, EventArgs e)
-        {
-            if (new BancoConsulta().prodExiste(Convert.ToInt16(tbProdAltNomeCod.Text))
-            && !new BancoConsulta().existeProdudo(tbProdAltNomeNovo.Text))
-            {
-                int a = Convert.ToInt16(tbProdAltNomeCod.Text);
-                string b = tbProdAltNomeNovo.Text;
-                int c = new BancoConsulta().cod_tipoPeloNome(new Banco().categoriaProdutoAll(a));
-                bool d = new BancoConsulta().produtoIsAtivo(Convert.ToInt16(tbProdAltNomeCod.Text));
-                new BancoConsulta().produtoAlterarAll(a, b, c, d);
-            }
-            tbProdAltNomeCod.Clear();
-            tbProdAltNomeNovo.Clear();
-            lProdAltNomeAntigo.Text = "";
-        }
-        private void btAltProdNewValCat_Click(object sender, EventArgs e)
-        {
-            t[ii].valor = new Tratamento().stringToDouble(mtValor1.Text);
-            try
-            {
-                lbTamanho1.Text = t[++ii].nome2;
-                mtValor1.Clear();
-            }
-            catch
-            {
-                new BancoConsulta().alterarTamanhoDoProduto(lbProduto1.Text, t);
-                gBoxProdAlt55.Visible = false;
-                gBoxProdAlt5.Visible = true;
-                ii = 0;
-                mtValor1.Clear();
-                lbProduto1.Text = "";
-                clbSegmento.ClearSelected();
-                return;
-            }
-        }
-        int ii = 0;
-        Tamanho [] t;
-        private void btAltProdSegUpdat_Click(object sender, EventArgs e)
-        {
-            if (new BancoConsulta().existeProdudo(lbAltSeg.Text) && clbSegmento.CheckedItems.Count > 0)
-            {
-                t = new Tamanho[clbSegmento.CheckedItems.Count];
-
-                for (int i = 0; i < t.Length; i++)
-                {
-                    t[i] = new Tamanho();
-                    t[i].setCodigo(clbSegmento.CheckedItems[i].ToString());
-                }
-            }
-            gBoxProdAlt55.Visible = true;
-            gBoxProdAlt5.Visible = false;
-            lbTamanho1.Text = t[0].nome2;
-            lbProduto1.Text = lbAltSeg.Text;
-        }
-        private void btProdAltValor_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                new Banco().alterarValor(Convert.ToInt16(tbAltProdValCodProd.Text), new Banco().codTamanho(cbAltProdValTamanho.Text), new Tratamento().stringToDouble(mtbAltProdValor.Text));
-                tbAltProdValCodProd.Clear();
-                tbAltProdValCodProd.Focus();
-                mtbAltProdValor.Clear();
-            }
-            catch
-            {
-                tbAltProdValCodProd.Clear();
-                tbAltProdValCodProd.Focus();
-                mtbAltProdValor.Clear();
-
-            }
-        }
-
-        private void btClick1_Click(object sender, EventArgs e)
-        {
-            gBoxProdAlt1.Visible = true;
-            gBoxProdAlt2.Visible = false;
-            gBoxProdAlt3.Visible = false;
-            gBoxProdAlt4.Visible = false;
-            gBoxProdAlt5.Visible = false;
-        }
-        private void btClick2_Click(object sender, EventArgs e)
-        {
-            gBoxProdAlt1.Visible = false;
-            gBoxProdAlt2.Visible = true;
-            gBoxProdAlt3.Visible = false;
-            gBoxProdAlt4.Visible = false;
-            gBoxProdAlt5.Visible = false;
-        }
-        private void btClick3_Click(object sender, EventArgs e)
-        {
-            gBoxProdAlt1.Visible = false;
-            gBoxProdAlt2.Visible = false;
-            gBoxProdAlt3.Visible = true;
-            gBoxProdAlt4.Visible = false;
-            gBoxProdAlt5.Visible = false;
-        }
-        private void btClick4_Click(object sender, EventArgs e)
-        {
-            gBoxProdAlt1.Visible = false;
-            gBoxProdAlt2.Visible = false;
-            gBoxProdAlt3.Visible = false;
-            gBoxProdAlt4.Visible = true;
-            gBoxProdAlt5.Visible = false;
-        }
-        private void btClick5_Click(object sender, EventArgs e)
-        {
-            gBoxProdAlt1.Visible = false;
-            gBoxProdAlt2.Visible = false;
-            gBoxProdAlt3.Visible = false;
-            gBoxProdAlt4.Visible = false;
-            gBoxProdAlt5.Visible = true;
-        }
-
         private void alterarTamanho()
         {
             if (!tbAltSub.Text.Equals(""))
@@ -226,33 +78,6 @@ namespace Pizzaria.Tela
         public void limpaTamanho()
         {
             tbAltSub.Clear();
-        }
-        public void carregarCaixaTamanhoAlt()
-        {
-            while (clbSegmento.Items.Count > 0)
-                clbSegmento.Items.RemoveAt(0);
-
-            try
-            {
-                lbAltSeg.Text = new Banco().preencherNomeProdutoAlt(Convert.ToInt16(tbAltProSegCod.Text));
-                DataTable t = new BancoConsulta().descricaoTamanho();
-                for (int i = 0; i < t.Rows.Count; i++)
-                {
-                    int b = Convert.ToInt16(tbAltProSegCod.Text);
-                    int c = new Banco().codTamanho(t.Rows[i].ItemArray.GetValue(0).ToString());
-
-                    bool a = new BancoConsulta().isTamanhoAtivo(b, c);
-
-                    clbSegmento.Items.Add(t.Rows[i].ItemArray.GetValue(0), a);
-
-                }
-            }
-            catch
-            {
-                lbAltSeg.Text = "";
-                return;
-            }
-
         }
         public void carregarCaixa()
         {
@@ -341,22 +166,7 @@ namespace Pizzaria.Tela
                 return;
             }    
         }
-        private void cbAltProdValTamanho_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                double variant = new Banco().valorProduto(Convert.ToInt16(tbAltProdValCodProd.Text), (cbAltProdValTamanho.Text));
-
-
-                if (variant < 10) mtbAltProdValor.Mask = "0.00";
-                else
-                    if (variant < 100 && variant >= 10) mtbAltProdValor.Mask = "00.00";
-                    else if (variant >= 100) mtbAltProdValor.Mask = "000.00";
-
-                mtbAltProdValor.Text = new Tratamento().retornaValorEscrito(variant);
-            }
-            catch { return; }
-        }
+       
         private void cbAltSub_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -382,89 +192,163 @@ namespace Pizzaria.Tela
         {
             cBoxAltAmb.Checked = new BancoConsulta().isAmbienteAtivo(cbAltAmb.Text);
         }
-       
         
-        private void tbAlterarProdCod1_KeyUp(object sender, KeyEventArgs e) 
+             
+        private void tbComanda_KeyUp(object sender, KeyEventArgs e)
         {
             try
             {
-                cbAltProdAtivo.Checked
-                     = new BancoConsulta().produtoIsAtivo(Convert.ToInt16(tbAlterarProdCod1.Text));
-                lbProdAltNome.Text = new Banco().preencherNomeProdutoAlt(Convert.ToInt16(tbAlterarProdCod1.Text));
+                tbNewDescricao.Text =
+                    new Banco().preencherNomeProduct(Convert.ToInt16(tbNewCodigo.Text));
+                cboxNewImpresso.Checked = 
+                    new Banco().produtoIsImpresso(Convert.ToInt16(tbNewCodigo.Text));
+                cboxNewAtivo.Checked
+                    = new BancoConsulta().produtoIsAtivo(Convert.ToInt16(tbNewCodigo.Text));
+                cbNewSegmento.DataSource
+                    = new BancoConsulta().descricaoTamanho();
+            cbCAQuadroAlterar.DisplayMember = "nomecaixa";
+            try { cbCAQuadroAlterar.SelectedIndex = 1; }
+            catch { return; }
+            cbCAQuadroAlterar.SelectedIndex = 0;
+                
+            }
+            catch
+            {
+                
+                return;
+            }
+        }
+        private void tbNewCodigo_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                btNewConfirmar.Visible = true;
+
+                tbNewDescricao.Text =
+                    new Banco().preencherNomeProdctAll(Convert.ToInt16(tbNewCodigo.Text));
+                cboxNewImpresso.Checked =
+                    new Banco().produtoIsImpresso(Convert.ToInt16(tbNewCodigo.Text));
+                cboxNewAtivo.Checked
+                    = new BancoConsulta().produtoIsAtivo(Convert.ToInt16(tbNewCodigo.Text));
+
+                 string [] vari = new BancoConsulta().descricaoTipo();
+                 cbNewSegmento.DataSource = vari;
+                cbNewSegmento.DisplayMember 
+                    = "nome";
+                string segDoProduto = new Banco().segmentoDoProduto(Convert.ToInt16(tbNewCodigo.Text));
+                for (int i = 0; i < vari.Length; i++)
+                {
+                    if (vari[i] == segDoProduto) {
+                        cbNewSegmento.SelectedIndex = i;
+                        break;
+                    }
+                }
+                flpNewAlterar.Visible = false;
+                flpNewMais.Visible = false;
+                flpNewMenos.Visible = false;
 
             }
             catch
             {
-                tbAlterarProdCod1.Clear();
-                lbProdAltNome.Text = "";
-                return;
+                btNewConfirmar.Visible = false;
             }
         }
-        private void tbProdAltNomeCod_KeyUp(object sender, KeyEventArgs e)
+        private void btNewMais_Click(object sender, EventArgs e)
         {
+            
+        //tenho q carregar todos os tamanhos q nao estao contidos no produto
             try
             {
 
-                lProdAltNomeAntigo.Text = new Banco().preencherNomeProdutoAlt(Convert.ToInt16(tbProdAltNomeCod.Text));
-
+                flpNewMais.Visible = true;
+                flpNewMenos.Visible = false;
+                flpNewAlterar.Visible = false;
+                cbNewTamanhoOpcao.DataSource = new Banco().subCategoriaNaoProduto(Convert.ToInt16(tbNewCodigo.Text));
+                cbNewTamanhoOpcao.DisplayMember
+                           = "descricao";
+                cbNewSegmento.SelectedIndex = 0;
+                btNewAdd.Visible = false;
+                mtbNewValor.Clear();
+            
             }
-            catch
-            {
-                tbProdAltNomeCod.Clear();
-                lProdAltNomeAntigo.Text = "";
-                return;
-            }
+            catch { return; }
         }
-        private void tbAltProdValCodProd_KeyUp(object sender, KeyEventArgs e)
+        private void btNewMenos_Click(object sender, EventArgs e)
         {
             try
             {
-                cbAltProdValTamanho.DataSource = new Banco().tamanhoProduto(Convert.ToInt16(tbAltProdValCodProd.Text));
-                cbAltProdValTamanho.DisplayMember = "descricao";
-                cbAltProdValTamanho.SelectedIndex = 0;
-                double t = new Banco().valorProduto(Convert.ToInt16(tbAltProdValCodProd.Text), (cbAltProdValTamanho.Text));
+           
+                flpNewMais.Visible = false;
+            flpNewMenos.Visible = true;
+            flpNewAlterar.Visible = false;
+            cbNewTamanhoDoProduto.DataSource = new Banco().subcategoriaProduto(Convert.ToInt16(tbNewCodigo.Text));
+                   cbNewTamanhoDoProduto.DisplayMember
+                           = "descricao";
+                cbNewTamanhoDoProduto.SelectedIndex = 0;
 
+                if (cbNewTamanhoDoProduto.Items.Count > 1)
+                    btnewRemover.Visible = true;
+                else btnewRemover.Visible = false;
+            }
+            catch { return; }
 
-                if (t < 10) mtbAltProdValor.Mask = "0.00";
-                else
-                    if (t < 100 && t >= 10) mtbAltProdValor.Mask = "00.00";
-                    else if (t >= 100) mtbAltProdValor.Mask = "000.00";
-                lbAltProdValNome.Text = new Banco().preencherNomeProdutoAlt(Convert.ToInt16(tbAltProdValCodProd.Text));
-                mtbAltProdValor.Text = new Tratamento().retornaValorEscrito(t);
-            }
-            catch
-            {
-                cbAltProdValTamanho.DataSource = null;
-                lbAltProdValNome.Text = "";
-                tbAltProdValCodProd.Clear();
-                tbAltProdValCodProd.Focus();
-                mtbAltProdValor.Clear();
-                return;
-            }
         }
-        private void tbAltProdSegCodProd_KeyUp(object sender, KeyEventArgs e)
+        private void btNewAlterarSub_Click(object sender, EventArgs e)
         {
             try
             {
-                lbSegmentoAtual.Text = new Banco().categoriaProdutoAll(Convert.ToInt16(tbAltProdSegCodProd.Text));
-                cbAltProdSegTipo.DataSource = new BancoConsulta().descricaoTipo();// new Banco().tamanhoProduto(Convert.ToInt16(tbAltProdValCodProd.Text));
-                cbAltProdSegTipo.DisplayMember = "nome";
-                cbAltProdSegTipo.SelectedIndex = 0; lbAltProdSeg.Text = new Banco().preencherNomeProdutoAlt(Convert.ToInt16(tbAltProdSegCodProd.Text));
-
+                flpNewMais.Visible = false;
+                flpNewMenos.Visible = false;
+                flpNewAlterar.Visible = true;
+                cbNewAlterarSub.DataSource = new Banco().subcategoriaProduto(Convert.ToInt16(tbNewCodigo.Text));
+                cbNewAlterarSub.DisplayMember
+                        = "descricao";
+                cbNewAlterarSub.SelectedIndex = 0;
+                btNewAlterarConfir.Visible = false;
+                mtbNewAlterarSub.Clear();
             }
-            catch
-            {
-                cbAltProdSegTipo.DataSource = null;
-                lbSegmentoAtual.Text = "";
-                lbAltProdSeg.Text = "";
-                tbAltProdSegCodProd.Clear();
-                tbAltProdSegCodProd.Text = "";
-                return;
-            }
+            catch { return; }
         }
-        private void tbAltProSegCod_KeyUp(object sender, KeyEventArgs e)
+        private void mtbNewAlterarSub_KeyPress(object sender, KeyPressEventArgs e)
         {
-            carregarCaixaTamanhoAlt();
+            if (mtbNewAlterarSub.MaskFull)
+                btNewAlterarConfir.Visible = true;
+            else
+                btNewAlterarConfir.Visible = false;
+        }
+        private void mtbNewValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (mtbNewValor.MaskFull)
+                btNewAdd.Visible = true;
+            else 
+                btNewAdd.Visible = false;
+        }
+        private void btNewAlterarConfir_Click(object sender, EventArgs e)
+        {
+            new Banco().alterarValorSubCategoria(Convert.ToInt16(tbNewCodigo.Text), new Banco().codTamanho(cbNewAlterarSub.Text), Convert.ToDouble(mtbNewAlterarSub.Text.Replace('.', ',')));
+            flpNewAlterar.Visible = false;
+        }
+        private void btNewAdd_Click(object sender, EventArgs e)
+        {
+            new Banco().insereSubCategoria(Convert.ToInt16(tbNewCodigo.Text), new Banco().codTamanho(cbNewTamanhoOpcao.Text), Convert.ToDouble(mtbNewValor.Text.Replace('.', ',')));
+            flpNewMais.Visible = false;
+        }
+        private void btnewRemover_Click(object sender, EventArgs e)
+        {
+            new Banco().removerSubCategoria(Convert.ToInt16(tbNewCodigo.Text), new Banco().codTamanho(cbNewTamanhoDoProduto.Text));
+            flpNewMenos.Visible = false;
+        }
+        private void btNewConfirmar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new Banco().alterarProduto(Convert.ToInt16(tbNewCodigo.Text), tbNewDescricao.Text, new BancoConsulta().cod_tipoPeloNome(cbNewSegmento.Text), cboxNewAtivo.Checked, cboxNewImpresso.Checked);
+                MessageBox.Show("ALTERAÇÃO CONCLUIDA COM SUCESSO", "MENSAGEM");
+                tbNewCodigo.Clear();
+                tbNewCodigo.Focus();
+            }
+            catch { }
+         
         }
     }
 }

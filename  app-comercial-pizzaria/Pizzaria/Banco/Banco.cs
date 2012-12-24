@@ -224,6 +224,15 @@ namespace Pizzaria.Banco
             return dttGarcon.Rows[0].ItemArray.GetValue(0).ToString();
 
         }
+        public bool produtoIsImpresso(int cod_produto)
+        {
+
+            DataTable dttGarcon = new DataTable();
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter("select impresso from produto where  cod_produto = '" + cod_produto + "'", Conectar());
+            sql.Fill(dttGarcon);
+            return Convert.ToBoolean( dttGarcon.Rows[0].ItemArray.GetValue(0));
+            
+        }
         public string categoriaProduto(int cod_produto)
         {
             DataTable dttGarcon = new DataTable();
@@ -410,13 +419,7 @@ namespace Pizzaria.Banco
 
 
         }
-        public void alterarValor(int cod_produto, int cod_tamanho, double valor)
-        {
-            string query = "UPDATE produtotamanho set valorproduto= " + new Tratamento().retornaValorEscrito(valor).Replace(',', '.') + " WHERE cod_produto = " + cod_produto + " and cod_tamanho = " + cod_tamanho;
-            DataTable t = new DataTable();
-            new NpgsqlDataAdapter(query, Conectar()).Fill(t);
-
-        }
+       
         public int codTamanho(string nomeTamanho)
         {
             try
@@ -433,6 +436,73 @@ namespace Pizzaria.Banco
                 return 1;
             }
 
+        }
+        public void insereSubCategoria(int cod_produto, int cod_tamanho, double valorProduto)
+        {
+            NpgsqlConnection conn = new NpgsqlConnection(conexao);
+            NpgsqlCommand cmd = new NpgsqlCommand
+                ("insert into produtoTamanho (cod_produto,cod_tamanho,valorProduto) values (@cod_produto,@cod_tamanho,@valorProduto)", conn);
+            cmd.Parameters.Add("@cod_produto", cod_produto);
+            cmd.Parameters.Add("@cod_tamanho", cod_tamanho);
+            cmd.Parameters.Add("@valorProduto", valorProduto);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+        public void alterarValorSubCategoria(int cod_produto, int cod_tamanho, double valor)
+        {
+            string query = "UPDATE produtotamanho set valorproduto= " + new Tratamento().retornaValorEscrito(valor).Replace(',', '.') + " WHERE cod_produto = " + cod_produto + " and cod_tamanho = " + cod_tamanho;
+            DataTable t = new DataTable();
+            new NpgsqlDataAdapter(query, Conectar()).Fill(t);
+
+        }
+        public void removerSubCategoria(int cod_produto, int cod_tamanho)
+        {
+            string query = "DELETE FROM produtotamanho WHERE cod_produto  = "+cod_produto+" and cod_tamanho = "+cod_tamanho;
+            DataTable t = new DataTable();
+            new NpgsqlDataAdapter(query, Conectar()).Fill(t);
+
+        }
+        public void alterarProduto(int cod_produto, string descricao, int cod_tipo,bool ativo, bool impresso)
+        {
+            string query = "UPDATE produto   SET  descricao= '" + descricao + "', cod_tipo= "
+                + cod_tipo + ", ativo= " + ativo + ",  impresso= " + impresso + "  WHERE cod_produto =" +cod_produto;
+            DataTable dtt = new DataTable();
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(dtt);
+        }
+        public DataTable subcategoriaProduto(int cod_produto)
+        {
+            
+            string query = "select t.descricao from produtoTamanho pt join tamanho t on(pt.cod_tamanho = t.cod_tamanho ) where pt.cod_produto = "+cod_produto;
+            DataTable dtt = new DataTable();
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(dtt);
+            return dtt;
+
+        }
+        public DataTable subCategoriaNaoProduto(int cod_produto)
+        {
+            string query = "select k.descricao from tamanho k where k.cod_tamanho not in "+
+            "(select t.cod_tamanho from produtoTamanho pt join tamanho t on(pt.cod_tamanho = t.cod_tamanho ) where pt.cod_produto = "+cod_produto+ ")"+
+            "order by k.cod_tamanho";
+            DataTable dtt = new DataTable();
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(dtt);
+            return dtt;
+
+        }
+        public string segmentoDoProduto(int cod_produto)
+        {
+
+
+
+            DataTable dtt = new DataTable();
+            string query = "select t.nome from tipo t inner join produto p on (p.cod_tipo = t.cod_tipo) where p.cod_produto = "+ cod_produto;
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(dtt);
+            return (dtt.Rows[0].ItemArray.GetValue(0).ToString());
+            
         }
         public string[] exibirTamanhos(int codProduto, int cod_tamanho)
         {

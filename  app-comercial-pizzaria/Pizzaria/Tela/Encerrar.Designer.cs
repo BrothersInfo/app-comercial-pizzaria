@@ -53,6 +53,9 @@
             this.rbCredito = new System.Windows.Forms.RadioButton();
             this.rbDinheiro = new System.Windows.Forms.RadioButton();
             this.pFundo = new System.Windows.Forms.Panel();
+            this.rbSim = new System.Windows.Forms.RadioButton();
+            this.rbNao = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tlPDinheiro.SuspendLayout();
             this.tlbNivel2.SuspendLayout();
             this.panEsquerda.SuspendLayout();
@@ -64,6 +67,7 @@
             this.panValorTotal.SuspendLayout();
             this.gbFormaPag.SuspendLayout();
             this.pFundo.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlPDinheiro
@@ -118,9 +122,9 @@
             this.btEncerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btEncerrar.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btEncerrar.ForeColor = System.Drawing.Color.Maroon;
-            this.btEncerrar.Location = new System.Drawing.Point(32, 50);
+            this.btEncerrar.Location = new System.Drawing.Point(48, 22);
             this.btEncerrar.Name = "btEncerrar";
-            this.btEncerrar.Size = new System.Drawing.Size(158, 50);
+            this.btEncerrar.Size = new System.Drawing.Size(126, 41);
             this.btEncerrar.TabIndex = 0;
             this.btEncerrar.UseVisualStyleBackColor = true;
             this.btEncerrar.Click += new System.EventHandler(this.btEncerrar_Click);
@@ -131,7 +135,7 @@
             this.btAnular.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btAnular.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAnular.ForeColor = System.Drawing.Color.White;
-            this.btAnular.Location = new System.Drawing.Point(48, 166);
+            this.btAnular.Location = new System.Drawing.Point(48, 96);
             this.btAnular.Name = "btAnular";
             this.btAnular.Size = new System.Drawing.Size(126, 41);
             this.btAnular.TabIndex = 1;
@@ -140,6 +144,7 @@
             // 
             // gBoxNumeros
             // 
+            this.gBoxNumeros.Controls.Add(this.groupBox1);
             this.gBoxNumeros.Controls.Add(this.panel2);
             this.gBoxNumeros.Controls.Add(this.panel1);
             this.gBoxNumeros.Controls.Add(this.lbTrocoNumero);
@@ -160,7 +165,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.mtDesconto);
             this.panel2.Controls.Add(this.lbDesconto);
-            this.panel2.Location = new System.Drawing.Point(12, 113);
+            this.panel2.Location = new System.Drawing.Point(12, 86);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(254, 55);
             this.panel2.TabIndex = 1;
@@ -227,7 +232,7 @@
             this.lbTrocoNumero.AutoSize = true;
             this.lbTrocoNumero.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTrocoNumero.ForeColor = System.Drawing.Color.DarkRed;
-            this.lbTrocoNumero.Location = new System.Drawing.Point(145, 187);
+            this.lbTrocoNumero.Location = new System.Drawing.Point(145, 154);
             this.lbTrocoNumero.Name = "lbTrocoNumero";
             this.lbTrocoNumero.Size = new System.Drawing.Size(123, 27);
             this.lbTrocoNumero.TabIndex = 24;
@@ -238,7 +243,7 @@
             this.lbTroco.AutoSize = true;
             this.lbTroco.Font = new System.Drawing.Font("Arial", 15F);
             this.lbTroco.ForeColor = System.Drawing.Color.DarkRed;
-            this.lbTroco.Location = new System.Drawing.Point(19, 189);
+            this.lbTroco.Location = new System.Drawing.Point(19, 156);
             this.lbTroco.Name = "lbTroco";
             this.lbTroco.Size = new System.Drawing.Size(60, 23);
             this.lbTroco.TabIndex = 23;
@@ -372,6 +377,43 @@
             this.pFundo.Size = new System.Drawing.Size(800, 250);
             this.pFundo.TabIndex = 2;
             // 
+            // rbSim
+            // 
+            this.rbSim.AutoSize = true;
+            this.rbSim.Font = new System.Drawing.Font("Arial", 10F);
+            this.rbSim.Location = new System.Drawing.Point(59, 25);
+            this.rbSim.Name = "rbSim";
+            this.rbSim.Size = new System.Drawing.Size(49, 20);
+            this.rbSim.TabIndex = 4;
+            this.rbSim.Text = "Sim";
+            this.rbSim.UseVisualStyleBackColor = true;
+            // 
+            // rbNao
+            // 
+            this.rbNao.AutoSize = true;
+            this.rbNao.Checked = true;
+            this.rbNao.Font = new System.Drawing.Font("Arial", 10F);
+            this.rbNao.Location = new System.Drawing.Point(136, 25);
+            this.rbNao.Name = "rbNao";
+            this.rbNao.Size = new System.Drawing.Size(51, 20);
+            this.rbNao.TabIndex = 4;
+            this.rbNao.TabStop = true;
+            this.rbNao.Text = "Não";
+            this.rbNao.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbNao);
+            this.groupBox1.Controls.Add(this.rbSim);
+            this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(12, 180);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(254, 59);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Cupom Não Fiscal - Imprimir?";
+            // 
             // Encerrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -408,6 +450,8 @@
             this.gbFormaPag.ResumeLayout(false);
             this.gbFormaPag.PerformLayout();
             this.pFundo.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -439,5 +483,8 @@
         private System.Windows.Forms.Label lvValorConta;
         private System.Windows.Forms.Panel pFundo;
         private System.Windows.Forms.MaskedTextBox mtValor;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rbNao;
+        private System.Windows.Forms.RadioButton rbSim;
     }
 }

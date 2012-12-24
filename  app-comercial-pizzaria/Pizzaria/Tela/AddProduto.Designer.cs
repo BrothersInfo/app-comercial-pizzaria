@@ -173,7 +173,7 @@
             this.cbTamanho.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTamanho.Font = new System.Drawing.Font("Comic Sans MS", 12F);
             this.cbTamanho.FormattingEnabled = true;
-            this.cbTamanho.Location = new System.Drawing.Point(19, 123);
+            this.cbTamanho.Location = new System.Drawing.Point(19, 44);
             this.cbTamanho.Name = "cbTamanho";
             this.cbTamanho.Size = new System.Drawing.Size(134, 31);
             this.cbTamanho.TabIndex = 0;
@@ -191,7 +191,7 @@
             "50% - 50%",
             "50% - 2 x 25%",
             "4 x  - 25%"});
-            this.cbMista.Location = new System.Drawing.Point(19, 44);
+            this.cbMista.Location = new System.Drawing.Point(19, 123);
             this.cbMista.Name = "cbMista";
             this.cbMista.Size = new System.Drawing.Size(134, 31);
             this.cbMista.TabIndex = 7;
@@ -202,7 +202,7 @@
             // 
             this.lbMista.AutoSize = true;
             this.lbMista.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
-            this.lbMista.Location = new System.Drawing.Point(19, 10);
+            this.lbMista.Location = new System.Drawing.Point(19, 92);
             this.lbMista.Name = "lbMista";
             this.lbMista.Size = new System.Drawing.Size(99, 21);
             this.lbMista.TabIndex = 10;
@@ -240,7 +240,7 @@
             // 
             this.lTamanho.AutoSize = true;
             this.lTamanho.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
-            this.lTamanho.Location = new System.Drawing.Point(19, 91);
+            this.lTamanho.Location = new System.Drawing.Point(19, 10);
             this.lTamanho.Name = "lTamanho";
             this.lTamanho.Size = new System.Drawing.Size(117, 21);
             this.lTamanho.TabIndex = 12;
@@ -288,7 +288,7 @@
             this.btBack.ForeColor = System.Drawing.Color.White;
             this.btBack.Location = new System.Drawing.Point(758, 182);
             this.btBack.Name = "btBack";
-            this.btBack.Size = new System.Drawing.Size(70, 44);
+            this.btBack.Size = new System.Drawing.Size(85, 44);
             this.btBack.TabIndex = 21;
             this.btBack.UseVisualStyleBackColor = true;
             this.btBack.Click += new System.EventHandler(this.btBack_Click);
@@ -586,13 +586,13 @@
             // 
             // btEscolhaProduto
             // 
-            this.btEscolhaProduto.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
+            this.btEscolhaProduto.BackgroundImage = global::Pizzaria.Properties.Resources.BtInserir;
             this.btEscolhaProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btEscolhaProduto.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btEscolhaProduto.ForeColor = System.Drawing.Color.Maroon;
-            this.btEscolhaProduto.Location = new System.Drawing.Point(834, 182);
+            this.btEscolhaProduto.Location = new System.Drawing.Point(849, 182);
             this.btEscolhaProduto.Name = "btEscolhaProduto";
-            this.btEscolhaProduto.Size = new System.Drawing.Size(104, 44);
+            this.btEscolhaProduto.Size = new System.Drawing.Size(89, 44);
             this.btEscolhaProduto.TabIndex = 11;
             this.btEscolhaProduto.UseVisualStyleBackColor = true;
             this.btEscolhaProduto.Click += new System.EventHandler(this.btEscolhaProduto_Click);

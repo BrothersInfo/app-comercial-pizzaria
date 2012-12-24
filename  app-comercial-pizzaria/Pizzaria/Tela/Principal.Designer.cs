@@ -58,6 +58,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.ttMsg = new System.Windows.Forms.ToolTip(this.components);
             this.pLoadForm.SuspendLayout();
             this.tlpColuna.SuspendLayout();
             this.menuDireito.SuspendLayout();
@@ -108,6 +109,7 @@
             this.listVenda.ShowItemToolTips = true;
             this.listVenda.Size = new System.Drawing.Size(468, 559);
             this.listVenda.TabIndex = 7;
+            this.ttMsg.SetToolTip(this.listVenda, "Selecione uma Mesa para Realizar Operação");
             this.listVenda.UseCompatibleStateImageBehavior = false;
             this.listVenda.ItemActivate += new System.EventHandler(this.listVenda_ItemActivate);
             this.listVenda.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listVenda_ItemSelectionChanged);
@@ -457,5 +459,6 @@
         private System.Windows.Forms.Panel pBalcao;
         private System.Windows.Forms.Label lBalcao;
         private System.Windows.Forms.TableLayoutPanel tlpLO;
+        private System.Windows.Forms.ToolTip ttMsg;
     }
 }

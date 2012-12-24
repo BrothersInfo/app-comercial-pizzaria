@@ -28,40 +28,53 @@ namespace Pizzaria.Classes
                 dtt.Rows[0].ItemArray.GetValue(4).ToString(), dtt.Rows[0].ItemArray.GetValue(5).ToString(),
                 dtt.Rows[0].ItemArray.GetValue(6).ToString(), dtt.Rows[0].ItemArray.GetValue(7).ToString());
             this.cod_venda = codVenda;
-            this.data = fixCenter(new Banco().dataVenda(cod_venda));
+            this.data = fixCenter(new Banco().dataVenda(cod_venda), 1);
         }
+        public Comanda(int codVenda, bool tre)
+        {
+            DataTable dtt = new Banco().carregaComanda();
+            setFull2(dtt.Rows[0].ItemArray.GetValue(0).ToString());
+            this.cod_venda = codVenda;
+       //     this.data = fixCenter(new Banco().dataVenda(cod_venda), 2);
+        }
+
 
         public void setFull(string empresa, string rua, string telefone, string titulo, string mensagem, string cidade, string progNome, string progTelefone)
         {
             this.empresa = empresa;
-            this.empresa = fixEmpresa(this.empresa);
+            this.empresa = fixEmpresa(this.empresa, 1);
             this.rua = rua;
-            this.rua = fixCenterPont(this.rua);
+            this.rua = fixCenterPont(this.rua, 1);
             this.telefone = telefone;
-            this.telefone = fixCenterPont(this.telefone);
+            this.telefone = fixCenterPont(this.telefone, 1);
             this.titulo = titulo;
-            this.titulo = fixCenter(this.titulo);
+            this.titulo = fixCenter(this.titulo, 1);
             this.mensagem = mensagem;
-            this.mensagem = fixCenter(this.mensagem);
+            this.mensagem = fixCenter(this.mensagem, 1);
             this.cidade = cidade;
-            this.cidade = fixRightPont(this.cidade);
+            this.cidade = fixRightPont(this.cidade, 1);
 
 
             this.progNome = progNome;
-            this.progNome = fixRightPont(this.progNome);
+            this.progNome = fixRightPont(this.progNome, 1);
             
             this.progTelefone = progTelefone;
-            this.progTelefone = fixRightPont(this.progTelefone);
+            this.progTelefone = fixRightPont(this.progTelefone, 1);
 
 
         }
-
-
-        private string fixEmpresa(string empresa)
+        public void setFull2(string empresa)
         {
-            empresa = " " + empresa + " ";
-            char[] c = new char[36];
-            c[0] = ' '; c[35] = ' ';
+            this.empresa = empresa;
+            
+        }
+
+
+        private string fixEmpresa(string empresa, int num)
+        {
+            
+            char[] c = new char[36/num];
+            c[0] = ' '; c[(36/num)-1] = ' ';
             for (int i = 1; i < c.Length - 1; i++)
                 c[i] = '-';
 
@@ -74,11 +87,11 @@ namespace Pizzaria.Classes
                 empresa += c[i];
             return empresa;
         }
-        private string fixCenterPont(string vari)
+        private string fixCenterPont(string vari, int num)
         {
-            vari = " " + vari + " ";
-            char[] c = new char[37];
-            c[0] = '|'; c[36] = '|';
+            int x = (38 - num) / num;
+            char[] c = new char[x];
+            c[0] = '|'; c[x-1] = '|';
             for (int i = 1; i < c.Length - 1; i++)
                 c[i] = '-';
 
@@ -90,11 +103,12 @@ namespace Pizzaria.Classes
                 vari += c[i];
             return vari;
         }
-        public string fixCenter(string vari)
+        public string fixCenter(string vari, int num)
         {
             vari = " " + vari + " ";
-            char[] c = new char[37];
-            c[0] = '|'; c[36] = '|';
+            int x = (38 - num) / num;//37 ou 
+            char[] c = new char[x];
+            c[0] = '|'; c[x-1] = '|';
             for (int i = 1; i < c.Length - 1; i++)
                 c[i] = ' ';
 
@@ -106,11 +120,12 @@ namespace Pizzaria.Classes
                 vari += c[i];
             return vari;
         }
-        public string fixRightPont(string vari)
+        public string fixRightPont(string vari, int num)
         {
             vari = " " + vari + " ";
-            char[] c = new char[37];
-            c[0] = '|'; c[36] = '|';
+            int x = (38 - num) / num;//37 ou 
+            char[] c = new char[x];
+            c[0] = '|'; c[x-1] = '|';
             for (int i = 1; i < c.Length - 1; i++)
                 c[i] = '-';
 
@@ -122,11 +137,12 @@ namespace Pizzaria.Classes
                 vari += c[i];
             return vari;
         }
-        public string fixRightPontClear(string vari)
+        public string fixRightPontClear(string vari, int num)
         {
             vari = " " + vari + " ";
-            char[] c = new char[37];
-            c[0] = '|'; c[36] = '|';
+            int x = (38 - num) / num;//37 ou 
+            char[] c = new char[x ];
+            c[0] = '|'; c[x -1 ] = '|';
             for (int i = 1; i < c.Length - 1; i++)
                 c[i] = ' ';
 

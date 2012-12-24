@@ -130,7 +130,7 @@ namespace Pizzaria.Tela
             }
             catch
             {
-                new BancoConsulta().cadastrarProduto(tbNome.Text, cbProdCategoria.Text, t, 1 == new BancoConsulta().cod_tipoPeloNome(cbProdCategoria.Text));
+                new BancoConsulta().cadastrarProduto(tbNome.Text, cbProdCategoria.Text, t, 1 == new BancoConsulta().cod_tipoPeloNome(cbProdCategoria.Text),cbComanda.Checked);
                 bgValores.Visible = false;
                 bgAlterarTamanho.Visible = true;
                 ii = 0;

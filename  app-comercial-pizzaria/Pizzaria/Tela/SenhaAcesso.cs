@@ -35,5 +35,22 @@ namespace Pizzaria.Tela
             this.Close();
         }
 
+        private void tbSenha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                btConfirmar.Focus();
+                btConfirmar_Click(sender, null);
+            }
+        }
+
+        private void tbUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                tbSenha.Focus();
+            }
+        }
+
     }
 }

@@ -799,13 +799,15 @@ namespace Pizzaria.Tela
                     mtCodigo3.Clear();
                     mtCodigo1.Visible = false;
                     mtCodigo2.Visible = false;
-                    mtCodigo.Visible = false;
-                    mtCodigo.Clear();
-                    nomesVisiveis();
+                    mtCodigo3.Visible = false;
+                    limpaCampo();
+                    limpeza();    
+                        nomesVisiveis();
+                        mtCodigo.Clear();
+                 
                     mtCodigo.Visible = true;
                     mtCodigo.Focus();
-                    limpaCampo();
-                    limpeza();
+                
                 }
                 else
                 {
@@ -858,6 +860,13 @@ namespace Pizzaria.Tela
         {
             if (new Banco().isVendaBalcao(cod_venda)       )
                 new BancoVenda().anularVenda(cod_venda, true);
+            else{
+                if (listaProd.Count > 0)
+                {
+                    Impressao p = new Impressao(new BancoVenda().carregaVenda(cod_venda));
+                    p.gerarComandaInterna(listaProd.ToArray(), conjGarc.ToArray(), mesas);
+                }
+            }
             
             this.Close();
             
