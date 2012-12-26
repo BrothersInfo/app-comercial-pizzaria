@@ -208,7 +208,7 @@ namespace Pizzaria.Banco
             if (hasFiltro)
                 query += " and "+ filtroQuery(  filtro) +" = "+ (1+valorFiltro);
             if (data.Length == 1)
-                query += "and (v.dataVenda = '" + data[0] + "' and v.horario > ' 06:00' ) or (v.dataVenda = date '" + data[0] + "' + 1 and v.horario < ' 06:00' )";     
+                query += "and( (v.dataVenda = '" + data[0] + "' and v.horario > ' 06:00' ) or (v.dataVenda = date '" + data[0] + "' + 1 and v.horario < ' 06:00' ))";     
             else
                 query += " and v.dataVenda between '" + data[0] + "' and '" + data[1] + "' ";
                     //--filtros
@@ -220,7 +220,32 @@ namespace Pizzaria.Banco
             NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
             sql.Fill(tabela);
             return tabela;
-        }      
+        }
+        public DataTable consultaLeituraX(string data)
+        {
+            string query = "select "
+                + "to_char(v.horario, 'HH24:MI') as \"Horario\", " 
+                + "(select mm.cod_mesa from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) inner join venda vv on (vv.cod_venda = vmm.cod_venda) where v.cod_venda = vv.cod_venda order by vv.cod_venda desc limit 1) as \"Venda\","
+                 + " p.cod_pagamento as \"Pagamento\","
+                + " v.valorTotal "
+                + " from  venda v "
+                + " inner join vendaMesa vm              on (vm.cod_venda    = v.cod_venda) "
+                + " inner join mesa m                    on (m.cod_mesa      = vm.cod_mesa) "
+                + " inner join caixa x                   on (x.cod_caixa     = v.cod_caixa) "
+                + " inner join pagamento p               on (p.cod_pagamento = v.cod_pagamento) "
+                + " inner join ambiente a                on (a.cod_ambiente  = m.cod_ambiente) "
+                + " where v.aberta = false "+
+         
+                "and ((v.dataVenda = '" + data + "' and v.horario > ' 06:00' ) or (v.dataVenda = date '" 
+                                        + data + "' + 1 and v.horario < ' 06:00' ))";
+
+            //--filtros
+
+            DataTable tabela = new DataTable();
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(tabela);
+            return tabela;
+        } 
         public DataTable consultaGarconGeral(bool aberta, string[] data,bool hasGarcon, string garcon
         ,bool hasAmbiente, string ambiente, bool hasTipo, string tipo, int order , bool ascen)
         {
@@ -266,7 +291,7 @@ namespace Pizzaria.Banco
                 
                 if (!aberta){
                     if (data.Length == 1)
-                        query += " and (v.dataVenda = '" + data[0] + "' and v.horario > ' 06:00' ) or (v.dataVenda = date '" + data[0] + "' + 1 and v.horario < ' 06:00' )";
+                        query += " and ((v.dataVenda = '" + data[0] + "' and v.horario > ' 06:00' ) or (v.dataVenda = date '" + data[0] + "' + 1 and v.horario < ' 06:00' ))";
                     else
                         query += " and v.dataVenda between '" + data[0] + "' and '" + data[1] + "' ";
                 }
@@ -315,7 +340,7 @@ namespace Pizzaria.Banco
                 " inner join 	venda v			          on (v.cod_venda = vc.cod_venda)" +
                 " where ";
             if (data.Length == 1)
-                query += " (v.dataVenda = '" + data[0] + "' and v.horario > ' 06:00' ) or (v.dataVenda = date '" + data[0] + "' + 1 and v.horario < ' 06:00' )";
+                query += " ((v.dataVenda = '" + data[0] + "' and v.horario > ' 06:00' ) or (v.dataVenda = date '" + data[0] + "' + 1 and v.horario < ' 06:00' ))";
             else
                 query += " v.dataVenda between '" + data[0] + "' and '" + data[1] + "' ";
             if (hasTipo)

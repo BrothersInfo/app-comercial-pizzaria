@@ -252,7 +252,9 @@ namespace Pizzaria.Tela
                     if (inVenda() && a.ToLowerInvariant().Equals("p"))
                         MSProduto_Click(sender, null);
                     else
-
+                        if (a.ToLowerInvariant().Equals("b")) {
+                            new AddProduto(true, cod_caixa).ShowDialog();
+                        }else
                         if (a.ToLowerInvariant().Equals("l"))
                             carregarMesa(false);
                         else if (a.ToLowerInvariant().Equals("o"))
@@ -312,6 +314,22 @@ namespace Pizzaria.Tela
         {
             pBalcao.BorderStyle = BorderStyle.FixedSingle;
             lBalcao.ForeColor = Color.Black;
+        }
+
+        private void lBalcao_Click(object sender, EventArgs e)
+        {
+            new AddProduto(true, cod_caixa).ShowDialog();
+        }
+
+        private void lBalcao_MouseEnter(object sender, EventArgs e)
+        {
+            pBalcao.BorderStyle = BorderStyle.Fixed3D;
+            lBalcao.ForeColor = Color.Red;
+        }
+
+        private void lBalcao_MouseLeave(object sender, EventArgs e)
+        {
+
         }
 
     }

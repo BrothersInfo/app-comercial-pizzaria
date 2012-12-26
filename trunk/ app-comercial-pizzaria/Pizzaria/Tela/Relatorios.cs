@@ -40,6 +40,9 @@ namespace Pizzaria.Tela
                     flpVenda.Enabled = true;
                     flpGarcon.Enabled = false;
                     flpProduto.Enabled = false;
+                    
+                    flpLeituraX.Enabled = false;
+                    flpLeituraX.Visible = false;
                     carregarVenda();
 
                     break;
@@ -50,6 +53,9 @@ namespace Pizzaria.Tela
                     flpVenda.Enabled = false;
                     flpGarcon.Enabled = true;
                     flpProduto.Enabled = false;
+                    
+                    flpLeituraX.Enabled = false;
+                    flpLeituraX.Visible = false;
                     carregaGarcon();
                     break;
                 case 2 :
@@ -59,8 +65,23 @@ namespace Pizzaria.Tela
                     flpVenda.Enabled = false;
                     flpGarcon.Enabled = false;
                     flpProduto.Enabled = true;
+                    
+                    flpLeituraX.Enabled = false;
+                    flpLeituraX.Visible = false;
                     carregaProduto();
                     break;
+                case 3:
+                    flpVenda.Visible = false;
+                    flpGarcon.Visible = false;
+                    flpProduto.Visible = false;
+                    flpVenda.Enabled = false;
+                    flpGarcon.Enabled = false;
+                    flpProduto.Enabled = false;
+                    flpLeituraX.Enabled = true;
+                    flpLeituraX.Visible = true;
+                    carregaLeituraX();
+                    break;
+                
                 default :
                     flpVenda.Visible = true;
                     flpGarcon.Visible = false;
@@ -68,6 +89,8 @@ namespace Pizzaria.Tela
                     flpVenda.Enabled = true;
                     flpGarcon.Enabled = false;
                     flpProduto.Enabled = false;
+                    flpLeituraX.Enabled = false;
+                    flpLeituraX.Visible = false;
                     carregarVenda();
                     break;
             }
@@ -97,21 +120,22 @@ namespace Pizzaria.Tela
         }
         public void carregarVenda()
         {
-            int[] dias = new int[DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)];
-            for (int i = 0; i < dias.Length; i++)
-                dias[i] = i + 1;
             string[] mes = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" };
             int[] ano = new int[(DateTime.Now.Year - 2012) + 1];
             for (int i = 0; i < ano.Length; i++)
                 ano[i] = 2012 + i;
-            cbVendaDia.DataSource = dias;
+           
             cbVendaMes.DataSource = mes;
             cbVendaAno.DataSource = ano;
+            cbVendaMes.SelectedIndex = DateTime.Now.Month - 1;
+            cbVendaAno.SelectedIndex = DateTime.Now.Year - 2012;
 
+            int[] dias = new int[DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)];
+            for (int i = 0; i < dias.Length; i++)
+                dias[i] = i + 1;
+            cbVendaDia.DataSource = dias;
             cbVendaDia.SelectedIndex = DateTime.Now.Day-1;
-            cbVendaMes.SelectedIndex = DateTime.Now.Month-1;
-            cbVendaAno.SelectedIndex = DateTime.Now.Year- 2012;
-
+            
             cbVendaData.SelectedIndex = 0;
             cbFiltroVenda.SelectedIndex = 0;
 
@@ -119,23 +143,48 @@ namespace Pizzaria.Tela
             cbOrdenarVenda.SelectedIndex = 0;
 
         }
-        public void carregaProduto()
+        public void carregaLeituraX()
         {
-            int[] dias = new int[DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)];
-            for (int i = 0; i < dias.Length; i++)
-                dias[i] = i + 1;
             string[] mes = { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" };
             int[] ano = new int[(DateTime.Now.Year - 2012) + 1];
             for (int i = 0; i < ano.Length; i++)
                 ano[i] = 2012 + i;
 
-            cbProdutoDia.DataSource = dias;
+            cbMesX.DataSource = mes;
+            cbAnoX.DataSource = ano;
+            cbMesX.SelectedIndex = DateTime.Now.Month - 1;
+            cbAnoX.SelectedIndex = DateTime.Now.Year - 2012;
+
+            int[] dias = new int[DateTime.DaysInMonth(Convert.ToInt16(cbAnoX.Text), DateTime.Now.Month)];
+            for (int i = 0; i < dias.Length; i++)
+                dias[i] = i + 1;
+            cbDiaX.DataSource = dias;
+            cbDiaX.SelectedIndex = DateTime.Now.Day - 1;
+            
+
+        }
+        public void carregaProduto()
+        {
+            string[] mes = { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" };
+            int[] ano = new int[(DateTime.Now.Year - 2012) + 1];
+            for (int i = 0; i < ano.Length; i++)
+                ano[i] = 2012 + i;
+
+           
             cbProdutoMes.DataSource = mes;
             cbProdutoAno.DataSource = ano;
 
-            cbProdutoDia.SelectedIndex = DateTime.Now.Day - 1;
             cbProdutoMes.SelectedIndex = DateTime.Now.Month - 1;
             cbProdutoAno.SelectedIndex = DateTime.Now.Year - 2012;
+
+            int[] dias = new int[DateTime.DaysInMonth(Convert.ToInt16(cbProdutoAno.Text), DateTime.Now.Month)];
+          
+            for (int i = 0; i < dias.Length; i++)
+                dias[i] = i + 1;
+
+            cbProdutoDia.DataSource = dias;
+            cbProdutoDia.SelectedIndex = DateTime.Now.Day - 1;
+
 
             cbProdutoData.SelectedIndex = 0;
 
@@ -282,8 +331,17 @@ namespace Pizzaria.Tela
                 data[0] = dtpGarconUm.Value.ToShortDateString();
                 data[1] = dtpGarconDois.Value.ToShortDateString();
             }
-            DataTable tabela = new BancoRelatorio().consultaGarconGeral(cbGarconData.SelectedIndex == 2, data, cbGarcon.SelectedIndex != 0, cbGarcon.SelectedItem.ToString(), cbGarconAmbiente.SelectedIndex != 0, cbGarconAmbiente.SelectedItem.ToString(),
-                cbGarconTipo.SelectedIndex != 0, cbGarconTipo.SelectedItem.ToString(), cbOrdenarGarcon.SelectedIndex, rbGarconCres.Checked);
+            DataTable tabela = new BancoRelatorio().consultaGarconGeral
+                (cbGarconData.SelectedIndex == 2
+                , data
+                , cbGarcon.SelectedIndex != 0
+                , cbGarcon.SelectedItem.ToString()
+                , cbGarconAmbiente.SelectedIndex != 0
+                , cbGarconAmbiente.SelectedItem.ToString()
+                , cbGarconTipo.SelectedIndex != 0
+                , cbGarconTipo.SelectedItem.ToString()
+                , cbOrdenarGarcon.SelectedIndex
+                , rbGarconCres.Checked);
             carregarListView(tabela);
             lValor.Text = somarValoresGarcon(tabela,8,9);
 
@@ -367,7 +425,7 @@ namespace Pizzaria.Tela
  
             // cria um Writer para o documento
             PdfWriter.GetInstance(pdfDoc, new
-              FileStream("D://exemplo.pdf", FileMode.Create));
+              FileStream("exemplo.pdf", FileMode.Create));
             //------------------------------
             MemoryStream mStream = new MemoryStream();
             PdfWriter writer = PdfWriter.GetInstance(pdfDoc, mStream);
@@ -419,6 +477,27 @@ namespace Pizzaria.Tela
          
             // joga pro navegador
           
+        }
+
+        private void btLeituraX_Click(object sender, EventArgs e)
+        {
+            string data = cbDiaX.SelectedItem + "/" + (cbMesX.SelectedIndex+1) + "/" + cbAnoX.SelectedItem;
+           
+
+            DataTable tabela = new BancoRelatorio().consultaLeituraX(data);
+
+            LeituraX lx = new LeituraX();
+            for (int i = 0; i < tabela.Rows.Count; i++ )
+            {
+              
+                lx.addItem(
+                    tabela.Rows[i].ItemArray.GetValue(0).ToString(),
+                    Convert.ToInt16(  tabela.Rows[i].ItemArray.GetValue(1) ),
+                    Convert.ToInt16(  tabela.Rows[i].ItemArray.GetValue(2) ),
+                    Convert.ToDouble(  tabela.Rows[i].ItemArray.GetValue(3) ));
+            }
+            lx.imprimir();
+
         }
  
     }

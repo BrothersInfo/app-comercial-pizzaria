@@ -73,6 +73,7 @@ namespace Pizzaria.Tela
             garconDaVenda();
             {
                 pGarLivre.Visible = false; lbGarcon.Visible = false; cbGarVen.Visible = false;
+
             }
             double valr = Screen.PrimaryScreen.Bounds.Height / 100f;
             double yy = (13.5 * valr) + 345;
@@ -807,7 +808,13 @@ namespace Pizzaria.Tela
                  
                     mtCodigo.Visible = true;
                     mtCodigo.Focus();
-                
+                    if ((new Banco().isVendaBalcao(cod_venda)))
+                    {
+                        lbGarcon.Visible = false;
+                        cbGarVen.Visible = false;
+                        btGarc.Visible = false;
+                        pGarLivre.Visible = false;
+                    }
                 }
                 else
                 {
