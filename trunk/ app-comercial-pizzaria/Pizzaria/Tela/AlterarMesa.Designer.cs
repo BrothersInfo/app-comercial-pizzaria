@@ -59,7 +59,7 @@
             this.listVenda.Location = new System.Drawing.Point(0, 0);
             this.listVenda.Name = "listVenda";
             this.listVenda.ShowItemToolTips = true;
-            this.listVenda.Size = new System.Drawing.Size(410, 248);
+            this.listVenda.Size = new System.Drawing.Size(410, 232);
             this.listVenda.TabIndex = 4;
             this.listVenda.UseCompatibleStateImageBehavior = false;
             // 
@@ -83,7 +83,7 @@
             this.pFundo.Location = new System.Drawing.Point(0, 0);
             this.pFundo.Margin = new System.Windows.Forms.Padding(0);
             this.pFundo.Name = "pFundo";
-            this.pFundo.Size = new System.Drawing.Size(586, 250);
+            this.pFundo.Size = new System.Drawing.Size(570, 234);
             this.pFundo.TabIndex = 7;
             // 
             // btConfirmar
@@ -106,7 +106,7 @@
             this.ClientSize = new System.Drawing.Size(586, 250);
             this.ControlBox = false;
             this.Controls.Add(this.pFundo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(586, 250);
@@ -116,7 +116,6 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "AlterarMesa";
             this.TopMost = true;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AlterarMesa_KeyDown);
             this.pFundo.ResumeLayout(false);

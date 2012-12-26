@@ -79,7 +79,7 @@ namespace Pizzaria.Classes
                 //o \n serve como paper feed na impressora...
 
                 mr.PrintText(line++, 01, pont);
-                mr.PrintText(line, 01, "|Data:" + DateTime.Now.ToShortDateString()); mr.PrintText(line++, 37, "|");
+                mr.PrintText(line, 01, "|Data:" + leitu.dataLeitura); mr.PrintText(line++, 37, "|");
                 mr.PrintText(line, 01, "|Hora:" + DateTime.Now.ToShortTimeString()); mr.PrintText(line++, 37, "|");
 
                 mr.PrintText(line++, 01, pont);
@@ -120,6 +120,7 @@ namespace Pizzaria.Classes
                 mr.PrintText(line++, 01, pont);
                 //--------------------------------
                 mr.PrintText(line, 01, "|"); mr.PrintText(line++, 37, "|");
+                mr.PrintText(line, 01, "|Data Impresao :" + DateTime.Now.ToShortDateString()); mr.PrintText(line++, 37, "|");
                 mr.PrintText(line++, 01, "|___________________________________|");
 
 

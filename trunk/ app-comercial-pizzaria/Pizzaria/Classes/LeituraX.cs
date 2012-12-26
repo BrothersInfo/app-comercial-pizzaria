@@ -16,12 +16,14 @@ namespace Pizzaria.Classes
         public double totCredito;
         public double totDebito;
         public double totCheque;
+        public string dataLeitura;
 
         public LeituraX()
         {
            totCheque =  totDinheiro =   totCredito =  totDebito = valorTotal = 0;
            itens = new List<Item>();
            data = DateTime.Now.ToShortDateString();
+            
            hora = DateTime.Now.ToShortTimeString();
            empresa = new Banco.Banco().carregaComanda().Rows[0].ItemArray.GetValue(0).ToString();
         }

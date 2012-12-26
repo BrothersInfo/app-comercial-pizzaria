@@ -72,10 +72,8 @@
             this.panBut.Controls.Add(this.tabLayINFO);
             this.panBut.Location = new System.Drawing.Point(0, 0);
             this.panBut.Margin = new System.Windows.Forms.Padding(0);
-            this.panBut.MaximumSize = new System.Drawing.Size(712, 240);
-            this.panBut.MinimumSize = new System.Drawing.Size(712, 240);
             this.panBut.Name = "panBut";
-            this.panBut.Size = new System.Drawing.Size(712, 240);
+            this.panBut.Size = new System.Drawing.Size(703, 231);
             this.panBut.TabIndex = 23;
             // 
             // tabLayDescricao
@@ -85,13 +83,13 @@
             this.tabLayDescricao.Controls.Add(this.lvInfo, 0, 0);
             this.tabLayDescricao.Controls.Add(this.tlpGAmb, 0, 1);
             this.tabLayDescricao.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabLayDescricao.Location = new System.Drawing.Point(159, 0);
+            this.tabLayDescricao.Location = new System.Drawing.Point(131, 0);
             this.tabLayDescricao.Margin = new System.Windows.Forms.Padding(0, 0, 1, 0);
             this.tabLayDescricao.Name = "tabLayDescricao";
             this.tabLayDescricao.RowCount = 2;
             this.tabLayDescricao.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 126F));
             this.tabLayDescricao.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 194F));
-            this.tabLayDescricao.Size = new System.Drawing.Size(551, 238);
+            this.tabLayDescricao.Size = new System.Drawing.Size(570, 229);
             this.tabLayDescricao.TabIndex = 20;
             // 
             // lvInfo
@@ -113,7 +111,7 @@
             this.lvInfo.Location = new System.Drawing.Point(3, 0);
             this.lvInfo.Margin = new System.Windows.Forms.Padding(3, 0, 2, 0);
             this.lvInfo.Name = "lvInfo";
-            this.lvInfo.Size = new System.Drawing.Size(546, 126);
+            this.lvInfo.Size = new System.Drawing.Size(565, 126);
             this.lvInfo.TabIndex = 32;
             this.lvInfo.UseCompatibleStateImageBehavior = false;
             this.lvInfo.View = System.Windows.Forms.View.Details;
@@ -157,14 +155,13 @@
             this.tlpGAmb.Controls.Add(this.lvGarcon, 1, 0);
             this.tlpGAmb.Controls.Add(this.pValor, 0, 0);
             this.tlpGAmb.Controls.Add(this.lvMesa, 2, 0);
-            this.tlpGAmb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpGAmb.Location = new System.Drawing.Point(0, 126);
             this.tlpGAmb.Margin = new System.Windows.Forms.Padding(0, 0, 1, 1);
             this.tlpGAmb.Name = "tlpGAmb";
             this.tlpGAmb.RowCount = 1;
             this.tlpGAmb.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpGAmb.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 193F));
-            this.tlpGAmb.Size = new System.Drawing.Size(550, 193);
+            this.tlpGAmb.Size = new System.Drawing.Size(569, 104);
             this.tlpGAmb.TabIndex = 0;
             // 
             // lvGarcon
@@ -179,10 +176,10 @@
             this.lvGarcon.FullRowSelect = true;
             this.lvGarcon.GridLines = true;
             this.lvGarcon.HoverSelection = true;
-            this.lvGarcon.Location = new System.Drawing.Point(172, 3);
+            this.lvGarcon.Location = new System.Drawing.Point(180, 3);
             this.lvGarcon.Margin = new System.Windows.Forms.Padding(3, 3, 1, 6);
             this.lvGarcon.Name = "lvGarcon";
-            this.lvGarcon.Size = new System.Drawing.Size(197, 184);
+            this.lvGarcon.Size = new System.Drawing.Size(208, 95);
             this.lvGarcon.TabIndex = 0;
             this.lvGarcon.UseCompatibleStateImageBehavior = false;
             this.lvGarcon.View = System.Windows.Forms.View.Details;
@@ -205,7 +202,7 @@
             this.pValor.Location = new System.Drawing.Point(0, 0);
             this.pValor.Margin = new System.Windows.Forms.Padding(0);
             this.pValor.Name = "pValor";
-            this.pValor.Size = new System.Drawing.Size(169, 193);
+            this.pValor.Size = new System.Drawing.Size(177, 104);
             this.pValor.TabIndex = 34;
             // 
             // mtValor
@@ -213,7 +210,7 @@
             this.mtValor.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.mtValor.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtValor.ForeColor = System.Drawing.Color.DarkRed;
-            this.mtValor.Location = new System.Drawing.Point(17, 49);
+            this.mtValor.Location = new System.Drawing.Point(21, 46);
             this.mtValor.Mask = "0,00";
             this.mtValor.Name = "mtValor";
             this.mtValor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -226,7 +223,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Maroon;
-            this.label4.Location = new System.Drawing.Point(43, 16);
+            this.label4.Location = new System.Drawing.Point(47, 13);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 30);
             this.label4.TabIndex = 18;
@@ -244,10 +241,10 @@
             this.lvMesa.FullRowSelect = true;
             this.lvMesa.GridLines = true;
             this.lvMesa.HoverSelection = true;
-            this.lvMesa.Location = new System.Drawing.Point(373, 3);
+            this.lvMesa.Location = new System.Drawing.Point(392, 3);
             this.lvMesa.Margin = new System.Windows.Forms.Padding(3, 3, 1, 6);
             this.lvMesa.Name = "lvMesa";
-            this.lvMesa.Size = new System.Drawing.Size(176, 184);
+            this.lvMesa.Size = new System.Drawing.Size(176, 95);
             this.lvMesa.TabIndex = 0;
             this.lvMesa.UseCompatibleStateImageBehavior = false;
             this.lvMesa.View = System.Windows.Forms.View.Details;
@@ -275,7 +272,7 @@
             this.tabLayINFO.RowCount = 1;
             this.tabLayINFO.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tabLayINFO.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 238F));
-            this.tabLayINFO.Size = new System.Drawing.Size(159, 238);
+            this.tabLayINFO.Size = new System.Drawing.Size(131, 229);
             this.tabLayINFO.TabIndex = 11;
             // 
             // tlpBotao
@@ -295,7 +292,7 @@
             this.tlpBotao.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tlpBotao.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tlpBotao.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpBotao.Size = new System.Drawing.Size(159, 238);
+            this.tlpBotao.Size = new System.Drawing.Size(131, 229);
             this.tlpBotao.TabIndex = 11;
             // 
             // btEncerrar
@@ -306,7 +303,7 @@
             this.btEncerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btEncerrar.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btEncerrar.ForeColor = System.Drawing.Color.Maroon;
-            this.btEncerrar.Location = new System.Drawing.Point(36, 26);
+            this.btEncerrar.Location = new System.Drawing.Point(22, 24);
             this.btEncerrar.Margin = new System.Windows.Forms.Padding(0);
             this.btEncerrar.Name = "btEncerrar";
             this.btEncerrar.Size = new System.Drawing.Size(87, 43);
@@ -322,7 +319,7 @@
             this.btVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btVoltar.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btVoltar.ForeColor = System.Drawing.Color.White;
-            this.btVoltar.Location = new System.Drawing.Point(36, 180);
+            this.btVoltar.Location = new System.Drawing.Point(22, 172);
             this.btVoltar.Margin = new System.Windows.Forms.Padding(0);
             this.btVoltar.Name = "btVoltar";
             this.btVoltar.Size = new System.Drawing.Size(87, 43);
@@ -338,7 +335,7 @@
             this.btImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btImprimir.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btImprimir.ForeColor = System.Drawing.Color.White;
-            this.btImprimir.Location = new System.Drawing.Point(36, 109);
+            this.btImprimir.Location = new System.Drawing.Point(22, 103);
             this.btImprimir.Margin = new System.Windows.Forms.Padding(0);
             this.btImprimir.Name = "btImprimir";
             this.btImprimir.Size = new System.Drawing.Size(87, 43);
@@ -353,7 +350,7 @@
             this.ClientSize = new System.Drawing.Size(712, 240);
             this.ControlBox = false;
             this.Controls.Add(this.panBut);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(712, 240);
@@ -363,7 +360,6 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "SubVenda";
             this.TopMost = true;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SubVenda_KeyDown);
             this.panBut.ResumeLayout(false);

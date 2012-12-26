@@ -95,7 +95,7 @@
             this.btCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btCancelar.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCancelar.ForeColor = System.Drawing.Color.Maroon;
-            this.btCancelar.Location = new System.Drawing.Point(313, 106);
+            this.btCancelar.Location = new System.Drawing.Point(310, 106);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(124, 57);
             this.btCancelar.TabIndex = 3;
@@ -108,7 +108,7 @@
             this.btConfirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btConfirmar.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btConfirmar.ForeColor = System.Drawing.Color.Maroon;
-            this.btConfirmar.Location = new System.Drawing.Point(313, 43);
+            this.btConfirmar.Location = new System.Drawing.Point(310, 43);
             this.btConfirmar.Name = "btConfirmar";
             this.btConfirmar.Size = new System.Drawing.Size(124, 57);
             this.btConfirmar.TabIndex = 2;
@@ -128,7 +128,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(441, 171);
+            this.ClientSize = new System.Drawing.Size(437, 167);
             this.ControlBox = false;
             this.Controls.Add(this.tbUsuario);
             this.Controls.Add(this.btCancelar);
@@ -138,7 +138,7 @@
             this.Controls.Add(this.btConfirmar);
             this.Controls.Add(this.lbNovoNomeGarcon);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SenhaAcesso";
             this.ShowIcon = false;

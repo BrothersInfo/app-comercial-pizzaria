@@ -34,11 +34,14 @@
             this.btEncerrar = new System.Windows.Forms.Button();
             this.btAnular = new System.Windows.Forms.Button();
             this.gBoxNumeros = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbNao = new System.Windows.Forms.RadioButton();
+            this.rbSim = new System.Windows.Forms.RadioButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.mtDesconto = new System.Windows.Forms.MaskedTextBox();
+            this.tbDesonto = new System.Windows.Forms.TextBox();
             this.lbDesconto = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.mtValor = new System.Windows.Forms.MaskedTextBox();
+            this.tbValor = new System.Windows.Forms.TextBox();
             this.lbValDesc = new System.Windows.Forms.Label();
             this.lbTrocoNumero = new System.Windows.Forms.Label();
             this.lbTroco = new System.Windows.Forms.Label();
@@ -53,13 +56,11 @@
             this.rbCredito = new System.Windows.Forms.RadioButton();
             this.rbDinheiro = new System.Windows.Forms.RadioButton();
             this.pFundo = new System.Windows.Forms.Panel();
-            this.rbSim = new System.Windows.Forms.RadioButton();
-            this.rbNao = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tlPDinheiro.SuspendLayout();
             this.tlbNivel2.SuspendLayout();
             this.panEsquerda.SuspendLayout();
             this.gBoxNumeros.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pCentro.SuspendLayout();
@@ -67,7 +68,6 @@
             this.panValorTotal.SuspendLayout();
             this.gbFormaPag.SuspendLayout();
             this.pFundo.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlPDinheiro
@@ -83,7 +83,7 @@
             this.tlPDinheiro.RowCount = 1;
             this.tlPDinheiro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlPDinheiro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlPDinheiro.Size = new System.Drawing.Size(798, 248);
+            this.tlPDinheiro.Size = new System.Drawing.Size(782, 232);
             this.tlPDinheiro.TabIndex = 1;
             // 
             // tlbNivel2
@@ -102,7 +102,7 @@
             this.tlbNivel2.RowCount = 1;
             this.tlbNivel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlbNivel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tlbNivel2.Size = new System.Drawing.Size(798, 248);
+            this.tlbNivel2.Size = new System.Drawing.Size(782, 232);
             this.tlbNivel2.TabIndex = 0;
             // 
             // panEsquerda
@@ -113,7 +113,7 @@
             this.panEsquerda.Location = new System.Drawing.Point(0, 0);
             this.panEsquerda.Margin = new System.Windows.Forms.Padding(0);
             this.panEsquerda.Name = "panEsquerda";
-            this.panEsquerda.Size = new System.Drawing.Size(223, 248);
+            this.panEsquerda.Size = new System.Drawing.Size(216, 232);
             this.panEsquerda.TabIndex = 1;
             // 
             // btEncerrar
@@ -151,36 +151,76 @@
             this.gBoxNumeros.Controls.Add(this.lbTroco);
             this.gBoxNumeros.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gBoxNumeros.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gBoxNumeros.Location = new System.Drawing.Point(506, 0);
+            this.gBoxNumeros.Location = new System.Drawing.Point(490, 0);
             this.gBoxNumeros.Margin = new System.Windows.Forms.Padding(0);
             this.gBoxNumeros.Name = "gBoxNumeros";
-            this.gBoxNumeros.Size = new System.Drawing.Size(292, 248);
+            this.gBoxNumeros.Size = new System.Drawing.Size(292, 232);
             this.gBoxNumeros.TabIndex = 0;
             this.gBoxNumeros.TabStop = false;
             this.gBoxNumeros.Text = "Dados do Pagamento";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbNao);
+            this.groupBox1.Controls.Add(this.rbSim);
+            this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(12, 165);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(254, 59);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Cupom Não Fiscal - Imprimir?";
+            // 
+            // rbNao
+            // 
+            this.rbNao.AutoSize = true;
+            this.rbNao.Checked = true;
+            this.rbNao.Font = new System.Drawing.Font("Arial", 10F);
+            this.rbNao.Location = new System.Drawing.Point(136, 25);
+            this.rbNao.Name = "rbNao";
+            this.rbNao.Size = new System.Drawing.Size(51, 20);
+            this.rbNao.TabIndex = 4;
+            this.rbNao.TabStop = true;
+            this.rbNao.Text = "Não";
+            this.rbNao.UseVisualStyleBackColor = true;
+            // 
+            // rbSim
+            // 
+            this.rbSim.AutoSize = true;
+            this.rbSim.Font = new System.Drawing.Font("Arial", 10F);
+            this.rbSim.Location = new System.Drawing.Point(59, 25);
+            this.rbSim.Name = "rbSim";
+            this.rbSim.Size = new System.Drawing.Size(49, 20);
+            this.rbSim.TabIndex = 4;
+            this.rbSim.Text = "Sim";
+            this.rbSim.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.mtDesconto);
+            this.panel2.Controls.Add(this.tbDesonto);
             this.panel2.Controls.Add(this.lbDesconto);
             this.panel2.Location = new System.Drawing.Point(12, 86);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(254, 55);
             this.panel2.TabIndex = 1;
+            this.panel2.Visible = false;
             // 
-            // mtDesconto
+            // tbDesonto
             // 
-            this.mtDesconto.Font = new System.Drawing.Font("Arial", 18F);
-            this.mtDesconto.ForeColor = System.Drawing.Color.DarkRed;
-            this.mtDesconto.Location = new System.Drawing.Point(161, 10);
-            this.mtDesconto.Mask = "000,00";
-            this.mtDesconto.Name = "mtDesconto";
-            this.mtDesconto.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.mtDesconto.Size = new System.Drawing.Size(86, 35);
-            this.mtDesconto.TabIndex = 0;
-            this.mtDesconto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtDesconto_KeyPress);
+            this.tbDesonto.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbDesonto.Font = new System.Drawing.Font("Arial", 18F);
+            this.tbDesonto.Location = new System.Drawing.Point(134, 8);
+            this.tbDesonto.Name = "tbDesonto";
+            this.tbDesonto.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tbDesonto.Size = new System.Drawing.Size(113, 35);
+            this.tbDesonto.TabIndex = 28;
+            this.tbDesonto.Enter += new System.EventHandler(this.tbDesonto_Enter);
+            this.tbDesonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDesonto_KeyPress);
+            this.tbDesonto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbDesonto_KeyUp);
+            this.tbDesonto.Leave += new System.EventHandler(this.tbDesonto_Leave);
             // 
             // lbDesconto
             // 
@@ -197,31 +237,33 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.mtValor);
+            this.panel1.Controls.Add(this.tbValor);
             this.panel1.Controls.Add(this.lbValDesc);
             this.panel1.Location = new System.Drawing.Point(12, 25);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(254, 55);
             this.panel1.TabIndex = 0;
             // 
-            // mtValor
+            // tbValor
             // 
-            this.mtValor.Font = new System.Drawing.Font("Arial", 18F);
-            this.mtValor.ForeColor = System.Drawing.Color.DarkRed;
-            this.mtValor.Location = new System.Drawing.Point(161, 10);
-            this.mtValor.Mask = "000.00";
-            this.mtValor.Name = "mtValor";
-            this.mtValor.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.mtValor.Size = new System.Drawing.Size(86, 35);
-            this.mtValor.TabIndex = 27;
-            this.mtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtValor_KeyPress);
+            this.tbValor.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbValor.Font = new System.Drawing.Font("Arial", 18F);
+            this.tbValor.Location = new System.Drawing.Point(134, 10);
+            this.tbValor.Name = "tbValor";
+            this.tbValor.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tbValor.Size = new System.Drawing.Size(113, 35);
+            this.tbValor.TabIndex = 26;
+            this.tbValor.Enter += new System.EventHandler(this.textBox1_Enter);
+            this.tbValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.tbValor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyUp);
+            this.tbValor.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // lbValDesc
             // 
             this.lbValDesc.AutoSize = true;
             this.lbValDesc.Font = new System.Drawing.Font("Arial", 15F);
             this.lbValDesc.ForeColor = System.Drawing.Color.DarkRed;
-            this.lbValDesc.Location = new System.Drawing.Point(3, 15);
+            this.lbValDesc.Location = new System.Drawing.Point(3, 19);
             this.lbValDesc.Name = "lbValDesc";
             this.lbValDesc.Size = new System.Drawing.Size(125, 23);
             this.lbValDesc.TabIndex = 25;
@@ -232,7 +274,7 @@
             this.lbTrocoNumero.AutoSize = true;
             this.lbTrocoNumero.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTrocoNumero.ForeColor = System.Drawing.Color.DarkRed;
-            this.lbTrocoNumero.Location = new System.Drawing.Point(145, 154);
+            this.lbTrocoNumero.Location = new System.Drawing.Point(145, 145);
             this.lbTrocoNumero.Name = "lbTrocoNumero";
             this.lbTrocoNumero.Size = new System.Drawing.Size(123, 27);
             this.lbTrocoNumero.TabIndex = 24;
@@ -243,7 +285,7 @@
             this.lbTroco.AutoSize = true;
             this.lbTroco.Font = new System.Drawing.Font("Arial", 15F);
             this.lbTroco.ForeColor = System.Drawing.Color.DarkRed;
-            this.lbTroco.Location = new System.Drawing.Point(19, 156);
+            this.lbTroco.Location = new System.Drawing.Point(19, 147);
             this.lbTroco.Name = "lbTroco";
             this.lbTroco.Size = new System.Drawing.Size(60, 23);
             this.lbTroco.TabIndex = 23;
@@ -254,10 +296,10 @@
             this.pCentro.Controls.Add(this.gbValor);
             this.pCentro.Controls.Add(this.gbFormaPag);
             this.pCentro.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pCentro.Location = new System.Drawing.Point(223, 0);
+            this.pCentro.Location = new System.Drawing.Point(216, 0);
             this.pCentro.Margin = new System.Windows.Forms.Padding(0);
             this.pCentro.Name = "pCentro";
-            this.pCentro.Size = new System.Drawing.Size(283, 248);
+            this.pCentro.Size = new System.Drawing.Size(274, 232);
             this.pCentro.TabIndex = 2;
             // 
             // gbValor
@@ -268,7 +310,7 @@
             this.gbValor.Location = new System.Drawing.Point(0, 137);
             this.gbValor.Margin = new System.Windows.Forms.Padding(0);
             this.gbValor.Name = "gbValor";
-            this.gbValor.Size = new System.Drawing.Size(283, 111);
+            this.gbValor.Size = new System.Drawing.Size(274, 95);
             this.gbValor.TabIndex = 2;
             this.gbValor.TabStop = false;
             this.gbValor.Text = "Valor da Comanda";
@@ -316,7 +358,7 @@
             this.gbFormaPag.Font = new System.Drawing.Font("Arial", 12F);
             this.gbFormaPag.Location = new System.Drawing.Point(0, 0);
             this.gbFormaPag.Name = "gbFormaPag";
-            this.gbFormaPag.Size = new System.Drawing.Size(283, 137);
+            this.gbFormaPag.Size = new System.Drawing.Size(274, 137);
             this.gbFormaPag.TabIndex = 1;
             this.gbFormaPag.TabStop = false;
             this.gbFormaPag.Text = "Forma de Pagamento";
@@ -374,54 +416,17 @@
             this.pFundo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pFundo.Location = new System.Drawing.Point(0, 0);
             this.pFundo.Name = "pFundo";
-            this.pFundo.Size = new System.Drawing.Size(800, 250);
+            this.pFundo.Size = new System.Drawing.Size(784, 234);
             this.pFundo.TabIndex = 2;
-            // 
-            // rbSim
-            // 
-            this.rbSim.AutoSize = true;
-            this.rbSim.Font = new System.Drawing.Font("Arial", 10F);
-            this.rbSim.Location = new System.Drawing.Point(59, 25);
-            this.rbSim.Name = "rbSim";
-            this.rbSim.Size = new System.Drawing.Size(49, 20);
-            this.rbSim.TabIndex = 4;
-            this.rbSim.Text = "Sim";
-            this.rbSim.UseVisualStyleBackColor = true;
-            // 
-            // rbNao
-            // 
-            this.rbNao.AutoSize = true;
-            this.rbNao.Checked = true;
-            this.rbNao.Font = new System.Drawing.Font("Arial", 10F);
-            this.rbNao.Location = new System.Drawing.Point(136, 25);
-            this.rbNao.Name = "rbNao";
-            this.rbNao.Size = new System.Drawing.Size(51, 20);
-            this.rbNao.TabIndex = 4;
-            this.rbNao.TabStop = true;
-            this.rbNao.Text = "Não";
-            this.rbNao.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.rbNao);
-            this.groupBox1.Controls.Add(this.rbSim);
-            this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 180);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(254, 59);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Cupom Não Fiscal - Imprimir?";
             // 
             // Encerrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 250);
+            this.ClientSize = new System.Drawing.Size(784, 234);
             this.ControlBox = false;
             this.Controls.Add(this.pFundo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(800, 250);
@@ -431,7 +436,6 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Encerrar";
             this.TopMost = true;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Encerrar_KeyDown);
             this.tlPDinheiro.ResumeLayout(false);
@@ -439,6 +443,8 @@
             this.panEsquerda.ResumeLayout(false);
             this.gBoxNumeros.ResumeLayout(false);
             this.gBoxNumeros.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -450,8 +456,6 @@
             this.gbFormaPag.ResumeLayout(false);
             this.gbFormaPag.PerformLayout();
             this.pFundo.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -470,7 +474,6 @@
         private System.Windows.Forms.RadioButton rbDinheiro;
         private System.Windows.Forms.GroupBox gBoxNumeros;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.MaskedTextBox mtDesconto;
         private System.Windows.Forms.Label lbDesconto;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbValDesc;
@@ -482,9 +485,10 @@
         private System.Windows.Forms.Label lbTotal;
         private System.Windows.Forms.Label lvValorConta;
         private System.Windows.Forms.Panel pFundo;
-        private System.Windows.Forms.MaskedTextBox mtValor;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rbNao;
         private System.Windows.Forms.RadioButton rbSim;
+        private System.Windows.Forms.TextBox tbValor;
+        private System.Windows.Forms.TextBox tbDesonto;
     }
 }

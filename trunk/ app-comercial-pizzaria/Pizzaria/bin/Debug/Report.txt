@@ -1,43 +1,17 @@
-   ---------PIZZARIA DELIRIOS-------- 
- |-----Disk Pizza : 79-36313323------|
+ |------------- LEITURA X -----------|
+  PIZZARIA DELIRIOS
  |-----------------------------------|
- |         Cupom Nao Fiscal          |
+ |Data:25/12/2012                    |
+ |Hora:13:48                         |
  |-----------------------------------|
- |  Data : 26/12/2012 Hora : 00:12   |
+ |HORA  -VENDA  -PAGAMENTO   -VALOR  |
  |-----------------------------------|
- | ID |COD |     DESCRICAO    |CATEG |
- |    QTD Un X VL Un   =  SUB-TOTAL  |
+ |00:06 -Mesa 6  -Dinheiro   -211,75 |
+ |23:47 -Mesa 4  -Dinheiro   -394,00 |
  |-----------------------------------|
- |001 -4   -Atum            -Grande  |
- |      1  X   25,00   = 25,00       |
- |002 -1   -mist Alema      -Grande  |
- |      1  X   23,50   = 23,50       |
- |003 -1   -mist Alema      -Grande  |
- |      1  X   23,50   = 23,50       |
- |004 -2   -mist Alho       -Grande  |
- |      1  X   23,50   = 23,50       |
- |005 -5   -mist Atum II    -Grande  |
- |      1  X   24,00   = 24,00       |
- |006 -1   -mist Alema      -Grande  |
- |      1  X   23,50   = 23,50       |
- |007 -1   -mist Alema      -Grande  |
- |      1  X   23,50   = 23,50       |
- |008 -1   -mist Alema      -Grande  |
- |      1  X   24,25   = 24,25       |
- |009 -1   -Alema           -Grande  |
- |      1  X   21,00   = 21,00       |
- |-----------------------------------|
- |   FORMA DE PAGAMENTO : Dinheiro   |
- |                TOTAL RS : 211,75  |
- |                DINHEIRO : 300,00  |
- |                TROCO    : 88,25   |
+ |             TOTAL R$ 605,75       |
+ |             DINHEIRO RS 605,75    |
  |-----------------------------------|
  |                                   |
- |    OBRIGADO PELA PREFERENCIA!     |
- |                                   |
- |-----------------------------------|
- |--------------------- LAGARTO - SE |
- |-----------------------------------|
- |------------------- Titan Software |
- |-------------- tr3mere@hotmail.com |
+ |Data Impresao :26/12/2012          |
  |___________________________________|
