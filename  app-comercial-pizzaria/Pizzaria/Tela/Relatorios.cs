@@ -485,8 +485,9 @@ namespace Pizzaria.Tela
            
 
             DataTable tabela = new BancoRelatorio().consultaLeituraX(data);
-
+            
             LeituraX lx = new LeituraX();
+            lx.dataLeitura = data;
             for (int i = 0; i < tabela.Rows.Count; i++ )
             {
               

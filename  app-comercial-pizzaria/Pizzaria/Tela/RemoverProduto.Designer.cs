@@ -47,7 +47,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.mtProduto);
             this.panel1.Controls.Add(this.numQuantidade);
-            this.panel1.Location = new System.Drawing.Point(24, 48);
+            this.panel1.Location = new System.Drawing.Point(12, 48);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(380, 84);
             this.panel1.TabIndex = 21;
@@ -93,7 +93,7 @@
             this.btCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btCancelar.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCancelar.ForeColor = System.Drawing.Color.White;
-            this.btCancelar.Location = new System.Drawing.Point(56, 152);
+            this.btCancelar.Location = new System.Drawing.Point(44, 141);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(102, 39);
             this.btCancelar.TabIndex = 23;
@@ -106,7 +106,7 @@
             this.btConfirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btConfirmar.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btConfirmar.ForeColor = System.Drawing.Color.Maroon;
-            this.btConfirmar.Location = new System.Drawing.Point(256, 151);
+            this.btConfirmar.Location = new System.Drawing.Point(218, 140);
             this.btConfirmar.Name = "btConfirmar";
             this.btConfirmar.Size = new System.Drawing.Size(129, 40);
             this.btConfirmar.TabIndex = 22;
@@ -147,17 +147,17 @@
             this.pFundo.Location = new System.Drawing.Point(0, 0);
             this.pFundo.Margin = new System.Windows.Forms.Padding(0);
             this.pFundo.Name = "pFundo";
-            this.pFundo.Size = new System.Drawing.Size(422, 209);
+            this.pFundo.Size = new System.Drawing.Size(406, 193);
             this.pFundo.TabIndex = 26;
             // 
             // RemoverProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 209);
+            this.ClientSize = new System.Drawing.Size(406, 193);
             this.ControlBox = false;
             this.Controls.Add(this.pFundo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(422, 209);
@@ -167,7 +167,6 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "RemoverProduto";
             this.TopMost = true;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RemoverProduto_KeyDown);
             this.panel1.ResumeLayout(false);

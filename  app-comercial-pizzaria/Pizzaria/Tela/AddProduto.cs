@@ -793,7 +793,7 @@ namespace Pizzaria.Tela
                     if (can)
                         conjGarc.Add(getGarcon());
                 }
-                    if ((MessageBox.Show("Deseja acrescentar outro Produto? ", "Pizzaria Delirius", MessageBoxButtons.YesNo)) == DialogResult.Yes)
+                    if ((MessageBox.Show("Deseja acrescentar outro Produto? ", "INFORMAÇÃO", MessageBoxButtons.YesNo)) == DialogResult.Yes)
                 {
                     mtCodigo1.Clear();
                     mtCodigo2.Clear();

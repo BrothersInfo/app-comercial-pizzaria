@@ -197,13 +197,18 @@ namespace Pizzaria.Banco
                      +" inner join venda vv on (vv.cod_venda = vvg.cod_venda) where vvg.cod_venda =  v.cod_venda order by vv.cod_venda desc limit 1) as \"Garcon\","
                 + " p.descricao as \"Pagamento\","
                 +" (CASE v.valortotal >0  WHEN true THEN (trim(to_char( v.valorTotal,'9999.99'))) ELSE '0.00'  end ) as \"Valor\","
-                +"  a.descricao as \"Ambiente\""
+              
+                +" (select x.descricao from ambiente x where x.cod_ambiente = (select mm.cod_ambiente from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) "
+	               + " inner join venda vv on (vv.cod_venda = vmm.cod_venda) "
+		           + " where v.cod_venda = vv.cod_venda order by vv.cod_venda desc limit 1)) as \"Ambiente\" "
+                
+                
                 +" from  venda v " 
-                +" inner join vendaMesa vm              on (vm.cod_venda    = v.cod_venda) "    
-                +" inner join mesa m                    on (m.cod_mesa      = vm.cod_mesa) "
+               
+               
                 +" inner join caixa x                   on (x.cod_caixa     = v.cod_caixa) "
                 +" inner join pagamento p               on (p.cod_pagamento = v.cod_pagamento) "
-                +" inner join ambiente a                on (a.cod_ambiente  = m.cod_ambiente) "
+             
                 +" where v.aberta = false ";
             if (hasFiltro)
                 query += " and "+ filtroQuery(  filtro) +" = "+ (1+valorFiltro);
@@ -229,11 +234,8 @@ namespace Pizzaria.Banco
                  + " p.cod_pagamento as \"Pagamento\","
                 + " v.valorTotal "
                 + " from  venda v "
-                + " inner join vendaMesa vm              on (vm.cod_venda    = v.cod_venda) "
-                + " inner join mesa m                    on (m.cod_mesa      = vm.cod_mesa) "
                 + " inner join caixa x                   on (x.cod_caixa     = v.cod_caixa) "
                 + " inner join pagamento p               on (p.cod_pagamento = v.cod_pagamento) "
-                + " inner join ambiente a                on (a.cod_ambiente  = m.cod_ambiente) "
                 + " where v.aberta = false "+
          
                 "and ((v.dataVenda = '" + data + "' and v.horario > ' 06:00' ) or (v.dataVenda = date '" 

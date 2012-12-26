@@ -98,7 +98,7 @@
             this.panFundo.Location = new System.Drawing.Point(0, 0);
             this.panFundo.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.panFundo.Name = "panFundo";
-            this.panFundo.Size = new System.Drawing.Size(963, 250);
+            this.panFundo.Size = new System.Drawing.Size(947, 234);
             this.panFundo.TabIndex = 2;
             // 
             // panel1
@@ -604,7 +604,7 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(961, 248);
+            this.shapeContainer1.Size = new System.Drawing.Size(945, 232);
             this.shapeContainer1.TabIndex = 24;
             this.shapeContainer1.TabStop = false;
             // 
@@ -620,9 +620,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(963, 250);
+            this.ClientSize = new System.Drawing.Size(947, 234);
+            this.ControlBox = false;
             this.Controls.Add(this.panFundo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
@@ -633,7 +634,6 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "AddProduto";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddProduto_KeyDown);
             this.panFundo.ResumeLayout(false);
             this.panFundo.PerformLayout();

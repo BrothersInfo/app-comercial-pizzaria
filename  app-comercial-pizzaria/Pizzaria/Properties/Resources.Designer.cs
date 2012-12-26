@@ -186,6 +186,13 @@ namespace Pizzaria.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Sem_título {
+            get {
+                object obj = ResourceManager.GetObject("Sem título", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Voltar_64 {
             get {
                 object obj = ResourceManager.GetObject("Voltar_64", resourceCulture);
