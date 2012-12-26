@@ -259,6 +259,9 @@
             this.lBalcao.Size = new System.Drawing.Size(136, 27);
             this.lBalcao.TabIndex = 2;
             this.lBalcao.Text = "BALCAO [ B ]";
+            this.lBalcao.Click += new System.EventHandler(this.lBalcao_Click);
+            this.lBalcao.MouseEnter += new System.EventHandler(this.lBalcao_MouseEnter);
+            this.lBalcao.MouseLeave += new System.EventHandler(this.lBalcao_MouseLeave);
             // 
             // tlpLO
             // 

@@ -101,6 +101,16 @@
             this.cbGarconDia = new System.Windows.Forms.ComboBox();
             this.gbGarconData = new System.Windows.Forms.GroupBox();
             this.cbGarconData = new System.Windows.Forms.ComboBox();
+            this.flpLeituraX = new System.Windows.Forms.FlowLayoutPanel();
+            this.btLeituraX = new System.Windows.Forms.Button();
+            this.gbLeitX = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbAnoX = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbMesX = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cbDiaX = new System.Windows.Forms.ComboBox();
+            this.LCodigo = new System.Windows.Forms.Label();
             this.pTipoRelatorio = new System.Windows.Forms.Panel();
             this.tlpFundo = new System.Windows.Forms.TableLayoutPanel();
             this.pFiltro = new System.Windows.Forms.Panel();
@@ -132,6 +142,8 @@
             this.gbPeriodoGarcon.SuspendLayout();
             this.gbGarconDia.SuspendLayout();
             this.gbGarconData.SuspendLayout();
+            this.flpLeituraX.SuspendLayout();
+            this.gbLeitX.SuspendLayout();
             this.pTipoRelatorio.SuspendLayout();
             this.tlpFundo.SuspendLayout();
             this.pFiltro.SuspendLayout();
@@ -155,7 +167,8 @@
             this.cbRelatorio.Items.AddRange(new object[] {
             "Venda",
             "Garçon",
-            "Produto"});
+            "Produto",
+            "Leitura X"});
             this.cbRelatorio.Location = new System.Drawing.Point(67, 57);
             this.cbRelatorio.Name = "cbRelatorio";
             this.cbRelatorio.Size = new System.Drawing.Size(121, 28);
@@ -326,12 +339,13 @@
             this.flpPrincipal.Controls.Add(this.flpVenda);
             this.flpPrincipal.Controls.Add(this.flpProduto);
             this.flpPrincipal.Controls.Add(this.flpGarcon);
+            this.flpPrincipal.Controls.Add(this.flpLeituraX);
             this.flpPrincipal.Dock = System.Windows.Forms.DockStyle.Right;
             this.flpPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.flpPrincipal.Location = new System.Drawing.Point(245, 0);
             this.flpPrincipal.Margin = new System.Windows.Forms.Padding(0);
             this.flpPrincipal.Name = "flpPrincipal";
-            this.flpPrincipal.Size = new System.Drawing.Size(1048, 102);
+            this.flpPrincipal.Size = new System.Drawing.Size(1048, 95);
             this.flpPrincipal.TabIndex = 9;
             // 
             // flpVenda
@@ -1128,6 +1142,168 @@
             this.cbGarconData.TabIndex = 0;
             this.cbGarconData.SelectedIndexChanged += new System.EventHandler(this.cbGarconData_SelectedIndexChanged);
             // 
+            // flpLeituraX
+            // 
+            this.flpLeituraX.Controls.Add(this.btLeituraX);
+            this.flpLeituraX.Controls.Add(this.gbLeitX);
+            this.flpLeituraX.Controls.Add(this.LCodigo);
+            this.flpLeituraX.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flpLeituraX.Location = new System.Drawing.Point(0, 294);
+            this.flpLeituraX.Margin = new System.Windows.Forms.Padding(0);
+            this.flpLeituraX.Name = "flpLeituraX";
+            this.flpLeituraX.Size = new System.Drawing.Size(1048, 99);
+            this.flpLeituraX.TabIndex = 3;
+            // 
+            // btLeituraX
+            // 
+            this.btLeituraX.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btLeituraX.BackgroundImage = global::Pizzaria.Properties.Resources.BtImprimir;
+            this.btLeituraX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btLeituraX.Location = new System.Drawing.Point(919, 22);
+            this.btLeituraX.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btLeituraX.Name = "btLeituraX";
+            this.btLeituraX.Size = new System.Drawing.Size(127, 50);
+            this.btLeituraX.TabIndex = 6;
+            this.btLeituraX.UseVisualStyleBackColor = true;
+            this.btLeituraX.Click += new System.EventHandler(this.btLeituraX_Click);
+            // 
+            // gbLeitX
+            // 
+            this.gbLeitX.Controls.Add(this.label7);
+            this.gbLeitX.Controls.Add(this.cbAnoX);
+            this.gbLeitX.Controls.Add(this.label8);
+            this.gbLeitX.Controls.Add(this.cbMesX);
+            this.gbLeitX.Controls.Add(this.label9);
+            this.gbLeitX.Controls.Add(this.cbDiaX);
+            this.gbLeitX.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbLeitX.Location = new System.Drawing.Point(691, 3);
+            this.gbLeitX.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbLeitX.Name = "gbLeitX";
+            this.gbLeitX.Size = new System.Drawing.Size(224, 88);
+            this.gbLeitX.TabIndex = 1;
+            this.gbLeitX.TabStop = false;
+            this.gbLeitX.Text = "Data";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(168, 25);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(28, 15);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Ano";
+            // 
+            // cbAnoX
+            // 
+            this.cbAnoX.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAnoX.FormattingEnabled = true;
+            this.cbAnoX.Items.AddRange(new object[] {
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020"});
+            this.cbAnoX.Location = new System.Drawing.Point(167, 41);
+            this.cbAnoX.Name = "cbAnoX";
+            this.cbAnoX.Size = new System.Drawing.Size(51, 23);
+            this.cbAnoX.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(81, 25);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(30, 15);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "Mês";
+            // 
+            // cbMesX
+            // 
+            this.cbMesX.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMesX.FormattingEnabled = true;
+            this.cbMesX.Items.AddRange(new object[] {
+            "janeiro",
+            "fevereiro",
+            "março",
+            "abril",
+            "maio",
+            "junho",
+            "julho",
+            "agosto",
+            "setembro",
+            "outubro",
+            "novembro",
+            "dezembro"});
+            this.cbMesX.Location = new System.Drawing.Point(64, 41);
+            this.cbMesX.Name = "cbMesX";
+            this.cbMesX.Size = new System.Drawing.Size(97, 23);
+            this.cbMesX.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 25);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(26, 15);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Dia";
+            // 
+            // cbDiaX
+            // 
+            this.cbDiaX.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDiaX.FormattingEnabled = true;
+            this.cbDiaX.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31"});
+            this.cbDiaX.Location = new System.Drawing.Point(9, 41);
+            this.cbDiaX.Name = "cbDiaX";
+            this.cbDiaX.Size = new System.Drawing.Size(48, 23);
+            this.cbDiaX.TabIndex = 0;
+            // 
+            // LCodigo
+            // 
+            this.LCodigo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LCodigo.AutoSize = true;
+            this.LCodigo.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LCodigo.Location = new System.Drawing.Point(194, 35);
+            this.LCodigo.Name = "LCodigo";
+            this.LCodigo.Size = new System.Drawing.Size(492, 24);
+            this.LCodigo.TabIndex = 7;
+            this.LCodigo.Text = "LEITURA X - CLIQUE NO BOTÃO PARA IMPRIMIR";
+            // 
             // pTipoRelatorio
             // 
             this.pTipoRelatorio.Controls.Add(this.cbRelatorio);
@@ -1136,7 +1312,7 @@
             this.pTipoRelatorio.Location = new System.Drawing.Point(0, 0);
             this.pTipoRelatorio.Margin = new System.Windows.Forms.Padding(0);
             this.pTipoRelatorio.Name = "pTipoRelatorio";
-            this.pTipoRelatorio.Size = new System.Drawing.Size(245, 102);
+            this.pTipoRelatorio.Size = new System.Drawing.Size(245, 95);
             this.pTipoRelatorio.TabIndex = 1;
             // 
             // tlpFundo
@@ -1153,7 +1329,7 @@
             this.tlpFundo.Location = new System.Drawing.Point(0, 0);
             this.tlpFundo.Name = "tlpFundo";
             this.tlpFundo.RowCount = 3;
-            this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 102F));
+            this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 95F));
             this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tlpFundo.Size = new System.Drawing.Size(1338, 487);
@@ -1167,7 +1343,7 @@
             this.pFiltro.Location = new System.Drawing.Point(25, 0);
             this.pFiltro.Margin = new System.Windows.Forms.Padding(0);
             this.pFiltro.Name = "pFiltro";
-            this.pFiltro.Size = new System.Drawing.Size(1293, 102);
+            this.pFiltro.Size = new System.Drawing.Size(1293, 95);
             this.pFiltro.TabIndex = 0;
             // 
             // lvConsInfo
@@ -1178,10 +1354,10 @@
             this.lvConsInfo.FullRowSelect = true;
             this.lvConsInfo.GridLines = true;
             this.lvConsInfo.HoverSelection = true;
-            this.lvConsInfo.Location = new System.Drawing.Point(25, 102);
+            this.lvConsInfo.Location = new System.Drawing.Point(25, 95);
             this.lvConsInfo.Margin = new System.Windows.Forms.Padding(0);
             this.lvConsInfo.Name = "lvConsInfo";
-            this.lvConsInfo.Size = new System.Drawing.Size(1293, 335);
+            this.lvConsInfo.Size = new System.Drawing.Size(1293, 342);
             this.lvConsInfo.TabIndex = 45;
             this.lvConsInfo.UseCompatibleStateImageBehavior = false;
             this.lvConsInfo.View = System.Windows.Forms.View.Details;
@@ -1211,6 +1387,7 @@
             this.btEscolhaProduto.TabIndex = 47;
             this.btEscolhaProduto.Text = "EXPORTAR PARA PDF";
             this.btEscolhaProduto.UseVisualStyleBackColor = true;
+            this.btEscolhaProduto.Visible = false;
             this.btEscolhaProduto.Click += new System.EventHandler(this.btEscolhaProduto_Click);
             // 
             // lValor
@@ -1271,6 +1448,10 @@
             this.gbGarconDia.ResumeLayout(false);
             this.gbGarconDia.PerformLayout();
             this.gbGarconData.ResumeLayout(false);
+            this.flpLeituraX.ResumeLayout(false);
+            this.flpLeituraX.PerformLayout();
+            this.gbLeitX.ResumeLayout(false);
+            this.gbLeitX.PerformLayout();
             this.pTipoRelatorio.ResumeLayout(false);
             this.pTipoRelatorio.PerformLayout();
             this.tlpFundo.ResumeLayout(false);
@@ -1362,5 +1543,15 @@
         private System.Windows.Forms.GroupBox gbProdutTipo;
         private System.Windows.Forms.ComboBox cbProdutTipo;
         private System.Windows.Forms.Button btEscolhaProduto;
+        private System.Windows.Forms.FlowLayoutPanel flpLeituraX;
+        private System.Windows.Forms.Button btLeituraX;
+        private System.Windows.Forms.GroupBox gbLeitX;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbAnoX;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cbMesX;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cbDiaX;
+        private System.Windows.Forms.Label LCodigo;
     }
 }

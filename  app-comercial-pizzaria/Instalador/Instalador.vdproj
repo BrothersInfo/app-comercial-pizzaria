@@ -28,12 +28,6 @@
         "Entry"
         {
         "MsmKey" = "8:_132405F65BB2E760DA7BC7C4EBF33C12"
-        "OwnerKey" = "8:_A241C786E0F9498295D3DDC248855B2C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_132405F65BB2E760DA7BC7C4EBF33C12"
         "OwnerKey" = "8:_253CAFD97F604658A99B157B463A61B3"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -81,20 +75,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_605895C110FFE3E48D314E45DE4CA9B2"
-        "OwnerKey" = "8:_A241C786E0F9498295D3DDC248855B2C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_69F916D09609BAFBACBA930A0DB33D77"
         "OwnerKey" = "8:_253CAFD97F604658A99B157B463A61B3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_69F916D09609BAFBACBA930A0DB33D77"
-        "OwnerKey" = "8:_A241C786E0F9498295D3DDC248855B2C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -129,8 +111,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A241C786E0F9498295D3DDC248855B2C"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_A972CF3765F71A69985A024C1525AC75"
+        "OwnerKey" = "8:_253CAFD97F604658A99B157B463A61B3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -153,14 +135,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_DA5C3FDC73F96D6CEC6F1A7740629F9E"
-        "OwnerKey" = "8:_253CAFD97F604658A99B157B463A61B3"
+        "MsmKey" = "8:_C964A5C738D345C596AC46EFFB371D37"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_DA5C3FDC73F96D6CEC6F1A7740629F9E"
-        "OwnerKey" = "8:_A241C786E0F9498295D3DDC248855B2C"
+        "OwnerKey" = "8:_253CAFD97F604658A99B157B463A61B3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -178,13 +160,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_FB187A347CFFC683E4B2F307DCB37C0F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_DA5C3FDC73F96D6CEC6F1A7740629F9E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_605895C110FFE3E48D314E45DE4CA9B2"
+        "OwnerKey" = "8:_77983BCB239F2B1A61A78834E2B6608B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -196,7 +184,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FB187A347CFFC683E4B2F307DCB37C0F"
+        "OwnerKey" = "8:_605895C110FFE3E48D314E45DE4CA9B2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -214,31 +202,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A241C786E0F9498295D3DDC248855B2C"
+        "OwnerKey" = "8:_A972CF3765F71A69985A024C1525AC75"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_132405F65BB2E760DA7BC7C4EBF33C12"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_77983BCB239F2B1A61A78834E2B6608B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A241C786E0F9498295D3DDC248855B2C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_253CAFD97F604658A99B157B463A61B3"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -273,6 +243,16 @@
                     "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
                     "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
                     }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.ReportViewer.10.0"
+                    {
+                    "Name" = "8:Microsoft Visual Studio 2010 Report Viewer"
+                    "ProductCode" = "8:Microsoft.ReportViewer.10.0"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.VisualBasic.PowerPacks.10.0"
+                    {
+                    "Name" = "8:Microsoft Visual Basic PowerPacks 10.0"
+                    "ProductCode" = "8:Microsoft.VisualBasic.PowerPacks.10.0"
+                    }
                     "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
                     {
                     "Name" = "8:Windows Installer 3.1"
@@ -303,6 +283,19 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
             }
         }
     }
@@ -730,23 +723,23 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A241C786E0F9498295D3DDC248855B2C"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A972CF3765F71A69985A024C1525AC75"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Pizzaria, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:MatrixReporter, Version=1.0.2099.24224, Culture=neutral"
                 "ScatterAssemblies"
                 {
-                    "_A241C786E0F9498295D3DDC248855B2C"
+                    "_A972CF3765F71A69985A024C1525AC75"
                     {
-                    "Name" = "8:Pizzaria.exe"
+                    "Name" = "8:MatrixReporter.DLL"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:..\\Pizzaria\\bin\\Debug\\Pizzaria.exe"
+            "SourcePath" = "8:MatrixReporter.DLL"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_F5536B0A4BDE4E9287E3F47046F6A453"
+            "Folder" = "8:_D220FA9928454703883F52759C1EABA9"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -758,7 +751,7 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AB12A02E25C54A7A803E4D2FBEF581A2"
@@ -805,6 +798,26 @@
             {
             "SourcePath" = "8:..\\Pizzaria\\fotos Produtos\\Cervejas 7.jpg"
             "TargetName" = "8:Cervejas 7.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_D220FA9928454703883F52759C1EABA9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C964A5C738D345C596AC46EFFB371D37"
+            {
+            "SourcePath" = "8:..\\Pizzaria\\fotos Produtos\\Suco 12.jpg"
+            "TargetName" = "8:Suco 12.jpg"
             "Tag" = "8:"
             "Folder" = "8:_D220FA9928454703883F52759C1EABA9"
             "Condition" = "8:"
@@ -921,17 +934,6 @@
             "Property" = "8:DesktopFolder"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_27DE75E5C58345B1B95E6E3F9ECC4F87"
-                    {
-                    "Name" = "8:TItã Pizzaria"
-                    "AlwaysCreate" = "11:FALSE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_B1DD574A9AE14D8EBB3A649DD16390C6"
-                        "Folders"
-                        {
-                        }
-                    }
                 }
             }
         }
@@ -951,7 +953,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Titan"
         "ProductCode" = "8:{D1DC6A37-1C23-44AC-9A07-C9C53288F4B0}"
-        "PackageCode" = "8:{4486D1C8-DE66-49D8-BDB8-491EC8C6A6DE}"
+        "PackageCode" = "8:{70E774C3-C44A-45C8-90D1-A94149848F4D}"
         "UpgradeCode" = "8:{7E286C34-8DF6-4E12-8885-1A09F9266D8C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -959,16 +961,16 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:2.0"
-        "Manufacturer" = "8:Titã"
+        "Manufacturer" = "8:Titan"
         "ARPHELPTELEPHONE" = "8:79 9855 4789"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:TiTã Admistrator"
+        "Title" = "8:TiTan Admistrator"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Titã"
+        "ARPCONTACT" = "8:Titan Desenvolvimento"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:Programa Pizzaria"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_53381076549C45A5BB09B80669021B20"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -1073,7 +1075,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_45DF9B607D504659B5624A38A8F840BD"
             {
-            "Name" = "8:Titã Pizzaria"
+            "Name" = "8:Titan Pizzaria"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -1087,7 +1089,7 @@
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C0FDEA8F418C42008DD03B8E4EC2EE47"
             {
-            "Name" = "8:Titã Pizzaria"
+            "Name" = "8:Titan Pizzaria"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"

@@ -59,7 +59,7 @@
             this.tLPGeral.Name = "tLPGeral";
             this.tLPGeral.RowCount = 1;
             this.tLPGeral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tLPGeral.Size = new System.Drawing.Size(1062, 522);
+            this.tLPGeral.Size = new System.Drawing.Size(1058, 518);
             this.tLPGeral.TabIndex = 1;
             // 
             // tlpVenda
@@ -70,14 +70,14 @@
             this.tlpVenda.Controls.Add(this.lvCodigo, 0, 1);
             this.tlpVenda.Controls.Add(this.lvTipo, 0, 0);
             this.tlpVenda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpVenda.Location = new System.Drawing.Point(182, 2);
+            this.tlpVenda.Location = new System.Drawing.Point(178, 2);
             this.tlpVenda.Margin = new System.Windows.Forms.Padding(0);
             this.tlpVenda.Name = "tlpVenda";
             this.tlpVenda.RowCount = 2;
             this.tlpVenda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.95519F));
             this.tlpVenda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.04481F));
             this.tlpVenda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpVenda.Size = new System.Drawing.Size(878, 518);
+            this.tlpVenda.Size = new System.Drawing.Size(878, 514);
             this.tlpVenda.TabIndex = 11;
             // 
             // lvCodigo
@@ -89,10 +89,10 @@
             this.lvCodigo.GridLines = true;
             this.lvCodigo.HoverSelection = true;
             this.lvCodigo.LargeImageList = this.imageList1;
-            this.lvCodigo.Location = new System.Drawing.Point(1, 218);
+            this.lvCodigo.Location = new System.Drawing.Point(1, 216);
             this.lvCodigo.Margin = new System.Windows.Forms.Padding(1);
             this.lvCodigo.Name = "lvCodigo";
-            this.lvCodigo.Size = new System.Drawing.Size(876, 299);
+            this.lvCodigo.Size = new System.Drawing.Size(876, 297);
             this.lvCodigo.SmallImageList = this.imageList1;
             this.lvCodigo.TabIndex = 1;
             this.lvCodigo.UseCompatibleStateImageBehavior = false;
@@ -113,6 +113,7 @@
             this.imageList1.Images.SetKeyName(8, "Bebida Quente 9.jpg");
             this.imageList1.Images.SetKeyName(9, "Wisky 10.jpg");
             this.imageList1.Images.SetKeyName(10, "Vinho 11.jpg");
+            this.imageList1.Images.SetKeyName(11, "Suco 12.jpg");
             // 
             // lvTipo
             // 
@@ -127,7 +128,7 @@
             this.lvTipo.Location = new System.Drawing.Point(1, 1);
             this.lvTipo.Margin = new System.Windows.Forms.Padding(1);
             this.lvTipo.Name = "lvTipo";
-            this.lvTipo.Size = new System.Drawing.Size(876, 215);
+            this.lvTipo.Size = new System.Drawing.Size(876, 213);
             this.lvTipo.TabIndex = 0;
             this.lvTipo.UseCompatibleStateImageBehavior = false;
             this.lvTipo.ItemActivate += new System.EventHandler(this.lvTipo_ItemActivate);
@@ -148,7 +149,7 @@
             this.pEsquerda.Location = new System.Drawing.Point(3, 3);
             this.pEsquerda.Margin = new System.Windows.Forms.Padding(1);
             this.pEsquerda.Name = "pEsquerda";
-            this.pEsquerda.Size = new System.Drawing.Size(176, 516);
+            this.pEsquerda.Size = new System.Drawing.Size(172, 512);
             this.pEsquerda.TabIndex = 1;
             // 
             // btConfirmar
@@ -181,7 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1062, 522);
+            this.ClientSize = new System.Drawing.Size(1058, 518);
             this.ControlBox = false;
             this.Controls.Add(this.tLPGeral);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
