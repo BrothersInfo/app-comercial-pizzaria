@@ -412,9 +412,16 @@ namespace Pizzaria.Tela
         private void btEscolhaProduto_Click(object sender, EventArgs e)
         {
           //  GeneratePDF(retorno);
+            CRelatorio cr = new CRelatorio(6);
+            cr.coluna1 = "um";
+            cr.coluna2 = "dois";
+            cr.coluna3 = "tres";
+            cr.coluna4 = "quatro";
+            cr.coluna5 = "cinco";
+            cr.coluna6 = "seis";
            
            
-            new PdfGenerator(retorno).ShowDialog();
+          //  new PdfGenerator(retorno).ShowDialog();
         }
         private void GeneratePDF(DataTable dataTable)
         {

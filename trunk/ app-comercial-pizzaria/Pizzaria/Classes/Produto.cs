@@ -12,7 +12,7 @@ namespace Pizzaria.Classes
         public double valor;
         public int cod_tamanho;
         public bool impresso;
-        public void setInfo(int cod_prod, int pct, double valor, int tamanho, bool impresso)
+        public void setInfo(int cod_prod, double pct, double valor, int tamanho, bool impresso)
         {
             cod_produto = cod_prod;
             porcentagem = pct;

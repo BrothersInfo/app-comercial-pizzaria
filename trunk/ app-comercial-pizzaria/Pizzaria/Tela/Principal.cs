@@ -210,8 +210,14 @@ namespace Pizzaria.Tela
                 }
                 new AddProduto(num, cod_caixa).ShowDialog();
                 this.Visible = true;
-                carregarMesa(true);
-            }
+                try
+                {
+                    carregarMesa(true);
+                }
+                catch {
+                    //carregarMesa(false); return; 
+                }
+                }
             else
             {
                 this.Visible = false;

@@ -15,7 +15,7 @@
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Tremere\Desktop\inst2.7\</PublishUrl>
+    <PublishUrl>C:\Users\Tremere\Desktop\inst2.7.1\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -25,7 +25,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -80,6 +80,11 @@
     <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="itextsharp">
       <HintPath>..\itextsharp.dll</HintPath>
     </Reference>
@@ -119,6 +124,12 @@
   <ItemGroup>
     <Compile Include="Classes\CRelatorio.cs" />
     <Compile Include="Classes\LeituraX.cs" />
+    <Compile Include="CrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Tela\Abertura.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +212,12 @@
     <Compile Include="Classes\Produto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tela\RelatorioCristal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tela\RelatorioCristal.Designer.cs">
+      <DependentUpon>RelatorioCristal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tela\Relatorios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +259,16 @@
     </Compile>
     <Compile Include="Classes\VendaFull.cs" />
     <Compile Include="Classes\VendaHalf.cs" />
+    <Compile Include="Teste.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Teste.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="CrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportView.rdlc" />
     <EmbeddedResource Include="Tela\Abertura.resx">
       <DependentUpon>Abertura.cs</DependentUpon>
@@ -289,6 +316,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Tela\RelatorioCristal.resx">
+      <DependentUpon>RelatorioCristal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tela\Relatorios.resx">
       <DependentUpon>Relatorios.cs</DependentUpon>
     </EmbeddedResource>
@@ -307,7 +337,12 @@
     <EmbeddedResource Include="Tela\Venda.resx">
       <DependentUpon>Venda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Teste.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Teste.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Pizzaria.Classes.CRelatorio.datasource" />
     <None Include="Pizzaria_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">

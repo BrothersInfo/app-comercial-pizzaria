@@ -19,7 +19,52 @@ namespace Pizzaria.Banco
         {
             return new NpgsqlConnection(conexao);
         }
+        //-------------
+        public DataTable divisorByTamanho(int cod_tamanho){
 
+            DataTable dtt = new DataTable();
+            string query = "select d.cod_divisao,d.descricao from tamanho t "+
+		                    " inner join tamanhoDivisor td on (t.cod_Tamanho = td.cod_tamanho)"+
+		                    " inner join divisor d on(td.cod_divisao = d.cod_divisao)"+
+		                    " where t.cod_tamanho = "+cod_tamanho;
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(dtt);
+            return dtt;
+        }
+        public int qtdSubDivisorByTamanhoDivisor(int cod_tamanho, int cod_divisao)
+        {
+            DataTable dtt = new DataTable();
+            string query = "select count(s.descricao) from tamanho t "+
+		                    " inner join tamanhoDivisor td on (t.cod_Tamanho = td.cod_tamanho)"+
+		                    " inner join divisor d on(td.cod_divisao = d.cod_divisao)"+
+		                    " inner join divisorSubDivisor ds on (ds.cod_divisao = d.cod_divisao)"+
+		                    " inner join subDivisor s on (s.cod_subDivisor = ds.cod_subDivisor)"+
+                            " where t.cod_tamanho = "+cod_tamanho+" and d.cod_divisao = "+cod_divisao;
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(dtt);
+            return  Convert.ToInt16( dtt.Rows[0].ItemArray.GetValue(0));
+        }
+        public string[] subDivisorByTamanhoDivisor(int cod_tamanho, int cod_divisao)
+        {
+            
+            DataTable dtt = new DataTable();
+            string query = "select s.descricao from tamanho t  " +
+                            " inner join tamanhoDivisor td on (t.cod_Tamanho = td.cod_tamanho)" +
+                            " inner join divisor d on(td.cod_divisao = d.cod_divisao)" +
+                            " inner join divisorSubDivisor ds on (ds.cod_divisao = d.cod_divisao)" +
+                            " inner join subDivisor s on (s.cod_subDivisor = ds.cod_subDivisor)" +
+                               " where t.cod_tamanho = " + cod_tamanho + " and d.cod_divisao = " + cod_divisao;
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(dtt);
+
+             string[] retorno = new string[dtt.Rows.Count];
+            
+            for (int i = 0; i < retorno.Length; i++)
+                retorno[i] = dtt.Rows[i ].ItemArray.GetValue(0).ToString();
+            return retorno;
+        }
+
+        //---------
         public bool isAdm(string usuario, string senha)
         {
             DataTable dtt = new DataTable();
@@ -57,7 +102,7 @@ namespace Pizzaria.Banco
             return;
         }
         //
-        public int addQuantidade(int cod_venda, int cod_produto, int cod_tamanho, double valorEscrito)
+        public int cod_completoByVendaProdutoValorTamanho(int cod_venda, int cod_produto, int cod_tamanho, double valorEscrito)
         {
             string query = " select  c.cod_completo from venda v " +
                            "inner join vendaCompleta vc    on (vc.cod_venda    = v.cod_venda)" +
@@ -68,9 +113,32 @@ namespace Pizzaria.Banco
             DataTable dtt = new DataTable();
             NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
             sql.Fill(dtt);
-
-            return Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0));
-
+            if (dtt.Rows.Count > 0)
+                return Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0));
+            else return 0;
+        }
+        public bool existeProdutoNaVenda(int cod_venda, Produto[] produto, int cod_garcon)
+        {
+            if (produto.Length > 1)
+                return false;
+            else
+            {
+                string query = " select  c.cod_completo from venda v " +
+                           "inner join vendaCompleta vc    on (vc.cod_venda    = v.cod_venda)" +
+                           "inner join completo c          on (vc.cod_completo = c.cod_completo)" +
+                           "inner join completoProduto cp  on (cp.cod_completo = c.cod_completo)" +
+                               "where v.cod_venda = " + cod_venda + " and cp.cod_produto = " + produto[0]. cod_produto + " and cp.cod_tamanho = "
+                               + produto[0].cod_tamanho + " and valorUnitarioCompleto = '" + new Tratamento().retornaValorEscrito(produto[0].valor).Replace(',', '.') + "'";
+                DataTable dtt = new DataTable();
+                NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+                sql.Fill(dtt);
+                if (dtt.Rows.Count > 0)
+                {
+                    mudarQuantidade(cod_venda, Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0)), produto[0].quantidade, cod_garcon);
+                    return true;
+                }
+            }
+                return false;
         }
         public bool jaTemProduto(int cod_venda, int cod_produto, int XcodTamanho, double valor, bool pct, int qtdade, int cod_garcon)
         {
@@ -398,19 +466,19 @@ namespace Pizzaria.Banco
             }
             catch { return false; }
         }
-        public double valorProduto(int cod_produto, string Tamanho)
+        public double valorProduto(int cod_produto, int cod_tamanho)
         {
 
             try
             {
-                DataTable dttTamanho = new DataTable();
+                DataTable dtt = new DataTable();
                 NpgsqlDataAdapter sql = new NpgsqlDataAdapter
                     ("select tp.valorproduto from produto p inner join produtotamanho tp on (p.cod_produto = tp.cod_produto)" +
                     " inner join tamanho t on( t.cod_tamanho = tp.cod_tamanho ) where p.ativo = true and t.ativo and p.cod_produto = '"
-                    + cod_produto + "' and t.descricao = '" + Tamanho + "'", Conectar());
-                sql.Fill(dttTamanho);
-                double cod_tamanho = Convert.ToDouble(dttTamanho.Rows[0].ItemArray.GetValue(0));
-                return cod_tamanho;
+                    + cod_produto + "' and t.cod_tamanho = "+cod_tamanho, Conectar());
+                sql.Fill(dtt);
+                double valor = Convert.ToDouble(dtt.Rows[0].ItemArray.GetValue(0));
+                return valor;
             }
             catch
             {
@@ -419,7 +487,55 @@ namespace Pizzaria.Banco
 
 
         }
-       
+        public int codDivisorByDescricao(string descricaoDivisor)
+        {
+            DataTable dtt = new DataTable();
+            string query = "select cod_divisao from divisor where descricao = '" + descricaoDivisor + "' order by cod_divisao desc limit 1";
+                  NpgsqlDataAdapter sql = new NpgsqlDataAdapter
+                    (query, Conectar());
+                sql.Fill(dtt);
+                return Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0));
+           
+        }
+        public bool codigoAceito(int cod_produto, int codItemUm)
+        {
+            DataTable dtt = new DataTable();
+            string query = 
+                "select"+
+                    " (CASE ((select cod_tipo from produto where cod_produto = " 
+                    + cod_produto    
+                    + ")= (select cod_tipo from produto where cod_produto = " 
+                    + codItemUm
+                    + ")) is  null " 
+                    + " WHEN true THEN false ELSE  ((select cod_tipo from produto where cod_produto = " 
+                    + cod_produto + ")= (select cod_tipo from produto where cod_produto = " 
+                    + codItemUm + "))  end )";
+
+                NpgsqlDataAdapter sql = new NpgsqlDataAdapter
+              (query, Conectar());
+            sql.Fill(dtt);
+            return Convert.ToBoolean(dtt.Rows[0].ItemArray.GetValue(0));
+         
+        }
+        public double numeroPercentualSubDivisor(string divisor)
+        {
+
+            try
+            {
+                DataTable dtt = new DataTable();
+                string query = "select valor from Subdivisor where descricao = '"+divisor+"' order by cod_subdivisor desc limit 1";
+                NpgsqlDataAdapter sql = new NpgsqlDataAdapter
+                    (query, Conectar());
+                sql.Fill(dtt);
+                return Convert.ToDouble(dtt.Rows[0].ItemArray.GetValue(0));
+   
+            }
+            catch
+            {
+                return 1;
+            }
+
+        }
         public int codTamanho(string nomeTamanho)
         {
             try
@@ -504,39 +620,14 @@ namespace Pizzaria.Banco
             return (dtt.Rows[0].ItemArray.GetValue(0).ToString());
             
         }
-        public string[] exibirTamanhos(int codProduto, int cod_tamanho)
-        {
-            if (isPizza(codProduto))
-                if (cod_tamanho == 1) return new string[] { "INTEIRA", "50% | 50%", "50% | 2 x 25%", "4 x 25%" };
-                else return new string[] { "INTEIRA", "50% | 50%" };
-            return null;
-        }
+      
         //esse metodo informa se eh ou nao uma pizza
-        public bool isPizza(int cod_produto)
-        {
-
-            DataTable dttTamanho = new DataTable();
-            NpgsqlDataAdapter sql = new NpgsqlDataAdapter("select isPizza from produto where ativo = true and cod_produto =  '" + cod_produto + "'", Conectar());
-            sql.Fill(dttTamanho);
-            if (Convert.ToBoolean(dttTamanho.Rows[0].ItemArray.GetValue(0))) return true;
-            return false;
-
-        }
+      
         // esse metodo pressupoe, q eu sei o tamanho.
         //1 para INVISIVEL
         //2 para 50% 50%
         //3 para todas opcoes (caso da pizza grande)
-        public int porcetagemPizza(int cod_Produto, int cod_tamanho)
-        {
-
-            if (isPizza(cod_Produto))
-            {
-                if (cod_tamanho == 1) return 3;
-                return 2;
-            }
-            return 1;
-
-        }
+       
         // se é uma pizza, entao esse metodo limita a 2 tamanhos possiveis.
 
         public int codigoDaVendaPelaMesa(string mesa)
@@ -610,7 +701,7 @@ namespace Pizzaria.Banco
         {
             DataTable dtt = new DataTable();
             string query1 = "select v.cod_venda from venda v inner join vendaMesa vm on(vm.cod_venda = v.cod_venda)" +
-"inner join mesa m on (m.cod_mesa = vm.cod_mesa) where v.aberta = true group by v.cod_venda";
+            "inner join mesa m on (m.cod_mesa = vm.cod_mesa) where v.aberta = true group by v.cod_venda";
             new NpgsqlDataAdapter(query1, Conectar()).Fill(dtt);
             string[] conj = new string[dtt.Rows.Count];
             for (int i = 0; i < dtt.Rows.Count; i++)
@@ -662,6 +753,20 @@ namespace Pizzaria.Banco
                 + " inner join venda v on (v.cod_venda = vm.cod_venda) where aberta = true and m.descricao =  '" + mesa + "'", Conectar()).
                 Fill(dttTamanho);
             return Convert.ToInt16(dttTamanho.Rows[0].ItemArray.GetValue(0));
+        }
+        public double[] valorPctByDescricao(string descricao)
+        {
+            string query = "select s.valor from divisor d inner join divisorSubDivisor ds on( d.cod_divisao = ds.cod_divisao)"
+			+" inner join subDivisor s on (s.cod_subdivisor = ds.cod_subdivisor)"
+			+" where d.descricao = '"+descricao+"'";
+            DataTable dtt = new DataTable();
+            new NpgsqlDataAdapter(query, Conectar()).
+            Fill(dtt);
+            double[] retorno = new double[dtt.Rows.Count];
+
+            for (int i = 0; i < retorno.Length; i++)
+                retorno[i] = Convert.ToDouble( dtt.Rows[i].ItemArray.GetValue(0));
+            return retorno;
         }
         // esse metodo preenche o produto final e retorna o produtoCOMPLETO que sera inserido na venda    
         public int cod_tamanhoDoEscolhido(int cod_produto, string descricaoTamanho)
