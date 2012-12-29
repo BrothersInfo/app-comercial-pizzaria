@@ -496,5 +496,19 @@ namespace Pizzaria.Banco
 
 
         }
+        public int qtdSegmentos()
+        {
+            string query = "select count(*)as \"Quantidade\" from tipo";
+            DataTable dtt = new DataTable();
+            new NpgsqlDataAdapter(query, Conectar()).Fill(dtt);
+            return Convert.ToInt16( dtt.Rows[0].ItemArray.GetValue(0));
+        }
+        public int codSegmentoByProduto(int cod_produto)
+        {
+            string query = "select t.cod_tipo from produto p inner join tipo t on (t.cod_tipo = p.cod_tipo) where p.cod_produto = "+ cod_produto;
+            DataTable dtt = new DataTable();
+            new NpgsqlDataAdapter(query, Conectar()).Fill(dtt);
+            return Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0));
+        }
     }
 }

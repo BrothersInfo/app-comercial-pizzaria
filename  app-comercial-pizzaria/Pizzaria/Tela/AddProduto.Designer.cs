@@ -204,9 +204,9 @@
             this.lbMista.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
             this.lbMista.Location = new System.Drawing.Point(19, 92);
             this.lbMista.Name = "lbMista";
-            this.lbMista.Size = new System.Drawing.Size(99, 21);
+            this.lbMista.Size = new System.Drawing.Size(85, 21);
             this.lbMista.TabIndex = 10;
-            this.lbMista.Text = "SABORES";
+            this.lbMista.Text = "DIVISÃO";
             // 
             // numQuantidade
             // 
@@ -242,9 +242,9 @@
             this.lTamanho.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
             this.lTamanho.Location = new System.Drawing.Point(19, 10);
             this.lTamanho.Name = "lTamanho";
-            this.lTamanho.Size = new System.Drawing.Size(117, 21);
+            this.lTamanho.Size = new System.Drawing.Size(120, 21);
             this.lTamanho.TabIndex = 12;
-            this.lTamanho.Text = "CATEGORIA";
+            this.lTamanho.Text = "SUB CATEG.";
             // 
             // LQuantidade
             // 

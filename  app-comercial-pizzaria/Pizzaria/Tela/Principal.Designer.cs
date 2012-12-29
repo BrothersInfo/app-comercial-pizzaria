@@ -336,7 +336,7 @@
             // ptitulo
             // 
             this.ptitulo.BackColor = System.Drawing.Color.White;
-            this.ptitulo.BackgroundImage = global::Pizzaria.Properties.Resources.Sem_título;
+            this.ptitulo.BackgroundImage = global::Pizzaria.Properties.Resources.Delirios;
             this.ptitulo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ptitulo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ptitulo.Location = new System.Drawing.Point(1, 0);

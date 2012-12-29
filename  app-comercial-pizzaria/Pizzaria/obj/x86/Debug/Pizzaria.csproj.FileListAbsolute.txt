@@ -299,3 +299,4 @@ F:\Proj\pizzaria\Pizzaria\obj\x86\Debug\RdlCompile.cache
 F:\Proj\pizzaria\Pizzaria\obj\x86\Debug\RdlCompile.compiled
 F:\Proj\pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.exe.manifest
 F:\Proj\pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.application
+D:\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.RelatorioCristal.resources
