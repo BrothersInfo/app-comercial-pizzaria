@@ -252,11 +252,11 @@
             this.lBalcao.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lBalcao.AutoSize = true;
             this.lBalcao.BackColor = System.Drawing.Color.Transparent;
-            this.lBalcao.Font = new System.Drawing.Font("Arial Narrow", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lBalcao.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lBalcao.ForeColor = System.Drawing.Color.Black;
             this.lBalcao.Location = new System.Drawing.Point(151, 7);
             this.lBalcao.Name = "lBalcao";
-            this.lBalcao.Size = new System.Drawing.Size(136, 27);
+            this.lBalcao.Size = new System.Drawing.Size(168, 29);
             this.lBalcao.TabIndex = 2;
             this.lBalcao.Text = "BALCAO [ B ]";
             this.lBalcao.Click += new System.EventHandler(this.lBalcao_Click);
@@ -298,11 +298,11 @@
             this.linutil1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.linutil1.AutoSize = true;
             this.linutil1.BackColor = System.Drawing.Color.Transparent;
-            this.linutil1.Font = new System.Drawing.Font("Arial Narrow", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linutil1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linutil1.ForeColor = System.Drawing.Color.Black;
-            this.linutil1.Location = new System.Drawing.Point(54, 31);
+            this.linutil1.Location = new System.Drawing.Point(40, 31);
             this.linutil1.Name = "linutil1";
-            this.linutil1.Size = new System.Drawing.Size(108, 27);
+            this.linutil1.Size = new System.Drawing.Size(136, 29);
             this.linutil1.TabIndex = 2;
             this.linutil1.Text = "LIVRE [ L ]";
             // 
@@ -325,18 +325,18 @@
             this.lInutil2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lInutil2.AutoSize = true;
             this.lInutil2.BackColor = System.Drawing.Color.Transparent;
-            this.lInutil2.Font = new System.Drawing.Font("Arial Narrow", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lInutil2.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lInutil2.ForeColor = System.Drawing.Color.Black;
-            this.lInutil2.Location = new System.Drawing.Point(32, 31);
+            this.lInutil2.Location = new System.Drawing.Point(12, 31);
             this.lInutil2.Name = "lInutil2";
-            this.lInutil2.Size = new System.Drawing.Size(152, 27);
+            this.lInutil2.Size = new System.Drawing.Size(193, 29);
             this.lInutil2.TabIndex = 2;
             this.lInutil2.Text = "OCUPADA [ O ]";
             // 
             // ptitulo
             // 
             this.ptitulo.BackColor = System.Drawing.Color.White;
-            this.ptitulo.BackgroundImage = global::Pizzaria.Properties.Resources.Delirios;
+            this.ptitulo.BackgroundImage = global::Pizzaria.Properties.Resources.Sem_título;
             this.ptitulo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ptitulo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ptitulo.Location = new System.Drawing.Point(1, 0);
@@ -410,7 +410,7 @@
             this.KeyPreview = true;
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Principal";
+            this.Text = "6";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Click += new System.EventHandler(this.Principal_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Principal_KeyDown);

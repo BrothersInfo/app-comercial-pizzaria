@@ -20,7 +20,15 @@ namespace Pizzaria.Tela
             InitializeComponent();
             trocaMesa();
             posicionamento();
-    
+            agrupar = false;
+        }
+        public bool agrupar;
+        public AlterarMesa()
+        {
+            InitializeComponent();
+            agruparVenda();
+            agrupar = true;
+            posicionamento(); cod_venda = 0;
         }
         public void trocaMesa(){
             troca = true;
@@ -28,6 +36,24 @@ namespace Pizzaria.Tela
             listVenda.LargeImageList = imageList1;
 
             string[] mesa = new Banco().mesasDisponiveis();
+            for (int i = 0; i < mesa.Length; i++)
+            {
+                conjItem.Add(new ListViewItem(mesa[i], 4));
+                listVenda.Items.Add(conjItem.Last());
+            }
+            listVenda.AllowColumnReorder = true;
+            listVenda.FullRowSelect = true;
+            listVenda.GridLines = true;
+            listVenda.CheckBoxes = true;
+
+        }
+        public void agruparVenda()
+        {
+            troca = true;
+            listVenda.Clear();
+            listVenda.LargeImageList = imageList1;
+
+            string[] mesa = new Banco().mesasIndisponiveis();
             for (int i = 0; i < mesa.Length; i++)
             {
                 conjItem.Add(new ListViewItem(mesa[i], 4));
@@ -49,7 +75,7 @@ namespace Pizzaria.Tela
             posicionamento();
         }
         bool retira;
-        int cod_venda;
+        public int cod_venda;
 
         public void atualiza()
         {
@@ -104,6 +130,18 @@ namespace Pizzaria.Tela
         }
         private void btConfirmar_Click(object sender, EventArgs e)
         {
+            if (agrupar) {
+                if (listVenda.CheckedItems.Count < 2) MessageBox.Show("Selecione duas ou mais vendas para Uni-las", "MENSAGEM");
+                else
+                {string [] mesas =  new string [listVenda.CheckedItems.Count];
+                    for (int i = 0; i < listVenda.CheckedItems.Count; i++)
+                        mesas [i]= (listVenda.CheckedItems[i].Text);
+                    new BancoVenda().unirVendas(mesas, (cbMista.Text));
+                 cod_venda =    new Banco().codigoDaVendaPelaMesa(cbMista.Text);
+                 new BancoInformacao().unirProdutosIguais(new BancoVenda().carregaVenda(cod_venda));
+                }
+            }
+            else 
             if (!troca)
                 for (int i = 0; i < listVenda.CheckedItems.Count; i++)
                 {
@@ -139,6 +177,21 @@ namespace Pizzaria.Tela
                     btCancelar_Click(sender, null);
                     break;
             }
+        }
+
+        private void listVenda_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            cbMista.DataSource = null;
+            string [] mesas =  new string [listVenda.CheckedItems.Count];
+                    for (int i = 0; i < listVenda.CheckedItems.Count; i++)
+                        mesas [i]= (listVenda.CheckedItems[i].Text);
+            cbMista.DataSource = mesas;
+            cbMista.DisplayMember = "descricao";
+         //   cbMista.SelectedIndex = 0;
+
+            if (listVenda.CheckedItems.Count >= 2) { cbMista.Visible = true; lbMista.Visible = true; }
+            else  { cbMista.Visible = false; lbMista.Visible = false;}
+
         }
     }
 }

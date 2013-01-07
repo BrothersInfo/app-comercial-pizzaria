@@ -75,13 +75,13 @@ namespace Pizzaria.Tela
 
             } CRelatorioBindingSource.DataSource = list;
           
-            this.rvPdf.RefreshReport();
+        //    this.rvPdf.RefreshReport();
         }
         DataTable tabela;
         List<Classes.CRelatorio> list = new List<Classes.CRelatorio>();
         private void PdfGenerator_Load(object sender, EventArgs e)
         {
-            this.rvPdf.RefreshReport();
+        //    this.rvPdf.RefreshReport();
 
         }
     }

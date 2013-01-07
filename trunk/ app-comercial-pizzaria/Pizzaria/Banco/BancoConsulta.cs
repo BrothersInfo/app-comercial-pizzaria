@@ -29,6 +29,19 @@ namespace Pizzaria.Banco
 
         }
         //--------------------------------TAMANHO-------------------------------
+        public void inserirTamanhoDivisor(int cod_tamanho, int cod_divisor)
+        {
+            string query = "insert into tamanhoDivisor(cod_tamanho,cod_divisao) values("
+             + cod_tamanho + " , '" + cod_divisor + "')";
+            new NpgsqlDataAdapter(query, Conectar()).Fill(new DataTable());
+
+        }
+        public void removerTamanhoDivisor(int cod_tamanho,int cod_divisao )
+        {
+            string query = "delete from  tamanhoDivisor where cod_tamanho = "+cod_tamanho+" and cod_divisao = "+cod_divisao;
+            new NpgsqlDataAdapter(query, Conectar()).Fill(new DataTable());
+        }
+
         public void alterarTamanho(string antigo, string novo, bool ativo)
         {
             string query = "UPDATE tamanho    SET  descricao= '" + novo + "', ativo = " + ativo 
@@ -36,6 +49,17 @@ namespace Pizzaria.Banco
             DataTable dtt = new DataTable();
             NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
             sql.Fill(dtt);
+           
+        }
+
+        public int cod_divisorByDescricao(string descriDivisor)
+        {
+            string query = "select cod_divisao from divisor where descricao = '" + descriDivisor+"'";
+            DataTable dtt = new DataTable();
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(dtt);
+            return Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0));
+
         }
         public DataTable descricaoTamanho()
         {
@@ -53,6 +77,37 @@ namespace Pizzaria.Banco
             sql.Fill(dtt);
             return dtt;
         }
+        public DataTable descricaoDivisores()
+        {
+            string query = "select descricao from divisor";
+            DataTable dtt = new DataTable();
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(dtt);
+            return dtt;
+        }
+        public DataTable descricaoDivisoresbyTamanho(int cod_tamanho)
+        {
+            string query = "select d.descricao from tamanho t inner join tamanhoDivisor td on(t.cod_tamanho =  td.cod_tamanho) "+
+            "inner join divisor d on (d.cod_divisao = td.cod_divisao) where t.cod_tamanho = "+cod_tamanho;
+          
+            DataTable dtt = new DataTable();
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(dtt);
+            return dtt;
+        }
+        public DataTable descricaoDivisoresNoInTamanho(int cod_tamanho)
+        {
+            string query = 
+            "select descricao from divisor where cod_divisao not in "+
+            " (select d.cod_divisao from tamanho t inner join tamanhoDivisor td on(t.cod_tamanho =  td.cod_tamanho) "+
+            " inner join divisor d on (d.cod_divisao = td.cod_divisao) where t.cod_tamanho = "+ cod_tamanho+")";
+            DataTable dtt = new DataTable();
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(dtt);
+            return dtt;
+       
+        }
+
         public bool existeTamanho(string nome)
         {
             string query = "select count (descricao) from tamanho where ativo  = true"
@@ -80,22 +135,18 @@ namespace Pizzaria.Banco
             sql.Fill(dtt);
             return (Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0))) == 1;
         }
-        public void alterarTamanho(string antigo, string novo)
-        {
-            string query = "UPDATE tamanho    SET  descricao= '" + novo 
-                + "' WHERE  ativo  = true and upper(descricao) = upper( trim('" + antigo + "'))";
-            DataTable dtt = new DataTable();
-            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
-            sql.Fill(dtt);
-        }
-        public void novoTamanho(string novo)
-        {
-            string query = "INSERT INTO tamanho(cod_tamanho, descricao)    VALUES (" 
-                + novoCod_tamanho() + " , '" + novo + "')";
-            DataTable dtt = new DataTable();
-            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
-            sql.Fill(dtt);
 
+        public void novoTamanho(string novo, int cod_divisao)
+        {
+            int cod_tamanho = novoCod_tamanho();
+            string query = "INSERT INTO tamanho(cod_tamanho, descricao)    VALUES (" 
+                + cod_tamanho + " , '" + novo + "')";
+            DataTable dtt = new DataTable();
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(dtt);
+            string query2 = "insert into tamanhodivisor(cod_tamanho,cod_divisao) values ("
+                  + cod_tamanho + " , '" + cod_divisao + "')";
+            new NpgsqlDataAdapter(query2, Conectar()).Fill(new DataTable());
         }
         public int novoCod_tamanho()
         {
@@ -619,12 +670,12 @@ namespace Pizzaria.Banco
             catch { return 0; }
         }
 
-        public void cadastrarProduto(string nome, string tipo, Tamanho[] tam, bool isPizza, bool impresso)
+        public void cadastrarProduto(string nome, string tipo, Tamanho[] tam, bool impresso)
         {
             int cod_produto = novoCod_Produto();
 
-            string query = "INSERT INTO produto(cod_produto, descricao, cod_tipo, isPizza, impresso)  VALUES ("
-                + cod_produto + " , '" + nome + "' , " + cod_tipoPeloNome(tipo) + " , " + isPizza + ", " + impresso + "  )";
+            string query = "INSERT INTO produto(cod_produto, descricao, cod_tipo, impresso)  VALUES ("
+                + cod_produto + " , '" + nome + "' , " + cod_tipoPeloNome(tipo) + " , " + impresso + "  )";
             DataTable dtt = new DataTable();
             NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
             sql.Fill(dtt);

@@ -14,12 +14,12 @@ namespace Pizzaria.Tela
     using Pizzaria.Classes;
     public partial class RemoverProduto : Form
     {
-        int[] cod; int []qtd;
+        int[] codigosCompleto; int []qtd;
         int cod_venda;
         public RemoverProduto(int cod_venda, int [] codigo, int [] qtd)
         {
             this.cod_venda = cod_venda;
-            cod = codigo;
+            codigosCompleto = codigo;
             this.qtd = qtd;
             InitializeComponent();
             mtProduto.Focus();
@@ -34,48 +34,47 @@ namespace Pizzaria.Tela
 
         public int quantidade(int codigo)
         {
-            for (int i = 0; i < cod.Length; i++)
-                if (cod[i] == codigo)
+            for (int i = 0; i < codigosCompleto.Length; i++)
+                if (codigosCompleto[i] == codigo)
                    return qtd[i];
                 return 0;
         }
         public bool existe(int codigo)
         {
-            for (int i = 0; i < cod.Length; i++)
-                if (cod[i] == codigo)
+            for (int i = 0; i < codigosCompleto.Length; i++)
+                if (codigosCompleto[i] == codigo)
                     return true;
             return false;
         }
 
         private void btConfirmar_Click(object sender, EventArgs e)
         {
-            if (existe( cod[ Convert.ToInt16(mtProduto.Text)-1]   ))
+            if (existe( codigosCompleto[ Convert.ToInt16(mtProduto.Text)-1]   ))
             {
-                if (numQuantidade.Value <= quantidade(cod[Convert.ToInt16(mtProduto.Text) - 1]))
+ 
+                if (numQuantidade.Value <= quantidade(codigosCompleto[Convert.ToInt16(mtProduto.Text) - 1]))
                 {
-                    new BancoVenda().retirarProdutoOuQuantidade(cod_venda,
-                                                               cod[Convert.ToInt16(mtProduto.Text) - 1],
-                                                               quantidade(cod[Convert.ToInt16(mtProduto.Text) - 1]),
-                                                               Convert.ToInt16(numQuantidade.Value));
+                    new BancoInformacao().deletarCompleto(codigosCompleto[Convert.ToInt16(mtProduto.Text) - 1],
+                         Convert.ToInt16(numQuantidade.Value));
 
-                    MessageBox.Show("ALTERAÇÂO CONCLUIDA COM SUCESSO");
+                    MessageBox.Show("ALTERAÇÂO CONCLUIDA COM SUCESSO", "MENSAGEM");
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("QUANDITADE DE ITENS RETIRADOS ALÉM DA QUANTIA EXISTENTE ");
+                    MessageBox.Show("QUANDITADE DE ITENS RETIRADOS ALÉM DA QUANTIA EXISTENTE ","MENSAGEM DE ERRO");
                 }
             }
             else
-            { MessageBox.Show("CODIGO NÃO IDENTIFICADO NESTA VENDA "); }
+            { MessageBox.Show("CODIGO NÃO IDENTIFICADO NESTA VENDA ", "MENSAGEM DE ERRO"); }
 
         }
 
         private void mtProduto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == '\r' && existe(cod[Convert.ToInt16(mtProduto.Text) - 1]))
+            if (e.KeyChar == '\r' && existe(codigosCompleto[Convert.ToInt16(mtProduto.Text) - 1]))
             {
-                numQuantidade.Maximum = quantidade(cod[Convert.ToInt16(mtProduto.Text) - 1]);
+                numQuantidade.Maximum = quantidade(codigosCompleto[Convert.ToInt16(mtProduto.Text) - 1]);
                 btConfirmar_Click(sender, e);
             }
 

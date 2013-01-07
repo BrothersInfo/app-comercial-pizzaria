@@ -38,6 +38,12 @@ namespace Pizzaria.Tela
             cbProdCategoria.SelectedIndex = 1;
             cbProdCategoria.SelectedIndex = 0;
 
+
+            cbCadSubDivis.DataSource = new BancoConsulta().descricaoDivisores();
+            cbCadSubDivis.DisplayMember = "descricao";
+            cbCadSubDivis.SelectedIndex = 1;
+            cbCadSubDivis.SelectedIndex = 0;
+
         }
         public void pProduto()
         {
@@ -130,7 +136,7 @@ namespace Pizzaria.Tela
             }
             catch
             {
-                new BancoConsulta().cadastrarProduto(tbNome.Text, cbProdCategoria.Text, t, 1 == new BancoConsulta().cod_tipoPeloNome(cbProdCategoria.Text),cbComanda.Checked);
+                new BancoConsulta().cadastrarProduto(tbNome.Text, cbProdCategoria.Text, t,cbComanda.Checked);
                 bgValores.Visible = false;
                 bgAlterarTamanho.Visible = true;
                 ii = 0;
@@ -169,7 +175,7 @@ namespace Pizzaria.Tela
             {
                 if (!new BancoConsulta().existeTamanho(tbCadTamNome.Text))
                 {
-                    new BancoConsulta().novoTamanho(tbCadTamNome.Text);
+                    new BancoConsulta().novoTamanho(tbCadTamNome.Text, new BancoConsulta().cod_divisorByDescricao(cbCadSubDivis.Text));
                     MessageBox.Show("Cadastro Realizado com Sucesso", "Cadastro");
                 }
             }

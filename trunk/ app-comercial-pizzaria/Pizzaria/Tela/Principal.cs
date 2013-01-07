@@ -19,7 +19,6 @@ namespace Pizzaria.Tela
         List<ListViewItem> conjItem;
         bool vendendo;
         public short cod_caixa;
-    
         public TableLayoutPanel tlpBotoes;
         public Principal(short cod_caixa,TableLayoutPanel fnd)
         {
@@ -53,7 +52,7 @@ namespace Pizzaria.Tela
                     lvInfo.Items.Add(new Banco().informacoes2(Convert.ToInt16(t.Rows[i].ItemArray.GetValue(0))));
                     lvInfo.Items[i].SubItems.Add(t.Rows[i].ItemArray.GetValue(1).ToString());
                     lvInfo.Items[i].SubItems.Add("R$ " + new Tratamento().retornaValorEscrito(Convert.ToDouble(t.Rows[i].ItemArray.GetValue(2))));
-                    lvInfo.Items[i].SubItems.Add(t.Rows[i].ItemArray.GetValue(3).ToString());
+                    lvInfo.Items[i].SubItems.Add("" + new BancoInformacao().quantidadeCompletaByCodigo(Convert.ToInt16(t.Rows[i].ItemArray.GetValue(0))));
                 }
                 lValor.Text ="TOTAL PARCIAL = R$ "+ new Tratamento().retornaValorEscrito(new BancoVenda().carregaVenda(new Banco().codVendaSelecionada2(listVenda.FocusedItem.Text)).valorTotal);
               
@@ -91,6 +90,9 @@ namespace Pizzaria.Tela
             if (indisponivel)
             {
                 listVenda.Clear();
+                ImageList il = new ImageList();
+
+                //imageList1.ImageSize = 
                 listVenda.LargeImageList = imageList1;
 
                 string[] mesa = new Banco().mesasIndisponiveis();
@@ -279,6 +281,8 @@ namespace Pizzaria.Tela
             carregarMesa(false);
             lInutil2.ForeColor = Color.Black;
             linutil1.ForeColor = Color.Red;
+            lValor.Visible = false;
+            carregarGridItem();
         }
         private void pOcupada_MouseEnter(object sender, EventArgs e)
         {
@@ -287,8 +291,9 @@ namespace Pizzaria.Tela
             pOcupada.BackColor = Color.WhiteSmoke;
             pLivre.BackColor = Color.White;
             pLivre.BorderStyle = BorderStyle.FixedSingle;
-            pOcupada.BorderStyle = BorderStyle.Fixed3D;
+            pOcupada.BorderStyle = BorderStyle.Fixed3D; lValor.Visible = true;
             carregarMesa(true);
+
            
         }
         private void Principal_Click(object sender, EventArgs e)

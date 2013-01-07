@@ -18,6 +18,7 @@ namespace Pizzaria.Classes
         public int qtdItens;
         public bool comanda = false;
 
+
         public VendaHalf(int cod_venda, int cod_caixa, double valorTotal,
             string horario, string dia, string[] mesas)
         {
@@ -41,6 +42,8 @@ namespace Pizzaria.Classes
             produto.AddRange(conjunto);
             for (int i = 0; i < conjunto.Length; i++)
                 this.valorTotal += (conjunto[i].valorUnitario * conjunto[i].quantidade);
+
+
         }
         public void corrigirValor()
         {

@@ -65,12 +65,13 @@
             this.btRemoMesa = new System.Windows.Forms.Button();
             this.tlpVenda = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lOpcao = new System.Windows.Forms.Label();
             this.tlbBotaoVendas = new System.Windows.Forms.TableLayoutPanel();
             this.btAnular = new System.Windows.Forms.Button();
             this.btParcial = new System.Windows.Forms.Button();
             this.btEncerrar = new System.Windows.Forms.Button();
             this.tlpComanda = new System.Windows.Forms.TableLayoutPanel();
+            this.btAgrupar = new System.Windows.Forms.Button();
             this.btVoltar = new System.Windows.Forms.Button();
             this.btImprimir = new System.Windows.Forms.Button();
             this.ttEncerrar = new System.Windows.Forms.ToolTip(this.components);
@@ -256,7 +257,7 @@
             this.mtValor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mtValor.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtValor.ForeColor = System.Drawing.Color.DarkRed;
-            this.mtValor.Location = new System.Drawing.Point(21, 64);
+            this.mtValor.Location = new System.Drawing.Point(21, 59);
             this.mtValor.Mask = "0,00";
             this.mtValor.Name = "mtValor";
             this.mtValor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -269,7 +270,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Maroon;
-            this.label4.Location = new System.Drawing.Point(47, 31);
+            this.label4.Location = new System.Drawing.Point(47, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 30);
             this.label4.TabIndex = 18;
@@ -385,7 +386,7 @@
             this.btProduto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btProduto.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Bold);
             this.btProduto.ForeColor = System.Drawing.Color.Maroon;
-            this.btProduto.Location = new System.Drawing.Point(23, 38);
+            this.btProduto.Location = new System.Drawing.Point(23, 36);
             this.btProduto.Name = "btProduto";
             this.btProduto.Size = new System.Drawing.Size(120, 50);
             this.btProduto.TabIndex = 5;
@@ -401,7 +402,7 @@
             this.btRemoveProd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btRemoveProd.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Bold);
             this.btRemoveProd.ForeColor = System.Drawing.Color.White;
-            this.btRemoveProd.Location = new System.Drawing.Point(305, 38);
+            this.btRemoveProd.Location = new System.Drawing.Point(305, 36);
             this.btRemoveProd.Name = "btRemoveProd";
             this.btRemoveProd.Size = new System.Drawing.Size(120, 50);
             this.btRemoveProd.TabIndex = 6;
@@ -522,7 +523,7 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.lOpcao);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 0);
@@ -530,16 +531,16 @@
             this.panel1.Size = new System.Drawing.Size(443, 39);
             this.panel1.TabIndex = 9;
             // 
-            // label5
+            // lOpcao
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(112, 7);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(211, 24);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "OPÇÕES DE VENDA";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lOpcao.AutoSize = true;
+            this.lOpcao.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lOpcao.Location = new System.Drawing.Point(112, 7);
+            this.lOpcao.Name = "lOpcao";
+            this.lOpcao.Size = new System.Drawing.Size(211, 24);
+            this.lOpcao.TabIndex = 1;
+            this.lOpcao.Text = "OPÇÕES DE VENDA";
+            this.lOpcao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tlbBotaoVendas
             // 
@@ -579,16 +580,16 @@
             // btParcial
             // 
             this.btParcial.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btParcial.BackgroundImage = global::Pizzaria.Properties.Resources.BtParcial;
             this.btParcial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btParcial.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btParcial.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btParcial.ForeColor = System.Drawing.Color.White;
+            this.btParcial.ForeColor = System.Drawing.Color.Black;
             this.btParcial.Location = new System.Drawing.Point(329, 23);
             this.btParcial.Margin = new System.Windows.Forms.Padding(0);
             this.btParcial.Name = "btParcial";
             this.btParcial.Size = new System.Drawing.Size(102, 43);
             this.btParcial.TabIndex = 2;
+            this.btParcial.Text = "SEPARAR";
             this.ttEncerrar.SetToolTip(this.btParcial, "Venda Parcial - Atalho (S)");
             this.btParcial.UseVisualStyleBackColor = true;
             this.btParcial.Click += new System.EventHandler(this.btParcial_Click);
@@ -617,6 +618,7 @@
             this.tlpComanda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tlpComanda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpComanda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlpComanda.Controls.Add(this.btAgrupar, 2, 0);
             this.tlpComanda.Controls.Add(this.btVoltar, 0, 0);
             this.tlpComanda.Controls.Add(this.btImprimir, 1, 0);
             this.tlpComanda.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -628,6 +630,23 @@
             this.tlpComanda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 67F));
             this.tlpComanda.Size = new System.Drawing.Size(435, 68);
             this.tlpComanda.TabIndex = 4;
+            // 
+            // btAgrupar
+            // 
+            this.btAgrupar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btAgrupar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btAgrupar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btAgrupar.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAgrupar.ForeColor = System.Drawing.Color.Black;
+            this.btAgrupar.Location = new System.Drawing.Point(329, 12);
+            this.btAgrupar.Margin = new System.Windows.Forms.Padding(0);
+            this.btAgrupar.Name = "btAgrupar";
+            this.btAgrupar.Size = new System.Drawing.Size(102, 43);
+            this.btAgrupar.TabIndex = 3;
+            this.btAgrupar.Text = "AGRUPAR";
+            this.ttEncerrar.SetToolTip(this.btAgrupar, "Venda Parcial - Atalho (S)");
+            this.btAgrupar.UseVisualStyleBackColor = true;
+            this.btAgrupar.Click += new System.EventHandler(this.btAgrupar_Click);
             // 
             // btVoltar
             // 
@@ -745,10 +764,11 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lOpcao;
         private System.Windows.Forms.Button btInseMesa;
         private System.Windows.Forms.Button btMesaTrocar;
         private System.Windows.Forms.Panel pBotoesCima;
         private System.Windows.Forms.Panel pMesaNova;
+        private System.Windows.Forms.Button btAgrupar;
     }
 }

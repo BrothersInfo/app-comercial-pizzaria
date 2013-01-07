@@ -21,7 +21,7 @@ namespace Pizzaria.Tela
 
         //---
         double recebimento = 0;
-        double desconto = 0;
+         double desconto = 0;
         double troco = -1;
         public bool encerrou = false;
          public Encerrar(VendaFull vend) {
@@ -69,8 +69,8 @@ namespace Pizzaria.Tela
         {
             if (troco >= 0)
             {
-                if (venda == null)
-                {
+              
+
                     int pag;
                     if (rbDinheiro.Checked)
                         pag = 1;
@@ -91,30 +91,8 @@ namespace Pizzaria.Tela
                         Impressao p = new Impressao(temp);
                         p.gerarComandaNaoFiscal(new BancoVenda().formaPagamento(pag), recebimento, troco);
                     }
-                }
-                else
-                {
-                    if (rbDinheiro.Checked)
-                        venda.cod_pagamento = 1;
-                    else if (rbCredito.Checked)
-                        venda.cod_pagamento = 2;
-                    else if (rbDebito.Checked)
-                        venda.cod_pagamento = 3;
-                    else if (rbCheque.Checked)
-                        venda.cod_pagamento = 4;
-                    else venda.cod_pagamento = 5;
+                
 
-
-                    new BancoVenda().novaMeiaVenda(venda);
-
-
-                    new BancoVenda().atualizaSuper(venda.super, venda.valorTotal);
-                    if (rbSim.Checked)
-                    {
-                        Impressao p = new Impressao(new BancoVenda().carregaVenda(venda.cod_venda));
-                        p.gerarComandaNaoFiscal(new BancoVenda().formaPagamento(venda.cod_pagamento), recebimento, troco);
-                    }
-                }
                 encerrou = true;
                 this.Close();
             }
@@ -136,14 +114,7 @@ namespace Pizzaria.Tela
             }
         }
 
-     
-        
-
-        /// <summary>
-        /// --- NOVOS
-        /// </summary>
-        /// <param name="Val"></param>
-        /// <returns></returns>
+   
         String str = string.Empty; 
 
 
@@ -243,10 +214,15 @@ namespace Pizzaria.Tela
         {
             if (e.KeyChar == '\r')
             {
-
-
-                recebimento = Convert.ToDouble(tbValor.Text.Replace('.', ','));
-                troco = (recebimento - desconto) - valor;
+                //devo 100
+                //desconto 30
+                //dei 90
+                if(tbValor.Text.Length==0){tbValor.Focus();return;}
+                if (tbDesonto.Text.Length == 0) { tbDesonto.Focus(); return; }
+                recebimento = Convert.ToDouble(tbValor.Text.Replace('.', ','));//90
+                desconto = Convert.ToDouble(tbDesonto.Text.Replace('.',','));
+                troco = (valor - desconto) - recebimento;
+                if (troco < 0) troco *= -1;
                 if (troco >= 0)
                 {
                     lbTroco.Visible = true;
@@ -267,11 +243,14 @@ namespace Pizzaria.Tela
 
         private void textBox1_Leave(object sender, EventArgs e)
         {
-           
 
-                recebimento = Convert.ToDouble(tbValor.Text.Replace('.', ','));
-                troco = (recebimento - desconto) - valor;
-                if (troco >= 0)
+            if (tbValor.Text.Length == 0) {  return; }
+            if (tbDesonto.Text.Length == 0) {  return; }
+            recebimento = Convert.ToDouble(tbValor.Text.Replace('.', ','));//90
+            desconto = Convert.ToDouble(tbDesonto.Text.Replace('.', ','));
+            troco = (valor - desconto) - recebimento;
+            if (troco < 0) troco *= -1;
+            if (troco >= 0)
                 {
                     lbTroco.Visible = true;
                     lbTrocoNumero.Visible = true;
@@ -296,12 +275,34 @@ namespace Pizzaria.Tela
 
         private void tbDesonto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
-            try
+            if (e.KeyChar == '\r')
             {
-                desconto = Convert.ToDouble(tbDesonto.Text.Replace('.', ','));
+                try
+                {
+                    if (tbValor.Text.Length == 0) { tbValor.Focus(); return; }
+                    if (tbDesonto.Text.Length == 0) { tbDesonto.Focus(); return; }
+                    recebimento = Convert.ToDouble(tbValor.Text.Replace('.', ','));//90
+                    desconto = Convert.ToDouble(tbDesonto.Text.Replace('.', ','));
+                    troco = (valor - desconto) - recebimento;
+                    if (troco < 0) troco *= -1;
+                    if (troco >= 0)
+                    {
+                        lbTroco.Visible = true;
+                        lbTrocoNumero.Visible = true;
+
+                        lbTrocoNumero.Text = "RS " + new Tratamento().retornaValorEscrito(troco);
+                        btEncerrar.Focus();
+                    }
+                    else
+                    {
+                        lbTroco.Visible = false;
+                        lbTrocoNumero.Visible = false;
+                        tbDesonto.Focus();
+                    }
+
+                }
+                catch { }
             }
-            catch { }
         }
 
         private void tbDesonto_KeyUp(object sender, KeyEventArgs e)
@@ -311,11 +312,30 @@ namespace Pizzaria.Tela
 
         private void tbDesonto_Leave(object sender, EventArgs e)
         {
+
             try
             {
+                if (tbValor.Text.Length == 0) {  return; }
+                if (tbDesonto.Text.Length == 0) {  return; }
+                recebimento = Convert.ToDouble(tbValor.Text.Replace('.', ','));//90
                 desconto = Convert.ToDouble(tbDesonto.Text.Replace('.', ','));
+                troco = (valor - desconto) - recebimento;
+                if (troco < 0) troco *= -1;
+                if (troco >= 0)
+                {
+                    lbTroco.Visible = true;
+                    lbTrocoNumero.Visible = true;
+
+                    lbTrocoNumero.Text = "RS " + new Tratamento().retornaValorEscrito(troco);
+                    btEncerrar.Focus();
+                }
+          
+
+             
             }
             catch { }
         }
+
+
         }
 }

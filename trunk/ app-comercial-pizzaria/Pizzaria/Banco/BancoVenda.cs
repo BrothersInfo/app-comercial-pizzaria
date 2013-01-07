@@ -60,60 +60,66 @@ namespace Pizzaria.Banco
             for (int j = 0; j < dttMesa.Rows.Count; j++)
                 mesa[j] = dttMesa.Rows[j].ItemArray.GetValue(0).ToString();
 
-            //-----------GARCON DA VENDA ---------------------------------------------------------
-            DataTable garc = new DataTable();
-
-            string garcon;
-             garcon =
-            "select g.cod_garcon, g.nome " +
-            "from garcon g inner join GarconCompleto cg " +
-            "on (cg.cod_garcon = g.cod_garcon) 	inner join completo c " +
-            "on (c.cod_completo = cg.cod_completo)	inner join vendaCompleta vg " +
-            "on (vg.cod_completo = c.cod_completo)	inner join venda v " +
-            "on (v.cod_venda = vg.cod_venda)	" +
-            "where v.cod_venda = "+cod_venda+" group by g.nome, g.cod_garcon";
-
-
-
-            new NpgsqlDataAdapter(garcon, Conectar()).Fill(garc);
-            int[] garcons = new int[garc.Rows.Count];
-            for (int j = 0; j < garc.Rows.Count; j++)
-                garcons[j] = Convert.ToInt16(garc.Rows[j].ItemArray.GetValue(0));
+            
+         
             //-------------------------------------------------------------------------------------
             DataTable numero = new DataTable();
-            string queryC = "select count(cod_completo) from vendacompleta where cod_venda =" + cod_venda;
+            string queryC = "select count(vc.cod_completo) from vendacompleta vc inner join completo c on (c.cod_completo = vc.cod_completo)"
+                +" where cod_venda =" + cod_venda+" and c.cancelado  = false ";
             new NpgsqlDataAdapter(queryC, Conectar()).Fill(numero);
 
             conjCompleto = new Completa[Convert.ToInt16(numero.Rows[0].ItemArray.GetValue(0))];
             string queryComplet = "select c.cod_completo from completo c inner join vendaCompleta vc on (vc.cod_completo = c.cod_completo)" +
                                   " inner join venda v on (v.cod_venda = vc.cod_venda)" +
-                                  " where v.cod_venda = " + cod_venda;
+                                  " where v.cod_venda = " + cod_venda+ " and c.cancelado = false";
             numero = new DataTable();
             new NpgsqlDataAdapter(queryComplet, Conectar()).Fill(numero);
 
+
             for (int j = 0; j < conjCompleto.Length; j++)
             {
-                string querySubProduto = "select p.cod_produto,cp.porcentagem , c.valorUnitarioCompleto ,c.quantidade ,cp.cod_tamanho  " +
+                //-----------GARCON DO PRODUTO ---------------------------------------------------------
+
+                string garconA = "select g.cod_garcon,sum(quantidade) from garcon g inner join garconCompleto gc on(g.cod_garcon = gc.cod_garcon) " +
+                    "inner join completo c on(c.cod_completo = gc.cod_completo) where c.cod_completo = "
+                    + (int)numero.Rows[j].ItemArray.GetValue(0) +" and cancelado = false "
+                    + " group by g.cod_garcon";
+                DataTable garc = new DataTable();
+
+                new NpgsqlDataAdapter(garconA, Conectar()).Fill(garc);
+
+                string querySubProduto = "select p.cod_produto,cp.porcentagem , c.valorUnitarioCompleto ,cp.cod_tamanho  " +
             " from completo c inner join completoProduto cp on (c.cod_completo = cp.cod_completo)" +
-            " inner join produto p on( p.cod_produto = cp.cod_produto) where c.cod_completo = " + (int)numero.Rows[j].ItemArray.GetValue(0);
+            " inner join produto p on( p.cod_produto = cp.cod_produto) where c.cod_completo = " + (int)numero.Rows[j].ItemArray.GetValue(0) 
+            + " and c.cancelado = false ";
                 DataTable sub = new DataTable();
                 new NpgsqlDataAdapter(querySubProduto, Conectar()).Fill(sub);
+                GarconFisico[] gf = new GarconFisico[garc.Rows.Count];
+                for (int k = 0; k < garc.Rows.Count; k++)
+                {
+                    gf[k] = new GarconFisico();
+                    gf[k].setGarcon(Convert.ToInt16(garc.Rows[k].ItemArray.GetValue(0)), Convert.ToInt16(garc.Rows[k].ItemArray.GetValue(1)));
+                }
+
+                
                 Produto[] subProdutos = new Produto[sub.Rows.Count];
                 for (int k = 0; k < sub.Rows.Count; k++)
                 {
+                    int teste = new BancoInformacao().quantidadeCompletaByCodigo((int)numero.Rows[j].ItemArray.GetValue(0));
                     subProdutos[k] = new Produto();
                     subProdutos[k].setLoad(
                         Convert.ToInt16(sub.Rows[k].ItemArray.GetValue(0)),
-                        Convert.ToInt16(sub.Rows[k].ItemArray.GetValue(1)),
+                        Convert.ToDouble(sub.Rows[k].ItemArray.GetValue(1)),
                         Convert.ToDouble(sub.Rows[k].ItemArray.GetValue(2)),
-                        Convert.ToInt16(sub.Rows[k].ItemArray.GetValue(4)),
-                        Convert.ToInt16(sub.Rows[k].ItemArray.GetValue(3))
-                        , new Banco().isImpressoProduto(Convert.ToInt16(sub.Rows[k].ItemArray.GetValue(0)))
+                        Convert.ToInt16(sub.Rows[k].ItemArray.GetValue(3)),
+                        //preciso fazer saber a quantidade de produtos
+                      
+                        new Banco().isImpressoProduto(Convert.ToInt16(sub.Rows[k].ItemArray.GetValue(0)))
                         );
 
                 }
-                conjCompleto[j] = new Completa(subProdutos, Convert.ToInt16(sub.Rows[0].ItemArray.GetValue(3)),
-                    (int)numero.Rows[j].ItemArray.GetValue(0));
+                conjCompleto[j] = new Completa(subProdutos,
+                    (int)numero.Rows[j].ItemArray.GetValue(0),gf);
             }
             //---------------------------------------------------------------
             string query = "select valorTotal, dataVenda, horario, cod_caixa, aberta,impressao, cod_pagamento from venda where cod_venda =" + cod_venda;
@@ -130,15 +136,14 @@ namespace Pizzaria.Banco
                         (double)numero.Rows[0].ItemArray.GetValue(0),
                     numero.Rows[0].ItemArray.GetValue(2).ToString(), 
                     numero.Rows[0].ItemArray.GetValue(1).ToString(), 
-                    mesa, 
-                    garcons);
+                    mesa);
 
                 saida.super = retornoSuper(cod_venda);
                 return saida;
             }
             catch
             {
-                VendaFull saida = new VendaFull(conjCompleto, cod_venda, 1, 0, null, null, mesa, garcons);
+                VendaFull saida = new VendaFull(conjCompleto, cod_venda, 1, 0, null, null, mesa);
                 saida.super = retornoSuper(cod_venda);
                 return saida;
             }
@@ -154,15 +159,7 @@ namespace Pizzaria.Banco
 
 
         }
-        public string tamanhoDescricao(int cod_tamanho)
-        {
-            DataTable tamanho = new DataTable();
-            new NpgsqlDataAdapter
-            ("select descricao from tamanho where cod_tamanho = " + cod_tamanho, Conectar()).Fill(tamanho);
-
-            return tamanho.Rows[0].ItemArray.GetValue(0).ToString();
-
-        }
+        
         public string nomeGarcon(int cod_garcon)
         {
             DataTable tamanho = new DataTable();
@@ -232,84 +229,56 @@ namespace Pizzaria.Banco
 
         }
         //------------------------------------------------  RETIRAR PRODUTO --------------------------------------
-        public void retirarProdutoOuQuantidade(int cod_venda, int cod_produto, int quantidadeAtual, int quantidadeRetirada)
-        {
-            string x;
-            string y;
-            //UPDATE completo   SET quantidade = y  WHERE cod_completo = x
-            if (quantidadeAtual == quantidadeRetirada)//retirada total
-            { x = "DELETE FROM vendacompleta WHERE cod_venda = " + cod_venda + " and cod_completo = " + cod_produto;
-
-            y = "DELETE FROM garconcompleto WHERE cod_completo = "+cod_produto;
-            }
-            
-            else { x = "UPDATE completo   SET quantidade = " + (quantidadeAtual - quantidadeRetirada) + "  WHERE cod_completo = " + cod_produto;
-            y = 
-                "DELETE FROM garconcompleto where cod_completo = "+ cod_produto +" and horario in ("+
-                "select gc.horario from garconCompleto gc where gc.cod_completo = " + cod_produto + " order by gc.horario desc limit " + (quantidadeAtual - quantidadeRetirada) + " )";
-            }
-
-            DataTable compl = new DataTable();
-            new NpgsqlDataAdapter(x, Conectar()).Fill(compl);
-            compl = new DataTable();
-            new NpgsqlDataAdapter(y, Conectar()).Fill(compl);
-
-        }
+       
         //------------------------------------------------ ANULAR VENDA
         public void anularVenda(int cod_venda, bool isBalcao)
         {
+           string []mesas =   mesasDaVenda(cod_venda);
+              for (int i = 0; i < mesas.Length; i++)
+            {
+                new Banco().disponibilizarMesa(codMesaPelaDescricao(mesas[i]));
+              }
             DataTable compl = new DataTable();
             DataTable conjCompleto = new DataTable();
             string completos = "select cod_completo from VendaCompleta where cod_venda = " + cod_venda;
             new NpgsqlDataAdapter(completos, Conectar()).Fill(conjCompleto);
 
 
-
-            string vendaCompleta = "Delete From vendaCompleta where cod_venda = " + cod_venda;
-            new NpgsqlDataAdapter(vendaCompleta, Conectar()).Fill(compl);
+            string vendas = "update venda set cancelado = true, aberta = false, horario = current_time where cod_venda = " + cod_venda;
+            new NpgsqlDataAdapter(vendas, Conectar()).Fill(compl);
 
             for (int i = 0; i < conjCompleto.Rows.Count; i++)
             {
-                DataTable tt = new DataTable();
-                string completoP = "Delete From CompletoProduto where cod_completo  = "
-                    + Convert.ToInt16(conjCompleto.Rows[i].ItemArray.GetValue(0));
-                new NpgsqlDataAdapter(completoP, Conectar()).Fill(tt);
-
-                string y = "DELETE FROM garconcompleto WHERE cod_completo = "  + Convert.ToInt16(conjCompleto.Rows[i].ItemArray.GetValue(0));
-                new NpgsqlDataAdapter(y, Conectar()).Fill(tt);
-                tt = new DataTable();
-                string completo = "Delete From Completo where cod_completo  = "
+                string completo = "update Completo set cancelado = true where cod_completo  = "
                     + Convert.ToInt16(conjCompleto.Rows[i].ItemArray.GetValue(0));
 
-                tt = new DataTable();
-                new NpgsqlDataAdapter(completo, Conectar()).Fill(tt);
+                DataTable dt = new DataTable();
+                new NpgsqlDataAdapter(completo, Conectar()).Fill(dt);
             }
-            
-            string[] mesas = mesasDaVenda(cod_venda);
-            if(!isBalcao)
-            for (int i = 0; i < mesas.Length; i++)
-                retirarMesa(codMesaPelaDescricao(mesas[i]), cod_venda);
-
-
-            string vendaMesa = "Delete From vendamesa where cod_venda = " + cod_venda;
-            new NpgsqlDataAdapter(vendaMesa, Conectar()).Fill(compl);
-            DataTable ttt = new DataTable();
-            //--------------MUDANCA OU DELETANDO GARCON
-            string query3 = "select cod_super from superVenda where cod_venda = " + cod_venda;  //vejo qual o codigo Super
-            new NpgsqlDataAdapter(query3, Conectar()).Fill(ttt);
-
-            string query4 = "select cod_venda from supervenda where cod_super = " + Convert.ToInt16(ttt.Rows[0].ItemArray.GetValue(0))
-                + " and cod_venda <> " + cod_venda + " order by cod_venda asc limit 1";//vejo um outro codigo venda para a reposicao dos garcons
-            ttt = new DataTable();
-
-            new NpgsqlDataAdapter(query4, Conectar()).Fill(ttt);
-
-            string quer = "delete from supervenda where cod_venda = " + cod_venda;
-            new NpgsqlDataAdapter(quer, Conectar()).Fill(compl);
-            string venda = "delete from venda where cod_venda = " + cod_venda;
-            new NpgsqlDataAdapter(venda, Conectar()).Fill(compl);
-
+           
         }
+        public void unirVendas(string [] mesasDaVenda, string mesaDestino)
+        {
+          int[] vendas = new int[mesasDaVenda.Length];
+          for (int i = 0; i < mesasDaVenda.Length; i++)
+          {
+              vendas[i] = new Banco().codigoDaVendaPelaMesa(mesasDaVenda[i]);
+              string query = "update vendaCompleta set cod_venda = " + new Banco().codigoDaVendaPelaMesa(mesaDestino) + " where cod_venda = " + vendas[i];;
+              string query2 = "update vendaMesa set  cod_venda = " + new Banco().codigoDaVendaPelaMesa(mesaDestino) + " where cod_venda = " + vendas[i];
+              string query3 = "update supervenda set cod_venda = " + new Banco().codigoDaVendaPelaMesa(mesaDestino) + " where cod_venda = " + vendas[i]; ;
+
+              string query4 = "delete from venda where cod_venda = " + vendas[i]; 
+             
+
+              new NpgsqlDataAdapter(query, Conectar()).Fill(new DataTable());
+              new NpgsqlDataAdapter(query2, Conectar()).Fill(new DataTable());
+              new NpgsqlDataAdapter(query3, Conectar()).Fill(new DataTable());
+              if(mesasDaVenda[i]!=mesaDestino)
+              new NpgsqlDataAdapter(query4, Conectar()).Fill(new DataTable());
+          }
+          
+        }
+
         public void imprimiu(int cod_venda)
         {
 
@@ -341,75 +310,7 @@ namespace Pizzaria.Banco
 
         }
         //-----------------------------------------------------------------------
-        public VendaFull aplicarHalfVenda(VendaFull venda)
-        {
-            new VendaFull(venda.subItem.Completos, 2, venda.cod_caixa, venda.subItem.valorTotal, venda.subItem.horario, venda.dia, venda.mesa, venda.garcon);
-            return null;
-        }
-        public void novaMeiaVenda(VendaFull vendaHalf)//esse metodo FAZ A VENDA. é um METODO PARA ENCERRAR!!
-        {
-            DataTable dtt = new DataTable();
-            //nova venda
-            string query1 = "INSERT INTO venda(valortotal, datavenda, horario, cod_caixa, aberta, impressao)  VALUES "
-                                            + "( " + new Tratamento().retornaValorEscrito(vendaHalf.valorTotal).Replace(',', '.')
-                                            + " ,current_date,current_time,'" + vendaHalf.cod_caixa + "' ,false, true)";
-            new NpgsqlDataAdapter(query1, Conectar()).Fill(dtt);
-            dtt = new DataTable();
-            new NpgsqlDataAdapter("select cod_venda from venda order by cod_venda desc limit 1", Conectar()).Fill(dtt);
-            int cod_venda = Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0));
-            superVendas(vendaHalf.super, cod_venda);
-            receber(vendaHalf.cod_pagamento, cod_venda);
-            for (int i = 0; i < vendaHalf.mesa.Length; i++)
-            {
-                int codig = new Banco().cod_mesa(vendaHalf.mesa)[i];
-                new NpgsqlDataAdapter("INSERT INTO vendaMesa(cod_venda, cod_mesa)  VALUES ('" + cod_venda + "' , '" + codig + "')", Conectar()).Fill(new DataTable());
-
-            }
-            for (int i = 0; i < vendaHalf.Completos.Length; i++)
-                trocarCompleto(cod_venda, vendaHalf.Completos[i]);
-
-
-        }
-        public void trocarCompleto(int cod_venda, Completa produto)
-        {
-            DataTable dtt = new DataTable();
-            string query = "select quantidade from vendaCOmpletA v inner join completo c on(v.cod_completo = c.cod_completo) where v.cod_completo = " + produto.cod_completo;
-            new NpgsqlDataAdapter(query, Conectar()).Fill(dtt);
-            int qtd = Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0));//eu tinha 2 produtos no local anterior
-            if (produto.quantidade == qtd) // transferencia total. tira do antigo e coloca no novo. ou seja, alter table na tabela.
-            {
-
-                query = "UPDATE vendacompleta SET cod_venda = " + cod_venda + " WHERE  cod_completo= " + produto.cod_completo;
-                new NpgsqlDataAdapter(query, Conectar()).Fill(dtt);
-            }
-            else // transferencia parcial. diminui de um, cria um novo codigo, e duplica o segundo!
-            {
-                string query1 = " INSERT INTO completo(valorunitariocompleto, quantidade) VALUES ( '" + new Tratamento().retornaValorEscrito(produto.valorUnitario).Replace(',', '.') + "'," + produto.quantidade + ")";
-                //crio um novo completo , com a quantidade nova
-                new NpgsqlDataAdapter(query1, Conectar()).Fill(dtt);
-                //preciso associar esse produto a esta venda
-                int comp = new Banco().resgatarUltimaCompleto();
-                //resgatei o valor desse novo completo para associar a venda q eu criei
-                string query3 = "INSERT INTO vendacompleta( cod_venda, cod_completo) VALUES (" + cod_venda + "," + comp + " )";
-
-                new NpgsqlDataAdapter(query3, Conectar()).Fill(dtt);
-
-                for (int k = 0; k < produto.produto.Length; k++)
-                {
-                    string query4 = "INSERT INTO completoproduto(cod_completo, cod_produto, porcentagem, cod_tamanho) VALUES ("
-                        + comp + "," + produto.produto[k].cod_produto + "," + (produto.produto[k].porcentagem * 100) + "  , " + produto.produto[k].cod_tamanho + ")";
-                    new NpgsqlDataAdapter(query4, Conectar()).Fill(dtt);
-                }
-                // ao chegar aqui, ja tenho o produto associado a nova venda, mas nao removi a quantidade da venda anterior, nem associei garcon.
-                //string query6 = "INSERT INTO   completogarcon(cod_completo, cod_garcon , quantidade) VALUES ( "+comp+", "+produto.cod_garcon+","+ 1 +")";
-                //new NpgsqlDataAdapter(query6, Conectar()).Fill(dtt);
-                qtd = (qtd - produto.quantidade);
-                string query2 = "update completo set quantidade = " + qtd + " where cod_completo = " + produto.cod_completo;
-                new NpgsqlDataAdapter(query2, Conectar()).Fill(dtt);
-            }
-
-
-        }
+   
         public void receber(int cod_pagar, int cod_venda)
         {
             DataTable dtt = new DataTable();
@@ -459,9 +360,9 @@ namespace Pizzaria.Banco
         }
         private Produto[] getProduto(int cod_completo)
         {
-            string query = "select p.cod_produto, cp.porcentagem, c.valorUnitarioCompleto , cp.cod_tamanho,  c.quantidade" +
+            string query = "select p.cod_produto, cp.porcentagem, c.valorUnitarioCompleto , cp.cod_tamanho " +
                             " from completoProduto cp inner join Produto p on (p.cod_produto = cp.cod_produto)" +
-                            " inner join completo c on (c.cod_completo = cp.cod_completo) where c.cod_completo = " + cod_completo;
+                            " inner join completo c on (c.cod_completo = cp.cod_completo) where c.cod_completo = " + cod_completo+ " and c.cancelado = false";
             DataTable t = new DataTable();
             new NpgsqlDataAdapter(query, Conectar()).Fill(t);
 
@@ -469,11 +370,11 @@ namespace Pizzaria.Banco
             for (int i = 0; i < t.Rows.Count; i++)
             {
                 conjunto[i] = new Produto();
-                conjunto[i].setLoad(Convert.ToInt16(t.Rows[i].ItemArray.GetValue(0)),
+                conjunto[i].setLoadDividido(Convert.ToInt16(t.Rows[i].ItemArray.GetValue(0)),
                                     Convert.ToDouble(t.Rows[i].ItemArray.GetValue(1)),
                                     Convert.ToDouble(t.Rows[i].ItemArray.GetValue(2)),
                                     Convert.ToInt16(t.Rows[i].ItemArray.GetValue(3)),
-                                    Convert.ToInt16(t.Rows[i].ItemArray.GetValue(4)),
+                                   
                                      new Banco().isImpressoProduto(Convert.ToInt16(t.Rows[i].ItemArray.GetValue(0)))
                                     );
             }
@@ -487,13 +388,41 @@ namespace Pizzaria.Banco
             new NpgsqlDataAdapter(query, Conectar()).Fill(dtt);
         return dtt.Rows[0].ItemArray.GetValue(0).ToString();
         }
-        public Completa getCompleta(int cod_completa)
+        public Completa getCompleta(int cod_completa, bool cancelado)
         {
-            string query = "select quantidade from completo where cod_completo = " + cod_completa;
+            string query = "select p.cod_produto,cp.porcentagem, c.valorUnitarioCompleto,cp.cod_tamanho,p.impresso "
+                        +"from completo c inner join completoProduto cp on (cp.cod_completo = c.cod_completo) "
+                        +"inner join produto p on (p.cod_produto = cp.cod_produto)"
+                        +"where c.cod_completo = "+cod_completa+" and c.cancelado = "+cancelado;
+
             DataTable dtt = new DataTable();
             new NpgsqlDataAdapter(query, Conectar()).Fill(dtt);
-            return new Completa(getProduto(cod_completa), Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0)), cod_completa);
+            Produto [] produtos = new Produto[dtt.Rows.Count];
+            for(int i = 0; i < produtos.Length;i++){
+            
+            produtos[i] = new Produto();
+                produtos[i].setLoad(
+                     Convert.ToInt16(  dtt.Rows[i].ItemArray.GetValue(0))
+                    ,Convert.ToDouble(  dtt.Rows[i].ItemArray.GetValue(1))
+                    ,Convert.ToDouble(  dtt.Rows[i].ItemArray.GetValue(2))
+                    ,Convert.ToInt16(  dtt.Rows[i].ItemArray.GetValue(3))
+                    ,Convert.ToBoolean(  dtt.Rows[i].ItemArray.GetValue(4)));
+            }
 
+            string garconA = "select g.cod_garcon,sum(quantidade) from garcon g inner join garconCompleto gc on(g.cod_garcon = gc.cod_garcon) " +
+                "inner join completo c on(c.cod_completo = gc.cod_completo) where c.cod_completo = "
+                + cod_completa + " and cancelado = false "
+                + " group by g.cod_garcon";
+            DataTable garc = new DataTable();
+
+            new NpgsqlDataAdapter(garconA, Conectar()).Fill(garc);
+            GarconFisico[] gf = new GarconFisico[garc.Rows.Count];
+            for (int k = 0; k < garc.Rows.Count; k++)
+            {
+                gf[k] = new GarconFisico();
+                gf[k].setGarcon  ( Convert.ToInt16( garc.Rows[k].ItemArray.GetValue(0)), Convert.ToInt16(garc.Rows[k].ItemArray.GetValue(1)));
+            }
+            return new Completa(produtos, cod_completa,gf);
 
         }
         public int qtdSegmentos()

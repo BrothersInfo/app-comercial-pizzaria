@@ -20,7 +20,7 @@ namespace Pizzaria.Classes
         public string[] mesa;
         public Completa[] Completos;
         public int qtdItens;
-        public int[] garcon;
+       // public int[] garcon;
         public VendaHalf subItem;//-----------------------------------------------------------------------------
 
 
@@ -52,7 +52,7 @@ namespace Pizzaria.Classes
             Completa[] conj = new Completa[codigo.Length];
 
             for (int x = 0; x < conj.Length; x++)
-                conj[x] = new BancoVenda().getCompleta(codigo[x]);
+                conj[x] = new BancoVenda().getCompleta(codigo[x], false);
 
             for (int v = 0; v < codigo.Length; v++)
                 tot += (conj[v].valorUnitario * conj[v].quantidade);
@@ -62,11 +62,11 @@ namespace Pizzaria.Classes
         }
 
         public VendaFull(Completa[] conjProd, int cod_venda, int cod_caixa, double valorTotal,
-            string horario, string dia, string[] mesas, int[] garcon)
+            string horario, string dia, string[] mesas)
         {
             try
             {
-                this.garcon = garcon;
+               // this.garcon = garcon;
                 Completos = conjProd;
                 this.cod_venda = cod_venda;
                 this.cod_caixa = cod_caixa;
@@ -80,10 +80,7 @@ namespace Pizzaria.Classes
             }
             catch { }
         }
-        public void encerraVenda()
-        {
-            new BancoVenda().encerrarVenda(valorTotal, cod_venda, mesa,false);
-        }
+        
 
 
     }

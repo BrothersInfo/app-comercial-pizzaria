@@ -187,34 +187,34 @@ namespace Pizzaria.Banco
                 default: return " v.dataVenda";
             }
 
-        }
-        public DataTable consultaVendaGeral(string []data, int order, bool hasFiltro, int filtro, int valorFiltro, bool ascen)
+        }// FINALIZADO
+        public DataTable consultaVendaGeral(string []data, int order, bool hasFiltro, int filtro, int valorFiltro, bool ascen, bool cancelado)
         {
             string query = "select "
+                + "v.cod_venda as \"Id da Venda\", "
                 + "(select mm.descricao from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) inner join venda vv on (vv.cod_venda = vmm.cod_venda) where v.cod_venda = vv.cod_venda order by vv.cod_venda desc limit 1) as \"Venda\","
-                + " (CASE v.horario > '06:00'  WHEN true THEN to_char(v.dataVenda, 'DD MM YYYY') ELSE to_char( v.dataVenda - 1, 'DD MM YYYY')||'* Madrugada'   end ) as \"Data\", to_char(v.horario, 'HH24:MI:SS') as \"Horario\", x.nomeCaixa as \"Caixa\" ," 
+                + " (CASE v.horario > '06:00'  WHEN true THEN to_char(v.dataVenda, 'DD MM YYYY') ELSE to_char( v.dataVenda - 1, 'DD MM YYYY')||'* Madrugada'   end ) as \"Data\", to_char(v.horario, 'HH24:MI:SS') as \"Horario\", x.nomeCaixa as \"Caixa\" ,"
                 + "(select gg.nome from garcon gg inner join GarconCompleto ccg on (ccg.cod_garcon = gg.cod_garcon) "
-                     +" inner join completo cc on (cc.cod_completo = ccg.cod_completo) inner join vendaCompleta vvg on (vvg.cod_completo = cc.cod_completo) "
-                     +" inner join venda vv on (vv.cod_venda = vvg.cod_venda) where vvg.cod_venda =  v.cod_venda order by vv.cod_venda desc limit 1) as \"Garcon\","
-                + " p.descricao as \"Pagamento\","
-                +" (CASE v.valortotal >0  WHEN true THEN (trim(to_char( v.valorTotal,'9999.99'))) ELSE '0.00'  end ) as \"Valor\","
+                     + " inner join completo cc on (cc.cod_completo = ccg.cod_completo) inner join vendaCompleta vvg on (vvg.cod_completo = cc.cod_completo) "
+                     + " inner join venda vv on (vv.cod_venda = vvg.cod_venda) where vvg.cod_venda =  v.cod_venda order by vv.cod_venda desc limit 1) as \"Garcon\",";
+
+            if (!cancelado) query += " (p.descricao) as \"Pagamento\",";
+            else            query += " 'Não Houve' as \" Pagamento\", "; 
+                
+                    query +=" (CASE v.valortotal >0  WHEN true THEN (trim(to_char( v.valorTotal,'9999.99'))) ELSE '0.00'  end ) as \"Valor\","
               
                 +" (select x.descricao from ambiente x where x.cod_ambiente = (select mm.cod_ambiente from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) "
 	               + " inner join venda vv on (vv.cod_venda = vmm.cod_venda) "
 		           + " where v.cod_venda = vv.cod_venda order by vv.cod_venda desc limit 1)) as \"Ambiente\" "
-                
-                
                 +" from  venda v " 
-               
-               
                 +" inner join caixa x                   on (x.cod_caixa     = v.cod_caixa) "
                 +" inner join pagamento p               on (p.cod_pagamento = v.cod_pagamento) "
              
-                +" where v.aberta = false ";
+                +" where v.aberta = false and v.cancelado = "+cancelado;
             if (hasFiltro)
                 query += " and "+ filtroQuery(  filtro) +" = "+ (1+valorFiltro);
             if (data.Length == 1)
-                query += "and( (v.dataVenda = '" + data[0] + "' and v.horario > ' 06:00' ) or (v.dataVenda = date '" + data[0] + "' + 1 and v.horario < ' 06:00' ))";     
+                query += " and( (v.dataVenda = '" + data[0] + "' and v.horario > ' 06:00' ) or (v.dataVenda = date '" + data[0] + "' + 1 and v.horario < ' 06:00' ))";     
             else
                 query += " and v.dataVenda between '" + data[0] + "' and '" + data[1] + "' ";
                     //--filtros
@@ -227,13 +227,18 @@ namespace Pizzaria.Banco
             sql.Fill(tabela);
             return tabela;
         }
+        public DataTable consultaPorIDVenda(string cod_venda)
+        {
+            return null;
+        }
         public DataTable consultaLeituraX(string data)
         {
             string query = "select "
-                + "to_char(v.horario, 'HH24:MI') as \"Horario\", " 
-                + "(select mm.cod_mesa from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) inner join venda vv on (vv.cod_venda = vmm.cod_venda) where v.cod_venda = vv.cod_venda order by vv.cod_venda desc limit 1) as \"Venda\","
+                + "to_char(v.horario, 'HH24:MI') as \"Horario\", "
+                + " v.cod_venda, "
                  + " p.cod_pagamento as \"Pagamento\","
-                + " v.valorTotal "
+                + " ( case v.valorTotal > 0 when true then(trim(to_char( v.valorTotal,'9999.99'))) else '0.00' end) as \"Valor\" "
+                + ",( case v.cancelado when true then 'Extorno' else 'Finaliz' end) as \"Situacao\""
                 + " from  venda v "
                 + " inner join caixa x                   on (x.cod_caixa     = v.cod_caixa) "
                 + " inner join pagamento p               on (p.cod_pagamento = v.cod_pagamento) "
@@ -241,7 +246,7 @@ namespace Pizzaria.Banco
          
                 "and ((v.dataVenda = '" + data + "' and v.horario > ' 06:00' ) or (v.dataVenda = date '" 
                                         + data + "' + 1 and v.horario < ' 06:00' ))";
-
+            
             //--filtros
 
             DataTable tabela = new DataTable();
@@ -253,32 +258,47 @@ namespace Pizzaria.Banco
         ,bool hasAmbiente, string ambiente, bool hasTipo, string tipo, int order , bool ascen)
         {
             string query =
-                "select (CASE v.horario > '06:00'  WHEN true THEN to_char(v.dataVenda, 'DD MM YYYY') ELSE"+
-                    " to_char( v.dataVenda - 1, 'DD MM YYYY')||'* Madrugada'   end ) as \"Data da Venda\"" +
-                ", g.nome as \"Garcon\"" +
-                ",(select mm.descricao from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) " +
-                    " inner join venda vv on (vv.cod_venda = vmm.cod_venda) " +
-                    " where v.cod_venda = vv.cod_venda order by vv.cod_venda desc limit 1) as \"Mesa\" ," +
-                " (select aa.descricao from ambiente aa inner join  mesa mm on (mm.cod_ambiente = aa.cod_ambiente) " +
-                    " inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) " +
-                    " inner join venda vv on (vv.cod_venda = vmm.cod_venda) ";
-                    if (hasAmbiente)
-                        query += " where v.cod_venda = vv.cod_venda and aa.cod_ambiente = " 
-                              + new BancoConsulta().codAmbientePelaDescricao(ambiente) + " order by vv.cod_venda desc limit 1) as \"Ambiente\",";
-                    else
-                        query += " where v.cod_venda = vv.cod_venda  order by vv.cod_venda desc limit 1) as \"Ambiente\",";
-                query +=
-                " t.nome as \"Categoria\" " +
-                ",p.descricao as \"Produto\" " +
-                ",tt.descricao as \"Tamanho\" " +
-                ",(CASE cp.porcentagem = 100 when true then	(CASE (t.cod_tipo = 1)when true then 'Inteiro' ELSE 'Unico' end ) else " +
-                    " (CASE (cp.porcentagem = 50 )when true then 'Metade' ELSE " +
-                    "    (CASE (cp.porcentagem = 25 )when true then '1/4' " +
-                    "        ELSE ('Desconhecido') end ) end )  end)as \"Divisao\", " +
-                "(CASE (c.valorUnitarioCompleto*(cast(cp.porcentagem as double precision) /100)) >0  WHEN true THEN "+
-                    "(trim(to_char( (c.valorUnitarioCompleto*(cast(cp.porcentagem as double precision) /100)),'9999.99'))) ELSE '0.00'  end ) as \"Valor Unitario\"," +
-                " gc.quantidade as \"Quantidade\" " +
+                "select (CASE v.horario > '06:00'  WHEN true THEN to_char(v.dataVenda, 'DD MM YYYY') " +
+                    "ELSE to_char( v.dataVenda - 1, 'DD MM YYYY')||'* Madrugada'   end ) as \"Data da Venda\" " +
                 ", to_char(gc.horario, 'HH24:MI:SS') as \"Hora Entrega\" " +
+                ", g.nome as \"Garcon\" " +
+                ",v.cod_venda as \"ID da Venda\" " +
+                ",(select mm.descricao from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) " +
+                    "inner join venda vv on (vv.cod_venda = vmm.cod_venda) " +
+                    "where v.cod_venda = vv.cod_venda order by vv.cod_venda desc limit 1) as \"Mesa\" " +
+
+                ",(select aa.descricao from ambiente aa inner join  mesa mm on (mm.cod_ambiente = aa.cod_ambiente) " +
+                    "inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) " +
+                    "inner join venda vv on (vv.cod_venda = vmm.cod_venda) ";
+            if (hasAmbiente)
+                query += " where v.cod_venda = vv.cod_venda and aa.cod_ambiente = "
+                      + new BancoConsulta().codAmbientePelaDescricao(ambiente) 
+                      + " order by vv.cod_venda desc limit 1) as \"Ambiente\",";
+            else
+                query += " where v.cod_venda = vv.cod_venda  order by vv.cod_venda desc limit 1) as \"Ambiente\",";
+            query +=
+                " t.nome as \"Segmento\" ,p.descricao as \"Produto\" ,tt.descricao as \"Tamanho\" "+
+                ",(select s.descricao from divisor d inner join divisorSubDivisor ds on(d.cod_divisao = ds.cod_divisao) "+
+                        "inner join subdivisor s on (s.cod_subDivisor= ds.cod_subdivisor) "+
+                        "inner join tamanhoDIvisor td on (td.cod_divisao = d.cod_divisao) "+
+                        "where   s.valor = cp.porcentagem and td.cod_tamanho = tt.cod_tamanho order by s.descricao desc limit 1) as \"Parcionamento\" "+
+                ",(case c.valorUnitarioCompleto > 0 when true then "+
+	                "(trim(to_char((c.valorUnitarioCompleto*(select s.valor from divisor d "+ 
+	                "inner join divisorSubDivisor ds on(d.cod_divisao = ds.cod_divisao) "+
+                        "inner join subdivisor s on (s.cod_subDivisor= ds.cod_subdivisor)  "+
+                        "where   s.valor = cp.porcentagem order by s.descricao desc limit 1)) "+
+                        ",'9999.99'))) else '0.00' end) as \"Valor Unitario\" "+
+                ",gc.quantidade as \"Quantidade\" "+
+                ",(case c.valorUnitarioCompleto > 0 when true then "+
+	                "(trim(to_char(( "+
+	                "(c.valorUnitarioCompleto*(select s.valor from divisor d "+
+	                "inner join divisorSubDivisor ds on(d.cod_divisao = ds.cod_divisao) "+
+                        "inner join subdivisor s on (s.cod_subDivisor= ds.cod_subdivisor) "+ 
+                        "where   s.valor = cp.porcentagem order by s.descricao desc limit 1))* gc.quantidade) "+
+                        ",'9999.99'))) else '0.00' end) as \"Sub Total\" "+ 
+                ",(CASE c.cancelado  WHEN true THEN 'Extornado' ELSE 'Vendido'  end ) as \"Entrega\" ";
+
+            query +=
                 "from garcon g " +
                 " inner join garconCompleto gc on (gc.cod_garcon = g.cod_garcon) " +
                 " inner join completo c on (c.cod_completo = gc.cod_completo) " +
@@ -289,8 +309,7 @@ namespace Pizzaria.Banco
                 " inner join tipo t on (p.cod_tipo = t.cod_tipo) " +
                 " inner join produtoTamanho pt on (pt.cod_produto = p.cod_produto) " +
                 " inner join tamanho tt on (tt.cod_tamanho = pt.cod_tamanho) and  (tt.cod_tamanho =  cp.cod_tamanho) " +
-                " where " +
-                "v.aberta = " + aberta;
+                " where v.aberta = " + aberta ;
                 
                 if (!aberta){
                     if (data.Length == 1)
@@ -312,28 +331,56 @@ namespace Pizzaria.Banco
             return tabela;
 
         }
-       
+       //FINALIZADO
         public DataTable consultaProdutoGeral(string[] data, bool hasValor, bool hasTipo, int cod_tipo, bool hasTamanho, int cod_tamanho, 
             bool hasProduto, int cod_produto)
         {
+
             string query =
-                " select " +
-                " (select pp.descricao from produto pp where pp.cod_produto = p.cod_produto) as \"Produto\" " +
-                " , (select pp.nome from tipo pp where pp.cod_tipo = t.cod_tipo) as \"Categoria\" " +
-                " , (select pp.descricao from tamanho pp where pp.cod_tamanho = tt.cod_tamanho) as \"Sub Categoria\" ";
+                " select "
+                 + " (select pp.descricao from produto pp where pp.cod_produto = p.cod_produto) as \"Produto\" "
+                 + " , (select pp.nome from tipo pp where pp.cod_tipo = t.cod_tipo) as \"Categoria\" "
+                 + " , (select pp.descricao from tamanho pp where pp.cod_tamanho = tt.cod_tamanho) as \"Sub Categoria\" "
+                 + " ,(select s.descricao from divisor d inner join divisorSubDivisor ds on(d.cod_divisao = ds.cod_divisao)"
+                     + " inner join subdivisor s on (s.cod_subDivisor= ds.cod_subdivisor) "
+                     + " where   s.valor = cp.porcentagem order by s.descricao desc limit 1) as \"Parcionamento\" ";
+
+
+            string quantidade =
+              ",(select sum(gc7.quantidade) from garcon g7 inner join  garconCompleto gc7 on(gc7.cod_garcon = g7.cod_garcon) "
+            + "inner join completo c7 on (c7.cod_completo = gc7.cod_completo) "
+            + "inner join completoProduto cp7        on (cp7.cod_completo = c7.cod_completo)  "
+            + "inner join produto p7      	     on (p7.cod_produto   = cp7.cod_produto )  "
+            + "inner join produtoTamanho pt7         on (pt7.cod_produto  = p7.cod_produto)    "
+            + "inner join tamanho tt7     	     on (tt7.cod_tamanho  = pt7.cod_tamanho and tt7.cod_tamanho =  cp7.cod_tamanho)  "
+            + "inner join tipo t7 	             on (t7.cod_tipo      = p7.cod_tipo) "
+            + "where p7.cod_produto = p.cod_produto  and tt7.cod_tamanho = tt.cod_tamanho "
+            + "and cp7.porcentagem = cp.porcentagem ";
+            if (hasValor) quantidade += " and c7.valorUnitariocompleto = c.valorUnitarioCompleto ";
+            quantidade +=" and c7.cancelado = c.cancelado) as \"Quantidade\" ";
+            query += quantidade;
+            string valorUnitario_subTotal =
+                 " , (CASE (c.valorUnitarioCompleto*(cast(cp.porcentagem as double precision))) >0  "
+                     + " WHEN true THEN (trim(to_char( (c.valorUnitarioCompleto*(cast(cp.porcentagem as double precision) )),'9999.99'))) "
+                     + " ELSE '0.00'  end ) as \"Valor Unitario\""
+             + ", (select (trim(to_char(((c.valorUnitarioCompleto *  cp.porcentagem )*(select sum(gc7.quantidade) "
+            + "from garcon g7 inner join  garconCompleto gc7 on(gc7.cod_garcon = g7.cod_garcon) "
+            + "inner join completo c7 on (c7.cod_completo = gc7.cod_completo) "
+            + "inner join completoProduto cp7        on (cp7.cod_completo = c7.cod_completo)  "
+            + "inner join produto p7      	     on (p7.cod_produto   = cp7.cod_produto )  "
+            + "inner join produtoTamanho pt7         on (pt7.cod_produto  = p7.cod_produto)    "
+            + "inner join tamanho tt7     	     on (tt7.cod_tamanho  = pt7.cod_tamanho and tt7.cod_tamanho =  cp7.cod_tamanho)  "
+            + "inner join tipo t7 	             on (t7.cod_tipo      = p7.cod_tipo) "
+            + "where p7.cod_produto = p.cod_produto  and tt7.cod_tamanho = tt.cod_tamanho "
+            + "and cp7.porcentagem = cp.porcentagem and c7.valorUnitariocompleto = c.valorUnitarioCompleto and c7.cancelado = c.cancelado)) ,'9999.99')))) as \"Sub total\" ";
+
             if (hasValor)
+                query += valorUnitario_subTotal;
+                
+                query+=
+                   " ,(CASE c.cancelado  WHEN true THEN 'Extornado' ELSE 'Vendido'  end ) as \"Entrega\"";  
                 query +=
-            " , (CASE (c.valorUnitarioCompleto*(cast(cp.porcentagem as double precision) /100)) >0 "
-            + " WHEN true THEN (trim(to_char( (c.valorUnitarioCompleto*(cast(cp.porcentagem as double precision) /100)),'9999.99'))) ELSE '0.00'  end ) as \"Valor Unitario\" " +
-            " , (CASE ((c.valorUnitarioCompleto*(cast(cp.porcentagem as double precision) /100))* sum(c.quantidade)) >0  WHEN true "+
-	            " THEN (trim(to_char( ((c.valorUnitarioCompleto*(cast(cp.porcentagem as double precision) /100))* sum(c.quantidade)),'9999.99'))) ELSE '0.00'  end ) as \"Sub Total\" ";
-            query +=
-                " ,(CASE cp.porcentagem = 100 when true then	(CASE (t.cod_tipo = 1)when true then 'Inteiro' ELSE 'Unico' end ) else  " +
-                "                    (CASE (cp.porcentagem = 50 )when true then 'Metade' ELSE " +
-                "                        (CASE (cp.porcentagem = 25 )when true then '1/4'  " +
-                "                            ELSE ('Desconhecido') end ) end )  end)as \"Divisao\" " +
-                " , sum(c.quantidade) as \"Quantidade\" " +
-                " from 		completo c              " +
+               " from 		completo c              " +
                 " inner join 	completoProduto cp        on (cp.cod_completo = c.cod_completo)     " +
                 " inner join 	produto p      	     	  on (p.cod_produto   = cp.cod_produto ) " +
                 " inner join 	produtoTamanho pt         on (pt.cod_produto  = p.cod_produto)   " +
@@ -341,7 +388,7 @@ namespace Pizzaria.Banco
                 " inner join	tipo t			          on (t.cod_tipo      = p.cod_tipo) " +
                 " inner join	vendaCompleta vc	      on (vc.cod_completo = c.cod_completo)   " +
                 " inner join 	venda v			          on (v.cod_venda = vc.cod_venda)" +
-                " where ";
+                " where v.aberta = false and ";
             if (data.Length == 1)
                 query += " ((v.dataVenda = '" + data[0] + "' and v.horario > ' 06:00' ) or (v.dataVenda = date '" + data[0] + "' + 1 and v.horario < ' 06:00' ))";
             else
@@ -354,7 +401,7 @@ namespace Pizzaria.Banco
                 if (hasProduto)
                     query += " and p.cod_produto = " + cod_produto;
             }
-            query += " group by t.cod_tipo,p.cod_produto, tt.cod_tamanho,cp.porcentagem ";
+            query += " group by t.cod_tipo,p.cod_produto, tt.cod_tamanho,cp.porcentagem , c.cancelado ";
             if(hasValor)
                 query+=
                 " , c.valorUnitarioCompleto  ";
