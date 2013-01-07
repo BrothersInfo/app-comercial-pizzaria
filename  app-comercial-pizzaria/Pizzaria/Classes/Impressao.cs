@@ -85,7 +85,7 @@ namespace Pizzaria.Classes
                 mr.PrintText(line++, 01, pont);
                 //data e hora
 
-                mr.PrintText(line++, 01, "|HORA  -VENDA  -PAGAMENTO   -VALOR  |");//id casa 1  - cod casa 7 -  desc - casa 12 - categ casa 32
+                mr.PrintText(line++, 01, "|HORA  -VENDA- PAGAM -VALOR  -SITUAC|");//id casa 1  - cod casa 7 -  desc - casa 12 - categ casa 32
                 mr.PrintText(line++, 01, pont);
                 //itens
                 {
@@ -94,12 +94,13 @@ namespace Pizzaria.Classes
                         mr.PrintText(line, 01, "|");
                         mr.PrintText(line, 02, leitu.itens[i].hora);
                         mr.PrintText(line, 08, "-");
-                        mr.PrintText(line, 09, leitu.itens[i].mesa);
-                        mr.PrintText(line, 17, "-");
-                        mr.PrintText(line, 18, leitu.itens[i].formaPagamento);
+                        mr.PrintText(line, 09, ""+leitu.itens[i].cod_venda);
+                        mr.PrintText(line, 15, "-");
+                        mr.PrintText(line, 16, leitu.itens[i].formaPagamento.Substring(0,5));
 
-                        mr.PrintText(line, 29, "-");
-                        mr.PrintText(line, 30, new Tratamento().retornaValorEscrito( leitu.itens[i].valor));
+                        mr.PrintText(line, 22, "-");
+                        mr.PrintText(line, 23, new Tratamento().retornaValorEscrito( leitu.itens[i].valor));
+                        mr.PrintText(line, 30,"-"+ leitu.itens[i].situac.Substring(0,6));
                         mr.PrintText(line++, 37, "|");
                     }
 
@@ -108,6 +109,8 @@ namespace Pizzaria.Classes
 
                 mr.PrintText(line++, 01, pont);
                 mr.PrintText(line, 01, "|"); mr.PrintText(line, 15, ("TOTAL R$ " + new Tratamento().retornaValorEscrito(leitu.valorTotal))); mr.PrintText(line++, 37, "|");
+                if (leitu.totCheque > 0)
+                { mr.PrintText(line, 01, "|"); mr.PrintText(line, 15, ("EXTORNO RS " + new Tratamento().retornaValorEscrito(leitu.extorno))); mr.PrintText(line++, 37, "|"); }
                 if (leitu.totDinheiro > 0)
                 { mr.PrintText(line, 01, "|"); mr.PrintText(line, 15, ("DINHEIRO RS " + new Tratamento().retornaValorEscrito(leitu.totDinheiro))); mr.PrintText(line++, 37, "|"); }
                 if (leitu.totCredito > 0)
@@ -116,6 +119,7 @@ namespace Pizzaria.Classes
                 { mr.PrintText(line, 01, "|"); mr.PrintText(line, 15, ("DEBITO RS " + new Tratamento().retornaValorEscrito(leitu.totDebito))); mr.PrintText(line++, 37, "|"); }
                 if (leitu.totCheque > 0)
                 { mr.PrintText(line, 01, "|"); mr.PrintText(line, 15, ("CHEQUE RS " + new Tratamento().retornaValorEscrito(leitu.totCheque))); mr.PrintText(line++, 37, "|"); }
+               
 
                 mr.PrintText(line++, 01, pont);
                 //--------------------------------
@@ -163,8 +167,8 @@ namespace Pizzaria.Classes
                 string pont = "|---------------|";
                 int line = 1; 
                 mr.PrintText(line++, 01, pont);
-                if (cc.empresa.Length > 16) cc.empresa = cc.empresa.Substring(0, 16);
-                mr.PrintText(line++, 01, cc.empresa);
+              
+                mr.PrintText(line++, 01,"|----COZINHA----|");
                 mr.PrintText(line++, 01, pont);
                 mr.PrintText(line, 01, "|Data:" + DateTime.Now.ToShortDateString()); mr.PrintText(line++, 17, "|");
                 mr.PrintText(line, 01, "|Hora:" + DateTime.Now.ToShortTimeString()); mr.PrintText(line++, 17, "|");
@@ -183,11 +187,22 @@ namespace Pizzaria.Classes
                         
                         
                     }
-                     string tam = new BancoVenda().tamanhoDescricao(produto[ii].produto[0].cod_tamanho);
+                    string tam = new BancoInformacao().tamanhoDescricaoByCodigo(produto[ii].produto[0].cod_tamanho);
                      if (tam.Length > 10) tam = tam.Substring(0,  10);
                      mr.PrintText(line, 1, "|Tam- " + tam); mr.PrintText(line++, 17, "|");
                     mr.PrintText(line, 1, "|Quantid- " + produto[ii].quantidade); mr.PrintText(line++, 17, "|");
-                    mr.PrintText(line, 01, "|"); mr.PrintText(line++, 17, "|");
+                 //   mr.PrintText(line, 01, "|"); mr.PrintText(line++, 17, "|");
+                    string noticia= "";
+                    int u = 0;
+                    string nota = produto[ii].getNoticia(); string obs = "|obs. "; int limite = 10;
+                    while(u < nota.Length){
+                        if(noticia.Length %limite == 0 && u >= limite)
+                        {
+                            mr.PrintText(line, 01, obs + noticia); mr.PrintText(line++, 17, "|"); noticia = ""; obs = ""; limite = 16;
+                        }
+                        noticia += produto[ii].getNoticia().Substring(u++, 1); 
+                    }
+                    mr.PrintText(line, 01,  noticia); mr.PrintText(line++, 17, "|"); noticia = "";
                     mr.PrintText(line++, 01, "| -- - -- - --  |");
                 }
                 //produto
@@ -232,6 +247,9 @@ namespace Pizzaria.Classes
                 mr.PrintText(line++, 01, pont);
                 mr.PrintText(line++, 01, cc.fixCenter("Cupom Nao Fiscal", 1));
                 mr.PrintText(line++, 01, pont);
+                mr.PrintText(line++, 01, pont);
+                mr.PrintText(line, 01, "ID da VENDA : " + venda.cod_venda); mr.PrintText(line++, 37, "|");
+                mr.PrintText(line++, 01, pont);
                 //data e hora
                 mr.PrintText(line++, 01,  cc.fixCenter("Data : "+DateTime.Now.ToShortDateString()+" Hora : "+DateTime.Now.ToShortTimeString(),1));
                 mr.PrintText(line++, 01, pont);
@@ -250,7 +268,7 @@ namespace Pizzaria.Classes
                     if (prod.Length > 16) prod = prod.Substring(0, 16);
                     mr.PrintText(line, 12, prod);
                     mr.PrintText(line, 28, "-");
-                    string tam = new BancoVenda().tamanhoDescricao(venda.Completos[ii].produto[0].cod_tamanho);
+                    string tam = new BancoInformacao().tamanhoDescricaoByCodigo(venda.Completos[ii].produto[0].cod_tamanho);
                     if (tam.Length > 7) tam = tam.Substring(0, 7); mr.PrintText(line, 29, tam);
                     mr.PrintText(line++, 37, "|");
 
@@ -321,6 +339,8 @@ namespace Pizzaria.Classes
                 mr.PrintText(05, 01, cc.titulo);
                 int line = 6; int i = 0; int ii = 0;
                 mr.PrintText(line++, 01, pont);
+                mr.PrintText(line, 01, "ID da VENDA : " + venda.cod_venda); mr.PrintText(line++, 37, "|");
+                mr.PrintText(line++, 01, pont);
                 mr.PrintText(line++, 01, "| ID |COD |     DESCRICAO    |CATEG |");//id casa 1  - cod casa 7 -  desc - casa 12 - categ casa 32
                 mr.PrintText(line++, 01, "|    QTD Un X VL Un   =  SUB-TOTAL  |");// qtd - casa 6  - X na casa 7 - val Uni - casa 8 - sub total casa 18
                 mr.PrintText(line++, 01, pont);
@@ -335,7 +355,7 @@ namespace Pizzaria.Classes
                     if (prod.Length > 16)          prod = prod.Substring(0, 16); 
                     mr.PrintText(line, 12, prod);
                     mr.PrintText(line, 28, "|");
-                    string tam = new BancoVenda().tamanhoDescricao(venda.Completos[ii].produto[0].cod_tamanho);
+                    string tam = new BancoInformacao().tamanhoDescricaoByCodigo(venda.Completos[ii].produto[0].cod_tamanho);
                     if (tam.Length > 7) tam = tam.Substring(0, 7); mr.PrintText(line, 29, tam);  mr.PrintText(line++, 37, "|");
                     mr.PrintText(line, 01, "|"); mr.PrintText(line, 08, "" + venda.Completos[ii].quantidade); mr.PrintText(line, 11, "X");
                     mr.PrintText(line, 15,new Tratamento().retornaValorEscritoCo(venda.Completos[ii].valorUnitario ));
@@ -351,26 +371,40 @@ namespace Pizzaria.Classes
                 mr.PrintText(line++, 01, pont);
                 mr.PrintText(line++, 01, cc.fixRightPont("TOTAL RS : " + new Tratamento().retornaValorEscrito(venda.valorTotal),1));
                 mr.PrintText(line++, 01, pont);
-                //--------------------------------
+                //--------------------------------ROTINA GARCON
 
-                int gPos = 12;
-                string garc = "";
-                int x = 0;
+                string garcon = "";
                 
-                string garc3 = new BancoVenda().nomeGarcon(venda.garcon[x++]);
-                garc += garc3;
-                while (gPos < 36 && x < venda.garcon.Length)
+                List<String> garcons = new List<string>();
+                for (int k = 0; k < venda.Completos.Length;k++ )
                 {
-                    garc += " | " + new BancoVenda().nomeGarcon(venda.garcon[x++]);
-                    gPos = 12 + garc.Length;
+                    for (int l = 0; l < venda.Completos[k].garcons.Length; l++)
+                    {
+                        bool can = true;
+                        for (int m = 0; m < garcons.Count; m++)
+                            if (garcons[m] == venda.Completos[k].garcons[l].nome) 
+                                can = false;
+                        if (can) garcons.Add(venda.Completos[k].garcons[l].nome);
+                    }
                 }
-                mr.PrintText(line, 01, "| GARCON : " + garc); mr.PrintText(line++, 37, "|");
+                int n = 0;
+                while (n<garcons.Count)
+                {
+                    garcon += garcons[n++];
+                    if (garcon.Length >= 25) { garcon = garcon.Substring(0, 25); break; }
+                    else
+                    {
+                        garcon += " |";
+                    }
+                }
+                mr.PrintText(line, 01, "| GARCOM : " + garcon); mr.PrintText(line++, 37, "|");
 
                 mr.PrintText(line++, 01, pont);
                 mr.PrintText(line, 01, "|");
                 int xx = 3;
                 ii = 0;
-                while (ii < 5 && ii < venda.mesa.Length)
+                //---------------------------FIM ROTINA GARCON
+                while (ii < 3 && ii < venda.mesa.Length)
                 {
                     mr.PrintText(line, xx, venda.mesa[ii] + " | ");
                     xx = xx + venda.mesa[ii++].Length + 3;

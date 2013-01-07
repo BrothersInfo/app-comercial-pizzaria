@@ -30,22 +30,22 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.rvPdf = new Microsoft.Reporting.WinForms.ReportViewer();
+        //    this.rvPdf = new Microsoft.Reporting.WinForms.ReportViewer();
             this.CRelatorioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.CRelatorioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // rvPdf
             // 
-            this.rvPdf.Dock = System.Windows.Forms.DockStyle.Fill;
+          //  this.rvPdf.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "DataSet";
             reportDataSource1.Value = this.CRelatorioBindingSource;
-            this.rvPdf.LocalReport.DataSources.Add(reportDataSource1);
-            this.rvPdf.LocalReport.ReportEmbeddedResource = "Pizzaria.ReportView.rdlc";
-            this.rvPdf.Location = new System.Drawing.Point(0, 0);
-            this.rvPdf.Name = "rvPdf";
-            this.rvPdf.Size = new System.Drawing.Size(626, 507);
-            this.rvPdf.TabIndex = 0;
+           // this.rvPdf.LocalReport.DataSources.Add(reportDataSource1);
+           // this.rvPdf.LocalReport.ReportEmbeddedResource = "Pizzaria.ReportView.rdlc";
+           // this.rvPdf.Location = new System.Drawing.Point(0, 0);
+           // this.rvPdf.Name = "rvPdf";
+           // this.rvPdf.Size = new System.Drawing.Size(626, 507);
+           // this.rvPdf.TabIndex = 0;
             // 
             // CRelatorioBindingSource
             // 
@@ -56,7 +56,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(626, 507);
-            this.Controls.Add(this.rvPdf);
+           // this.Controls.Add(this.rvPdf);
             this.Name = "PdfGenerator";
             this.Text = "PdfGenerator";
             this.Load += new System.EventHandler(this.PdfGenerator_Load);
@@ -67,7 +67,7 @@
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer rvPdf;
+     //   private Microsoft.Reporting.WinForms.ReportViewer rvPdf;
         private System.Windows.Forms.BindingSource CRelatorioBindingSource;
     }
 }

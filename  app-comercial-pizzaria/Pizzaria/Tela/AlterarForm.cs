@@ -72,8 +72,7 @@ namespace Pizzaria.Tela
         {
             if (!tbAltSub.Text.Equals(""))
                 new BancoConsulta().alterarTamanho(cbAltSub.Text, tbAltSub.Text, cboxAltSub.Checked);
-            else new BancoConsulta().alterarTamanho(cbAltSub.Text, cbAltSub.Text, cboxAltSub.Checked);
-
+       
         }
         public void limpaTamanho()
         {
@@ -102,6 +101,7 @@ namespace Pizzaria.Tela
             cbAltSub.SelectedIndex = 1;
             cbAltSub.SelectedIndex = 0;
 
+          
             cbAltSeg.DataSource = new BancoConsulta().descricaoTipoAll();
             cbAltSeg.DisplayMember = "nome";
             cbAltSeg.SelectedIndex = 1;
@@ -121,6 +121,8 @@ namespace Pizzaria.Tela
             cbAltAmb.DisplayMember = "descricao";
             cbAltAmb.SelectedIndex = 1;
             cbAltAmb.SelectedIndex = 0;
+
+
         }
         public void limparGarcon()
         {
@@ -350,5 +352,47 @@ namespace Pizzaria.Tela
             catch { }
          
         }
+
+        private void btNewDivisor_Click(object sender, EventArgs e)
+        {
+                  cbNewDivisor.DataSource = new BancoConsulta().descricaoDivisoresNoInTamanho(new Banco().codTamanho(cbAltSub.Text));
+            cbNewDivisor.DisplayMember = "descricao";
+            cbNewDivisor.SelectedIndex = 0;
+
+            flp01.Visible = true;
+            flp02.Visible = false;
+            
+        }
+
+        private void btOldDivisor_Click(object sender, EventArgs e)
+        {
+            cbOldDivisor.DataSource = new BancoConsulta().descricaoDivisoresbyTamanho(new Banco().codTamanho(cbAltSub.Text));
+            cbOldDivisor.DisplayMember = "descricao";
+            cbOldDivisor.SelectedIndex = 0;
+            flp02.Visible = true;
+            flp01.Visible = false;
+        }
+
+        private void btAddDiv_Click(object sender, EventArgs e)
+        {
+            if (cbNewDivisor.Text.Length > 0)
+            {
+                new BancoConsulta().inserirTamanhoDivisor(new Banco().codTamanho(cbAltSub.Text), new BancoConsulta().cod_divisorByDescricao(cbNewDivisor.Text));
+                MessageBox.Show("Alteração concluida com Sucesso!", "MESSAGEM", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btSubDiv_Click(object sender, EventArgs e)
+        {
+            if (cbOldDivisor.Text.Length > 0)
+            {
+                new BancoConsulta().removerTamanhoDivisor(new Banco().codTamanho(cbAltSub.Text),
+                    new BancoConsulta().cod_divisorByDescricao(cbOldDivisor.Text));
+                MessageBox.Show("Alteração concluida com Sucesso!","MESSAGEM"  ,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            }
+        }
+
+
+
     }
 }

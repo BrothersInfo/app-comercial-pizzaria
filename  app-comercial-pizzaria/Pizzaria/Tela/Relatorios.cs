@@ -97,19 +97,31 @@ namespace Pizzaria.Tela
         }
         private void btConsultarVenda_Click(object sender, EventArgs e)
         {
-            string[] data = new string [cbVendaData.SelectedIndex+1];
-            if (data.Length == 1)
-                data[0] = cbVendaDia.Text+"/"+(cbVendaMes.SelectedIndex+1)+"/"+cbVendaAno.SelectedItem;
+            if (cbVendaTipo.SelectedIndex == 1 || cbVendaTipo.SelectedIndex == 0)
+            {
+                string[] data = new string[cbVendaData.SelectedIndex + 1];
+                if (data.Length == 1)
+                    data[0] = cbVendaDia.Text + "/" + (cbVendaMes.SelectedIndex + 1) + "/" + cbVendaAno.SelectedItem;
+                else
+                {
+                    data[0] = dtpVendaUm.Value.ToShortDateString();
+                    data[1] = dtpVendaDois.Value.ToShortDateString();
+                }
+                DataTable tabela = new BancoRelatorio().consultaVendaGeral(data, cbOrdenarVenda.SelectedIndex, gbSubFiltro.Visible, cbFiltroVenda.SelectedIndex, cbItem.SelectedIndex, rbVendaCres.Checked, cbVendaTipo.SelectedIndex == 1);
+                carregarListView(tabela);
+                lValor.Text = somarValores(tabela, 7);
+
+                retorno = tabela;
+            }
             else
             {
-                data[0] = dtpVendaUm.Value.ToShortDateString();
-                data[1] = dtpVendaDois.Value.ToShortDateString();
-            }
-            DataTable tabela = new BancoRelatorio().consultaVendaGeral(data, cbOrdenarVenda.SelectedIndex,gbSubFiltro.Visible,cbFiltroVenda.SelectedIndex,cbItem.SelectedIndex,rbVendaCres.Checked );
-            carregarListView(tabela);
-            lValor.Text = somarValores(tabela, 6);
+                if (tbVendaID.Text.Length > 0)
+                {
+                    DataTable tabel = new BancoRelatorio().consultaPorIDVenda(tbVendaID.Text);
 
-            retorno = tabela;
+                    carregarListView(tabel);
+                }
+            }
         }
         public string somarValores(DataTable tabela, int x)
         {
@@ -124,7 +136,7 @@ namespace Pizzaria.Tela
             int[] ano = new int[(DateTime.Now.Year - 2012) + 1];
             for (int i = 0; i < ano.Length; i++)
                 ano[i] = 2012 + i;
-           
+            cbVendaTipo.SelectedIndex = 0;
             cbVendaMes.DataSource = mes;
             cbVendaAno.DataSource = ano;
             cbVendaMes.SelectedIndex = DateTime.Now.Month - 1;
@@ -343,17 +355,28 @@ namespace Pizzaria.Tela
                 , cbOrdenarGarcon.SelectedIndex
                 , rbGarconCres.Checked);
             carregarListView(tabela);
-            lValor.Text = somarValoresGarcon(tabela,8,9);
+            lValor.Text = somarValoresGarcon(tabela,12);
 
             retorno = tabela;
         }
-        public string somarValoresGarcon(DataTable tabela, int x, int y)
+        public string somarValoresGarcon(DataTable tabela, int x)
         {
-            double valor = 0;
+            double vendido = 0;double extorno = 0;
             for (int i = 0; i < tabela.Rows.Count; i++)
-                valor += (Convert.ToDouble(tabela.Rows[i].ItemArray.GetValue(x).ToString().Substring(0).Replace('.', ','))*
-                    Convert.ToDouble(tabela.Rows[i].ItemArray.GetValue(y).ToString().Substring(0).Replace('.', ',')));
-            return "Valor Total : R$" + new Tratamento().retornaValorEscrito(valor);
+            {
+                string var = tabela.Rows[i].ItemArray.GetValue(x).ToString();
+                if(var.Length>0)
+                if (tabela.Rows[i].ItemArray.GetValue(x + 1).ToString().Equals("Vendido"))
+                {
+                    vendido += (Convert.ToDouble(tabela.Rows[i].ItemArray.GetValue(x).ToString().Replace('.', ',')));
+                }
+                else {
+                     extorno += (Convert.ToDouble(tabela.Rows[i].ItemArray.GetValue(x).ToString().Replace('.', ',')));
+                }
+            }
+
+            return "Valor de Vendas : R$" + new Tratamento().retornaValorEscrito(vendido) 
+               + "\nValor de Extornos : R$" + new Tratamento().retornaValorEscrito(extorno);
         }
 
         DataTable retorno;
@@ -387,7 +410,7 @@ namespace Pizzaria.Tela
             }
             carregarListView(tabela);
             if (rbProdutValor.Checked)
-                lValor.Text = somarValores(tabela,4);
+                lValor.Text = somarValores(tabela,6);
             else lValor.Text = "";
 
             retorno = tabela;
@@ -502,11 +525,42 @@ namespace Pizzaria.Tela
                     tabela.Rows[i].ItemArray.GetValue(0).ToString(),
                     Convert.ToInt16(  tabela.Rows[i].ItemArray.GetValue(1) ),
                     Convert.ToInt16(  tabela.Rows[i].ItemArray.GetValue(2) ),
-                    Convert.ToDouble(  tabela.Rows[i].ItemArray.GetValue(3) ));
+                    Convert.ToDouble(  tabela.Rows[i].ItemArray.GetValue(3).ToString().Replace('.',',') ),
+                    tabela.Rows[i].ItemArray.GetValue(4).ToString());
             }
             lx.imprimir();
 
         }
+
+        private void cbVendaTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbVendaTipo.SelectedIndex == 2)
+            {
+                gbVendaData.Visible = false;
+                gbPeriodoVenda.Visible = false;
+                gbDataVenda.Visible = false;
+                gbFiltroVenda.Visible = false;
+                gbSubFiltro.Visible = false;
+                gbVendaOrdenar.Visible = false;
+                gbVendaID.Visible = true;
+            }
+            else
+            {
+
+                gbVendaData.Visible = true;
+                gbPeriodoVenda.Visible = true;
+                gbDataVenda.Visible = true;
+                gbFiltroVenda.Visible = true;
+                gbSubFiltro.Visible = true;
+                gbVendaOrdenar.Visible = true;
+                gbVendaID.Visible = false;
+                cbData_SelectedIndexChanged(sender, e);
+                cbFiltroVenda_SelectedIndexChanged(sender, e);
+                //torno invisivel o campo de digitacao do ID
+            }
+        }
+
+
  
     }
 }

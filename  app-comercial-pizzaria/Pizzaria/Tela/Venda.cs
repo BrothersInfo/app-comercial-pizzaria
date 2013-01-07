@@ -25,7 +25,7 @@ namespace Pizzaria.Tela
         Label label;
         Label label2;
         Label recado;
-        Completa temp;
+
         private bool addProduto = false;
         private bool removeProduto = false;
         public bool getAddProduto(){
@@ -48,10 +48,9 @@ namespace Pizzaria.Tela
                  venda = new BancoVenda().carregaVenda(cod_venda);
                  tamanhoMTVALOR(venda);
                  carregarListView(venda);
-                  regularTamanho(lvInfo.Width);
-
-                  double valr = Screen.PrimaryScreen.Bounds.Height / 100f;
-                  double yy = ((13.5-10) * valr)+10 ;
+                 regularTamanho(lvInfo.Width);
+                 double valr = Screen.PrimaryScreen.Bounds.Height / 100f;
+                 double yy = ((13.5-10) * valr)+10 ;
                   this.Location = new Point((Screen.PrimaryScreen.Bounds.Width - this.Size.Width) / 2, (int)yy);
         }
         //---------------------------------------------------------------------------------------
@@ -91,6 +90,7 @@ namespace Pizzaria.Tela
         }
         public void carregarListView(VendaFull vendas)
         {
+            lOpcao.Text = "OPÇÕES DA VENDA - " + vendas.cod_venda;
             try
             {
                 vendas.ordenaProduto();
@@ -108,7 +108,7 @@ namespace Pizzaria.Tela
                     else
                         lvInfo.Items[i].SubItems.Add(new Banco().preencherNomeProdctAll(vendas.Completos[i].produto[0].cod_produto));
 
-                    lvInfo.Items[i].SubItems.Add(new BancoVenda().tamanhoDescricao(vendas.Completos[i].produto[0].cod_tamanho));
+                    lvInfo.Items[i].SubItems.Add(new BancoInformacao().tamanhoDescricaoByCodigo(vendas.Completos[i].produto[0].cod_tamanho));
                     lvInfo.Items[i].SubItems.Add(vendas.Completos[i].quantidade.ToString());
                     lvInfo.Items[i].SubItems.Add("R$ " + new Tratamento().retornaValorEscrito(vendas.Completos[i].valorUnitario));
                     lvInfo.Items[i].SubItems.Add("R$ " + new Tratamento().retornaValorEscrito(vendas.Completos[i].quantidade * vendas.Completos[i].valorUnitario));
@@ -116,13 +116,25 @@ namespace Pizzaria.Tela
                 }
             }
             catch { }
-            for (int i = 0; i < vendas.garcon.Length; i++)
-            {
-                if (!lvGarcon.Items.Contains(new ListViewItem(vendas.garcon[i].ToString())))
+            List<Int16> gf = new List<Int16>();
+
+            for (int i = 0; i < vendas.Completos.Length; i++)
+                for (int j = 0; j < vendas.Completos[i].garcons.Length; j++)
                 {
-                    lvGarcon.Items.Add(vendas.garcon[i].ToString());
-                    lvGarcon.Items[i].SubItems.Add(new BancoVenda().nomeGarcon(vendas.garcon[i]));
+                    GarconFisico g = vendas.Completos[i].garcons[j];
+                    bool can = true;
+                    for (int k = 0 ; k < gf.Count;k++)
+                        if(gf[k]==g.cod_garcon)
+                                can = false;
+                    
+                    if (can)
+                        gf.Add((short)g.cod_garcon);
+                    
                 }
+            for (int i = 0; i < gf.Count; i++)
+            {
+                lvGarcon.Items.Add(gf[i].ToString());
+                lvGarcon.Items[i].SubItems.Add(new BancoVenda().nomeGarcon(gf[i]));
             }
             for (int i = 0; i < vendas.mesa.Length; i++)
             {
@@ -255,14 +267,14 @@ namespace Pizzaria.Tela
                     rec.ShowDialog();
                     if (rec.encerrou)
                     {
-                        MessageBox.Show("VENDA REALIZADA COM SUCESSO");
+                        MessageBox.Show("VENDA REALIZADA COM SUCESSO","MESSAGEM",MessageBoxButtons.OK,MessageBoxIcon.Hand,MessageBoxDefaultButton.Button1,MessageBoxOptions.RtlReading);
                         this.Close();
                     }
                 }
         }
         private void btParcial_Click(object sender, EventArgs e)
         {
-            if (lvInfo.CheckedItems.Count > 0)
+            /*if (lvInfo.CheckedItems.Count > 0)
             {
                 int[] num = new int[lvInfo.CheckedItems.Count];
 
@@ -306,6 +318,13 @@ namespace Pizzaria.Tela
             {
                 MessageBox.Show("SELECIONE OS ITENS DA VENDA PARCIAL");
             }
+             */
+            new DividirVenda(venda).ShowDialog();
+            venda = new BancoVenda().carregaVenda(new Banco().codigoDaVendaPelaMesa(venda.mesa[0]));
+           
+            tamanhoMTVALOR(venda);
+            carregarListView(venda);
+            regularTamanho(lvInfo.Width);
         }
         public VendaFull resgatarSubVenda(VendaFull retorno)
         {
@@ -342,7 +361,7 @@ namespace Pizzaria.Tela
             }
         }
         //------------------------------------------------------------------------------------
-        public void btAvanco_click(object sender, EventArgs e)
+/*        public void btAvanco_click(object sender, EventArgs e)
         {
 
             //primeiro evento do clique é alterar a quantidade do item atual, mas que item atual?
@@ -385,8 +404,9 @@ namespace Pizzaria.Tela
             vendas.subItem.Completos[posicao] = temp;
 
         }
+  */
         //---------------------inicializadores
-        public void inicializarRecado()
+  /*      public void inicializarRecado()
         {
             if (recado != null)
                 recado.Dispose();
@@ -459,7 +479,7 @@ namespace Pizzaria.Tela
             avancar.TabIndex = 2;
             this.ttEncerrar.SetToolTip(avancar, "Avancar");
             avancar.UseVisualStyleBackColor = true;
-            avancar.Click += new System.EventHandler(this.btAvanco_click);
+          //  avancar.Click += new System.EventHandler(this.btAvanco_click);
 
         }
         public void inicializarPainel(int parcial)
@@ -497,7 +517,7 @@ namespace Pizzaria.Tela
                  *  junto ao avançar eu preciso começar a definir a quandidade de cada item.
                  *  se é um item, eu passo direto, se for mais de um item
                  *  o usuario precisa escolher a quantidade q ele deseja inserir na SubVenda
-                 * */
+                 * *//*
                 inicializarAvancar();
                 inicializarQuantidade(parcial);
                 inicializarDoisLabel();
@@ -515,7 +535,7 @@ namespace Pizzaria.Tela
 
 
         }
-
+        */
         private void lvInfo_ItemActivate(object sender, EventArgs e)
         {
             ListViewItem t = lvInfo.FocusedItem;
@@ -523,14 +543,15 @@ namespace Pizzaria.Tela
             venda.Completos[Convert.ToInt16(lvInfo.FocusedItem.SubItems[0].Text) - 1].cod_completo;
             try
             {
-                if (new Banco().GarconDaVenda(venda.cod_venda).Rows.Count > 1)
+                DataTable dttGarcon = new Banco().GarconDaVenda(venda.cod_venda);
+                
+                if (dttGarcon.Rows.Count > 1)
                 {
                     Garcon g = new Garcon(venda.cod_venda);
                     g.ShowDialog();
-                    new Banco().mudarQuantidade(venda.cod_venda, asd, 1, g.getRetorno());
-                    
-                   
-                     Completa cc = new BancoVenda().getCompleta(asd);
+           
+                     Completa cc = new BancoVenda().getCompleta(asd, false);
+                     new BancoInformacao().addqtdGarconCompleto(g.getRetorno(),asd, 1);// cod_garcon cod_completo quantidade
                      if (cc.needImpress)
                      {
                          cc.quantidade = 1;
@@ -539,18 +560,17 @@ namespace Pizzaria.Tela
                      }
                 }
                 else
-                    if (MessageBox.Show("Acrescentar Mais Um ?", "Confirme sua Opcao", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (MessageBox.Show("Acrescentar Mais Um ?", "Confirme sua Opcao", MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button1,MessageBoxOptions.ServiceNotification) == DialogResult.Yes)
                     {
-                        new Banco().mudarQuantidade(venda.cod_venda, asd, 1,
-                                new Banco().codGarconPeloCompleto(asd));
-
                        
-                        Completa cc = new BancoVenda().getCompleta(asd);
+                        Completa cc = new BancoVenda().getCompleta(asd, false);
+                        new BancoInformacao().addqtdGarconCompleto(Convert.ToInt16(dttGarcon.Rows[0].ItemArray.GetValue(0)),
+                       asd, 1);
                         if (cc.needImpress)
                         {
                             cc.quantidade = 1;
                             Impressao p = new Impressao(venda);
-                            p.gerarComandaInterna(new Completa[] { cc }, new string[] { new BancoVenda().nomeGarcon(new Banco().codGarconPeloCompleto(asd)) }, venda.mesa);
+                            p.gerarComandaInterna(new Completa[] { cc }, new string[] { new BancoVenda().nomeGarcon( Convert.ToInt16( dttGarcon.Rows[0].ItemArray.GetValue(0) )) }, venda.mesa);
                         }
                     }
 
@@ -614,6 +634,20 @@ namespace Pizzaria.Tela
             tamanhoMTVALOR(venda);
             carregarListView(venda);
         }
+
+        private void btAgrupar_Click(object sender, EventArgs e)
+        {
+            AlterarMesa am = new AlterarMesa();
+            am.ShowDialog();
+            if (am.cod_venda != 0)
+            {
+                venda = new BancoVenda().carregaVenda(am.cod_venda);
+                tamanhoMTVALOR(venda);
+                carregarListView(venda);
+            }
+        }
+
+  
         }
 
       

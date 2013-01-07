@@ -52,8 +52,12 @@
             this.cbItem = new System.Windows.Forms.ComboBox();
             this.gbFiltroVenda = new System.Windows.Forms.GroupBox();
             this.cbFiltroVenda = new System.Windows.Forms.ComboBox();
+            this.gbVendaID = new System.Windows.Forms.GroupBox();
+            this.tbVendaID = new System.Windows.Forms.TextBox();
             this.gbVendaData = new System.Windows.Forms.GroupBox();
             this.cbVendaData = new System.Windows.Forms.ComboBox();
+            this.gbVendaTipo = new System.Windows.Forms.GroupBox();
+            this.cbVendaTipo = new System.Windows.Forms.ComboBox();
             this.flpProduto = new System.Windows.Forms.FlowLayoutPanel();
             this.btConsultarProduto = new System.Windows.Forms.Button();
             this.gbFiltrarProduto = new System.Windows.Forms.GroupBox();
@@ -118,6 +122,7 @@
             this.pValor = new System.Windows.Forms.Panel();
             this.btEscolhaProduto = new System.Windows.Forms.Button();
             this.lValor = new System.Windows.Forms.Label();
+            this.pFundo = new System.Windows.Forms.Panel();
             this.gbDataVenda.SuspendLayout();
             this.gbPeriodoVenda.SuspendLayout();
             this.flpPrincipal.SuspendLayout();
@@ -125,7 +130,9 @@
             this.gbVendaOrdenar.SuspendLayout();
             this.gbSubFiltro.SuspendLayout();
             this.gbFiltroVenda.SuspendLayout();
+            this.gbVendaID.SuspendLayout();
             this.gbVendaData.SuspendLayout();
+            this.gbVendaTipo.SuspendLayout();
             this.flpProduto.SuspendLayout();
             this.gbFiltrarProduto.SuspendLayout();
             this.gbProduto.SuspendLayout();
@@ -148,6 +155,7 @@
             this.tlpFundo.SuspendLayout();
             this.pFiltro.SuspendLayout();
             this.pValor.SuspendLayout();
+            this.pFundo.SuspendLayout();
             this.SuspendLayout();
             // 
             // LTipoRelatorio
@@ -356,12 +364,14 @@
             this.flpVenda.Controls.Add(this.gbFiltroVenda);
             this.flpVenda.Controls.Add(this.gbDataVenda);
             this.flpVenda.Controls.Add(this.gbPeriodoVenda);
+            this.flpVenda.Controls.Add(this.gbVendaID);
             this.flpVenda.Controls.Add(this.gbVendaData);
+            this.flpVenda.Controls.Add(this.gbVendaTipo);
             this.flpVenda.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flpVenda.Location = new System.Drawing.Point(0, 0);
             this.flpVenda.Margin = new System.Windows.Forms.Padding(0);
             this.flpVenda.Name = "flpVenda";
-            this.flpVenda.Size = new System.Drawing.Size(1048, 97);
+            this.flpVenda.Size = new System.Drawing.Size(1048, 140);
             this.flpVenda.TabIndex = 0;
             // 
             // btConsultarVenda
@@ -474,11 +484,30 @@
             this.cbFiltroVenda.TabIndex = 0;
             this.cbFiltroVenda.SelectedIndexChanged += new System.EventHandler(this.cbFiltroVenda_SelectedIndexChanged);
             // 
+            // gbVendaID
+            // 
+            this.gbVendaID.Controls.Add(this.tbVendaID);
+            this.gbVendaID.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbVendaID.Location = new System.Drawing.Point(4, 3);
+            this.gbVendaID.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbVendaID.Name = "gbVendaID";
+            this.gbVendaID.Size = new System.Drawing.Size(108, 88);
+            this.gbVendaID.TabIndex = 2;
+            this.gbVendaID.TabStop = false;
+            this.gbVendaID.Text = "Digite o ID";
+            // 
+            // tbVendaID
+            // 
+            this.tbVendaID.Location = new System.Drawing.Point(13, 41);
+            this.tbVendaID.Name = "tbVendaID";
+            this.tbVendaID.Size = new System.Drawing.Size(89, 23);
+            this.tbVendaID.TabIndex = 1;
+            // 
             // gbVendaData
             // 
             this.gbVendaData.Controls.Add(this.cbVendaData);
             this.gbVendaData.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbVendaData.Location = new System.Drawing.Point(4, 3);
+            this.gbVendaData.Location = new System.Drawing.Point(938, 97);
             this.gbVendaData.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbVendaData.Name = "gbVendaData";
             this.gbVendaData.Size = new System.Drawing.Size(108, 88);
@@ -499,6 +528,32 @@
             this.cbVendaData.TabIndex = 0;
             this.cbVendaData.SelectedIndexChanged += new System.EventHandler(this.cbData_SelectedIndexChanged);
             // 
+            // gbVendaTipo
+            // 
+            this.gbVendaTipo.Controls.Add(this.cbVendaTipo);
+            this.gbVendaTipo.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbVendaTipo.Location = new System.Drawing.Point(826, 97);
+            this.gbVendaTipo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbVendaTipo.Name = "gbVendaTipo";
+            this.gbVendaTipo.Size = new System.Drawing.Size(108, 88);
+            this.gbVendaTipo.TabIndex = 2;
+            this.gbVendaTipo.TabStop = false;
+            this.gbVendaTipo.Text = "Escopo";
+            // 
+            // cbVendaTipo
+            // 
+            this.cbVendaTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbVendaTipo.FormattingEnabled = true;
+            this.cbVendaTipo.Items.AddRange(new object[] {
+            "Concluída",
+            "Extornada",
+            "Por ID"});
+            this.cbVendaTipo.Location = new System.Drawing.Point(6, 39);
+            this.cbVendaTipo.Name = "cbVendaTipo";
+            this.cbVendaTipo.Size = new System.Drawing.Size(96, 26);
+            this.cbVendaTipo.TabIndex = 0;
+            this.cbVendaTipo.SelectedIndexChanged += new System.EventHandler(this.cbVendaTipo_SelectedIndexChanged);
+            // 
             // flpProduto
             // 
             this.flpProduto.Controls.Add(this.btConsultarProduto);
@@ -510,7 +565,7 @@
             this.flpProduto.Controls.Add(this.gbPeriodoProduto);
             this.flpProduto.Controls.Add(this.gbProdutoData);
             this.flpProduto.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flpProduto.Location = new System.Drawing.Point(0, 97);
+            this.flpProduto.Location = new System.Drawing.Point(0, 140);
             this.flpProduto.Margin = new System.Windows.Forms.Padding(0);
             this.flpProduto.Name = "flpProduto";
             this.flpProduto.Size = new System.Drawing.Size(1048, 99);
@@ -824,7 +879,7 @@
             this.flpGarcon.Controls.Add(this.gbGarconDia);
             this.flpGarcon.Controls.Add(this.gbGarconData);
             this.flpGarcon.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flpGarcon.Location = new System.Drawing.Point(0, 196);
+            this.flpGarcon.Location = new System.Drawing.Point(0, 239);
             this.flpGarcon.Margin = new System.Windows.Forms.Padding(0);
             this.flpGarcon.Name = "flpGarcon";
             this.flpGarcon.Size = new System.Drawing.Size(1048, 98);
@@ -1148,7 +1203,7 @@
             this.flpLeituraX.Controls.Add(this.gbLeitX);
             this.flpLeituraX.Controls.Add(this.LCodigo);
             this.flpLeituraX.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flpLeituraX.Location = new System.Drawing.Point(0, 294);
+            this.flpLeituraX.Location = new System.Drawing.Point(0, 337);
             this.flpLeituraX.Margin = new System.Windows.Forms.Padding(0);
             this.flpLeituraX.Name = "flpLeituraX";
             this.flpLeituraX.Size = new System.Drawing.Size(1048, 99);
@@ -1323,15 +1378,15 @@
             this.tlpFundo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpFundo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpFundo.Controls.Add(this.pFiltro, 1, 0);
-            this.tlpFundo.Controls.Add(this.lvConsInfo, 1, 1);
             this.tlpFundo.Controls.Add(this.pValor, 1, 2);
+            this.tlpFundo.Controls.Add(this.pFundo, 1, 1);
             this.tlpFundo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpFundo.Location = new System.Drawing.Point(0, 0);
             this.tlpFundo.Name = "tlpFundo";
             this.tlpFundo.RowCount = 3;
             this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 95F));
             this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
             this.tlpFundo.Size = new System.Drawing.Size(1338, 487);
             this.tlpFundo.TabIndex = 0;
             // 
@@ -1354,10 +1409,10 @@
             this.lvConsInfo.FullRowSelect = true;
             this.lvConsInfo.GridLines = true;
             this.lvConsInfo.HoverSelection = true;
-            this.lvConsInfo.Location = new System.Drawing.Point(25, 95);
+            this.lvConsInfo.Location = new System.Drawing.Point(0, 0);
             this.lvConsInfo.Margin = new System.Windows.Forms.Padding(0);
             this.lvConsInfo.Name = "lvConsInfo";
-            this.lvConsInfo.Size = new System.Drawing.Size(1293, 342);
+            this.lvConsInfo.Size = new System.Drawing.Size(1293, 333);
             this.lvConsInfo.TabIndex = 45;
             this.lvConsInfo.UseCompatibleStateImageBehavior = false;
             this.lvConsInfo.View = System.Windows.Forms.View.Details;
@@ -1370,10 +1425,10 @@
             this.pValor.Controls.Add(this.btEscolhaProduto);
             this.pValor.Controls.Add(this.lValor);
             this.pValor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pValor.Location = new System.Drawing.Point(30, 442);
+            this.pValor.Location = new System.Drawing.Point(30, 433);
             this.pValor.Margin = new System.Windows.Forms.Padding(5);
             this.pValor.Name = "pValor";
-            this.pValor.Size = new System.Drawing.Size(1283, 40);
+            this.pValor.Size = new System.Drawing.Size(1283, 49);
             this.pValor.TabIndex = 46;
             // 
             // btEscolhaProduto
@@ -1395,10 +1450,20 @@
             this.lValor.AutoSize = true;
             this.lValor.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.lValor.ForeColor = System.Drawing.Color.Red;
-            this.lValor.Location = new System.Drawing.Point(1072, 11);
+            this.lValor.Location = new System.Drawing.Point(1072, 4);
             this.lValor.Name = "lValor";
             this.lValor.Size = new System.Drawing.Size(0, 18);
             this.lValor.TabIndex = 37;
+            // 
+            // pFundo
+            // 
+            this.pFundo.Controls.Add(this.lvConsInfo);
+            this.pFundo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pFundo.Location = new System.Drawing.Point(25, 95);
+            this.pFundo.Margin = new System.Windows.Forms.Padding(0);
+            this.pFundo.Name = "pFundo";
+            this.pFundo.Size = new System.Drawing.Size(1293, 333);
+            this.pFundo.TabIndex = 47;
             // 
             // TipoRelatorio
             // 
@@ -1426,7 +1491,10 @@
             this.gbVendaOrdenar.PerformLayout();
             this.gbSubFiltro.ResumeLayout(false);
             this.gbFiltroVenda.ResumeLayout(false);
+            this.gbVendaID.ResumeLayout(false);
+            this.gbVendaID.PerformLayout();
             this.gbVendaData.ResumeLayout(false);
+            this.gbVendaTipo.ResumeLayout(false);
             this.flpProduto.ResumeLayout(false);
             this.gbFiltrarProduto.ResumeLayout(false);
             this.gbProduto.ResumeLayout(false);
@@ -1457,6 +1525,7 @@
             this.pFiltro.ResumeLayout(false);
             this.pValor.ResumeLayout(false);
             this.pValor.PerformLayout();
+            this.pFundo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1552,5 +1621,10 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbDiaX;
         private System.Windows.Forms.Label LCodigo;
+        private System.Windows.Forms.GroupBox gbVendaTipo;
+        private System.Windows.Forms.ComboBox cbVendaTipo;
+        private System.Windows.Forms.GroupBox gbVendaID;
+        private System.Windows.Forms.TextBox tbVendaID;
+        private System.Windows.Forms.Panel pFundo;
     }
 }

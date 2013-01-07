@@ -27,7 +27,8 @@ namespace Pizzaria
               //  f.ShowIcon = true;
 
 
-                 Application.Run(new Fundo()                    );
+               Application.Run(new Fundo()                    );
+            //     Application.Run(new Relatorios.reVenda());
            }            catch { return; }
             
         }

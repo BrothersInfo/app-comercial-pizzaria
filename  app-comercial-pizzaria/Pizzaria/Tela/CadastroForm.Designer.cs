@@ -62,6 +62,7 @@
             this.pValores = new System.Windows.Forms.Panel();
             this.lmsg = new System.Windows.Forms.Label();
             this.bgAlterarTamanho = new System.Windows.Forms.GroupBox();
+            this.cbComanda = new System.Windows.Forms.CheckBox();
             this.lProdTamanho = new System.Windows.Forms.Label();
             this.cLboxTamanho = new System.Windows.Forms.CheckedListBox();
             this.tbNome = new System.Windows.Forms.TextBox();
@@ -119,7 +120,8 @@
             this.lbCadNome = new System.Windows.Forms.Label();
             this.lTituloAmbiente = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.cbComanda = new System.Windows.Forms.CheckBox();
+            this.cbCadSubDivis = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.painelCadastroGeral.SuspendLayout();
             this.tpGarcon.SuspendLayout();
             this.tlpInternaColunaGarcon.SuspendLayout();
@@ -170,7 +172,7 @@
             this.painelCadastroGeral.Controls.Add(this.tpMesa);
             this.painelCadastroGeral.Controls.Add(this.tpAmbiente);
             this.painelCadastroGeral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.painelCadastroGeral.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.painelCadastroGeral.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.painelCadastroGeral.Location = new System.Drawing.Point(0, 0);
             this.painelCadastroGeral.Margin = new System.Windows.Forms.Padding(0);
             this.painelCadastroGeral.Name = "painelCadastroGeral";
@@ -287,11 +289,11 @@
             // lbTituloGarcon
             // 
             this.lbTituloGarcon.AutoSize = true;
-            this.lbTituloGarcon.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTituloGarcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTituloGarcon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbTituloGarcon.Location = new System.Drawing.Point(213, 17);
             this.lbTituloGarcon.Name = "lbTituloGarcon";
-            this.lbTituloGarcon.Size = new System.Drawing.Size(112, 31);
+            this.lbTituloGarcon.Size = new System.Drawing.Size(140, 31);
             this.lbTituloGarcon.TabIndex = 40;
             this.lbTituloGarcon.Text = "GARÇON";
             // 
@@ -487,11 +489,11 @@
             // 
             this.lCaixaTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lCaixaTitulo.AutoSize = true;
-            this.lCaixaTitulo.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lCaixaTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lCaixaTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lCaixaTitulo.Location = new System.Drawing.Point(232, 17);
             this.lCaixaTitulo.Name = "lCaixaTitulo";
-            this.lCaixaTitulo.Size = new System.Drawing.Size(83, 31);
+            this.lCaixaTitulo.Size = new System.Drawing.Size(101, 31);
             this.lCaixaTitulo.TabIndex = 40;
             this.lCaixaTitulo.Text = "CAIXA";
             // 
@@ -597,13 +599,26 @@
             this.bgAlterarTamanho.TabStop = false;
             this.bgAlterarTamanho.Text = "CADASTRAR";
             // 
+            // cbComanda
+            // 
+            this.cbComanda.AutoSize = true;
+            this.cbComanda.Checked = true;
+            this.cbComanda.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbComanda.Font = new System.Drawing.Font("Arial", 12F);
+            this.cbComanda.Location = new System.Drawing.Point(11, 164);
+            this.cbComanda.Name = "cbComanda";
+            this.cbComanda.Size = new System.Drawing.Size(161, 22);
+            this.cbComanda.TabIndex = 39;
+            this.cbComanda.Text = "Deve Ser Impresso";
+            this.cbComanda.UseVisualStyleBackColor = true;
+            // 
             // lProdTamanho
             // 
             this.lProdTamanho.AutoSize = true;
-            this.lProdTamanho.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lProdTamanho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lProdTamanho.Location = new System.Drawing.Point(178, 32);
             this.lProdTamanho.Name = "lProdTamanho";
-            this.lProdTamanho.Size = new System.Drawing.Size(94, 20);
+            this.lProdTamanho.Size = new System.Drawing.Size(112, 20);
             this.lProdTamanho.TabIndex = 38;
             this.lProdTamanho.Text = "Sub-Categoria";
             // 
@@ -628,20 +643,20 @@
             // lbNome
             // 
             this.lbNome.AutoSize = true;
-            this.lbNome.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNome.Location = new System.Drawing.Point(7, 32);
             this.lbNome.Name = "lbNome";
-            this.lbNome.Size = new System.Drawing.Size(81, 20);
+            this.lbNome.Size = new System.Drawing.Size(91, 20);
             this.lbNome.TabIndex = 29;
             this.lbNome.Text = "Novo Nome";
             // 
             // lprodCategoria
             // 
             this.lprodCategoria.AutoSize = true;
-            this.lprodCategoria.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lprodCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lprodCategoria.Location = new System.Drawing.Point(7, 88);
             this.lprodCategoria.Name = "lprodCategoria";
-            this.lprodCategoria.Size = new System.Drawing.Size(71, 20);
+            this.lprodCategoria.Size = new System.Drawing.Size(83, 20);
             this.lprodCategoria.TabIndex = 27;
             this.lprodCategoria.Text = "Segmento";
             // 
@@ -722,20 +737,20 @@
             // lbProduto
             // 
             this.lbProduto.AutoSize = true;
-            this.lbProduto.Font = new System.Drawing.Font("Arial Narrow", 16F);
+            this.lbProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lbProduto.Location = new System.Drawing.Point(151, 39);
             this.lbProduto.Name = "lbProduto";
-            this.lbProduto.Size = new System.Drawing.Size(107, 26);
+            this.lbProduto.Size = new System.Drawing.Size(128, 26);
             this.lbProduto.TabIndex = 30;
             this.lbProduto.Text = "Novo Nome";
             // 
             // lbTamanho
             // 
             this.lbTamanho.AutoSize = true;
-            this.lbTamanho.Font = new System.Drawing.Font("Arial Narrow", 16F);
+            this.lbTamanho.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lbTamanho.Location = new System.Drawing.Point(16, 124);
             this.lbTamanho.Name = "lbTamanho";
-            this.lbTamanho.Size = new System.Drawing.Size(107, 26);
+            this.lbTamanho.Size = new System.Drawing.Size(128, 26);
             this.lbTamanho.TabIndex = 29;
             this.lbTamanho.Text = "Novo Nome";
             // 
@@ -765,11 +780,11 @@
             // 
             this.lTitulo2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lTitulo2.AutoSize = true;
-            this.lTitulo2.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lTitulo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTitulo2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lTitulo2.Location = new System.Drawing.Point(205, 14);
             this.lTitulo2.Name = "lTitulo2";
-            this.lTitulo2.Size = new System.Drawing.Size(125, 31);
+            this.lTitulo2.Size = new System.Drawing.Size(158, 31);
             this.lTitulo2.TabIndex = 17;
             this.lTitulo2.Text = "PRODUTO";
             // 
@@ -832,6 +847,8 @@
             // 
             // gbCadastrarTamanho
             // 
+            this.gbCadastrarTamanho.Controls.Add(this.cbCadSubDivis);
+            this.gbCadastrarTamanho.Controls.Add(this.label1);
             this.gbCadastrarTamanho.Controls.Add(this.tbCadTamNome);
             this.gbCadastrarTamanho.Controls.Add(this.btCadTamanho);
             this.gbCadastrarTamanho.Controls.Add(this.lCadTamanho);
@@ -847,7 +864,7 @@
             // tbCadTamNome
             // 
             this.tbCadTamNome.Font = new System.Drawing.Font("Arial", 14F);
-            this.tbCadTamNome.Location = new System.Drawing.Point(153, 132);
+            this.tbCadTamNome.Location = new System.Drawing.Point(172, 85);
             this.tbCadTamNome.Name = "tbCadTamNome";
             this.tbCadTamNome.Size = new System.Drawing.Size(133, 29);
             this.tbCadTamNome.TabIndex = 37;
@@ -870,7 +887,7 @@
             this.lCadTamanho.AutoSize = true;
             this.lCadTamanho.Font = new System.Drawing.Font("Arial", 14F);
             this.lCadTamanho.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lCadTamanho.Location = new System.Drawing.Point(62, 143);
+            this.lCadTamanho.Location = new System.Drawing.Point(81, 96);
             this.lCadTamanho.Name = "lCadTamanho";
             this.lCadTamanho.Size = new System.Drawing.Size(66, 22);
             this.lCadTamanho.TabIndex = 13;
@@ -879,11 +896,11 @@
             // lTituloTamanho
             // 
             this.lTituloTamanho.AutoSize = true;
-            this.lTituloTamanho.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lTituloTamanho.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTituloTamanho.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lTituloTamanho.Location = new System.Drawing.Point(168, 14);
             this.lTituloTamanho.Name = "lTituloTamanho";
-            this.lTituloTamanho.Size = new System.Drawing.Size(201, 31);
+            this.lTituloTamanho.Size = new System.Drawing.Size(253, 31);
             this.lTituloTamanho.TabIndex = 40;
             this.lTituloTamanho.Text = "SUB-CATEGORIA";
             // 
@@ -1004,11 +1021,11 @@
             // lTipoTitulo
             // 
             this.lTipoTitulo.AutoSize = true;
-            this.lTipoTitulo.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lTipoTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTipoTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lTipoTitulo.Location = new System.Drawing.Point(196, 14);
             this.lTipoTitulo.Name = "lTipoTitulo";
-            this.lTipoTitulo.Size = new System.Drawing.Size(141, 31);
+            this.lTipoTitulo.Size = new System.Drawing.Size(177, 31);
             this.lTipoTitulo.TabIndex = 40;
             this.lTipoTitulo.Text = "SEGMENTO";
             // 
@@ -1143,11 +1160,11 @@
             // lMesaTitulo
             // 
             this.lMesaTitulo.AutoSize = true;
-            this.lMesaTitulo.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lMesaTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lMesaTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lMesaTitulo.Location = new System.Drawing.Point(231, 14);
             this.lMesaTitulo.Name = "lMesaTitulo";
-            this.lMesaTitulo.Size = new System.Drawing.Size(78, 31);
+            this.lMesaTitulo.Size = new System.Drawing.Size(94, 31);
             this.lMesaTitulo.TabIndex = 40;
             this.lMesaTitulo.Text = "MESA";
             // 
@@ -1268,11 +1285,11 @@
             // lTituloAmbiente
             // 
             this.lTituloAmbiente.AutoSize = true;
-            this.lTituloAmbiente.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lTituloAmbiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTituloAmbiente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lTituloAmbiente.Location = new System.Drawing.Point(214, 14);
             this.lTituloAmbiente.Name = "lTituloAmbiente";
-            this.lTituloAmbiente.Size = new System.Drawing.Size(130, 31);
+            this.lTituloAmbiente.Size = new System.Drawing.Size(161, 31);
             this.lTituloAmbiente.TabIndex = 40;
             this.lTituloAmbiente.Text = "AMBIENTE";
             // 
@@ -1287,18 +1304,24 @@
             this.label11.TabIndex = 39;
             this.label11.Text = "* Atenção - Não é permitido o cadastro de dois nomes iguais";
             // 
-            // cbComanda
+            // cbCadSubDivis
             // 
-            this.cbComanda.AutoSize = true;
-            this.cbComanda.Checked = true;
-            this.cbComanda.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbComanda.Font = new System.Drawing.Font("Arial", 12F);
-            this.cbComanda.Location = new System.Drawing.Point(11, 164);
-            this.cbComanda.Name = "cbComanda";
-            this.cbComanda.Size = new System.Drawing.Size(161, 22);
-            this.cbComanda.TabIndex = 39;
-            this.cbComanda.Text = "Deve Ser Impresso";
-            this.cbComanda.UseVisualStyleBackColor = true;
+            this.cbCadSubDivis.Font = new System.Drawing.Font("Comic Sans MS", 12F);
+            this.cbCadSubDivis.FormattingEnabled = true;
+            this.cbCadSubDivis.Location = new System.Drawing.Point(172, 167);
+            this.cbCadSubDivis.Name = "cbCadSubDivis";
+            this.cbCadSubDivis.Size = new System.Drawing.Size(162, 31);
+            this.cbCadSubDivis.TabIndex = 39;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 13F);
+            this.label1.Location = new System.Drawing.Point(29, 177);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(137, 21);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "DIVISIBILIDADE";
             // 
             // CadastroForm
             // 
@@ -1467,5 +1490,7 @@
         private System.Windows.Forms.Label lTituloAmbiente;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox cbComanda;
+        private System.Windows.Forms.ComboBox cbCadSubDivis;
+        private System.Windows.Forms.Label label1;
     }
 }

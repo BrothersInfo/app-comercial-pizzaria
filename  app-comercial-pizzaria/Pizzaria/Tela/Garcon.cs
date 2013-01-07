@@ -51,9 +51,6 @@ namespace Pizzaria.Tela
            
         private void listVenda_ItemActivate(object sender, EventArgs e)
         {
-
-
-
              retorno = listVenda.FocusedItem.Text;
              this.Close();
 

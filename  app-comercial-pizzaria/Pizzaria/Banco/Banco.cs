@@ -91,90 +91,11 @@ namespace Pizzaria.Banco
             }
             catch { return false; } 
         }
-        public void mudarQuantidade(int cod_venda, int cod_completo, int qtd, int cod_garcon)
-        {
-            GarconCompleto(cod_garcon, cod_completo, qtd);
-            DataTable dtt = new DataTable();
-            string query1 = "UPDATE completo   SET  quantidade=(quantidade+ " + qtd + ")  WHERE cod_completo = " + cod_completo;
-            NpgsqlDataAdapter sql = new NpgsqlDataAdapter
-                (query1, Conectar());
-            sql.Fill(dtt);
-            return;
-        }
+        
         //
-        public int cod_completoByVendaProdutoValorTamanho(int cod_venda, int cod_produto, int cod_tamanho, double valorEscrito)
-        {
-            string query = " select  c.cod_completo from venda v " +
-                           "inner join vendaCompleta vc    on (vc.cod_venda    = v.cod_venda)" +
-                           "inner join completo c          on (vc.cod_completo = c.cod_completo)" +
-                           "inner join completoProduto cp  on (cp.cod_completo = c.cod_completo)" +
-                               "where v.cod_venda = " + cod_venda + " and cp.cod_produto = " + cod_produto + " and cp.cod_tamanho = "
-                               + cod_tamanho + " and valorUnitarioCompleto = '" + new Tratamento().retornaValorEscrito(valorEscrito).Replace(',', '.') + "'";
-            DataTable dtt = new DataTable();
-            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
-            sql.Fill(dtt);
-            if (dtt.Rows.Count > 0)
-                return Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0));
-            else return 0;
-        }
-        public bool existeProdutoNaVenda(int cod_venda, Produto[] produto, int cod_garcon)
-        {
-            if (produto.Length > 1)
-                return false;
-            else
-            {
-                string query = " select  c.cod_completo from venda v " +
-                           "inner join vendaCompleta vc    on (vc.cod_venda    = v.cod_venda)" +
-                           "inner join completo c          on (vc.cod_completo = c.cod_completo)" +
-                           "inner join completoProduto cp  on (cp.cod_completo = c.cod_completo)" +
-                               "where v.cod_venda = " + cod_venda + " and cp.cod_produto = " + produto[0]. cod_produto + " and cp.cod_tamanho = "
-                               + produto[0].cod_tamanho + " and valorUnitarioCompleto = '" + new Tratamento().retornaValorEscrito(produto[0].valor).Replace(',', '.') + "'";
-                DataTable dtt = new DataTable();
-                NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
-                sql.Fill(dtt);
-                if (dtt.Rows.Count > 0)
-                {
-                    mudarQuantidade(cod_venda, Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0)), produto[0].quantidade, cod_garcon);
-                    return true;
-                }
-            }
-                return false;
-        }
-        public bool jaTemProduto(int cod_venda, int cod_produto, int XcodTamanho, double valor, bool pct, int qtdade, int cod_garcon)
-        {
-            if (!pct) return false;
+ 
 
-            string query = " select  c.cod_completo from venda v " +
-                            "inner join vendaCompleta vc    on (vc.cod_venda    = v.cod_venda)" +
-                            "inner join completo c          on (vc.cod_completo = c.cod_completo)" +
-                            "inner join completoProduto cp  on (cp.cod_completo = c.cod_completo)" +
-                                "where v.cod_venda = " + cod_venda + " and cp.cod_produto = " + cod_produto + " and cp.cod_tamanho = " 
-                                + XcodTamanho + " and valorUnitarioCompleto = '" + new Tratamento().retornaValorEscrito(valor).Replace(',', '.') + "'";
-            DataTable dtt = new DataTable();
-            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
-            sql.Fill(dtt);
-            if (dtt.Rows.Count > 0)
-            {
-                mudarQuantidade(cod_venda, Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0)), qtdade, cod_garcon);
-                return true;
-            }
-            return false;
-        }
-        public void GarconCompleto(int cod_garcon, int cod_completo, int quantidade)
-        {
-            DataTable dtt = new DataTable();
-            string query = "INSERT INTO garconcompleto( cod_garcon, cod_completo, quantidade)    VALUES (" + cod_garcon + "," + cod_completo + "," + quantidade + ")";
-            new NpgsqlDataAdapter(query, Conectar()).
-              Fill(dtt);
-        }
-        public int codGarconPeloCompleto(int cod_completo)
-        {
-            DataTable dtt = new DataTable();
-            string query = "select cod_garcon from garconCompleto where cod_completo =" + cod_completo + "order by horario desc limit 1";
-            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
-            sql.Fill(dtt);
-            return Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0));
-        }
+
         public string trazerNomeMesa(int cod_venda)
         {
             //
@@ -225,7 +146,7 @@ namespace Pizzaria.Banco
             string garcon =
             "select g.cod_garcon, g.nome from garcon g inner join GarconCompleto cg on (cg.cod_garcon = g.cod_garcon) "+
             "inner join completo c on (c.cod_completo = cg.cod_completo) inner join vendaCompleta vg on (vg.cod_completo = c.cod_completo) "+
-            "inner join venda v on (v.cod_venda = vg.cod_venda) where vg.cod_venda = "+cod_venda+" and  g.ativo = true group by g.cod_garcon, g.nome";
+            "inner join venda v on (v.cod_venda = vg.cod_venda) where vg.cod_venda = "+cod_venda+" and  g.ativo = true and c.cancelado = false group by g.cod_garcon, g.nome";
             NpgsqlDataAdapter sql = new NpgsqlDataAdapter(garcon, Conectar());
             sql.Fill(dttGarcon);
             return dttGarcon;
@@ -238,7 +159,7 @@ namespace Pizzaria.Banco
             "inner join completo c on (c.cod_completo = cg.cod_completo) inner join vendaCompleta vg "
             +" on (vg.cod_completo = c.cod_completo) "+
             "inner join venda v on (v.cod_venda = vg.cod_venda) "+
-            "where vg.cod_venda = "+cod_venda+" and g.ativo = true ";
+            "where vg.cod_venda = "+cod_venda+" and g.ativo = true and c.cancelado = false";
             DataTable dttGarcon = new DataTable();
             NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
             sql.Fill(dttGarcon);
@@ -251,7 +172,7 @@ namespace Pizzaria.Banco
             string garcon = "select g.cod_garcon, g.nome from garcon g where g.ativo = true and  g.cod_garcon not in "+
             "(select g.cod_garcon from garcon g inner join GarconCompleto cg on (cg.cod_garcon = g.cod_garcon) "+
             "inner join completo c on (c.cod_completo = cg.cod_completo) inner join vendaCompleta vg on (vg.cod_completo = c.cod_completo) "+
-            "inner join venda v on (v.cod_venda = vg.cod_venda) where vg.cod_venda = "+cod_venda+" ) order by g.cod_garcon";
+            "inner join venda v on (v.cod_venda = vg.cod_venda) where vg.cod_venda = "+cod_venda+" and c.cancelado = false ) order by g.cod_garcon";
 
             NpgsqlDataAdapter sql = new NpgsqlDataAdapter(garcon, Conectar());
             sql.Fill(dttGarcon);
@@ -334,44 +255,42 @@ namespace Pizzaria.Banco
             }
         }
         //-------------------------------------
-        public int novoCompleto(Produto[] itens, double valor, int quantidade)
+        public int novoCompleto(Produto[] itens, double valor, bool deletado)
         {
             bool impresso = true;
             for (int i = 0; i < itens.Length && impresso; i++)
                 if (!itens[i].impresso)
                     impresso = !impresso;
-                makeCompleto(valor, quantidade, impresso);
+                makeCompleto(valor,  impresso, deletado);
 
             int cod_completo = resgatarUltimaCompleto();//codigo do produto atual
             for (int i = 0; i < itens.Length; i++)
-                makeCompletoProduto(cod_completo, itens[i].cod_produto, Convert.ToInt16(itens[i].porcentagem), itens[i].cod_tamanho);
+                makeCompletoProduto(cod_completo, itens[i].cod_produto, Convert.ToDouble(itens[i].porcentagem), itens[i].cod_tamanho);
 
-
+            //ate aqui ta ok 
             return cod_completo;
         }
-        public void makeCompleto(double valor, int quantidade, bool impresso)
+        public void makeCompleto(double valor, bool impresso, bool cancelado)
         {
             NpgsqlConnection conn = new NpgsqlConnection(conexao);
             NpgsqlCommand cmd = new NpgsqlCommand
-                ("insert into Completo (valorUnitarioCompleto,quantidade,impresso) values (@valorUnitario,@quantidade,@impresso)", conn);
+                ("insert into Completo (valorUnitarioCompleto,impresso,cancelado) values (@valorUnitario,@impresso,@cancelado)", conn);
             cmd.Parameters.Add("@valorUnitario", valor);
-            cmd.Parameters.Add("@quantidade", quantidade);
             cmd.Parameters.Add("@impresso", impresso);
+            cmd.Parameters.Add("@cancelado", cancelado);
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
 
         }
-        public void makeCompletoProduto(int cod_completo, int cod_produto, int porcentagem, int cod_tamanho)
+        public void makeCompletoProduto(int cod_completo, int cod_produto, double porcentagem, int cod_tamanho)
         {
-            try
-            {
+            
                 string query = "INSERT INTO completoProduto(cod_completo, cod_produto, porcentagem, cod_tamanho)" +
-                    " VALUES ('" + cod_completo + "', '" + cod_produto + "' ," + porcentagem + "," + cod_tamanho + " )";
+                    " VALUES ('" + cod_completo + "', '" + cod_produto + "' ,'" +   porcentagem.ToString().Replace(',','.') + "'," + cod_tamanho + " )";
                 new NpgsqlDataAdapter(query,
                     Conectar()).Fill(new DataTable());
-            }
-            catch { }
+          
         }
         public void makeVendaCompleto(int cod_venda, int cod_completo)
         {
@@ -399,8 +318,9 @@ namespace Pizzaria.Banco
         public DataTable informacoes(string mesa)
         {
             DataTable dttValor = new DataTable();
-            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(
-                "select  (c.cod_completo), tt.descricao,sum ((c.valorunitarioCompleto )* ((cast (cp.porcentagem as double precision))/100)),c.quantidade " +
+            string query =
+
+                "select  (c.cod_completo), tt.descricao,sum (c.valorunitarioCompleto * cast (cp.porcentagem as double precision))  " +
                 "from  venda v inner join vendaCompleta vc          on (vc.cod_venda    = v.cod_venda)       inner join completo c                on (vc.cod_completo = c.cod_completo)" +
                 "inner join completoProduto cp        on (cp.cod_completo = c.cod_completo)" +
                 "inner join produto p   on (p.cod_produto   = cp.cod_produto )" +
@@ -408,9 +328,11 @@ namespace Pizzaria.Banco
                 "inner join mesa m                    on (m.cod_mesa      = vm.cod_mesa)" +
                 "inner join produtoTamanho pt         on (pt.cod_produto  = p.cod_produto)" +
                 "inner join tamanho tt    on (tt.cod_tamanho  = pt.cod_tamanho)" +
-                " where m.status = false and v.aberta = true    and cp.cod_tamanho = tt.cod_tamanho and m.descricao = '" + mesa + "'" +
+                " where m.status = false and v.aberta = true and c.cancelado = false   and cp.cod_tamanho = tt.cod_tamanho and m.descricao = '" + mesa + "'" +
                 " and p.ativo = true and tt.ativo = true " +
-                "group by c.cod_completo,tt.descricao,c.quantidade  order by c.cod_completo", Conectar());
+                "group by c.cod_completo,tt.descricao  order by c.cod_completo";
+                
+               NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query      ,Conectar());
             sql.Fill(dttValor);
 
             return dttValor;
@@ -423,12 +345,12 @@ namespace Pizzaria.Banco
                 "select p.descricao, cp.porcentagem " +
             "from completo c inner join completoProduto cp        on (cp.cod_completo = c.cod_completo) " +
             "inner join produto p        on (p.cod_produto   = cp.cod_produto ) " +
-            "where p.ativo = true and c.cod_completo = '" + cod_completo + "'order by c.cod_completo desc limit 1", Conectar());
+            "where p.ativo = true and c.cod_completo = " + cod_completo + " and c.cancelado = false order by c.cod_completo desc limit 1", Conectar());
             sql2.Fill(dttValor2);
 
             string nome = dttValor2.Rows[0].ItemArray.GetValue(0).ToString();
             int pct = (Convert.ToInt16(dttValor2.Rows[0].ItemArray.GetValue(1)));
-            if (pct != 100) return "Mista : " + nome;
+            if (pct != 1) return "Mista : " + nome;
             return nome;
         }
         // esse metodo retorna os tamanhos.
@@ -611,8 +533,6 @@ namespace Pizzaria.Banco
         public string segmentoDoProduto(int cod_produto)
         {
 
-
-
             DataTable dtt = new DataTable();
             string query = "select t.nome from tipo t inner join produto p on (p.cod_tipo = t.cod_tipo) where p.cod_produto = "+ cod_produto;
             NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
@@ -620,16 +540,6 @@ namespace Pizzaria.Banco
             return (dtt.Rows[0].ItemArray.GetValue(0).ToString());
             
         }
-      
-        //esse metodo informa se eh ou nao uma pizza
-      
-        // esse metodo pressupoe, q eu sei o tamanho.
-        //1 para INVISIVEL
-        //2 para 50% 50%
-        //3 para todas opcoes (caso da pizza grande)
-       
-        // se é uma pizza, entao esse metodo limita a 2 tamanhos possiveis.
-
         public int codigoDaVendaPelaMesa(string mesa)
         {
             // 
