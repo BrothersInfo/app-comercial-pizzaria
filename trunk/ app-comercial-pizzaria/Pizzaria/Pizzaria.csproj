@@ -123,6 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Banco\BancoInformacao.cs" />
+    <Compile Include="Banco\BancoSenha.cs" />
     <Compile Include="Classes\CRelatorio.cs" />
     <Compile Include="Classes\Entrega.cs" />
     <Compile Include="Classes\GarconFisico.cs" />
@@ -362,6 +363,8 @@
     <None Include="Resources\BTnewAvancar.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\BtSeparar.png" />
+    <None Include="Resources\BtAgrupar.png" />
     <None Include="Resources\Add-128.png" />
     <None Include="Resources\Sem título.png" />
     <None Include="Resources\BtAnular1.png" />
@@ -383,6 +386,7 @@
     <None Include="Resources\BtConfirmar.png" />
     <None Include="Resources\BtCancelar.png" />
     <None Include="fotos Produtos\Delirios.png" />
+    <None Include="fotos Produtos\LogoTitan.png" />
     <Content Include="icone.ico" />
   </ItemGroup>
   <ItemGroup>

@@ -188,7 +188,7 @@ namespace Pizzaria.Tela
             cbMista.DataSource = mesas;
             cbMista.DisplayMember = "descricao";
          //   cbMista.SelectedIndex = 0;
-
+        if(agrupar)
             if (listVenda.CheckedItems.Count >= 2) { cbMista.Visible = true; lbMista.Visible = true; }
             else  { cbMista.Visible = false; lbMista.Visible = false;}
 

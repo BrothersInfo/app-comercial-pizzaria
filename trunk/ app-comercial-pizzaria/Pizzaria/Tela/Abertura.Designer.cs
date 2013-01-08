@@ -47,57 +47,62 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Futura Md BT", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(162, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(221, 39);
+            this.label1.Size = new System.Drawing.Size(215, 37);
             this.label1.TabIndex = 3;
             this.label1.Text = "BEM VINDO!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackgroundImage = global::Pizzaria.Properties.Resources.LogoTitan;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(58, 158);
+            this.pictureBox1.ErrorImage = global::Pizzaria.Properties.Resources.LogoTitan;
+            this.pictureBox1.InitialImage = global::Pizzaria.Properties.Resources.LogoTitan;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 152);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(84, 94);
+            this.pictureBox1.Size = new System.Drawing.Size(253, 175);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Futura Md BT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(174, 152);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(271, 152);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 22);
+            this.label2.Size = new System.Drawing.Size(81, 24);
             this.label2.TabIndex = 5;
             this.label2.Text = "Usuário";
             // 
             // tbUsuario
             // 
-            this.tbUsuario.Location = new System.Drawing.Point(265, 154);
+            this.tbUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUsuario.Location = new System.Drawing.Point(362, 144);
             this.tbUsuario.Name = "tbUsuario";
-            this.tbUsuario.Size = new System.Drawing.Size(100, 20);
+            this.tbUsuario.Size = new System.Drawing.Size(100, 32);
             this.tbUsuario.TabIndex = 6;
             this.tbUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbUsuario_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Futura Md BT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(189, 186);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(282, 190);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 22);
+            this.label3.Size = new System.Drawing.Size(70, 24);
             this.label3.TabIndex = 7;
             this.label3.Text = "Senha";
             // 
             // tbSenha
             // 
-            this.tbSenha.Location = new System.Drawing.Point(265, 188);
+            this.tbSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSenha.Location = new System.Drawing.Point(362, 182);
             this.tbSenha.Name = "tbSenha";
             this.tbSenha.PasswordChar = '*';
-            this.tbSenha.Size = new System.Drawing.Size(100, 20);
+            this.tbSenha.Size = new System.Drawing.Size(100, 32);
             this.tbSenha.TabIndex = 8;
             this.tbSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSenha_KeyPress);
             // 
@@ -105,7 +110,7 @@
             // 
             this.btConfirmar.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
             this.btConfirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btConfirmar.Location = new System.Drawing.Point(204, 230);
+            this.btConfirmar.Location = new System.Drawing.Point(301, 230);
             this.btConfirmar.Name = "btConfirmar";
             this.btConfirmar.Size = new System.Drawing.Size(136, 50);
             this.btConfirmar.TabIndex = 9;
@@ -135,23 +140,23 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Futura Md BT", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(419, 373);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 10);
+            this.label4.Size = new System.Drawing.Size(103, 9);
             this.label4.TabIndex = 11;
             this.label4.Text = "A software by Titan Solutions";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Futura Md BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label5.Location = new System.Drawing.Point(99, 89);
+            this.label5.Location = new System.Drawing.Point(164, 89);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(339, 19);
+            this.label5.Size = new System.Drawing.Size(212, 20);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Solução de fluxo de vendas para restaurantes";
+            this.label5.Text = "Solução de Fluxo de Vendas";
             // 
             // btAnular
             // 
@@ -159,7 +164,7 @@
             this.btAnular.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btAnular.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAnular.ForeColor = System.Drawing.Color.White;
-            this.btAnular.Location = new System.Drawing.Point(209, 286);
+            this.btAnular.Location = new System.Drawing.Point(306, 286);
             this.btAnular.Name = "btAnular";
             this.btAnular.Size = new System.Drawing.Size(126, 41);
             this.btAnular.TabIndex = 13;
@@ -170,6 +175,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(540, 385);
             this.ControlBox = false;
             this.Controls.Add(this.btAnular);

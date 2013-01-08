@@ -11,8 +11,20 @@ namespace Pizzaria.Banco
 
     public class BancoConsulta
     {
-        string conexao = "server=Localhost; Port=5432;User =postgres;Password=fof0130407*;Database=Delirius";
+
+        
+        string conexao;
+        //-------------------------------------
+        //novos metodos
+        //-------------------------------------
+        
+        public BancoConsulta()
+        {
+            conexao = new BancoSenha().conexao;
+        }
+        
         public NpgsqlConnection Conectar()
+     
         {
             return new NpgsqlConnection(conexao);
         }
@@ -407,7 +419,7 @@ namespace Pizzaria.Banco
         {
 
             string query = "INSERT INTO mesa(cod_mesa, descricao, cod_ambiente, status) VALUES ("
-                + novoCod_Mesa() + ", 'Mesa " + novoCod_Mesa() + "'," + codAmbientePelaDescricao(ambiente) + ", true)";
+                + novoCod_Mesa() + ", 'Mesa " + (novoCod_Mesa()-1) + "'," + codAmbientePelaDescricao(ambiente) + ", true)";
             DataTable dtt = new DataTable();
             NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
             sql.Fill(dtt);

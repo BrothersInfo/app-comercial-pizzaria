@@ -50,7 +50,7 @@
             this.tLPGeral.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.tLPGeral.ColumnCount = 2;
             this.tLPGeral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tLPGeral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 878F));
+            this.tLPGeral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 203F));
             this.tLPGeral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tLPGeral.Controls.Add(this.tlpVenda, 0, 0);
             this.tLPGeral.Controls.Add(this.pEsquerda, 0, 0);
@@ -70,14 +70,14 @@
             this.tlpVenda.Controls.Add(this.lvCodigo, 0, 1);
             this.tlpVenda.Controls.Add(this.lvTipo, 0, 0);
             this.tlpVenda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpVenda.Location = new System.Drawing.Point(174, 2);
+            this.tlpVenda.Location = new System.Drawing.Point(2, 2);
             this.tlpVenda.Margin = new System.Windows.Forms.Padding(0);
             this.tlpVenda.Name = "tlpVenda";
             this.tlpVenda.RowCount = 2;
             this.tlpVenda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.95519F));
             this.tlpVenda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.04481F));
             this.tlpVenda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpVenda.Size = new System.Drawing.Size(878, 510);
+            this.tlpVenda.Size = new System.Drawing.Size(845, 510);
             this.tlpVenda.TabIndex = 11;
             // 
             // lvCodigo
@@ -92,7 +92,7 @@
             this.lvCodigo.Location = new System.Drawing.Point(1, 214);
             this.lvCodigo.Margin = new System.Windows.Forms.Padding(1);
             this.lvCodigo.Name = "lvCodigo";
-            this.lvCodigo.Size = new System.Drawing.Size(876, 295);
+            this.lvCodigo.Size = new System.Drawing.Size(843, 295);
             this.lvCodigo.SmallImageList = this.imageList1;
             this.lvCodigo.TabIndex = 1;
             this.lvCodigo.UseCompatibleStateImageBehavior = false;
@@ -128,7 +128,7 @@
             this.lvTipo.Location = new System.Drawing.Point(1, 1);
             this.lvTipo.Margin = new System.Windows.Forms.Padding(1);
             this.lvTipo.Name = "lvTipo";
-            this.lvTipo.Size = new System.Drawing.Size(876, 211);
+            this.lvTipo.Size = new System.Drawing.Size(843, 211);
             this.lvTipo.TabIndex = 0;
             this.lvTipo.UseCompatibleStateImageBehavior = false;
             this.lvTipo.ItemActivate += new System.EventHandler(this.lvTipo_ItemActivate);
@@ -146,10 +146,10 @@
             this.pEsquerda.Controls.Add(this.btConfirmar);
             this.pEsquerda.Controls.Add(this.btCancelar);
             this.pEsquerda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pEsquerda.Location = new System.Drawing.Point(3, 3);
+            this.pEsquerda.Location = new System.Drawing.Point(850, 3);
             this.pEsquerda.Margin = new System.Windows.Forms.Padding(1);
             this.pEsquerda.Name = "pEsquerda";
-            this.pEsquerda.Size = new System.Drawing.Size(168, 508);
+            this.pEsquerda.Size = new System.Drawing.Size(201, 508);
             this.pEsquerda.TabIndex = 1;
             // 
             // btConfirmar

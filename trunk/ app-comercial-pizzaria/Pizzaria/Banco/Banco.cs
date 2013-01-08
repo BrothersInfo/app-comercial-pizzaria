@@ -11,10 +11,15 @@ namespace Pizzaria.Banco
     using Pizzaria.Classes;
     public class Banco
     {
-        string conexao = "server=Localhost; Port=5432;User =postgres;Password=fof0130407*;Database=Delirius";
+
+        string conexao;
         //-------------------------------------
         //novos metodos
         //-------------------------------------
+        public Banco()
+        {
+            conexao = new BancoSenha().conexao;
+        }
         public NpgsqlConnection Conectar()
         {
             return new NpgsqlConnection(conexao);
@@ -381,6 +386,19 @@ namespace Pizzaria.Banco
             {
                 DataTable dtt = new DataTable();
                 string query = "select impresso from completo where cod_completo = " + cod_Completo;
+                NpgsqlDataAdapter sql = new NpgsqlDataAdapter
+                       (query, Conectar());
+                sql.Fill(dtt);
+                return Convert.ToBoolean(dtt.Rows[0].ItemArray.GetValue(0).ToString());
+            }
+            catch { return false; }
+        }
+        public bool formaDePrecoConjunto()
+        {
+            try
+            {
+                DataTable dtt = new DataTable();
+                string query = "select modeloPreco from comanda where cod_comanda = 1";
                 NpgsqlDataAdapter sql = new NpgsqlDataAdapter
                        (query, Conectar());
                 sql.Fill(dtt);
