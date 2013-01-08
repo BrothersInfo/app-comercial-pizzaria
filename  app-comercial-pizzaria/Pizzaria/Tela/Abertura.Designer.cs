@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Abertura));
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbUsuario = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbSenha = new System.Windows.Forms.TextBox();
-            this.btConfirmar = new System.Windows.Forms.Button();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btAnular = new System.Windows.Forms.Button();
+            this.btConfirmar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,18 +54,6 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "BEM VINDO!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::Pizzaria.Properties.Resources.LogoTitan;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.ErrorImage = global::Pizzaria.Properties.Resources.LogoTitan;
-            this.pictureBox1.InitialImage = global::Pizzaria.Properties.Resources.LogoTitan;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 152);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(253, 175);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -84,6 +72,7 @@
             this.tbUsuario.Name = "tbUsuario";
             this.tbUsuario.Size = new System.Drawing.Size(100, 32);
             this.tbUsuario.TabIndex = 6;
+            this.tbUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbUsuario_KeyDown);
             this.tbUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbUsuario_KeyPress);
             // 
             // label3
@@ -104,18 +93,8 @@
             this.tbSenha.PasswordChar = '*';
             this.tbSenha.Size = new System.Drawing.Size(100, 32);
             this.tbSenha.TabIndex = 8;
+            this.tbSenha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSenha_KeyDown);
             this.tbSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSenha_KeyPress);
-            // 
-            // btConfirmar
-            // 
-            this.btConfirmar.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
-            this.btConfirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btConfirmar.Location = new System.Drawing.Point(301, 230);
-            this.btConfirmar.Name = "btConfirmar";
-            this.btConfirmar.Size = new System.Drawing.Size(136, 50);
-            this.btConfirmar.TabIndex = 9;
-            this.btConfirmar.UseVisualStyleBackColor = true;
-            this.btConfirmar.Click += new System.EventHandler(this.btConfirmar_Click);
             // 
             // shapeContainer1
             // 
@@ -171,6 +150,29 @@
             this.btAnular.UseVisualStyleBackColor = true;
             this.btAnular.Click += new System.EventHandler(this.btAnular_Click);
             // 
+            // btConfirmar
+            // 
+            this.btConfirmar.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
+            this.btConfirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btConfirmar.Location = new System.Drawing.Point(301, 230);
+            this.btConfirmar.Name = "btConfirmar";
+            this.btConfirmar.Size = new System.Drawing.Size(136, 50);
+            this.btConfirmar.TabIndex = 9;
+            this.btConfirmar.UseVisualStyleBackColor = true;
+            this.btConfirmar.Click += new System.EventHandler(this.btConfirmar_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Pizzaria.Properties.Resources.LogoTitan;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.ErrorImage = global::Pizzaria.Properties.Resources.LogoTitan;
+            this.pictureBox1.InitialImage = global::Pizzaria.Properties.Resources.LogoTitan;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 152);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(253, 175);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
             // Abertura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,12 +192,15 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.shapeContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Abertura";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Abertura_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Abertura_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

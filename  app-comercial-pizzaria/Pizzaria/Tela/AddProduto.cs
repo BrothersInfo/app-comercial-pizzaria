@@ -227,7 +227,7 @@ namespace Pizzaria.Tela
             double yy = (13.5 * valr) + 200;
             this.Location = new Point((Screen.PrimaryScreen.Bounds.Width - this.Size.Width) / 2, (int)yy);
 
-           // this.TopMost = true;
+           this.TopMost = true;
         }
         private void btGarc_Click(object sender, EventArgs e)
         {
@@ -357,7 +357,7 @@ namespace Pizzaria.Tela
         }
         private void btConsulta2_Click(object sender, EventArgs e)
         {
-            CodigoProduto tc = new CodigoProduto();
+            CodigoProduto tc = new CodigoProduto(new BancoVenda().codSegmentoByProduto( Convert.ToInt16( mtCodigo.Text)));
             tc.ShowDialog();
             mtCodigo1.Text = tc.getCodigoProduto();
             KeyPressEventArgs x = new KeyPressEventArgs('\r');
@@ -365,7 +365,7 @@ namespace Pizzaria.Tela
         }
         private void btConsulta3_Click(object sender, EventArgs e)
         {
-            CodigoProduto tc = new CodigoProduto();
+            CodigoProduto tc = new CodigoProduto(new BancoVenda().codSegmentoByProduto(Convert.ToInt16(mtCodigo.Text)));
             tc.ShowDialog();
             mtCodigo2.Text = tc.getCodigoProduto();
             KeyPressEventArgs x = new KeyPressEventArgs('\r');
@@ -373,7 +373,7 @@ namespace Pizzaria.Tela
         }
         private void btConsulta4_Click(object sender, EventArgs e)
         {
-            CodigoProduto tc = new CodigoProduto();
+            CodigoProduto tc = new CodigoProduto(new BancoVenda().codSegmentoByProduto(Convert.ToInt16(mtCodigo.Text)));
             tc.ShowDialog();
             mtCodigo3.Text = tc.getCodigoProduto();
             KeyPressEventArgs x = new KeyPressEventArgs('\r');
@@ -676,8 +676,8 @@ namespace Pizzaria.Tela
         }
         private void mtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            try
-            {
+           try
+           {
                 if (e.KeyChar == '\r')
                 {
                     if (podeCodigo(Convert.ToInt16(mtCodigo.Text)))
@@ -704,8 +704,10 @@ namespace Pizzaria.Tela
                     }
                 }
             }
-            catch   {      return;  }
-        }
+       
+           
+           catch   {      return;  }
+        }//
         public void preencherTexto(string[] textoTitulo)
         {
             string texto = "";

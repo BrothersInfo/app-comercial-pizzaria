@@ -42,6 +42,8 @@ namespace Pizzaria.Tela
             else
             {
                 MessageBox.Show("Senha e/ou usuário inválidos", "Aviso Loggin");
+                tbSenha.Clear();
+                tbUsuario.Focus();
             }
             
         }
@@ -66,6 +68,41 @@ namespace Pizzaria.Tela
         private void btAnular_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Abertura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void Abertura_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape://Voltar Tela
+                    btAnular_Click(sender, e);
+                    break;
+            }
+        }
+
+        private void tbUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape://Voltar Tela
+                    btAnular_Click(sender, e);
+                    break;
+            }
+        }
+
+        private void tbSenha_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape://Voltar Tela
+                    btAnular_Click(sender, e);
+                    break;
+            }
         }
 
      

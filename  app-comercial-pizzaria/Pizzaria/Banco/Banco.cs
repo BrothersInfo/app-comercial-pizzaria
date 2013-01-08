@@ -85,13 +85,15 @@ namespace Pizzaria.Banco
         }
         public bool temUsuario(string nome, string senha)
         {
+            if (nome.Length == 0 || senha.Length == 0) return false;
             DataTable dtt = new DataTable();
             string query = "select count(*) from caixa where (id = '" + nome + "' or nomeCaixa = '" + nome + "') and senha = '" + senha + "'";
+            try
+            {
             NpgsqlDataAdapter sql = new NpgsqlDataAdapter
                (query, Conectar());
             sql.Fill(dtt);
-            try
-            {
+            
                 return Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0))==1;
             }
             catch { return false; } 
@@ -714,6 +716,14 @@ namespace Pizzaria.Banco
         {
             DataTable dttTamanho = new DataTable();
             new NpgsqlDataAdapter("select nome,cod_foto from tipo where ativo = true order by cod_tipo", Conectar()).
+            Fill(dttTamanho);
+            return dttTamanho;
+
+        }
+        public DataTable carregarCodigoUM(int cod_tipo)
+        {
+            DataTable dttTamanho = new DataTable();
+            new NpgsqlDataAdapter("select nome,cod_foto from tipo where cod_tipo = "+cod_tipo+" order by cod_tipo", Conectar()).
             Fill(dttTamanho);
             return dttTamanho;
 
