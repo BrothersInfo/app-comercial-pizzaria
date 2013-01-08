@@ -14,6 +14,14 @@ namespace Pizzaria.Tela
     using Pizzaria.Classes;
     public partial class CodigoProduto : Form
     {
+        public CodigoProduto(int cod_tipo)
+        {
+            InitializeComponent();
+            carregarTipo(cod_tipo);
+            lvTipo.Focus();
+            lvTipo.Select();
+            posicionamento();
+        }
         public CodigoProduto()
         {
             InitializeComponent();
@@ -34,7 +42,21 @@ namespace Pizzaria.Tela
             return codigoProduto.ToString();
         }
         private int codigoProduto;
+        public void carregarTipo(int cod_tipo)
+        {
+            conjItem = new List<ListViewItem>();
+           
+            lvTipo.LargeImageList = imageList1;
+          
+                conjItem.Add(
+                    new ListViewItem(
+                            new Banco().carregarCodigoUM(cod_tipo).Rows[0].ItemArray.GetValue(0).ToString()
+                         , (Convert.ToInt16(new Banco().carregarCodigoUM(cod_tipo).Rows[0].ItemArray.GetValue(1))) - 1)
+                             );
+                lvTipo.Items.Add(conjItem.Last());
+         
 
+        }
         public void carregarTipos()
         {
             conjItem = new List<ListViewItem>();
@@ -121,6 +143,7 @@ namespace Pizzaria.Tela
                     break;
             }
         }
+
 
     }
 }

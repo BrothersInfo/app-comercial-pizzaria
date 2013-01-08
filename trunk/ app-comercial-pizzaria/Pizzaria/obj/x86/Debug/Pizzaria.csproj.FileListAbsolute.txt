@@ -301,4 +301,3 @@ D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\itextsharp.xtra.dll
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Relatorios.reVenda.resources
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.csproj.GenerateResource.Cache
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.DividirVenda.resources
-D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.csprojResolveAssemblyReference.cache

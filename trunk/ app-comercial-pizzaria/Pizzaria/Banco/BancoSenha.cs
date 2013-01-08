@@ -14,8 +14,8 @@ namespace Pizzaria.Banco
             
             public BancoSenha()
             {
-                porta = "5433";
-                senha = "fof0130407*";
+              //  porta = "5433";
+              //  senha = "fof0130407*";
                 conexao  = "server=Localhost; Port="+porta+";User =postgres;Password="+senha+";Database="+database;
             }
             public string conexao;

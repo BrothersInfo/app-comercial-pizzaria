@@ -302,10 +302,7 @@ namespace Pizzaria.Tela
             wig = Screen.PrimaryScreen.Bounds.Width;
         }
 
-        private void ptitulo_Click(object sender, EventArgs e)
-        {
-            tlpBotoes.Visible = !tlpBotoes.Visible;
-        }
+
 
         private void pBalcao_MouseEnter(object sender, EventArgs e)
         {
