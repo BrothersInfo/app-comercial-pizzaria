@@ -12,7 +12,16 @@ namespace Pizzaria.Banco
 {
     public class BancoInformacao
     {
-        string conexao = "server=Localhost; Port=5432;User =postgres;Password=fof0130407*;Database=Delirius";
+         string conexao;
+        //-------------------------------------
+        //novos metodos
+        //-------------------------------------
+        
+        public BancoInformacao()
+        {
+            conexao = new BancoSenha().conexao;
+        }
+        
         public NpgsqlConnection Conectar()
         {
             return new NpgsqlConnection(conexao);

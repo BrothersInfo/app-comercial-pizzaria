@@ -19,13 +19,13 @@ namespace Pizzaria.Tela
         public VendaFull x;
         public bool isSubNew = false;
         //----------------------
-        Panel painel;
+     /*   Panel painel;
         Button avancar;
         NumericUpDown numQuantidade;
         Label label;
         Label label2;
         Label recado;
-
+        */
         private bool addProduto = false;
         private bool removeProduto = false;
         public bool getAddProduto(){

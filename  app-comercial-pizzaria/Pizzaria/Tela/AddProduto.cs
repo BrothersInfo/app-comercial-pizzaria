@@ -477,6 +477,7 @@ namespace Pizzaria.Tela
                 }
             }catch { return; }
         }
+        
         public void preencherLabelDescritivo(int cod_tamanho, int cod_divisor)
         {
             string[] lbs = new Banco().subDivisorByTamanhoDivisor(cod_tamanho, cod_divisor);
@@ -535,8 +536,14 @@ namespace Pizzaria.Tela
                              new Banco().numeroPercentualSubDivisor(lbs[1]);
                         mtCodigo2.Clear();
                         mtCodigo3.Clear();
-                        mascaraValor(valor1 + valor2);
-
+                        if (!new Banco().formaDePrecoConjunto())
+                            mascaraValor(valor1 + valor2);
+                        else
+                        {
+                            if (valor1 >= valor2)
+                                mascaraValor(new Banco().valorProduto(Convert.ToInt16(mtCodigo.Text), cod_tamanho));
+                            else mascaraValor(new Banco().valorProduto(Convert.ToInt16(mtCodigo1.Text), cod_tamanho));
+                        }
                         lbNomePizza3.Text = "";
                         lbNomePizza4.Text = "";
                         break;
@@ -569,7 +576,28 @@ namespace Pizzaria.Tela
 
                         lbNomePizza4.Text = "";
                         mtCodigo3.Clear();
-                        mascaraValor(valor1 + valor2 + valor3);
+                   if (!new Banco().formaDePrecoConjunto())
+                            mascaraValor(valor1 + valor2 + valor3);
+                        else
+                        {
+                         if(new Banco().valorProduto(Convert.ToInt16(mtCodigo.Text), cod_tamanho) >=
+                             new Banco().valorProduto(Convert.ToInt16(mtCodigo1.Text), cod_tamanho))
+                         {
+                            if(new Banco().valorProduto(Convert.ToInt16(mtCodigo.Text), cod_tamanho)>=
+                                new Banco().valorProduto(Convert.ToInt16(mtCodigo2.Text), cod_tamanho))
+                                 mascaraValor(new Banco().valorProduto(Convert.ToInt16(mtCodigo.Text), cod_tamanho));
+                            else
+                                mascaraValor( new Banco().valorProduto(Convert.ToInt16(mtCodigo2.Text), cod_tamanho));
+                         }
+                         else
+                         {
+                            if(new Banco().valorProduto(Convert.ToInt16(mtCodigo1.Text), cod_tamanho)>=
+                                new Banco().valorProduto(Convert.ToInt16(mtCodigo2.Text), cod_tamanho))
+                                mascaraValor( new Banco().valorProduto(Convert.ToInt16(mtCodigo1.Text), cod_tamanho));
+                            else
+                                mascaraValor( new Banco().valorProduto(Convert.ToInt16(mtCodigo2.Text), cod_tamanho));
+                         }
+                        }     
                         break;
                     }
                 case 4:
@@ -602,8 +630,46 @@ namespace Pizzaria.Tela
                             new Banco().numeroPercentualSubDivisor(lbs[2]);
                         double valor4 = new Banco().valorProduto(Convert.ToInt16(mtCodigo3.Text), cod_tamanho) *
                             new Banco().numeroPercentualSubDivisor(lbs[3]);
-
+                        if (!new Banco().formaDePrecoConjunto())
                         mascaraValor(valor1 + valor2 + valor3 + valor4);
+                        else{
+                            if(valor1 >= valor2)
+                            {
+                                if(valor1 >= valor3)
+                                {
+                                    if(valor1 >= valor4)
+                                         mascaraValor(new Banco().valorProduto(Convert.ToInt16(mtCodigo.Text), cod_tamanho));
+                                    else
+                                         mascaraValor(new Banco().valorProduto(Convert.ToInt16(mtCodigo3.Text), cod_tamanho));
+                                }
+                                else
+                                {
+                                    if(valor3 >= valor4)
+                                         mascaraValor(new Banco().valorProduto(Convert.ToInt16(mtCodigo2.Text), cod_tamanho));
+                                    else
+                                         mascaraValor(new Banco().valorProduto(Convert.ToInt16(mtCodigo3.Text), cod_tamanho));
+                                }
+                            }
+                            else
+                            {
+                                if(valor2 >= valor3)
+                                {
+                                    if(valor2 >= valor4)
+                                         mascaraValor(new Banco().valorProduto(Convert.ToInt16(mtCodigo1.Text), cod_tamanho));
+                                    else
+                                         mascaraValor(new Banco().valorProduto(Convert.ToInt16(mtCodigo3.Text), cod_tamanho));
+                                }
+                                else
+                                {
+                                    if(valor3 >= valor4)
+                                         mascaraValor(new Banco().valorProduto(Convert.ToInt16(mtCodigo2.Text), cod_tamanho));
+                                    else
+                                         mascaraValor(new Banco().valorProduto(Convert.ToInt16(mtCodigo3.Text), cod_tamanho));
+                                }
+                            }
+
+                        
+                        }
                         break;
                     }
             }

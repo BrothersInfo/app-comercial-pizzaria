@@ -11,7 +11,17 @@ namespace Pizzaria.Banco
     public class BancoRelatorio
     {
 
-        string conexao = "server=Localhost; Port=5432;User =postgres;Password=fof0130407*;Database=Delirius";
+       
+         string conexao;
+        //-------------------------------------
+        //novos metodos
+        //-------------------------------------
+        
+        public BancoRelatorio()
+        {
+            conexao = new BancoSenha().conexao;
+        }
+        
         public NpgsqlConnection Conectar()
         {
             return new NpgsqlConnection(conexao);
