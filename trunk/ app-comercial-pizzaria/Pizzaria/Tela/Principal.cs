@@ -32,13 +32,7 @@ namespace Pizzaria.Tela
 
             pbFoto.Image = System.Drawing.Image.FromFile(Environment.CurrentDirectory + "\\logo.png");
             pbFoto.SizeMode = PictureBoxSizeMode.StretchImage; 
-            /*
-            Bitmap image =(Image) pbFoto.Image;
-            //MessageBox.Show(Environment.CurrentDirectory + "\\logo.png");
-            imageControl.Dock = DockStyle.Fill;
-            imageControl.Image = pbFoto.Image;
-
-            Controls.Add(imageControl);//*///
+          
         }
         public Principal(short cod_caixa,TableLayoutPanel fnd)
         {

@@ -1,15 +1,15 @@
  |----COZINHA----|
  |Data:09/01/2013|
- |Hora:06:20     |
+ |Hora:08:25     |
  |---------------|
  |               |
- |Tam- 2 Litros  |
- |Pepsi          |
+ |Tam- Dose      |
+ |Bells          |
  |    --100 %    |
  |Quantid- 1     |
  |               |
  | -- - -- - --  |
  |---------------|
  |GARCON -Teste  |
- | Mesa 6        |
+ | Mesa 5        |
  |---------------|
