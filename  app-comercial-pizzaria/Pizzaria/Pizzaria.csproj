@@ -25,7 +25,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -73,9 +73,7 @@
   <PropertyGroup />
   <PropertyGroup />
   <PropertyGroup />
-  <PropertyGroup>
-    <NoWin32Manifest>true</NoWin32Manifest>
-  </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
@@ -180,11 +178,11 @@
     <Compile Include="Tela\CadastroForm.Designer.cs">
       <DependentUpon>CadastroForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tela\CodigoProduto.cs">
+    <Compile Include="Tela\Codes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tela\CodigoProduto.Designer.cs">
-      <DependentUpon>CodigoProduto.cs</DependentUpon>
+    <Compile Include="Tela\Codes.Designer.cs">
+      <DependentUpon>Codes.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Comanda.cs" />
     <Compile Include="Classes\Completa.cs" />
@@ -200,12 +198,6 @@
     <Compile Include="Tela\DividirVenda.Designer.cs">
       <DependentUpon>DividirVenda.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tela\Encerrar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Tela\Encerrar.Designer.cs">
-      <DependentUpon>Encerrar.cs</DependentUpon>
-    </Compile>
     <Compile Include="Tela\Fundo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +211,12 @@
       <DependentUpon>Garcon.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Impressao.cs" />
+    <Compile Include="Tela\Pagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tela\Pagamento.Designer.cs">
+      <DependentUpon>Pagamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tela\PdfGenerator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,8 +294,8 @@
     <EmbeddedResource Include="Tela\CadastroForm.resx">
       <DependentUpon>CadastroForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tela\CodigoProduto.resx">
-      <DependentUpon>CodigoProduto.cs</DependentUpon>
+    <EmbeddedResource Include="Tela\Codes.resx">
+      <DependentUpon>Codes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tela\ConsultaForm.resx">
       <DependentUpon>ConsultaForm.cs</DependentUpon>
@@ -305,14 +303,14 @@
     <EmbeddedResource Include="Tela\DividirVenda.resx">
       <DependentUpon>DividirVenda.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tela\Encerrar.resx">
-      <DependentUpon>Encerrar.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Tela\Fundo.resx">
       <DependentUpon>Fundo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tela\Garcon.resx">
       <DependentUpon>Garcon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tela\Pagamento.resx">
+      <DependentUpon>Pagamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tela\PdfGenerator.resx">
       <DependentUpon>PdfGenerator.cs</DependentUpon>
@@ -321,7 +319,7 @@
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -363,6 +361,7 @@
     <None Include="Resources\BTnewAvancar.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Sem título1.png" />
     <None Include="Resources\BtSeparar.png" />
     <None Include="Resources\BtAgrupar.png" />
     <None Include="Resources\Add-128.png" />

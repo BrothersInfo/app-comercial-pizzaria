@@ -117,7 +117,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = global::Pizzaria.Properties.Resources.Register_128;
+            this.panel1.BackgroundImage = global::Pizzaria.Properties.Resources.LogoTitan;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Location = new System.Drawing.Point(16, 62);
             this.panel1.Name = "panel1";

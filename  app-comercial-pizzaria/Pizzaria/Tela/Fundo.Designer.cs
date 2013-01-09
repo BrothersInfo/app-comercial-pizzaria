@@ -33,17 +33,25 @@
             this.tlpFundo = new System.Windows.Forms.TableLayoutPanel();
             this.pCentroFundo = new System.Windows.Forms.Panel();
             this.pLoadForm = new System.Windows.Forms.Panel();
+            this.gbAtalho = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lBalcao = new System.Windows.Forms.Label();
             this.tlpBotoes = new System.Windows.Forms.TableLayoutPanel();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.ttBotao = new System.Windows.Forms.ToolTip(this.components);
             this.pbFechar = new System.Windows.Forms.Panel();
             this.pbAjuda = new System.Windows.Forms.Panel();
             this.pbRelatorio = new System.Windows.Forms.Panel();
             this.pbAlterar = new System.Windows.Forms.Panel();
             this.pbConsulta = new System.Windows.Forms.Panel();
             this.pbCadastro = new System.Windows.Forms.Panel();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.ttBotao = new System.Windows.Forms.ToolTip(this.components);
             this.tlpFundo.SuspendLayout();
             this.pCentroFundo.SuspendLayout();
+            this.pLoadForm.SuspendLayout();
+            this.gbAtalho.SuspendLayout();
             this.tlpBotoes.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,12 +85,94 @@
             // pLoadForm
             // 
             this.pLoadForm.BackColor = System.Drawing.Color.White;
+            this.pLoadForm.Controls.Add(this.gbAtalho);
             this.pLoadForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pLoadForm.Location = new System.Drawing.Point(0, 54);
             this.pLoadForm.Margin = new System.Windows.Forms.Padding(0);
             this.pLoadForm.Name = "pLoadForm";
             this.pLoadForm.Size = new System.Drawing.Size(593, 362);
             this.pLoadForm.TabIndex = 4;
+            // 
+            // gbAtalho
+            // 
+            this.gbAtalho.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.gbAtalho.Controls.Add(this.label4);
+            this.gbAtalho.Controls.Add(this.label3);
+            this.gbAtalho.Controls.Add(this.label2);
+            this.gbAtalho.Controls.Add(this.label1);
+            this.gbAtalho.Controls.Add(this.lBalcao);
+            this.gbAtalho.Location = new System.Drawing.Point(0, 121);
+            this.gbAtalho.Name = "gbAtalho";
+            this.gbAtalho.Size = new System.Drawing.Size(593, 182);
+            this.gbAtalho.TabIndex = 0;
+            this.gbAtalho.TabStop = false;
+            this.gbAtalho.Text = "Help";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(63, 131);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(141, 18);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "VOLTAR : [ ESC ]";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(63, 90);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(420, 36);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "VENDA : Imprimir Comanda : [ I ] ;      Encerrar  :  [ V ] \r\nAgrupar Vendas [ A ]" +
+                " ;     Dividir Venda [ D ] ";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(63, 70);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(344, 18);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "PRODUTO : Inserir: [ P ] ;     Remover : [ R ]";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(63, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(420, 18);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "MESA : Inserir [ M ] ;      Remover [ N ] ;     Trocar [ T ]";
+            // 
+            // lBalcao
+            // 
+            this.lBalcao.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lBalcao.AutoSize = true;
+            this.lBalcao.BackColor = System.Drawing.Color.Transparent;
+            this.lBalcao.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lBalcao.ForeColor = System.Drawing.Color.Black;
+            this.lBalcao.Location = new System.Drawing.Point(53, 16);
+            this.lBalcao.Name = "lBalcao";
+            this.lBalcao.Size = new System.Drawing.Size(145, 29);
+            this.lBalcao.TabIndex = 3;
+            this.lBalcao.Text = "ATALHOS :";
             // 
             // tlpBotoes
             // 
@@ -109,20 +199,6 @@
             this.tlpBotoes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpBotoes.Size = new System.Drawing.Size(593, 54);
             this.tlpBotoes.TabIndex = 3;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "BRtent1.png");
-            this.imageList1.Images.SetKeyName(1, "BRtent2.png");
-            this.imageList1.Images.SetKeyName(2, "mesawhite.jpg");
-            // 
-            // ttBotao
-            // 
-            this.ttBotao.IsBalloon = true;
-            this.ttBotao.ShowAlways = true;
-            this.ttBotao.ToolTipTitle = "INFORMAÇÃO";
             // 
             // pbFechar
             // 
@@ -202,6 +278,20 @@
             this.ttBotao.SetToolTip(this.pbCadastro, "Cadastrar Usuarios, Produtos , Mesas e etc");
             this.pbCadastro.Click += new System.EventHandler(this.pbCadastro_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "BRtent1.png");
+            this.imageList1.Images.SetKeyName(1, "BRtent2.png");
+            this.imageList1.Images.SetKeyName(2, "mesawhite.jpg");
+            // 
+            // ttBotao
+            // 
+            this.ttBotao.IsBalloon = true;
+            this.ttBotao.ShowAlways = true;
+            this.ttBotao.ToolTipTitle = "INFORMAÇÃO";
+            // 
             // Fundo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -218,6 +308,9 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tlpFundo.ResumeLayout(false);
             this.pCentroFundo.ResumeLayout(false);
+            this.pLoadForm.ResumeLayout(false);
+            this.gbAtalho.ResumeLayout(false);
+            this.gbAtalho.PerformLayout();
             this.tlpBotoes.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -237,5 +330,11 @@
         private System.Windows.Forms.Panel pCentroFundo;
         private System.Windows.Forms.Panel pLoadForm;
         private System.Windows.Forms.ToolTip ttBotao;
+        private System.Windows.Forms.GroupBox gbAtalho;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lBalcao;
     }
 }

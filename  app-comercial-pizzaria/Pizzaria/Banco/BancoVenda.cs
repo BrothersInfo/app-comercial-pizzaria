@@ -251,20 +251,25 @@ namespace Pizzaria.Banco
             DataTable conjCompleto = new DataTable();
             string completos = "select cod_completo from VendaCompleta where cod_venda = " + cod_venda;
             new NpgsqlDataAdapter(completos, Conectar()).Fill(conjCompleto);
-
-
-            string vendas = "update venda set cancelado = true, aberta = false, horario = current_time where cod_venda = " + cod_venda;
-            new NpgsqlDataAdapter(vendas, Conectar()).Fill(compl);
-
+             
+            double valor = 0;
             for (int i = 0; i < conjCompleto.Rows.Count; i++)
             {
+                string vlr = "select valorUnitarioCompleto from completo where cod_completo = " + Convert.ToInt16(conjCompleto.Rows[i].ItemArray.GetValue(0));
+                DataTable vl = new DataTable();
+                new NpgsqlDataAdapter(vlr, Conectar()).Fill(vl);
+                double info = Convert.ToDouble(vl.Rows[0].ItemArray.GetValue(0)); 
+                int quantidade = new BancoInformacao().quantidadeCompletaByCodigo(Convert.ToInt16(conjCompleto.Rows[i].ItemArray.GetValue(0)));
+                valor+= ( info * quantidade);
+
                 string completo = "update Completo set cancelado = true where cod_completo  = "
                     + Convert.ToInt16(conjCompleto.Rows[i].ItemArray.GetValue(0));
 
                 DataTable dt = new DataTable();
                 new NpgsqlDataAdapter(completo, Conectar()).Fill(dt);
             }
-           
+            string vendas = "update venda set valortotal = " + new Tratamento().retornaValorEscrito(valor).Replace(',', '.') + ", cancelado = true, aberta = false, horario = current_time where cod_venda = " + cod_venda;
+            new NpgsqlDataAdapter(vendas, Conectar()).Fill(compl);
         }
         public void unirVendas(string [] mesasDaVenda, string mesaDestino)
         {

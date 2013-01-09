@@ -53,6 +53,7 @@
             this.pOcupada = new System.Windows.Forms.Panel();
             this.lInutil2 = new System.Windows.Forms.Label();
             this.ptitulo = new System.Windows.Forms.Panel();
+            this.pbFoto = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lValor = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -68,6 +69,8 @@
             this.tlpLO.SuspendLayout();
             this.pLivre.SuspendLayout();
             this.pOcupada.SuspendLayout();
+            this.ptitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -338,13 +341,22 @@
             this.ptitulo.BackColor = System.Drawing.Color.White;
             this.ptitulo.BackgroundImage = global::Pizzaria.Properties.Resources.LogoTitan;
             this.ptitulo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ptitulo.Controls.Add(this.pbFoto);
             this.ptitulo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ptitulo.Location = new System.Drawing.Point(1, 0);
             this.ptitulo.Margin = new System.Windows.Forms.Padding(1, 0, 1, 1);
             this.ptitulo.Name = "ptitulo";
             this.ptitulo.Size = new System.Drawing.Size(446, 201);
             this.ptitulo.TabIndex = 36;
-
+            // 
+            // pbFoto
+            // 
+            this.pbFoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbFoto.Location = new System.Drawing.Point(122, 8);
+            this.pbFoto.Name = "pbFoto";
+            this.pbFoto.Size = new System.Drawing.Size(224, 152);
+            this.pbFoto.TabIndex = 0;
+            this.pbFoto.TabStop = false;
             // 
             // panel1
             // 
@@ -426,6 +438,8 @@
             this.pLivre.PerformLayout();
             this.pOcupada.ResumeLayout(false);
             this.pOcupada.PerformLayout();
+            this.ptitulo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -463,5 +477,6 @@
         private System.Windows.Forms.Label lBalcao;
         private System.Windows.Forms.TableLayoutPanel tlpLO;
         private System.Windows.Forms.ToolTip ttMsg;
+        private System.Windows.Forms.PictureBox pbFoto;
     }
 }

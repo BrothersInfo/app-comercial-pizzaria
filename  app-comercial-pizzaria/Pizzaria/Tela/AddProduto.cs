@@ -98,6 +98,7 @@ namespace Pizzaria.Tela
                 
                 Completa cc = new BancoVenda().getCompleta(cod_completo, false);
                 cc.quantidade = (int)numQuantidade.Value;
+                cc.garconImprimir = getGarcon();
                 if (tbNoticia.TextLength > 0) cc.setNoticia(tbNoticia.Text);
                 if (cc.needImpress)
                 {
@@ -110,8 +111,8 @@ namespace Pizzaria.Tela
                         conjGarc.Add(getGarcon());
                 }
 
-                ;
-                if(MessageBox.Show("DESEJA ACRESCENTAR OUTRO ITEM","INFORMAÇÂO",MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button1,MessageBoxOptions.RtlReading) == DialogResult.Yes)
+
+                if(MessageBox.Show("DESEJA ACRESCENTAR OUTRO ITEM","INFORMAÇÂO",MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button1,MessageBoxOptions.DefaultDesktopOnly) == DialogResult.Yes)
                 {
                     limpaCampoCodigoProduto();                    mtCodigo.Visible = true;                    mtCodigo.Focus();
                 }
@@ -122,21 +123,21 @@ namespace Pizzaria.Tela
                         for (int j = 0; j < listaProd.Length; j++)
                             if (listaProd[j].Count > 0)
                                 new Impressao(new BancoVenda().carregaVenda(cod_venda)).gerarComandaInterna(listaProd[j].ToArray()
-                                    , conjGarc.ToArray(), mesas);
+                                    , mesas);
                     }
                     else
                     {
                         try
                         {
                             VendaFull f = (new BancoVenda().carregaVenda(cod_venda));
-                            Encerrar rec = new Encerrar(f.cod_venda, f.valorTotal, f.mesa, true);
+                            Pagamento rec = new Pagamento(f.cod_venda, f.valorTotal, f.mesa, true);
                             this.Visible = false;
                             rec.ShowDialog();
                             if (rec.encerrou)
                             {
                                 for (int j = 0; j < listaProd.Length; j++)
                                     if (listaProd[j].Count > 0)
-                                       new Impressao(new BancoVenda().carregaVenda(cod_venda)).gerarComandaInterna(listaProd[j].ToArray(), conjGarc.ToArray(), mesas);
+                                       new Impressao(new BancoVenda().carregaVenda(cod_venda)).gerarComandaInterna(listaProd[j].ToArray(), mesas);
                                 MessageBox.Show("VENDA REALIZADA COM SUCESSO", "ATENDIMENDO BALCAO");
                               
                             }
@@ -246,7 +247,7 @@ namespace Pizzaria.Tela
                     if (listaProd[j].Count > 0)
                     {
                         Impressao p = new Impressao(new BancoVenda().carregaVenda(cod_venda));
-                        p.gerarComandaInterna(listaProd[j].ToArray(), conjGarc.ToArray(), mesas);
+                        p.gerarComandaInterna(listaProd[j].ToArray(), mesas);
                     }
                 }
             }
@@ -349,7 +350,7 @@ namespace Pizzaria.Tela
         }
         private void btConsulta1_Click(object sender, EventArgs e)
         {
-            CodigoProduto tc = new CodigoProduto();
+            Codes tc = new Codes();
             tc.ShowDialog();
             mtCodigo.Text = tc.getCodigoProduto();
             KeyPressEventArgs x = new KeyPressEventArgs('\r');
@@ -357,7 +358,7 @@ namespace Pizzaria.Tela
         }
         private void btConsulta2_Click(object sender, EventArgs e)
         {
-            CodigoProduto tc = new CodigoProduto(new BancoVenda().codSegmentoByProduto( Convert.ToInt16( mtCodigo.Text)));
+            Codes tc = new Codes(new BancoVenda().codSegmentoByProduto(Convert.ToInt16(mtCodigo.Text)));
             tc.ShowDialog();
             mtCodigo1.Text = tc.getCodigoProduto();
             KeyPressEventArgs x = new KeyPressEventArgs('\r');
@@ -365,7 +366,7 @@ namespace Pizzaria.Tela
         }
         private void btConsulta3_Click(object sender, EventArgs e)
         {
-            CodigoProduto tc = new CodigoProduto(new BancoVenda().codSegmentoByProduto(Convert.ToInt16(mtCodigo.Text)));
+            Codes tc = new Codes(new BancoVenda().codSegmentoByProduto(Convert.ToInt16(mtCodigo.Text)));
             tc.ShowDialog();
             mtCodigo2.Text = tc.getCodigoProduto();
             KeyPressEventArgs x = new KeyPressEventArgs('\r');
@@ -373,7 +374,7 @@ namespace Pizzaria.Tela
         }
         private void btConsulta4_Click(object sender, EventArgs e)
         {
-            CodigoProduto tc = new CodigoProduto(new BancoVenda().codSegmentoByProduto(Convert.ToInt16(mtCodigo.Text)));
+            Codes tc = new Codes(new BancoVenda().codSegmentoByProduto(Convert.ToInt16(mtCodigo.Text)));
             tc.ShowDialog();
             mtCodigo3.Text = tc.getCodigoProduto();
             KeyPressEventArgs x = new KeyPressEventArgs('\r');
@@ -692,7 +693,20 @@ namespace Pizzaria.Tela
                         cbTamanho_SelectedIndexChanged(sender, null);
                         if (mtCodigo1.Visible)
                             mtCodigo1.Focus();
-                        else cbTamanho.Focus();
+                        else
+                        {
+                            if (cbTamanho.Items.Count >  1)
+                                cbTamanho.Focus();
+                            else
+                            {
+                                if (pGarLivre.Visible)
+                                    cbGarLivre.Focus();
+                                else
+                                {
+                                    btEscolhaProduto.Focus();
+                                }
+                            }
+                        }
                         LQuantidade.Visible = true;
                         numQuantidade.Visible = true; if (!new Banco().isVendaBalcao(cod_venda)) garconDaVenda();
                     }
@@ -752,7 +766,7 @@ namespace Pizzaria.Tela
         {
             if (e.KeyChar == '\r')
             {
-                if (cbMista.Visible)
+                if (cbMista.Items.Count> 1)
                     cbMista.Focus();
                 else numQuantidade.Focus();
             }

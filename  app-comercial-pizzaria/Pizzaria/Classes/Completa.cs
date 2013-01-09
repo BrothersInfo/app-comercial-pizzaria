@@ -13,7 +13,8 @@ namespace Pizzaria.Classes
         public int cod_completo;
         public bool needImpress;
         public GarconFisico[] garcons;
-        private string observacao;
+        private string observacao= "";
+        public string garconImprimir;
         public void setNoticia(string noticia)
         {
 
@@ -22,6 +23,7 @@ namespace Pizzaria.Classes
         }
         public string getNoticia()
         {
+
             return observacao;
         }
 

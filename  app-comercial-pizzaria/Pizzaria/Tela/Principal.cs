@@ -20,11 +20,32 @@ namespace Pizzaria.Tela
         bool vendendo;
         public short cod_caixa;
         public TableLayoutPanel tlpBotoes;
+        private void DisplayImage()
+        {
+
+
+
+            PictureBox imageControl = new PictureBox();
+            pbFoto.Width = 200;
+            pbFoto.Height = 200;
+            pbFoto.Dock = DockStyle.Fill;
+
+            pbFoto.Image = System.Drawing.Image.FromFile(Environment.CurrentDirectory + "\\logo.png");
+            pbFoto.SizeMode = PictureBoxSizeMode.StretchImage; 
+            /*
+            Bitmap image =(Image) pbFoto.Image;
+            //MessageBox.Show(Environment.CurrentDirectory + "\\logo.png");
+            imageControl.Dock = DockStyle.Fill;
+            imageControl.Image = pbFoto.Image;
+
+            Controls.Add(imageControl);//*///
+        }
         public Principal(short cod_caixa,TableLayoutPanel fnd)
         {
             tlpBotoes = fnd;
             this.cod_caixa = cod_caixa;
             InitializeComponent();
+            DisplayImage();
             this.WindowState = FormWindowState.Maximized;
             conjItem = new List<ListViewItem>();
             tlpBotoes.Visible = false;
@@ -171,7 +192,8 @@ namespace Pizzaria.Tela
 
                 if (new BancoVenda().isImpresso(f.cod_venda) || (MessageBox.Show("COMANDA DESATUALIZADA \n DESEJA ENCERRAR MESMO ASSIM?", "Confirme sua Opcao", MessageBoxButtons.YesNo) == DialogResult.Yes))
                 {
-                   Encerrar rec = new Encerrar(f.cod_venda, f.valorTotal, f.mesa, false);
+
+                    Pagamento rec = new Pagamento(f.cod_venda, f.valorTotal, f.mesa, false);
                     rec.ShowDialog();
                     if (rec.encerrou)
                     {
@@ -252,7 +274,7 @@ namespace Pizzaria.Tela
             string a = e.KeyChar.ToString();
 
             if (inVenda() && a.ToLowerInvariant().Equals("i"))
-                MSImprimir_Click(sender, null);
+                 MSImprimir_Click(sender, null);
             else
                 if (inVenda() && a.ToLowerInvariant().Equals("v"))
                     MSEncerrar_Click(sender, null);
@@ -260,13 +282,14 @@ namespace Pizzaria.Tela
                     if (inVenda() && a.ToLowerInvariant().Equals("p"))
                         MSProduto_Click(sender, null);
                     else
-                        if (a.ToLowerInvariant().Equals("b")) {
+                        if (a.ToLowerInvariant().Equals("b"))
                             new AddProduto(true, cod_caixa).ShowDialog();
-                        }else
-                        if (a.ToLowerInvariant().Equals("l"))
-                            carregarMesa(false);
-                        else if (a.ToLowerInvariant().Equals("o"))
-                            carregarMesa(true);
+                            else
+                                if (a.ToLowerInvariant().Equals("l"))
+                                    carregarMesa(false);
+                                else 
+                                    if (a.ToLowerInvariant().Equals("o"))
+                                        carregarMesa(true);
         }
         private void listVenda_MouseClick(object sender, MouseEventArgs e)
         {

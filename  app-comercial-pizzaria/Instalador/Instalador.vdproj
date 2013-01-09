@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_01230380FDA046FD850D531E4E7B876B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_08882679872F4B5EA48B2703C9F86344"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -105,14 +111,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_9A5E769F269B4F53BAB0FE6FEF1C22A8"
+        "MsmKey" = "8:_8F8B033E7B664CC395A352ECDBD5212B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A972CF3765F71A69985A024C1525AC75"
-        "OwnerKey" = "8:_253CAFD97F604658A99B157B463A61B3"
+        "MsmKey" = "8:_9A5E769F269B4F53BAB0FE6FEF1C22A8"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -142,6 +148,12 @@
         "Entry"
         {
         "MsmKey" = "8:_DA5C3FDC73F96D6CEC6F1A7740629F9E"
+        "OwnerKey" = "8:_253CAFD97F604658A99B157B463A61B3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F132F8CB118FD3D19572C0324D94422D"
         "OwnerKey" = "8:_253CAFD97F604658A99B157B463A61B3"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -202,7 +214,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A972CF3765F71A69985A024C1525AC75"
+        "OwnerKey" = "8:_F132F8CB118FD3D19572C0324D94422D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -242,21 +254,6 @@
                     {
                     "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
                     "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
-                    }
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.ReportViewer.10.0"
-                    {
-                    "Name" = "8:Microsoft Visual Studio 2010 Report Viewer"
-                    "ProductCode" = "8:Microsoft.ReportViewer.10.0"
-                    }
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.VisualBasic.PowerPacks.10.0"
-                    {
-                    "Name" = "8:Microsoft Visual Basic PowerPacks 10.0"
-                    "ProductCode" = "8:Microsoft.VisualBasic.PowerPacks.10.0"
-                    }
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
-                    {
-                    "Name" = "8:Windows Installer 3.1"
-                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
                     }
                 }
             }
@@ -326,6 +323,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_01230380FDA046FD850D531E4E7B876B"
+            {
+            "SourcePath" = "8:..\\Pizzaria\\bin\\Debug\\StringConexao.txt"
+            "TargetName" = "8:StringConexao.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_D220FA9928454703883F52759C1EABA9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_08882679872F4B5EA48B2703C9F86344"
             {
             "SourcePath" = "8:..\\Pizzaria\\fotos Produtos\\Sobremesa 4.jpg"
@@ -703,6 +720,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8F8B033E7B664CC395A352ECDBD5212B"
+            {
+            "SourcePath" = "8:D:\\Transferencia Arquivos\\LogoTitan.png"
+            "TargetName" = "8:logo.png"
+            "Tag" = "8:"
+            "Folder" = "8:_D220FA9928454703883F52759C1EABA9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9A5E769F269B4F53BAB0FE6FEF1C22A8"
             {
             "SourcePath" = "8:..\\Pizzaria\\fotos Produtos\\Aperitivo 3.jpg"
@@ -721,37 +758,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A972CF3765F71A69985A024C1525AC75"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MatrixReporter, Version=1.0.2099.24224, Culture=neutral"
-                "ScatterAssemblies"
-                {
-                    "_A972CF3765F71A69985A024C1525AC75"
-                    {
-                    "Name" = "8:MatrixReporter.DLL"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:MatrixReporter.DLL"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_D220FA9928454703883F52759C1EABA9"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AB12A02E25C54A7A803E4D2FBEF581A2"
@@ -865,6 +871,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F132F8CB118FD3D19572C0324D94422D"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MatrixReporter, Version=1.0.2099.24224, Culture=neutral"
+                "ScatterAssemblies"
+                {
+                    "_F132F8CB118FD3D19572C0324D94422D"
+                    {
+                    "Name" = "8:MatrixReporter.DLL"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:MatrixReporter.DLL"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_D220FA9928454703883F52759C1EABA9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FB187A347CFFC683E4B2F307DCB37C0F"
             {
             "AssemblyRegister" = "3:1"
@@ -953,7 +990,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Titan"
         "ProductCode" = "8:{D1DC6A37-1C23-44AC-9A07-C9C53288F4B0}"
-        "PackageCode" = "8:{70E774C3-C44A-45C8-90D1-A94149848F4D}"
+        "PackageCode" = "8:{F88C4B91-D787-4F41-BC1A-879D8C9E17AE}"
         "UpgradeCode" = "8:{7E286C34-8DF6-4E12-8885-1A09F9266D8C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
