@@ -85,6 +85,7 @@ namespace Pizzaria.Tela
         ConsultaForm cof;       TipoRelatorio rf;
         private void expandirConsulta()
         {
+            gbAtalho.Visible = false;
             cof = new ConsultaForm();
             cof.Visible = true;
             cof.WindowState = FormWindowState.Maximized;
@@ -97,7 +98,7 @@ namespace Pizzaria.Tela
         }
         private void expandirCadastro()
         {
-
+            gbAtalho.Visible = false;
             SenhaAcesso sa = new SenhaAcesso();
             sa.ShowDialog();
             if (sa.acesso)
@@ -119,7 +120,9 @@ namespace Pizzaria.Tela
                 allFixedSingle();
                 // rf.Visible = false;
                 obj.Visible = true;
+
                 removeAllForm();
+                gbAtalho.Visible = true;
             }
 
         }
@@ -140,7 +143,6 @@ namespace Pizzaria.Tela
                 af.Location = new Point(0, 0);
                 obj.Visible = false;
 
-
             }
             else
             {
@@ -148,6 +150,7 @@ namespace Pizzaria.Tela
                 // rf.Visible = false;
                 obj.Visible = true;
                 removeAllForm();
+                gbAtalho.Visible = true;
             }
 
         }
@@ -173,7 +176,7 @@ namespace Pizzaria.Tela
                 allFixedSingle();
                // rf.Visible = false;
                 obj.Visible = true;
-                removeAllForm();
+                removeAllForm(); gbAtalho.Visible = true;
             }
         }
         private void pbFechar_Click(object sender, EventArgs e)
@@ -189,15 +192,16 @@ namespace Pizzaria.Tela
 
                 allFixedSingle();
                 pbCadastro.BorderStyle = BorderStyle.Fixed3D;
+                gbAtalho.Visible = false;
                 expandirCadastro();
                 pLoadForm.Controls.Remove(af);
                 pLoadForm.Controls.Remove(cof);
-
+                
             }
             else {
                 allFixedSingle();
                 cf.Visible = false;
-                obj.Visible = true;
+                obj.Visible = true; gbAtalho.Visible = true;
                 removeAllForm();
             }
         }
@@ -208,17 +212,19 @@ namespace Pizzaria.Tela
                 allFixedSingle();
                 
                 pbAlterar.BorderStyle = BorderStyle.Fixed3D;
+                gbAtalho.Visible = false;
                 expandirAlterar();
+                
                 pLoadForm.Controls.Remove(cf);
                 pLoadForm.Controls.Remove(cof);
-                
+         
             }
             else
             {
                 allFixedSingle();
                 af.Visible = false;
                 obj.Visible = true;
-                removeAllForm();
+                removeAllForm(); gbAtalho.Visible = true;
                 
             }
         }
@@ -228,9 +234,12 @@ namespace Pizzaria.Tela
             {
                 allFixedSingle();
                 pbConsulta.BorderStyle = BorderStyle.Fixed3D;
+                gbAtalho.Visible = false;
                 expandirConsulta();
+           //     gbAtalho.Visible = true;
                 pLoadForm.Controls.Remove(cf);
                 pLoadForm.Controls.Remove(af);
+             
             }
             else
             {
@@ -238,6 +247,7 @@ namespace Pizzaria.Tela
                 cof.Visible = false;
                 obj.Visible = true;
                 removeAllForm();
+                gbAtalho.Visible = true;
             }
         }
         private void pbRelatorio_Click(object sender, EventArgs e)
@@ -246,7 +256,9 @@ namespace Pizzaria.Tela
             {
                 allFixedSingle();
                 pbRelatorio.BorderStyle = BorderStyle.Fixed3D;
+                gbAtalho.Visible = false;
                 expandirRelatorios();
+                
                 pLoadForm.Controls.Remove(cf);
                 pLoadForm.Controls.Remove(cof);
                 pLoadForm.Controls.Remove(af);
@@ -256,7 +268,7 @@ namespace Pizzaria.Tela
                 allFixedSingle();
                 rf.Visible = false;
                 obj.Visible = true;
-                removeAllForm();
+                removeAllForm(); gbAtalho.Visible = true;
             }
 
         }     
@@ -266,6 +278,7 @@ namespace Pizzaria.Tela
             pLoadForm.Controls.Remove(af);
             pLoadForm.Controls.Remove(cof);
             pLoadForm.Controls.Remove(rf);
+            gbAtalho.Visible = true;
         }
         private void allFixedSingle()
         {
@@ -273,6 +286,7 @@ namespace Pizzaria.Tela
             pbCadastro.BorderStyle = BorderStyle.FixedSingle;
             pbAlterar.BorderStyle = BorderStyle.FixedSingle;
             pbConsulta.BorderStyle = BorderStyle.FixedSingle;
+            gbAtalho.Visible = true;
         }
 
 
