@@ -301,4 +301,3 @@ D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.exe
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.pdb
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.Pagamento.resources
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.Codes.resources
-D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.csprojResolveAssemblyReference.cache
