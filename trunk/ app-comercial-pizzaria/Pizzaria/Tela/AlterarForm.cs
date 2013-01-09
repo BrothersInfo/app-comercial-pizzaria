@@ -26,14 +26,13 @@ namespace Pizzaria.Tela
         short cod_caixa;
         private void btConfAlterar_Click(object sender, EventArgs e)
         {
-            if (!tbAltNomeGarcon.Text.Equals(""))
-            {
+
                 if (!new BancoConsulta().existeGarcon(tbAltNomeGarcon.Text))
                 {
                     alterarGarcon();
                     MessageBox.Show("Alteração realizada com Sucesso", "Alterar");
                 }
-            }
+            
             else MessageBox.Show("Campo em branco, favor preencher para alterar", "Aviso");
             limparGarcon(); carregarAlterar();
         }       
@@ -92,34 +91,34 @@ namespace Pizzaria.Tela
             //garcon
             cbQuadroGarcon.DataSource = new BancoConsulta().descricaoGarcon();
             cbQuadroGarcon.DisplayMember = "nome";
-            cbQuadroGarcon.SelectedIndex = 1;
+
             cbQuadroGarcon.SelectedIndex = 0;
             nGarcon = cbQuadroGarcon.Text;
 
             cbAltSub.DataSource = new BancoConsulta().descricaoTamanhoAll();
             cbAltSub.DisplayMember = "descricao";
-            cbAltSub.SelectedIndex = 1;
+            
             cbAltSub.SelectedIndex = 0;
 
           
             cbAltSeg.DataSource = new BancoConsulta().descricaoTipoAll();
             cbAltSeg.DisplayMember = "nome";
-            cbAltSeg.SelectedIndex = 1;
+            
             cbAltSeg.SelectedIndex = 0;
 
             cbAltMesa.DataSource = new BancoConsulta().descricaoMesa();
             cbAltMesa.DisplayMember = "descricao";
-            cbAltMesa.SelectedIndex = 1;
+            
             cbAltMesa.SelectedIndex = 0;
 
             cbAltNovoAmb.DataSource = new BancoConsulta().descricaoAmbiente();
             cbAltNovoAmb.DisplayMember = "descricao";
-            cbAltNovoAmb.SelectedIndex = 1;
+            
             cbAltNovoAmb.SelectedIndex = 0;
 
             cbAltAmb.DataSource = new BancoConsulta().descricaoAmbienteAll();
             cbAltAmb.DisplayMember = "descricao";
-            cbAltAmb.SelectedIndex = 1;
+            
             cbAltAmb.SelectedIndex = 0;
 
 
@@ -133,7 +132,11 @@ namespace Pizzaria.Tela
         {
             if (!tbAltNomeGarcon.Text.Equals(""))
                 new BancoConsulta().alterarGarcon(cbQuadroGarcon.Text, tbAltNomeGarcon.Text, cboxGarconAlterarAtivo.Checked);
-            else new BancoConsulta().alterarGarcon(cbQuadroGarcon.Text, cbQuadroGarcon.Text, cboxGarconAlterarAtivo.Checked);
+            else
+            {
+                new BancoConsulta().alterarGarcon(cbQuadroGarcon.Text, cbQuadroGarcon.Text, cboxGarconAlterarAtivo.Checked);
+            }
+
         }
         private void alterarTipo()
         {

@@ -22,7 +22,7 @@ namespace Pizzaria.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Pizzaria.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Pizzaria.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace Pizzaria.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,17 +63,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Add_128 {
-            get {
-                object obj = ResourceManager.GetObject("Add-128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap BtAgrupar {
+        public static System.Drawing.Bitmap BtAgrupar {
             get {
                 object obj = ResourceManager.GetObject("BtAgrupar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +73,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BtAlterar1 {
+        public static System.Drawing.Bitmap BtAlterar1 {
             get {
                 object obj = ResourceManager.GetObject("BtAlterar1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +83,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BtAnular {
+        public static System.Drawing.Bitmap BtAnular {
             get {
                 object obj = ResourceManager.GetObject("BtAnular", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +93,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BtCadastro1 {
+        public static System.Drawing.Bitmap BtCadastro1 {
             get {
                 object obj = ResourceManager.GetObject("BtCadastro1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +103,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BtCancelar {
+        public static System.Drawing.Bitmap BtCancelar {
             get {
                 object obj = ResourceManager.GetObject("BtCancelar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,7 +113,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BtConfirmar {
+        public static System.Drawing.Bitmap BtConfirmar {
             get {
                 object obj = ResourceManager.GetObject("BtConfirmar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -133,7 +123,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BtConsulta1 {
+        public static System.Drawing.Bitmap BtConsulta1 {
             get {
                 object obj = ResourceManager.GetObject("BtConsulta1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -143,7 +133,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BtEncerrar {
+        public static System.Drawing.Bitmap BtEncerrar {
             get {
                 object obj = ResourceManager.GetObject("BtEncerrar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -153,7 +143,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BtImprimir {
+        public static System.Drawing.Bitmap BtImprimir {
             get {
                 object obj = ResourceManager.GetObject("BtImprimir", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -163,7 +153,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BtInserir {
+        public static System.Drawing.Bitmap BtInserir {
             get {
                 object obj = ResourceManager.GetObject("BtInserir", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -173,7 +163,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BtManutencao1 {
+        public static System.Drawing.Bitmap BtManutencao1 {
             get {
                 object obj = ResourceManager.GetObject("BtManutencao1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -183,7 +173,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BTnewAvancar {
+        public static System.Drawing.Bitmap BTnewAvancar {
             get {
                 object obj = ResourceManager.GetObject("BTnewAvancar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -193,7 +183,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BtParcial {
+        public static System.Drawing.Bitmap BtParcial {
             get {
                 object obj = ResourceManager.GetObject("BtParcial", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -203,7 +193,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BtRelatorio1 {
+        public static System.Drawing.Bitmap BtRelatorio1 {
             get {
                 object obj = ResourceManager.GetObject("BtRelatorio1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -213,7 +203,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BtRemover {
+        public static System.Drawing.Bitmap BtRemover {
             get {
                 object obj = ResourceManager.GetObject("BtRemover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -223,7 +213,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BtSair1 {
+        public static System.Drawing.Bitmap BtSair1 {
             get {
                 object obj = ResourceManager.GetObject("BtSair1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -233,7 +223,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BtSeparar {
+        public static System.Drawing.Bitmap BtSeparar {
             get {
                 object obj = ResourceManager.GetObject("BtSeparar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -243,7 +233,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BtTrocar {
+        public static System.Drawing.Bitmap BtTrocar {
             get {
                 object obj = ResourceManager.GetObject("BtTrocar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -253,7 +243,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Delirios {
+        public static System.Drawing.Bitmap Delirios {
             get {
                 object obj = ResourceManager.GetObject("Delirios", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -263,7 +253,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap LogoTitan {
+        public static System.Drawing.Bitmap LogoTitan {
             get {
                 object obj = ResourceManager.GetObject("LogoTitan", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -273,27 +263,7 @@ namespace Pizzaria.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Register_128 {
-            get {
-                object obj = ResourceManager.GetObject("Register-128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Sem_título {
-            get {
-                object obj = ResourceManager.GetObject("Sem título", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Voltar_64 {
+        public static System.Drawing.Bitmap Voltar_64 {
             get {
                 object obj = ResourceManager.GetObject("Voltar_64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));

@@ -274,6 +274,8 @@ namespace Pizzaria.Tela
             pbAlterar.BorderStyle = BorderStyle.FixedSingle;
             pbConsulta.BorderStyle = BorderStyle.FixedSingle;
         }
+
+
   
     }
 }

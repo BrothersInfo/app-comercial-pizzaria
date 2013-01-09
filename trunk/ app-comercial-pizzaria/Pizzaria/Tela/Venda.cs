@@ -262,12 +262,12 @@ namespace Pizzaria.Tela
            
                 if (new BancoVenda().isImpresso(venda.cod_venda) || (MessageBox.Show("COMANDA DESATUALIZADA \n DESEJA ENCERRAR MESMO ASSIM?", "Confirme sua Opcao", MessageBoxButtons.YesNo) == DialogResult.Yes))
                 {
-                    Encerrar rec = new Encerrar(venda.cod_venda, venda.valorTotal, venda.mesa,false);
+                    Pagamento rec = new Pagamento(venda.cod_venda, venda.valorTotal, venda.mesa, false);
                    
                     rec.ShowDialog();
                     if (rec.encerrou)
                     {
-                        MessageBox.Show("VENDA REALIZADA COM SUCESSO","MESSAGEM",MessageBoxButtons.OK,MessageBoxIcon.Hand,MessageBoxDefaultButton.Button1,MessageBoxOptions.RtlReading);
+                        MessageBox.Show("VENDA REALIZADA COM SUCESSO","MESSAGEM",MessageBoxButtons.OK,MessageBoxIcon.Information,MessageBoxDefaultButton.Button1,MessageBoxOptions.DefaultDesktopOnly);
                         this.Close();
                     }
                 }
@@ -556,7 +556,7 @@ namespace Pizzaria.Tela
                      {
                          cc.quantidade = 1;
                          Impressao p = new Impressao(venda);
-                         p.gerarComandaInterna(new Completa[] { cc }, new string[] { new BancoVenda().nomeGarcon(g.getRetorno()) }, venda.mesa);
+                         p.gerarComandaInterna(new Completa[] { cc }, venda.mesa);
                      }
                 }
                 else
@@ -570,7 +570,7 @@ namespace Pizzaria.Tela
                         {
                             cc.quantidade = 1;
                             Impressao p = new Impressao(venda);
-                            p.gerarComandaInterna(new Completa[] { cc }, new string[] { new BancoVenda().nomeGarcon( Convert.ToInt16( dttGarcon.Rows[0].ItemArray.GetValue(0) )) }, venda.mesa);
+                            p.gerarComandaInterna(new Completa[] { cc }, venda.mesa);
                         }
                     }
 

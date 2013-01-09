@@ -35,13 +35,13 @@ namespace Pizzaria.Tela
             }
             cbProdCategoria.DataSource = new BancoConsulta().descricaoTipo();
             cbProdCategoria.DisplayMember = "nome";
-            cbProdCategoria.SelectedIndex = 1;
+           
             cbProdCategoria.SelectedIndex = 0;
 
 
             cbCadSubDivis.DataSource = new BancoConsulta().descricaoDivisores();
             cbCadSubDivis.DisplayMember = "descricao";
-            cbCadSubDivis.SelectedIndex = 1;
+      
             cbCadSubDivis.SelectedIndex = 0;
 
         }
@@ -224,7 +224,7 @@ namespace Pizzaria.Tela
         {
             cbAmbiente.DataSource = new BancoConsulta().descricaoAmbiente();
             cbAmbiente.DisplayMember = "descricao";
-            cbAmbiente.SelectedIndex = 1;
+         
             cbAmbiente.SelectedIndex = 0;
         }
     

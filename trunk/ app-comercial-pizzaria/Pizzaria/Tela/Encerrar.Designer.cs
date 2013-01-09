@@ -53,9 +53,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbNao = new System.Windows.Forms.RadioButton();
             this.rbSim = new System.Windows.Forms.RadioButton();
+            this.pFundo = new System.Windows.Forms.Panel();
             this.btEncerrar = new System.Windows.Forms.Button();
             this.btAnular = new System.Windows.Forms.Button();
-            this.pFundo = new System.Windows.Forms.Panel();
             this.tlPDinheiro.SuspendLayout();
             this.tlbNivel2.SuspendLayout();
             this.pCentro.SuspendLayout();
@@ -82,7 +82,7 @@
             this.tlPDinheiro.Name = "tlPDinheiro";
             this.tlPDinheiro.RowCount = 1;
             this.tlPDinheiro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlPDinheiro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 339F));
+            this.tlPDinheiro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 249F));
             this.tlPDinheiro.Size = new System.Drawing.Size(800, 249);
             this.tlPDinheiro.TabIndex = 1;
             // 
@@ -91,7 +91,7 @@
             this.tlbNivel2.ColumnCount = 3;
             this.tlbNivel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.25907F));
             this.tlbNivel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.74093F));
-            this.tlbNivel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
+            this.tlbNivel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 230F));
             this.tlbNivel2.Controls.Add(this.pCentro, 1, 0);
             this.tlbNivel2.Controls.Add(this.gBoxNumeros, 0, 0);
             this.tlbNivel2.Controls.Add(this.panEsquerda, 1, 0);
@@ -101,7 +101,7 @@
             this.tlbNivel2.Name = "tlbNivel2";
             this.tlbNivel2.RowCount = 1;
             this.tlbNivel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlbNivel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 339F));
+            this.tlbNivel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 249F));
             this.tlbNivel2.Size = new System.Drawing.Size(800, 249);
             this.tlbNivel2.TabIndex = 0;
             // 
@@ -110,10 +110,10 @@
             this.pCentro.Controls.Add(this.gbValor);
             this.pCentro.Controls.Add(this.gbFormaPag);
             this.pCentro.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pCentro.Location = new System.Drawing.Point(291, 0);
+            this.pCentro.Location = new System.Drawing.Point(286, 0);
             this.pCentro.Margin = new System.Windows.Forms.Padding(0);
             this.pCentro.Name = "pCentro";
-            this.pCentro.Size = new System.Drawing.Size(288, 249);
+            this.pCentro.Size = new System.Drawing.Size(283, 249);
             this.pCentro.TabIndex = 2;
             // 
             // gbValor
@@ -124,7 +124,7 @@
             this.gbValor.Location = new System.Drawing.Point(0, 151);
             this.gbValor.Margin = new System.Windows.Forms.Padding(0);
             this.gbValor.Name = "gbValor";
-            this.gbValor.Size = new System.Drawing.Size(288, 98);
+            this.gbValor.Size = new System.Drawing.Size(283, 98);
             this.gbValor.TabIndex = 2;
             this.gbValor.TabStop = false;
             this.gbValor.Text = "Valor da Comanda";
@@ -172,7 +172,7 @@
             this.gbFormaPag.Font = new System.Drawing.Font("Arial", 12F);
             this.gbFormaPag.Location = new System.Drawing.Point(0, 0);
             this.gbFormaPag.Name = "gbFormaPag";
-            this.gbFormaPag.Size = new System.Drawing.Size(288, 151);
+            this.gbFormaPag.Size = new System.Drawing.Size(283, 151);
             this.gbFormaPag.TabIndex = 1;
             this.gbFormaPag.TabStop = false;
             this.gbFormaPag.Text = "Forma de Pagamento";
@@ -229,12 +229,12 @@
             this.gBoxNumeros.Controls.Add(this.panel1);
             this.gBoxNumeros.Controls.Add(this.lbTrocoNumero);
             this.gBoxNumeros.Controls.Add(this.lbTroco);
-            this.gBoxNumeros.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gBoxNumeros.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gBoxNumeros.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gBoxNumeros.Location = new System.Drawing.Point(0, 0);
             this.gBoxNumeros.Margin = new System.Windows.Forms.Padding(0);
             this.gBoxNumeros.Name = "gBoxNumeros";
-            this.gBoxNumeros.Size = new System.Drawing.Size(291, 244);
+            this.gBoxNumeros.Size = new System.Drawing.Size(286, 249);
             this.gBoxNumeros.TabIndex = 0;
             this.gBoxNumeros.TabStop = false;
             this.gBoxNumeros.Text = "Dados do Pagamento";
@@ -339,10 +339,10 @@
             this.panEsquerda.Controls.Add(this.btEncerrar);
             this.panEsquerda.Controls.Add(this.btAnular);
             this.panEsquerda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panEsquerda.Location = new System.Drawing.Point(579, 0);
+            this.panEsquerda.Location = new System.Drawing.Point(569, 0);
             this.panEsquerda.Margin = new System.Windows.Forms.Padding(0);
             this.panEsquerda.Name = "panEsquerda";
-            this.panEsquerda.Size = new System.Drawing.Size(221, 249);
+            this.panEsquerda.Size = new System.Drawing.Size(231, 249);
             this.panEsquerda.TabIndex = 1;
             // 
             // groupBox1
@@ -354,7 +354,7 @@
             this.groupBox1.Location = new System.Drawing.Point(0, 151);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(221, 98);
+            this.groupBox1.Size = new System.Drawing.Size(231, 98);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cupom Não Fiscal - Imprimir?";
@@ -383,6 +383,16 @@
             this.rbSim.Text = "Sim";
             this.rbSim.UseVisualStyleBackColor = true;
             // 
+            // pFundo
+            // 
+            this.pFundo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pFundo.Controls.Add(this.tlPDinheiro);
+            this.pFundo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pFundo.Location = new System.Drawing.Point(0, 0);
+            this.pFundo.Name = "pFundo";
+            this.pFundo.Size = new System.Drawing.Size(802, 251);
+            this.pFundo.TabIndex = 2;
+            // 
             // btEncerrar
             // 
             this.btEncerrar.BackgroundImage = global::Pizzaria.Properties.Resources.BtEncerrar;
@@ -409,16 +419,6 @@
             this.btAnular.UseVisualStyleBackColor = true;
             this.btAnular.Click += new System.EventHandler(this.btAnular_Click);
             // 
-            // pFundo
-            // 
-            this.pFundo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pFundo.Controls.Add(this.tlPDinheiro);
-            this.pFundo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pFundo.Location = new System.Drawing.Point(0, 0);
-            this.pFundo.Name = "pFundo";
-            this.pFundo.Size = new System.Drawing.Size(802, 251);
-            this.pFundo.TabIndex = 2;
-            // 
             // Encerrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -429,7 +429,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.KeyPreview = true;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(818, 267);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(818, 267);
             this.Name = "Encerrar";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

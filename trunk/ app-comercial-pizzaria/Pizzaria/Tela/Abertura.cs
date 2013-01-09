@@ -19,7 +19,7 @@ namespace Pizzaria.Tela
         {
             InitializeComponent();
         }
-
+        
         public int cod_caixa= 0 ;
         public bool isAdm = false;
         private void btConfirmar_Click(object sender, EventArgs e)
@@ -41,7 +41,7 @@ namespace Pizzaria.Tela
             }
             else
             {
-                MessageBox.Show("Senha e/ou usuário inválidos", "Aviso Loggin");
+                MessageBox.Show("Senha e/ou usuário inválidos", "Aviso Login");
                 tbSenha.Clear();
                 tbUsuario.Focus();
             }
