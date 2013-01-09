@@ -124,7 +124,7 @@ namespace Pizzaria.Banco
                 +" from garcon g "
             + " inner join garconCompleto cg on(cg.cod_garcon = g.cod_garcon)"
             + " inner join completo c on(c.cod_completo = cg.cod_completo)"
-            + " where c.cod_completo = " + cod_completo + " and c.cancelado =  false";
+            + " where c.cod_completo = " + cod_completo;
             DataTable quantidadeTable = new DataTable();
             new NpgsqlDataAdapter(qtdItens, Conectar()).Fill(quantidadeTable);
             return Convert.ToInt16(quantidadeTable.Rows[0].ItemArray.GetValue(0));
