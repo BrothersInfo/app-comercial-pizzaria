@@ -517,7 +517,7 @@ namespace Pizzaria.Tela
                  *  junto ao avançar eu preciso começar a definir a quandidade de cada item.
                  *  se é um item, eu passo direto, se for mais de um item
                  *  o usuario precisa escolher a quantidade q ele deseja inserir na SubVenda
-                 * *//*
+                 * ///
                 inicializarAvancar();
                 inicializarQuantidade(parcial);
                 inicializarDoisLabel();
@@ -554,6 +554,7 @@ namespace Pizzaria.Tela
                      new BancoInformacao().addqtdGarconCompleto(g.getRetorno(),asd, 1);// cod_garcon cod_completo quantidade
                      if (cc.needImpress)
                      {
+                         cc.garconImprimir = new BancoVenda().nomeGarcon( g.getRetorno());
                          cc.quantidade = 1;
                          Impressao p = new Impressao(venda);
                          p.gerarComandaInterna(new Completa[] { cc }, venda.mesa);
@@ -568,6 +569,7 @@ namespace Pizzaria.Tela
                        asd, 1);
                         if (cc.needImpress)
                         {
+                            cc.garconImprimir = cc.garcons[0].nome;
                             cc.quantidade = 1;
                             Impressao p = new Impressao(venda);
                             p.gerarComandaInterna(new Completa[] { cc }, venda.mesa);
@@ -581,7 +583,6 @@ namespace Pizzaria.Tela
             }
             catch { }
               }
-
         private void Venda_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -597,6 +598,9 @@ namespace Pizzaria.Tela
                     break;
                 case Keys.S://Voltar Tela
                     btParcial_Click(sender, null);
+                    break;
+                case Keys.A://Voltar Tela
+                   btAgrupar_Click(sender, null);
                     break;
                 case Keys.P://Voltar Tela
                     btProduto_Click(sender, null);
@@ -619,7 +623,6 @@ namespace Pizzaria.Tela
 
             }
         }
-
         private void btMesaTrocar_Click(object sender, EventArgs e)
         {
             if (new Banco().mesasDisponiveis().Length > 0)
@@ -634,7 +637,6 @@ namespace Pizzaria.Tela
             tamanhoMTVALOR(venda);
             carregarListView(venda);
         }
-
         private void btAgrupar_Click(object sender, EventArgs e)
         {
             AlterarMesa am = new AlterarMesa();
@@ -646,7 +648,6 @@ namespace Pizzaria.Tela
                 carregarListView(venda);
             }
         }
-
   
         }
 

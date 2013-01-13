@@ -355,10 +355,12 @@
             this.Controls.Add(this.gbMesaDaVenda);
             this.Controls.Add(this.lvItensOld);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.KeyPreview = true;
             this.MaximumSize = new System.Drawing.Size(784, 439);
             this.MinimumSize = new System.Drawing.Size(784, 439);
             this.Name = "DividirVenda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DividirVenda_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.numQuantidade)).EndInit();
             this.gbMesaDaVenda.ResumeLayout(false);
             this.gbMesaDaVenda.PerformLayout();

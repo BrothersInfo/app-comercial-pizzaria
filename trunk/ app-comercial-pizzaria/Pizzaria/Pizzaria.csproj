@@ -172,6 +172,12 @@
     <Compile Include="Banco\BancoConsulta.cs" />
     <Compile Include="Banco\BancoRelatorio.cs" />
     <Compile Include="Banco\BancoVenda.cs" />
+    <Compile Include="Tela\Balcao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tela\Balcao.Designer.cs">
+      <DependentUpon>Balcao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tela\CadastroForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,6 +297,9 @@
     <EmbeddedResource Include="Tela\AlterarMesa.resx">
       <DependentUpon>AlterarMesa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tela\Balcao.resx">
+      <DependentUpon>Balcao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tela\CadastroForm.resx">
       <DependentUpon>CadastroForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -361,7 +370,6 @@
     <None Include="Resources\BTnewAvancar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Sem título1.png" />
     <None Include="Resources\BtSeparar.png" />
     <None Include="Resources\BtAgrupar.png" />
     <None Include="Resources\Add-128.png" />

@@ -1,15 +1,16 @@
  |----COZINHA----|
- |Data:09/01/2013|
- |Hora:08:25     |
+ |Data:13/01/2013|
+ |Hora:11:41     |
  |---------------|
  |               |
- |Tam- Dose      |
- |Bells          |
+ | -             |
+ |Tam- 600 ml    |
+ |Bohemia        |
  |    --100 %    |
  |Quantid- 1     |
  |               |
  | -- - -- - --  |
  |---------------|
- |GARCON -Teste  |
- | Mesa 5        |
+ |GARCON -Usando |
+ | Mesa 2        |
  |---------------|

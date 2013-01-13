@@ -178,6 +178,7 @@ namespace Pizzaria.Classes
                 int ii = produto.Length;
 
                 while(ii-- > 0){
+                    mr.PrintText(line, 1, "| - " + produto[ii].segmentoImprimir); mr.PrintText(line++, 17, "|");
                     string tam = new BancoInformacao().tamanhoDescricaoByCodigo(produto[ii].produto[0].cod_tamanho);
                     if (tam.Length > 10) tam = tam.Substring(0, 10);
                     mr.PrintText(line, 1, "|Tam- " + tam); mr.PrintText(line++, 17, "|");

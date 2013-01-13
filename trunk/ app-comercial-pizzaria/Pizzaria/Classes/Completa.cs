@@ -15,6 +15,7 @@ namespace Pizzaria.Classes
         public GarconFisico[] garcons;
         private string observacao= "";
         public string garconImprimir;
+        public string segmentoImprimir;
         public void setNoticia(string noticia)
         {
 
@@ -27,18 +28,14 @@ namespace Pizzaria.Classes
             return observacao;
         }
 
-        public Completa(Produto[] produto,  int codCompleto, GarconFisico[] garcons)
+        public Completa(Produto[] produto,  int codCompleto, GarconFisico[] garcons, double valorCompleto)
         {
             this.cod_completo = codCompleto;
-            valorUnitario = 0;
+            valorUnitario = valorCompleto;
             this.produto = produto;
             quantidade = new Banco.BancoInformacao().quantidadeCompletaByCodigo(cod_completo);
 
-            for (int i = 0; i < produto.Length; i++)
-            {
-                valorUnitario += produto[i].valor;
 
-            }
 
             needImpress = false;
 

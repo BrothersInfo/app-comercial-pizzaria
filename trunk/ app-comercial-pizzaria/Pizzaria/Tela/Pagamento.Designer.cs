@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pagamento));
             this.tlpGeral = new System.Windows.Forms.TableLayoutPanel();
+            this.panEsquerda = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbNao = new System.Windows.Forms.RadioButton();
+            this.rbSim = new System.Windows.Forms.RadioButton();
+            this.btEncerrar = new System.Windows.Forms.Button();
+            this.btAnular = new System.Windows.Forms.Button();
             this.gBoxNumeros = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tbDesonto = new System.Windows.Forms.TextBox();
@@ -49,13 +55,9 @@
             this.rbDebito = new System.Windows.Forms.RadioButton();
             this.rbCredito = new System.Windows.Forms.RadioButton();
             this.rbDinheiro = new System.Windows.Forms.RadioButton();
-            this.panEsquerda = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbNao = new System.Windows.Forms.RadioButton();
-            this.rbSim = new System.Windows.Forms.RadioButton();
-            this.btEncerrar = new System.Windows.Forms.Button();
-            this.btAnular = new System.Windows.Forms.Button();
             this.tlpGeral.SuspendLayout();
+            this.panEsquerda.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.gBoxNumeros.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -63,8 +65,6 @@
             this.gbValor.SuspendLayout();
             this.panValorTotal.SuspendLayout();
             this.gbFormaPag.SuspendLayout();
-            this.panEsquerda.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpGeral
@@ -85,6 +85,82 @@
             this.tlpGeral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpGeral.Size = new System.Drawing.Size(802, 251);
             this.tlpGeral.TabIndex = 0;
+            // 
+            // panEsquerda
+            // 
+            this.panEsquerda.Controls.Add(this.groupBox1);
+            this.panEsquerda.Controls.Add(this.btEncerrar);
+            this.panEsquerda.Controls.Add(this.btAnular);
+            this.panEsquerda.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panEsquerda.Location = new System.Drawing.Point(554, 0);
+            this.panEsquerda.Margin = new System.Windows.Forms.Padding(0);
+            this.panEsquerda.Name = "panEsquerda";
+            this.panEsquerda.Size = new System.Drawing.Size(248, 251);
+            this.panEsquerda.TabIndex = 3;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbNao);
+            this.groupBox1.Controls.Add(this.rbSim);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(0, 140);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(248, 111);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Cupom Não Fiscal - Imprimir?";
+            // 
+            // rbNao
+            // 
+            this.rbNao.AutoSize = true;
+            this.rbNao.Checked = true;
+            this.rbNao.Font = new System.Drawing.Font("Arial", 10F);
+            this.rbNao.Location = new System.Drawing.Point(115, 46);
+            this.rbNao.Name = "rbNao";
+            this.rbNao.Size = new System.Drawing.Size(51, 20);
+            this.rbNao.TabIndex = 4;
+            this.rbNao.TabStop = true;
+            this.rbNao.Text = "Não";
+            this.rbNao.UseVisualStyleBackColor = true;
+            // 
+            // rbSim
+            // 
+            this.rbSim.AutoSize = true;
+            this.rbSim.Font = new System.Drawing.Font("Arial", 10F);
+            this.rbSim.Location = new System.Drawing.Point(40, 46);
+            this.rbSim.Name = "rbSim";
+            this.rbSim.Size = new System.Drawing.Size(49, 20);
+            this.rbSim.TabIndex = 4;
+            this.rbSim.Text = "Sim";
+            this.rbSim.UseVisualStyleBackColor = true;
+            // 
+            // btEncerrar
+            // 
+            this.btEncerrar.BackgroundImage = global::Pizzaria.Properties.Resources.BtEncerrar;
+            this.btEncerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btEncerrar.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btEncerrar.ForeColor = System.Drawing.Color.Maroon;
+            this.btEncerrar.Location = new System.Drawing.Point(52, 22);
+            this.btEncerrar.Name = "btEncerrar";
+            this.btEncerrar.Size = new System.Drawing.Size(145, 50);
+            this.btEncerrar.TabIndex = 0;
+            this.btEncerrar.UseVisualStyleBackColor = true;
+            this.btEncerrar.Click += new System.EventHandler(this.btEncerrar_Click);
+            // 
+            // btAnular
+            // 
+            this.btAnular.BackgroundImage = global::Pizzaria.Properties.Resources.BtCancelar;
+            this.btAnular.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btAnular.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAnular.ForeColor = System.Drawing.Color.White;
+            this.btAnular.Location = new System.Drawing.Point(61, 88);
+            this.btAnular.Name = "btAnular";
+            this.btAnular.Size = new System.Drawing.Size(126, 41);
+            this.btAnular.TabIndex = 1;
+            this.btAnular.UseVisualStyleBackColor = true;
+            this.btAnular.Click += new System.EventHandler(this.btAnular_Click);
             // 
             // gBoxNumeros
             // 
@@ -267,6 +343,8 @@
             this.gbFormaPag.TabIndex = 3;
             this.gbFormaPag.TabStop = false;
             this.gbFormaPag.Text = "Forma de Pagamento";
+            this.gbFormaPag.Enter += new System.EventHandler(this.gbFormaPag_Enter);
+            this.gbFormaPag.Leave += new System.EventHandler(this.gbFormaPag_Leave);
             // 
             // rbCheque
             // 
@@ -314,82 +392,6 @@
             this.rbDinheiro.Text = "Dinheiro";
             this.rbDinheiro.UseVisualStyleBackColor = true;
             // 
-            // panEsquerda
-            // 
-            this.panEsquerda.Controls.Add(this.groupBox1);
-            this.panEsquerda.Controls.Add(this.btEncerrar);
-            this.panEsquerda.Controls.Add(this.btAnular);
-            this.panEsquerda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panEsquerda.Location = new System.Drawing.Point(554, 0);
-            this.panEsquerda.Margin = new System.Windows.Forms.Padding(0);
-            this.panEsquerda.Name = "panEsquerda";
-            this.panEsquerda.Size = new System.Drawing.Size(248, 251);
-            this.panEsquerda.TabIndex = 3;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.rbNao);
-            this.groupBox1.Controls.Add(this.rbSim);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(0, 140);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(248, 111);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Cupom Não Fiscal - Imprimir?";
-            // 
-            // rbNao
-            // 
-            this.rbNao.AutoSize = true;
-            this.rbNao.Checked = true;
-            this.rbNao.Font = new System.Drawing.Font("Arial", 10F);
-            this.rbNao.Location = new System.Drawing.Point(115, 46);
-            this.rbNao.Name = "rbNao";
-            this.rbNao.Size = new System.Drawing.Size(51, 20);
-            this.rbNao.TabIndex = 4;
-            this.rbNao.TabStop = true;
-            this.rbNao.Text = "Não";
-            this.rbNao.UseVisualStyleBackColor = true;
-            // 
-            // rbSim
-            // 
-            this.rbSim.AutoSize = true;
-            this.rbSim.Font = new System.Drawing.Font("Arial", 10F);
-            this.rbSim.Location = new System.Drawing.Point(40, 46);
-            this.rbSim.Name = "rbSim";
-            this.rbSim.Size = new System.Drawing.Size(49, 20);
-            this.rbSim.TabIndex = 4;
-            this.rbSim.Text = "Sim";
-            this.rbSim.UseVisualStyleBackColor = true;
-            // 
-            // btEncerrar
-            // 
-            this.btEncerrar.BackgroundImage = global::Pizzaria.Properties.Resources.BtEncerrar;
-            this.btEncerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btEncerrar.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btEncerrar.ForeColor = System.Drawing.Color.Maroon;
-            this.btEncerrar.Location = new System.Drawing.Point(52, 22);
-            this.btEncerrar.Name = "btEncerrar";
-            this.btEncerrar.Size = new System.Drawing.Size(145, 50);
-            this.btEncerrar.TabIndex = 0;
-            this.btEncerrar.UseVisualStyleBackColor = true;
-            this.btEncerrar.Click += new System.EventHandler(this.btEncerrar_Click);
-            // 
-            // btAnular
-            // 
-            this.btAnular.BackgroundImage = global::Pizzaria.Properties.Resources.BtCancelar;
-            this.btAnular.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btAnular.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAnular.ForeColor = System.Drawing.Color.White;
-            this.btAnular.Location = new System.Drawing.Point(61, 88);
-            this.btAnular.Name = "btAnular";
-            this.btAnular.Size = new System.Drawing.Size(126, 41);
-            this.btAnular.TabIndex = 1;
-            this.btAnular.UseVisualStyleBackColor = true;
-            this.btAnular.Click += new System.EventHandler(this.btAnular_Click);
-            // 
             // Pagamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,6 +411,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Pagamento_KeyDown);
             this.tlpGeral.ResumeLayout(false);
+            this.panEsquerda.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.gBoxNumeros.ResumeLayout(false);
             this.gBoxNumeros.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -421,9 +426,6 @@
             this.panValorTotal.PerformLayout();
             this.gbFormaPag.ResumeLayout(false);
             this.gbFormaPag.PerformLayout();
-            this.panEsquerda.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }

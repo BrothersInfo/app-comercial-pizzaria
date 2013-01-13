@@ -133,7 +133,7 @@
             this.label3.Size = new System.Drawing.Size(420, 36);
             this.label3.TabIndex = 6;
             this.label3.Text = "VENDA : Imprimir Comanda : [ I ] ;      Encerrar  :  [ V ] \r\nAgrupar Vendas [ A ]" +
-                " ;     Dividir Venda [ D ] ";
+                " ;     Separar Venda [ S ] ";
             // 
             // label2
             // 
@@ -302,7 +302,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Fundo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

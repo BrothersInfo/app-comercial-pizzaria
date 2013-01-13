@@ -146,6 +146,7 @@ namespace Pizzaria.Tela
         private void tbValor_Enter(object sender, EventArgs e)
         {
             str = String.Empty;
+            tbValor.ForeColor = Color.Red;
         }
 
         private void tbValor_KeyPress(object sender, KeyPressEventArgs e)
@@ -159,8 +160,8 @@ namespace Pizzaria.Tela
                 if (tbDesonto.Text.Length == 0) { tbDesonto.Focus(); return; }
                 recebimento = Convert.ToDouble(tbValor.Text.Replace('.', ','));//90
                 desconto = Convert.ToDouble(tbDesonto.Text.Replace('.', ','));
-                troco = (valor - desconto) - recebimento;
-                if (troco < 0) troco *= -1;
+
+                troco = recebimento - (valor - desconto);
                 if (troco >= 0)
                 {
                     lbTroco.Visible = true;
@@ -191,8 +192,8 @@ namespace Pizzaria.Tela
             if (tbDesonto.Text.Length == 0) { return; }
             recebimento = Convert.ToDouble(tbValor.Text.Replace('.', ','));//90
             desconto = Convert.ToDouble(tbDesonto.Text.Replace('.', ','));
-            troco = (valor - desconto) - recebimento;
-            if (troco < 0) troco *= -1;
+            troco = recebimento - (valor - desconto);
+    
             if (troco >= 0)
             {
                 lbTroco.Visible = true;
@@ -200,6 +201,7 @@ namespace Pizzaria.Tela
 
                 lbTrocoNumero.Text = "RS " + new Tratamento().retornaValorEscrito(troco);
                 btEncerrar.Focus();
+                tbValor.ForeColor = Color.Black;
             }
             else
             {
@@ -213,6 +215,7 @@ namespace Pizzaria.Tela
         private void tbDesonto_Enter(object sender, EventArgs e)
         {
             str = String.Empty;
+            tbDesonto.ForeColor = Color.Red;
         }
 
         private void tbDesonto_KeyPress(object sender, KeyPressEventArgs e)
@@ -225,8 +228,9 @@ namespace Pizzaria.Tela
                     if (tbDesonto.Text.Length == 0) { tbDesonto.Focus(); return; }
                     recebimento = Convert.ToDouble(tbValor.Text.Replace('.', ','));//90
                     desconto = Convert.ToDouble(tbDesonto.Text.Replace('.', ','));
-                    troco = (valor - desconto) - recebimento;
-                    if (troco < 0) troco *= -1;
+
+                    troco = recebimento- (valor- desconto);
+               //     if (troco < 0) troco *= -1;
                     if (troco >= 0)
                     {
                         lbTroco.Visible = true;
@@ -260,13 +264,13 @@ namespace Pizzaria.Tela
                 if (tbDesonto.Text.Length == 0) { return; }
                 recebimento = Convert.ToDouble(tbValor.Text.Replace('.', ','));//90
                 desconto = Convert.ToDouble(tbDesonto.Text.Replace('.', ','));
-                troco = (valor - desconto) - recebimento;
-                if (troco < 0) troco *= -1;
+                troco = recebimento - (valor - desconto);
+           //     if (troco < 0) troco *= -1;
                 if (troco >= 0)
                 {
                     lbTroco.Visible = true;
                     lbTrocoNumero.Visible = true;
-
+                    tbDesonto.ForeColor = Color.Black;
                     lbTrocoNumero.Text = "RS " + new Tratamento().retornaValorEscrito(troco);
                     btEncerrar.Focus();
                 }
@@ -319,6 +323,16 @@ namespace Pizzaria.Tela
 
                     break;
             }
+        }
+
+        private void gbFormaPag_Enter(object sender, EventArgs e)
+        {
+            gbFormaPag.ForeColor = Color.Red;
+        }
+
+        private void gbFormaPag_Leave(object sender, EventArgs e)
+        {
+            gbFormaPag.ForeColor = Color.Black;
         }
      
 

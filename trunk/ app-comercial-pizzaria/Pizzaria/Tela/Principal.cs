@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace Pizzaria.Tela
 {
     using Pizzaria.Banco;
@@ -20,11 +21,95 @@ namespace Pizzaria.Tela
         bool vendendo;
         public short cod_caixa;
         public TableLayoutPanel tlpBotoes;
-        private void DisplayImage()
+
+        public void carregarTexto()
+        {
+            switch ((DateTime.Now.Hour / 6))
+            {
+                case 0:
+                    lApresentacao.Text = "Boa Madrugada, ";
+
+                    break;
+                case 1:
+                    lApresentacao.Text = "Bom Dia, ";
+                    break;
+                case 2:
+                    lApresentacao.Text = "Boa Tarde, ";
+                    break;
+                case 3:
+                    lApresentacao.Text = "Boa Noite, ";
+                    break;
+                default:
+                    lApresentacao.Text = "Ola, ";
+                    break;
+            }
+            lApresentacao.Text += (new BancoConsulta().getNome_Caixa(cod_caixa) + " - " + DateTime.Now.ToShortTimeString() + ", " + DateTime.Now.ToShortDateString() + " - ");
+
+            lApresentacao.Text += frase();
+         
+        }
+
+        public string frase()
         {
 
+            string[] frases = {   
+                                  "O homem comum fala, o sábio escuta, o tolo discute. Sabedoria Oriental"
+                                  , "A dúvida é o principio da sabedoria. Aristóteles"
+                                  , "A simplicidade é o último degrau da sabedoria, Khalil Gibran"
+                                  , "Não basta conquistar a sabedoria, é preciso usá-la. Cícero"
+                                  , "Seja a diferença que você quer ver no mundo. Mahatma Gandhi"
+                                  , "Aprender que há outros pontos de vista é o início da sabedoria. Campbell"
+                                  , "Muitas palavras não indicam necessariamente muita sabedoria. Mileto"
+                                  , "O amor, única loucura do sábio e a única sabedoria do tolo. Shakespeare"
+                                  , "Educar é semear com sabedoria e colher com paciência. Augusto Cury"
+                                  , "O único lugar onde o sucesso vem antes do trabalho, o dicionário. Einstein"
+                                  , "Não tentes ser bem sucedido, tenta antes ser um homem de valor. Eistein" 
+                                  , "No meio da dificuldade encontra-se a oportunidade. Eistein"
+                                  , "Não há lugar para a sabedoria onde não há paciência. Agostinho"
+                                  , "A sabedoria começa na reflexão. Sócrates"
+                                  , "Ser feliz sem motivo é a mais autêntica forma de felicidade. Drummond"
+                                  ,"Só é lutador quem sabe lutar consigo mesmo. Carlos Drummond"
+                                  ,"É Preciso amar as pessoas como se não houvesse amanhã. Renato Russo"
+                                  ,"Conhecimento sem transformação não é sabedoria. Paulo Coelho"
+                                  ,"Só há amor quando não existe nenhuma autoridade. Raul Seixas"
+                                  ,"A formiga é pequena, mas elas são um exército quando juntas. Raul Seixas"
+                                  ,"Tenho apenas duas mãos e o sentimento do mundo. Carlos Drummond"
+                                  ,"A confiança é um ato de fé, e esta dispensa raciocínio. Carlos Drummond"//22
+                                  ,"Uma longa viagem começa com um único passo. Lao-Tsé"
+                                  ,"Aquele que se eleva nas pontas dos pés não está seguro. Lao-Tsé"
+                                  ,"A alma não tem segredo que o comportamento não revele. Lao-Tsé"
+                                  ,"Aquele que tudo julga fácil, encontrará muitas dificuldades. Lao-Tsé"
+                                  ,"Não existe um caminho para a felicidade. A felicidade é o caminho. Gandhi"
+                                  ,"Olho por olho, e o mundo acabará cego. Mahatma Gandhi"
+                                  ,"O amor é a força mais sutil do mundo. Mahatma Gandhi"
+                                  ,"Tenho em mim todos os sonhos do mundo. Fernando Pessoa"
+                                  ,"Tudo vale a pena quando a alma não é pequena. Fernando Pessoa"
+                                  ,"A vida é maravilhosa se não se tem medo dela. Charles Chaplin"
+                                  ,"A Titan Soluções deseja um excelente trabalho para você."
+                                  ,"A vida vai ficando cada vez mais dura perto do topo. Friedrich Nietzsche"
+                                  ,"Amor é fogo que arde sem se ver. Luís de Camões"
+                                  ,"Não levante a espada sobre a cabeça de quem te pediu perdão. Machado de Assis"
+                                  ,"Eramos felizes e nem sabiamos. Bob Marley"
+                                  ,"Tenho certeza de que se eu sorrisse menos teria menos amigos. Dalai Lama"
+                                  ,"Sorria você não está sendo filmado. Oliveira"
+                                  ,"Nós todos temos o direito de levar uma vida feliz. Dalai Lama"
+                                  ,"A gente não faz amigos, reconhece-os. Vinícius de Moraes"//41
+                                  ,"A vida é a arte do encontro, embora haja tantos desencontros por ela. Moraes"
+                                  ,"Quem de dentro de si não sai, vai morrer sem amar ninguém. Vinícius de Moraes"
+                                  ,"Triste coisa é querer bem a quem não sabe perdoar. Renato Russo"
+                                  ,"Mentir pra se mesmo é sempre a pior mentira. Renato Russo"
+                                  ,"Os princípios mais importantes podem e devem ser inflexíveis. Abraham Lincoln"
+                                  ,"Nunca devemos mudar de cavalo no meio do rio. Abraham Lincoln"
+                                  ,"Se quiser por à prova o caráter de um homem, dê-lhe poder. Abraham Lincoln"//48
 
+                              };
+            Random ran = new Random();
+           
 
+           return frases[ran.Next(frases.Length)];
+        }
+        private void DisplayImage()
+        {
             PictureBox imageControl = new PictureBox();
             pbFoto.Width = 200;
             pbFoto.Height = 200;
@@ -40,6 +125,7 @@ namespace Pizzaria.Tela
             this.cod_caixa = cod_caixa;
             InitializeComponent();
             DisplayImage();
+            carregarTexto();
             this.WindowState = FormWindowState.Maximized;
             conjItem = new List<ListViewItem>();
             tlpBotoes.Visible = false;
@@ -95,8 +181,8 @@ namespace Pizzaria.Tela
             switch (e.KeyCode)
             {
                 case Keys.F8://Voltar Tela
-                    textBox2.Visible = true;
-                    textBox2.Focus();
+                   // textBox2.Visible = true;
+                  //  textBox2.Focus();
                     break;
             }
         }
@@ -235,6 +321,7 @@ namespace Pizzaria.Tela
                 catch {
                     //carregarMesa(false); return; 
                 }
+                this.Focus();
                 }
             else
             {
@@ -253,6 +340,7 @@ namespace Pizzaria.Tela
                     vendendo = false;
                 }
                 this.Visible = true;
+               
             }
         }
         private void listVenda_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -268,7 +356,13 @@ namespace Pizzaria.Tela
             string a = e.KeyChar.ToString();
 
             if (inVenda() && a.ToLowerInvariant().Equals("i"))
-                 MSImprimir_Click(sender, null);
+            {
+                MSImprimir_Click(sender, null);
+                this.Enabled = false;
+                this.Enabled = true;
+
+            
+            }
             else
                 if (inVenda() && a.ToLowerInvariant().Equals("v"))
                     MSEncerrar_Click(sender, null);
@@ -278,12 +372,13 @@ namespace Pizzaria.Tela
                     else
                         if (a.ToLowerInvariant().Equals("b"))
                             new AddProduto(true, cod_caixa).ShowDialog();
+                        else
+                            if (a.ToLowerInvariant().Equals("l"))
+                                carregarMesa(false);
                             else
-                                if (a.ToLowerInvariant().Equals("l"))
-                                    carregarMesa(false);
-                                else 
-                                    if (a.ToLowerInvariant().Equals("o"))
-                                        carregarMesa(true);
+                                if (a.ToLowerInvariant().Equals("o"))
+                                    carregarMesa(true);
+           
         }
         private void listVenda_MouseClick(object sender, MouseEventArgs e)
         {
@@ -318,44 +413,43 @@ namespace Pizzaria.Tela
             hei = Screen.PrimaryScreen.Bounds.Height;
             wig = Screen.PrimaryScreen.Bounds.Width;
         }
-
-
-
         private void pBalcao_MouseEnter(object sender, EventArgs e)
         {
 
             pBalcao.BorderStyle = BorderStyle.Fixed3D;
             lBalcao.ForeColor = Color.Red;
         }
-
         private void pBalcao_Click(object sender, EventArgs e)
         {
             pBalcao.BorderStyle = BorderStyle.Fixed3D;
             new AddProduto(true, cod_caixa).ShowDialog();
             pBalcao.BorderStyle = BorderStyle.FixedSingle;
         }
-
         private void pBalcao_MouseLeave(object sender, EventArgs e)
         {
             pBalcao.BorderStyle = BorderStyle.FixedSingle;
             lBalcao.ForeColor = Color.Black;
         }
-
         private void lBalcao_Click(object sender, EventArgs e)
         {
             new AddProduto(true, cod_caixa).ShowDialog();
         }
-
         private void lBalcao_MouseEnter(object sender, EventArgs e)
         {
             pBalcao.BorderStyle = BorderStyle.Fixed3D;
             lBalcao.ForeColor = Color.Red;
         }
-
         private void lBalcao_MouseLeave(object sender, EventArgs e)
         {
 
         }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            carregarTexto();
+        }
+
+
+
 
     }
 }

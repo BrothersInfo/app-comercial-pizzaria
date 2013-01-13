@@ -99,6 +99,7 @@ namespace Pizzaria.Tela
                 Completa cc = new BancoVenda().getCompleta(cod_completo, false);
                 cc.quantidade = (int)numQuantidade.Value;
                 cc.garconImprimir = getGarcon();
+                cc.segmentoImprimir = new Banco().segmentoDoProduto(Convert.ToInt16( mtCodigo.Text));
                 if (tbNoticia.TextLength > 0) cc.setNoticia(tbNoticia.Text);
                 if (cc.needImpress)
                 {
@@ -807,7 +808,125 @@ namespace Pizzaria.Tela
             btEscolhaProduto.Focus();
         }
 
+        private void modoNormal(Label pct , MaskedTextBox mtb)
+        {
 
+            pct.ForeColor = Color.Black;
+            mtb.ForeColor = Color.Black;
+        }
+        private void modoSelecao(Label pct, MaskedTextBox mtb)
+        {
+
+            pct.ForeColor = Color.Red;
+            mtb.ForeColor = Color.Red;
+        }
+
+        private void mtCodigo_Enter(object sender, EventArgs e)
+        {
+            mtCodigo.Focus();
+            modoSelecao(lbPct1,mtCodigo);
+        }
+        private void mtCodigo_Leave(object sender, EventArgs e)
+        {
+            modoNormal(lbPct1, mtCodigo);
+            mtCodigo_KeyPress(sender, new KeyPressEventArgs('\r'));
+        }
+        private void mtCodigo1_Enter(object sender, EventArgs e)
+        {
+            modoSelecao(lbPct2, mtCodigo1);
+        }
+        private void mtCodigo1_Leave(object sender, EventArgs e)
+        {
+            modoNormal(lbPct2, mtCodigo1);
+            mtCodigo1_KeyPress(sender, new KeyPressEventArgs('\r'));
+        }
+        private void mtCodigo2_Enter(object sender, EventArgs e)
+        {
+            modoSelecao(lbPct3, mtCodigo2);
+        }
+        private void mtCodigo2_Leave(object sender, EventArgs e)
+        {
+            modoNormal(lbPct3, mtCodigo2);
+            mtCodigo2_KeyPress(sender, new KeyPressEventArgs('\r'));
+        }
+        private void mtCodigo3_Enter(object sender, EventArgs e)
+        {
+            modoSelecao(lbPct4, mtCodigo3);
+        }
+        private void mtCodigo3_Leave(object sender, EventArgs e)
+        {
+            modoNormal(lbPct4, mtCodigo3);
+            mtCodigo3_KeyPress(sender, new KeyPressEventArgs('\r'));
+        }
+        private void tbNoticia_Enter(object sender, EventArgs e)
+        {
+            tbNoticia.ForeColor = Color.Red;
+        }
+        private void tbNoticia_Leave(object sender, EventArgs e)
+        {
+            tbNoticia.ForeColor = Color.Black;
+        }
+
+        private void cbTamanho_Enter(object sender, EventArgs e)
+        {
+            cbTamanho.ForeColor = Color.Red;
+            lTamanho.ForeColor = Color.Red;
+            cbTamanho.BackColor = Color.LightGreen;         
+        }
+        private void cbTamanho_Leave(object sender, EventArgs e)
+        {
+            cbTamanho.ForeColor = Color.Black;
+            lTamanho.ForeColor = Color.Black;
+            cbTamanho.BackColor = Color.WhiteSmoke;
+        }
+        private void cbMista_Enter(object sender, EventArgs e)
+        {
+            cbMista.ForeColor = Color.Red;
+            lbMista.ForeColor = Color.Red;
+            cbMista.BackColor = Color.LightGreen;
+        }
+        private void cbMista_Leave(object sender, EventArgs e)
+        {
+            cbMista.ForeColor = Color.Black;
+            lbMista.ForeColor = Color.Black;
+            cbMista.BackColor = Color.WhiteSmoke;
+        }
+        private void cbGarLivre_Enter(object sender, EventArgs e)
+        {
+            cbGarLivre.ForeColor = Color.Red;
+            lGarLivre.ForeColor = Color.Red;
+            cbGarLivre.BackColor = Color.LightGreen;
+        }
+        private void cbGarLivre_Leave(object sender, EventArgs e)
+        {
+            cbGarLivre.ForeColor = Color.Black;
+            lGarLivre.ForeColor = Color.Black;
+            cbGarLivre.BackColor = Color.WhiteSmoke;
+        }
+        private void cbGarVen_Leave(object sender, EventArgs e)
+        {
+            cbGarVen.ForeColor = Color.Black;
+            lbGarcon.ForeColor = Color.Black;
+            cbGarVen.BackColor = Color.WhiteSmoke;
+        }
+        private void cbGarVen_Enter(object sender, EventArgs e)
+        {
+            cbGarVen.ForeColor = Color.Red;
+            lbGarcon.ForeColor = Color.Red;
+            cbGarVen.BackColor = Color.LightGreen;   
+        }
+
+        private void numQuantidade_Enter(object sender, EventArgs e)
+        {
+            LQuantidade.ForeColor = Color.Red;
+            numQuantidade.ForeColor = Color.Red;
+        }
+
+        private void numQuantidade_Leave(object sender, EventArgs e)
+        {
+            LQuantidade.ForeColor = Color.Black;
+            numQuantidade.ForeColor = Color.Black;
+        }
     //700 linhas
     }
 }
