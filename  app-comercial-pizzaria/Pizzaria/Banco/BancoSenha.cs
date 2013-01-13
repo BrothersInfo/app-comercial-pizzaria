@@ -26,10 +26,11 @@ namespace Pizzaria.Banco
                 {
                    
                     sr = File.OpenText(Environment.CurrentDirectory + "\\StringConexao.txt");
-
+                  
                     string input = null;
                     while ((input = sr.ReadLine()) != null)
                     {
+                   
                         conexao = input;
                     }
                     if (conexao.Length == 0)
@@ -37,6 +38,7 @@ namespace Pizzaria.Banco
                         porta = "5433";
                         senha = "fof0130407*";
                         conexao = "server=Localhost; Port=" + porta + ";User =postgres;Password=" + senha + ";Database=" + database;
+                      
                     }
                 }
                 catch

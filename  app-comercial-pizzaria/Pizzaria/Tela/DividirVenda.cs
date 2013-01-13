@@ -157,6 +157,16 @@ namespace Pizzaria.Tela
             this.Close();
         }
 
+        private void DividirVenda_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape://Voltar Tela
+                    this.Close();
+                    break;
+            }
+        }
+
 
 
 

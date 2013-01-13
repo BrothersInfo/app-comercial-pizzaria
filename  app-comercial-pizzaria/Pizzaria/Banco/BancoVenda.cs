@@ -52,6 +52,17 @@ namespace Pizzaria.Banco
                 mesa[j] = dttMesa.Rows[j].ItemArray.GetValue(0).ToString();
             return mesa;
         }
+        public double valorItemCompleto(int cod_completo)
+        {
+            DataTable dtt = new DataTable();
+            string query = "select valorUnitarioCompleto from completo where cod_completo = "+ cod_completo;
+            try{
+            NpgsqlDataAdapter nda = new NpgsqlDataAdapter(query,Conectar());
+            nda.Fill(dtt);
+            return Convert.ToDouble(dtt.Rows[0].ItemArray.GetValue(0));
+            }catch{return 1;}
+           
+        }
         public VendaFull carregaVenda(int cod_venda)
         {
             Completa[] conjCompleto;
@@ -128,7 +139,7 @@ namespace Pizzaria.Banco
 
                 }
                 conjCompleto[j] = new Completa(subProdutos,
-                    (int)numero.Rows[j].ItemArray.GetValue(0),gf);
+                    (int)numero.Rows[j].ItemArray.GetValue(0),gf, valorItemCompleto((int)numero.Rows[j].ItemArray.GetValue(0)));
             }
             //---------------------------------------------------------------
             string query = "select valorTotal, dataVenda, horario, cod_caixa, aberta,impressao, cod_pagamento from venda where cod_venda =" + cod_venda;
@@ -436,7 +447,7 @@ namespace Pizzaria.Banco
                 gf[k] = new GarconFisico();
                 gf[k].setGarcon  ( Convert.ToInt16( garc.Rows[k].ItemArray.GetValue(0)), Convert.ToInt16(garc.Rows[k].ItemArray.GetValue(1)));
             }
-            return new Completa(produtos, cod_completa,gf);
+            return new Completa(produtos, cod_completa, gf, valorItemCompleto(cod_completa));
 
         }
         public int qtdSegmentos()

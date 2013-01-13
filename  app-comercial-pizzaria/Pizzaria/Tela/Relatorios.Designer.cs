@@ -118,11 +118,11 @@
             this.pTipoRelatorio = new System.Windows.Forms.Panel();
             this.tlpFundo = new System.Windows.Forms.TableLayoutPanel();
             this.pFiltro = new System.Windows.Forms.Panel();
-            this.lvConsInfo = new System.Windows.Forms.ListView();
             this.pValor = new System.Windows.Forms.Panel();
             this.btEscolhaProduto = new System.Windows.Forms.Button();
             this.lValor = new System.Windows.Forms.Label();
             this.pFundo = new System.Windows.Forms.Panel();
+            this.lvConsInfo = new System.Windows.Forms.ListView();
             this.gbDataVenda.SuspendLayout();
             this.gbPeriodoVenda.SuspendLayout();
             this.flpPrincipal.SuspendLayout();
@@ -546,8 +546,7 @@
             this.cbVendaTipo.FormattingEnabled = true;
             this.cbVendaTipo.Items.AddRange(new object[] {
             "Concluída",
-            "Extornada",
-            "Por ID"});
+            "Extornada"});
             this.cbVendaTipo.Location = new System.Drawing.Point(6, 39);
             this.cbVendaTipo.Name = "cbVendaTipo";
             this.cbVendaTipo.Size = new System.Drawing.Size(96, 26);
@@ -1401,22 +1400,6 @@
             this.pFiltro.Size = new System.Drawing.Size(1293, 95);
             this.pFiltro.TabIndex = 0;
             // 
-            // lvConsInfo
-            // 
-            this.lvConsInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvConsInfo.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvConsInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lvConsInfo.FullRowSelect = true;
-            this.lvConsInfo.GridLines = true;
-            this.lvConsInfo.HoverSelection = true;
-            this.lvConsInfo.Location = new System.Drawing.Point(0, 0);
-            this.lvConsInfo.Margin = new System.Windows.Forms.Padding(0);
-            this.lvConsInfo.Name = "lvConsInfo";
-            this.lvConsInfo.Size = new System.Drawing.Size(1293, 333);
-            this.lvConsInfo.TabIndex = 45;
-            this.lvConsInfo.UseCompatibleStateImageBehavior = false;
-            this.lvConsInfo.View = System.Windows.Forms.View.Details;
-            // 
             // pValor
             // 
             this.pValor.BackColor = System.Drawing.Color.White;
@@ -1442,6 +1425,7 @@
             this.btEscolhaProduto.TabIndex = 47;
             this.btEscolhaProduto.Text = "EXPORTAR PARA PDF";
             this.btEscolhaProduto.UseVisualStyleBackColor = true;
+            this.btEscolhaProduto.Visible = false;
             this.btEscolhaProduto.Click += new System.EventHandler(this.btEscolhaProduto_Click);
             // 
             // lValor
@@ -1464,6 +1448,22 @@
             this.pFundo.Name = "pFundo";
             this.pFundo.Size = new System.Drawing.Size(1293, 333);
             this.pFundo.TabIndex = 47;
+            // 
+            // lvConsInfo
+            // 
+            this.lvConsInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvConsInfo.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvConsInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lvConsInfo.FullRowSelect = true;
+            this.lvConsInfo.GridLines = true;
+            this.lvConsInfo.HoverSelection = true;
+            this.lvConsInfo.Location = new System.Drawing.Point(0, 0);
+            this.lvConsInfo.Margin = new System.Windows.Forms.Padding(0);
+            this.lvConsInfo.Name = "lvConsInfo";
+            this.lvConsInfo.Size = new System.Drawing.Size(1293, 333);
+            this.lvConsInfo.TabIndex = 45;
+            this.lvConsInfo.UseCompatibleStateImageBehavior = false;
+            this.lvConsInfo.View = System.Windows.Forms.View.Details;
             // 
             // TipoRelatorio
             // 

@@ -32,12 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.pLoadForm = new System.Windows.Forms.Panel();
             this.tlpColuna = new System.Windows.Forms.TableLayoutPanel();
-            this.listVenda = new System.Windows.Forms.ListView();
-            this.menuDireito = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.MSImprimir = new System.Windows.Forms.ToolStripMenuItem();
-            this.MSEncerrar = new System.Windows.Forms.ToolStripMenuItem();
-            this.separador = new System.Windows.Forms.ToolStripSeparator();
-            this.MSProduto = new System.Windows.Forms.ToolStripMenuItem();
             this.tabLayFullEsquerda = new System.Windows.Forms.TableLayoutPanel();
             this.lvInfo = new System.Windows.Forms.ListView();
             this.aparelho = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -57,12 +51,21 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lValor = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tlpGrid = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lApresentacao = new System.Windows.Forms.Label();
+            this.listVenda = new System.Windows.Forms.ListView();
+            this.menuDireito = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.MSImprimir = new System.Windows.Forms.ToolStripMenuItem();
+            this.MSEncerrar = new System.Windows.Forms.ToolStripMenuItem();
+            this.separador = new System.Windows.Forms.ToolStripSeparator();
+            this.MSProduto = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.ttMsg = new System.Windows.Forms.ToolTip(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pLoadForm.SuspendLayout();
             this.tlpColuna.SuspendLayout();
-            this.menuDireito.SuspendLayout();
             this.tabLayFullEsquerda.SuspendLayout();
             this.tlpLivreOcupado.SuspendLayout();
             this.pBalcao.SuspendLayout();
@@ -72,6 +75,9 @@
             this.ptitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.panel1.SuspendLayout();
+            this.tlpGrid.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.menuDireito.SuspendLayout();
             this.SuspendLayout();
             // 
             // pLoadForm
@@ -89,8 +95,8 @@
             this.tlpColuna.ColumnCount = 2;
             this.tlpColuna.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpColuna.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 448F));
-            this.tlpColuna.Controls.Add(this.listVenda, 0, 0);
             this.tlpColuna.Controls.Add(this.tabLayFullEsquerda, 1, 0);
+            this.tlpColuna.Controls.Add(this.tlpGrid, 0, 0);
             this.tlpColuna.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpColuna.Location = new System.Drawing.Point(0, 0);
             this.tlpColuna.Margin = new System.Windows.Forms.Padding(0);
@@ -100,60 +106,6 @@
             this.tlpColuna.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 567F));
             this.tlpColuna.Size = new System.Drawing.Size(920, 567);
             this.tlpColuna.TabIndex = 0;
-            // 
-            // listVenda
-            // 
-            this.listVenda.ContextMenuStrip = this.menuDireito;
-            this.listVenda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listVenda.Location = new System.Drawing.Point(0, 4);
-            this.listVenda.Margin = new System.Windows.Forms.Padding(0, 4, 4, 4);
-            this.listVenda.Name = "listVenda";
-            this.listVenda.ShowItemToolTips = true;
-            this.listVenda.Size = new System.Drawing.Size(468, 559);
-            this.listVenda.TabIndex = 7;
-            this.ttMsg.SetToolTip(this.listVenda, "Selecione uma Mesa para Realizar Operação");
-            this.listVenda.UseCompatibleStateImageBehavior = false;
-            this.listVenda.ItemActivate += new System.EventHandler(this.listVenda_ItemActivate);
-            this.listVenda.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listVenda_ItemSelectionChanged);
-            this.listVenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listVenda_KeyPress);
-            this.listVenda.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listVenda_MouseClick);
-            // 
-            // menuDireito
-            // 
-            this.menuDireito.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MSImprimir,
-            this.MSEncerrar,
-            this.separador,
-            this.MSProduto});
-            this.menuDireito.Name = "menuDireito";
-            this.menuDireito.Size = new System.Drawing.Size(174, 76);
-            // 
-            // MSImprimir
-            // 
-            this.MSImprimir.Name = "MSImprimir";
-            this.MSImprimir.Size = new System.Drawing.Size(173, 22);
-            this.MSImprimir.Text = "Imprimir ( I )";
-            this.MSImprimir.Click += new System.EventHandler(this.MSImprimir_Click);
-            // 
-            // MSEncerrar
-            // 
-            this.MSEncerrar.Name = "MSEncerrar";
-            this.MSEncerrar.Size = new System.Drawing.Size(173, 22);
-            this.MSEncerrar.Text = "Encerrar ( V )";
-            this.MSEncerrar.Click += new System.EventHandler(this.MSEncerrar_Click);
-            // 
-            // separador
-            // 
-            this.separador.Name = "separador";
-            this.separador.Size = new System.Drawing.Size(170, 6);
-            // 
-            // MSProduto
-            // 
-            this.MSProduto.Name = "MSProduto";
-            this.MSProduto.Size = new System.Drawing.Size(173, 22);
-            this.MSProduto.Text = "Novo Produto ( P )";
-            this.MSProduto.Click += new System.EventHandler(this.MSProduto_Click);
             // 
             // tabLayFullEsquerda
             // 
@@ -396,6 +348,103 @@
             this.textBox2.TabIndex = 24;
             this.textBox2.Visible = false;
             // 
+            // tlpGrid
+            // 
+            this.tlpGrid.BackColor = System.Drawing.Color.Transparent;
+            this.tlpGrid.ColumnCount = 1;
+            this.tlpGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpGrid.Controls.Add(this.panel2, 0, 1);
+            this.tlpGrid.Controls.Add(this.listVenda, 0, 0);
+            this.tlpGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpGrid.Location = new System.Drawing.Point(0, 0);
+            this.tlpGrid.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpGrid.Name = "tlpGrid";
+            this.tlpGrid.RowCount = 2;
+            this.tlpGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tlpGrid.Size = new System.Drawing.Size(472, 567);
+            this.tlpGrid.TabIndex = 7;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.lApresentacao);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 524);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0, 2, 4, 4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(468, 39);
+            this.panel2.TabIndex = 39;
+            // 
+            // lApresentacao
+            // 
+            this.lApresentacao.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lApresentacao.AutoSize = true;
+            this.lApresentacao.BackColor = System.Drawing.Color.Transparent;
+            this.lApresentacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lApresentacao.ForeColor = System.Drawing.Color.Black;
+            this.lApresentacao.Location = new System.Drawing.Point(3, 10);
+            this.lApresentacao.Name = "lApresentacao";
+            this.lApresentacao.Size = new System.Drawing.Size(104, 17);
+            this.lApresentacao.TabIndex = 3;
+            this.lApresentacao.Text = "BALCAO [ B ]";
+            // 
+            // listVenda
+            // 
+            this.listVenda.ContextMenuStrip = this.menuDireito;
+            this.listVenda.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listVenda.Location = new System.Drawing.Point(0, 4);
+            this.listVenda.Margin = new System.Windows.Forms.Padding(0, 4, 4, 4);
+            this.listVenda.Name = "listVenda";
+            this.listVenda.ShowItemToolTips = true;
+            this.listVenda.Size = new System.Drawing.Size(468, 514);
+            this.listVenda.TabIndex = 7;
+            this.ttMsg.SetToolTip(this.listVenda, "Selecione uma Mesa para Realizar Operação");
+            this.listVenda.UseCompatibleStateImageBehavior = false;
+            this.listVenda.ItemActivate += new System.EventHandler(this.listVenda_ItemActivate);
+            this.listVenda.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listVenda_ItemSelectionChanged);
+            this.listVenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listVenda_KeyPress);
+            this.listVenda.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listVenda_MouseClick);
+            // 
+            // menuDireito
+            // 
+            this.menuDireito.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MSImprimir,
+            this.MSEncerrar,
+            this.separador,
+            this.MSProduto});
+            this.menuDireito.Name = "menuDireito";
+            this.menuDireito.Size = new System.Drawing.Size(174, 76);
+            // 
+            // MSImprimir
+            // 
+            this.MSImprimir.Name = "MSImprimir";
+            this.MSImprimir.Size = new System.Drawing.Size(173, 22);
+            this.MSImprimir.Text = "Imprimir ( I )";
+            this.MSImprimir.Click += new System.EventHandler(this.MSImprimir_Click);
+            // 
+            // MSEncerrar
+            // 
+            this.MSEncerrar.Name = "MSEncerrar";
+            this.MSEncerrar.Size = new System.Drawing.Size(173, 22);
+            this.MSEncerrar.Text = "Encerrar ( V )";
+            this.MSEncerrar.Click += new System.EventHandler(this.MSEncerrar_Click);
+            // 
+            // separador
+            // 
+            this.separador.Name = "separador";
+            this.separador.Size = new System.Drawing.Size(170, 6);
+            // 
+            // MSProduto
+            // 
+            this.MSProduto.Name = "MSProduto";
+            this.MSProduto.Size = new System.Drawing.Size(173, 22);
+            this.MSProduto.Text = "Novo Produto ( P )";
+            this.MSProduto.Click += new System.EventHandler(this.MSProduto_Click);
+            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -409,6 +458,12 @@
             this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
             this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList2.Images.SetKeyName(0, "mesaLivre.jpg");
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Principal
             // 
@@ -424,11 +479,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "6";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+
             this.Click += new System.EventHandler(this.Principal_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Principal_KeyDown);
             this.pLoadForm.ResumeLayout(false);
             this.tlpColuna.ResumeLayout(false);
-            this.menuDireito.ResumeLayout(false);
             this.tabLayFullEsquerda.ResumeLayout(false);
             this.tlpLivreOcupado.ResumeLayout(false);
             this.pBalcao.ResumeLayout(false);
@@ -442,6 +497,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tlpGrid.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.menuDireito.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -478,5 +537,9 @@
         private System.Windows.Forms.TableLayoutPanel tlpLO;
         private System.Windows.Forms.ToolTip ttMsg;
         private System.Windows.Forms.PictureBox pbFoto;
+        private System.Windows.Forms.TableLayoutPanel tlpGrid;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lApresentacao;
+        private System.Windows.Forms.Timer timer1;
     }
 }

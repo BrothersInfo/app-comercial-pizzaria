@@ -9,15 +9,21 @@ namespace Pizzaria
     using Pizzaria.Properties;
     using Pizzaria.Classes;
     using Pizzaria.Tela;
+    using System.Runtime.InteropServices;
     static class Program
     {
+        
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            try            {
+
+            
+            try
+            {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 

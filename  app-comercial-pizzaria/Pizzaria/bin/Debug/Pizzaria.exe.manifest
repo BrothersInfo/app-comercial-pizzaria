@@ -391,14 +391,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pizzaria.exe" size="2077184">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pizzaria.exe" size="2449408">
       <assemblyIdentity name="Pizzaria" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>n/74dJro3qFLQpuc/oRptS/wmjY=</dsig:DigestValue>
+        <dsig:DigestValue>ksxjogthmTLKEedXuQfcru1jkNY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -435,13 +435,13 @@
       <dsig:DigestValue>jOkty3g3YYwXlOeOCT8gARakjZg=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Pizzaria.exe.config" size="147">
+  <file name="Pizzaria.exe.config" size="149">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>/bIObDjHmQkRm2ZiPfNcjphSINA=</dsig:DigestValue>
+      <dsig:DigestValue>IGv7ZHmEUDrWb+MuiFb/85TXKzs=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

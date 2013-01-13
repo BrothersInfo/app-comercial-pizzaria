@@ -26,14 +26,17 @@ namespace Pizzaria.Tela
         {
             if (new Banco().temUsuario(tbUsuario.Text, tbSenha.Text))
             {
+               
                 cod_caixa = new Banco().cod_caixaByNome(tbUsuario.Text);
                 if (new Banco().isAdm(tbUsuario.Text, tbSenha.Text))
                 {
+                  
                     isAdm = true;
                     this.Close();
                 }
                 else
                 {
+                  
                     isAdm = false;
                     this.Close();
                 }

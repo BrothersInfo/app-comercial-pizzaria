@@ -327,7 +327,7 @@ namespace Pizzaria.Banco
             DataTable dttValor = new DataTable();
             string query =
 
-                "select  (c.cod_completo), tt.descricao,sum (c.valorunitarioCompleto * cast (cp.porcentagem as double precision))  " +
+                "select  (c.cod_completo), tt.descricao, (sum (c.valorunitarioCompleto)  / count (c.cod_completo)) " +
                 "from  venda v inner join vendaCompleta vc          on (vc.cod_venda    = v.cod_venda)       inner join completo c                on (vc.cod_completo = c.cod_completo)" +
                 "inner join completoProduto cp        on (cp.cod_completo = c.cod_completo)" +
                 "inner join produto p   on (p.cod_produto   = cp.cod_produto )" +
