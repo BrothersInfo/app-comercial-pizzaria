@@ -560,6 +560,18 @@ namespace Pizzaria.Banco
             return (dtt.Rows[0].ItemArray.GetValue(0).ToString());
             
         }
+        public DataTable impressora(int cod_impressora)
+        {
+            DataTable dtt = new DataTable();
+            string query = "SELECT cod_impressora, nomeimpressora, cod_modeloimpressora, portaimpressora, "+
+                            "tipoletra, italico, sublinhado, expandido, enfatizado  FROM impressora where cod_impressora = "+cod_impressora;
+
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(dtt);
+
+
+            return dtt;
+        }
         public int codigoDaVendaPelaMesa(string mesa)
         {
             // 

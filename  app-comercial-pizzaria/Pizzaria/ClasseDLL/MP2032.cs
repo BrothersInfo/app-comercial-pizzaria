@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
 
-namespace Exemplo_MP2032_NãoFiscal
+namespace Pizzaria
 {
-    class MP2032
+    public class MP2032
     {
         /*
 		 ===============================================================================

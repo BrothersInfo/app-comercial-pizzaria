@@ -75,8 +75,9 @@ namespace Pizzaria.Tela
                 }
                 livre = false;
                 gbAddProduto.Visible = true;
-                lbTituloDes.Text += (" : " + cbMesas.Text);
+               
             }
+            lbTituloDes.Text += (" : " + cbMesas.Text);
             label1.Visible = true;
             gbMesaDaVenda.Visible = false;
         }
