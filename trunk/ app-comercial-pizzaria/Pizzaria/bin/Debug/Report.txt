@@ -1,16 +1,16 @@
  |----COZINHA----|
- |Data:13/01/2013|
- |Hora:11:41     |
+ |Data:14/01/2013|
+ |Hora:20:03     |
  |---------------|
  |               |
- | -             |
+ | - Cerveja     |
  |Tam- 600 ml    |
- |Bohemia        |
+ |Brahma         |
  |    --100 %    |
  |Quantid- 1     |
  |               |
  | -- - -- - --  |
  |---------------|
- |GARCON -Usando |
+ |GARCON -Teste  |
  | Mesa 2        |
  |---------------|

@@ -304,9 +304,9 @@
             // pbFoto
             // 
             this.pbFoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbFoto.Location = new System.Drawing.Point(122, 8);
+            this.pbFoto.Location = new System.Drawing.Point(32, 8);
             this.pbFoto.Name = "pbFoto";
-            this.pbFoto.Size = new System.Drawing.Size(224, 152);
+            this.pbFoto.Size = new System.Drawing.Size(392, 177);
             this.pbFoto.TabIndex = 0;
             this.pbFoto.TabStop = false;
             // 
@@ -479,7 +479,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "6";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
-
             this.Click += new System.EventHandler(this.Principal_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Principal_KeyDown);
             this.pLoadForm.ResumeLayout(false);

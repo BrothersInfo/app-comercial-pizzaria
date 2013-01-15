@@ -556,6 +556,7 @@ namespace Pizzaria.Tela
                      {
                          cc.garconImprimir = new BancoVenda().nomeGarcon( g.getRetorno());
                          cc.quantidade = 1;
+                         cc.segmentoImprimir = new Banco().segmentoDoProduto(cc.produto[0].cod_produto);
                          Impressao p = new Impressao(venda);
                          p.gerarComandaInterna(new Completa[] { cc }, venda.mesa);
                      }
@@ -571,6 +572,7 @@ namespace Pizzaria.Tela
                         {
                             cc.garconImprimir = cc.garcons[0].nome;
                             cc.quantidade = 1;
+                            cc.segmentoImprimir = new Banco().segmentoDoProduto(cc.produto[0].cod_produto);
                             Impressao p = new Impressao(venda);
                             p.gerarComandaInterna(new Completa[] { cc }, venda.mesa);
                         }
