@@ -239,6 +239,12 @@
     <Compile Include="Classes\Produto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tela\QuantidadeItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tela\QuantidadeItem.Designer.cs">
+      <DependentUpon>QuantidadeItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tela\Relatorios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -338,6 +344,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Tela\QuantidadeItem.resx">
+      <DependentUpon>QuantidadeItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tela\Relatorios.resx">
       <DependentUpon>Relatorios.cs</DependentUpon>
     </EmbeddedResource>

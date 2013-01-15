@@ -650,7 +650,48 @@ namespace Pizzaria.Tela
                 carregarListView(venda);
             }
         }
-  
+        private void reimpressãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int lvd = lvInfo.FocusedItem.Index;
+            Completa item = venda.Completos[lvd ];
+
+            new QuantidadeItem(venda.cod_venda, item).ShowDialog();
+         
+        }
+
+        private void MSProduto_Click(object sender, EventArgs e)
+        {
+            lvInfo_ItemActivate(sender, e);
+        }
+
+        private void ttRemoverUm_Click(object sender, EventArgs e)
+        {
+            int lvd = lvInfo.FocusedItem.Index;
+            Completa item = venda.Completos[lvd];
+
+            new BancoInformacao().deletarCompleto(item.cod_completo,1);
+
+            venda = new BancoVenda().carregaVenda(venda.cod_venda);
+            tamanhoMTVALOR(venda);
+            carregarListView(venda);
+        }
+
+        private void ttRemoverTodos_Click(object sender, EventArgs e)
+        {
+            int lvd = lvInfo.FocusedItem.Index;
+            Completa item = venda.Completos[lvd];
+
+            new BancoInformacao().deletarCompleto(item.cod_completo,item.quantidade );
+
+            venda = new BancoVenda().carregaVenda(venda.cod_venda);
+            tamanhoMTVALOR(venda);
+            carregarListView(venda);
+        }
+
+    
+
+
+      
         }
 
       
