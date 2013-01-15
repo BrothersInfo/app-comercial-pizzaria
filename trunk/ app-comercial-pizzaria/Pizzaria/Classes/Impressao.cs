@@ -9,13 +9,17 @@ using System.Drawing;
 using System.Collections;
 using System.Windows.Forms;
 using System.Drawing.Printing;
+
 namespace Pizzaria.Classes
 {
     
+
+      
     using Pizzaria.Banco;
 
     public class Impressao
     {
+       
         VendaFull venda;
         int sizeLetra = 7;
         public Impressao(LeituraX impri)
@@ -130,7 +134,7 @@ namespace Pizzaria.Classes
 
                 mr.PrintJob();
                 mr.EndJob();
-                lerArquivo();
+                lerArquivo(0);
 
             }
             catch { }
@@ -219,7 +223,8 @@ namespace Pizzaria.Classes
             
                 mr.PrintJob();
                 mr.EndJob();
-                lerArquivo();
+       
+                lerArquivo(1);
             }
             catch { }
         }
@@ -309,7 +314,7 @@ namespace Pizzaria.Classes
 
                 mr.PrintJob();
                 mr.EndJob();
-                lerArquivo();
+                lerArquivo(0);
 
             }
             catch { }
@@ -432,7 +437,7 @@ namespace Pizzaria.Classes
 
                 mr.PrintJob();
                 mr.EndJob();
-                lerArquivo();
+                lerArquivo(0);
 
             }
             catch { }
@@ -525,26 +530,46 @@ namespace Pizzaria.Classes
                 return true;
             else return false;
         }
-        private void lerArquivo()
+        private void lerArquivo(int cod_impressora)
         {
-            PrintDialog print = new PrintDialog();
-
-            print.PrinterSettings.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("comanda", 380, 2000);    // 500;
-            print.PrinterSettings.DefaultPageSettings.Margins = new System.Drawing.Printing.Margins(0, 0, 0, 10);
-            //  printDialog1.PrinterSettings.DefaultPageSettings.PaperSize = print.PrinterSettings.DefaultPageSettings.PaperSize; //.PaperSize = new System.Drawing.Printing.PaperSize("fabricio", 300, 600);
+           
+//  printDialog1.PrinterSettings.DefaultPageSettings.PaperSize = print.PrinterSettings.DefaultPageSettings.PaperSize; //.PaperSize = new System.Drawing.Printing.PaperSize("fabricio", 300, 600);
 
             // printDialog1.Document = printDocument1;
             LerArquivoTexto(endereco);
             string x = comanda;
             leitor = new StringReader(x);
-            printDocument1.DocumentName = "comanda.txt";
-            // printDocument1.OriginAtMargins = true;
-            printDocument1.DefaultPageSettings.Margins.Left = 0;
-            printDocument1.DefaultPageSettings.Margins.Right = 0;
-            printDocument1.DefaultPageSettings.Margins.Top = 0;
-            printDocument1.DefaultPageSettings.Margins.Bottom = 0;
-            
-            printDocument1.Print();
+            if (cod_impressora != 0)
+            {
+                DataTable impressora = new Banco().impressora(cod_impressora);
+                MP2032.ConfiguraModeloImpressora(Convert.ToInt16(impressora.Rows[0].ItemArray.GetValue(2)));
+                MP2032.IniciaPorta(impressora.Rows[0].ItemArray.GetValue(3).ToString());//se for internet a porta é o IP
+                //            MP2032.BematechTX(x);//texto q deverá ser impresso
+                MP2032.FormataTX(x + "\r\n\r\n", Convert.ToInt16(impressora.Rows[0].ItemArray.GetValue(4))
+                    , Convert.ToInt16(impressora.Rows[0].ItemArray.GetValue(5))
+                    , Convert.ToInt16(impressora.Rows[0].ItemArray.GetValue(6))
+                    , Convert.ToInt16(impressora.Rows[0].ItemArray.GetValue(7))
+                    , Convert.ToInt16(impressora.Rows[0].ItemArray.GetValue(8)));
+                MP2032.FechaPorta();
+
+            }
+            else
+            {
+
+                printDocument1.DocumentName = "comanda.txt";
+                // printDocument1.OriginAtMargins = true;
+                PrintDialog print = new PrintDialog();
+
+                print.PrinterSettings.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("comanda", 380, 2000);    // 500;
+                print.PrinterSettings.DefaultPageSettings.Margins = new System.Drawing.Printing.Margins(0, 0, 0, 10);
+
+                printDocument1.DefaultPageSettings.Margins.Left = 0;
+                printDocument1.DefaultPageSettings.Margins.Right = 0;
+                printDocument1.DefaultPageSettings.Margins.Top = 0;
+                printDocument1.DefaultPageSettings.Margins.Bottom = 0;
+
+                printDocument1.Print();
+            }
         }
         private void LerArquivoTexto(string StrArquivo)
         {

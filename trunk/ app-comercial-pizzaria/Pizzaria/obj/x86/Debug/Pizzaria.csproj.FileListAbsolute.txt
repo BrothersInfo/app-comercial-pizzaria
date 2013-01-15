@@ -279,11 +279,14 @@ D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.Abertura.reso
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.AddProduto.resources
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.AlterarForm.resources
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.AlterarMesa.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.Balcao.resources
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.CadastroForm.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.Codes.resources
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.ConsultaForm.resources
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.DividirVenda.resources
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.Fundo.resources
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.Garcon.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.Pagamento.resources
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.PdfGenerator.resources
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.Principal.resources
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Properties.Resources.resources
@@ -299,7 +302,3 @@ D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.exe.manifest
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.application
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.exe
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.pdb
-D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.Pagamento.resources
-D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.Codes.resources
-D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.Balcao.resources
-D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.csprojResolveAssemblyReference.cache
