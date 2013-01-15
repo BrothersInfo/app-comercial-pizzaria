@@ -39,6 +39,12 @@
             this.Quantidade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ValorUni = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SubTotal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.menuDireito = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ttRemoverUm = new System.Windows.Forms.ToolStripMenuItem();
+            this.ttRemoverTodos = new System.Windows.Forms.ToolStripMenuItem();
+            this.separador = new System.Windows.Forms.ToolStripSeparator();
+            this.MSProduto = new System.Windows.Forms.ToolStripMenuItem();
+            this.reimpressãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tlpGAmb = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.lvGarcon = new System.Windows.Forms.ListView();
@@ -77,6 +83,7 @@
             this.ttEncerrar = new System.Windows.Forms.ToolTip(this.components);
             this.panBut.SuspendLayout();
             this.tabLayDescricao.SuspendLayout();
+            this.menuDireito.SuspendLayout();
             this.tlpGAmb.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.pValor.SuspendLayout();
@@ -136,6 +143,7 @@
             this.Quantidade,
             this.ValorUni,
             this.SubTotal});
+            this.lvInfo.ContextMenuStrip = this.menuDireito;
             this.lvInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvInfo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -180,6 +188,51 @@
             // 
             this.SubTotal.Text = "Sub Valor";
             this.SubTotal.Width = 85;
+            // 
+            // menuDireito
+            // 
+            this.menuDireito.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ttRemoverUm,
+            this.ttRemoverTodos,
+            this.separador,
+            this.MSProduto,
+            this.reimpressãoToolStripMenuItem});
+            this.menuDireito.Name = "menuDireito";
+            this.menuDireito.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.menuDireito.Size = new System.Drawing.Size(164, 98);
+            // 
+            // ttRemoverUm
+            // 
+            this.ttRemoverUm.Name = "ttRemoverUm";
+            this.ttRemoverUm.Size = new System.Drawing.Size(163, 22);
+            this.ttRemoverUm.Text = "Remover UM";
+            this.ttRemoverUm.Click += new System.EventHandler(this.ttRemoverUm_Click);
+            // 
+            // ttRemoverTodos
+            // 
+            this.ttRemoverTodos.Name = "ttRemoverTodos";
+            this.ttRemoverTodos.Size = new System.Drawing.Size(163, 22);
+            this.ttRemoverTodos.Text = "Remover TODOS";
+            this.ttRemoverTodos.Click += new System.EventHandler(this.ttRemoverTodos_Click);
+            // 
+            // separador
+            // 
+            this.separador.Name = "separador";
+            this.separador.Size = new System.Drawing.Size(160, 6);
+            // 
+            // MSProduto
+            // 
+            this.MSProduto.Name = "MSProduto";
+            this.MSProduto.Size = new System.Drawing.Size(163, 22);
+            this.MSProduto.Text = "Acrescentar UM";
+            this.MSProduto.Click += new System.EventHandler(this.MSProduto_Click);
+            // 
+            // reimpressãoToolStripMenuItem
+            // 
+            this.reimpressãoToolStripMenuItem.Name = "reimpressãoToolStripMenuItem";
+            this.reimpressãoToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.reimpressãoToolStripMenuItem.Text = "Reimpressão";
+            this.reimpressãoToolStripMenuItem.Click += new System.EventHandler(this.reimpressãoToolStripMenuItem_Click);
             // 
             // tlpGAmb
             // 
@@ -702,6 +755,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Venda_KeyDown);
             this.panBut.ResumeLayout(false);
             this.tabLayDescricao.ResumeLayout(false);
+            this.menuDireito.ResumeLayout(false);
             this.tlpGAmb.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.pValor.ResumeLayout(false);
@@ -771,5 +825,11 @@
         private System.Windows.Forms.Panel pBotoesCima;
         private System.Windows.Forms.Panel pMesaNova;
         private System.Windows.Forms.Button btAgrupar;
+        private System.Windows.Forms.ContextMenuStrip menuDireito;
+        private System.Windows.Forms.ToolStripMenuItem ttRemoverUm;
+        private System.Windows.Forms.ToolStripMenuItem ttRemoverTodos;
+        private System.Windows.Forms.ToolStripSeparator separador;
+        private System.Windows.Forms.ToolStripMenuItem MSProduto;
+        private System.Windows.Forms.ToolStripMenuItem reimpressãoToolStripMenuItem;
     }
 }

@@ -224,7 +224,7 @@ namespace Pizzaria.Classes
                 mr.PrintJob();
                 mr.EndJob();
        
-                lerArquivo(1);
+                lerArquivo(  new Banco().getCodImpressoraByTipo( new BancoConsulta().cod_tipoPeloNome(produto[0].segmentoImprimir )) );
             }
             catch { }
         }
