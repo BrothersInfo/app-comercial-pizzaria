@@ -18,14 +18,13 @@ namespace Pizzaria.Tela
             vendas = vf;
             carregar();
             mesas = new List<string>();
+            rbAberta.Checked = true;
+            lbTItulo.Text += " : "+vf.mesa[0];
         }
         public void carregar()
         {
             //carregar Mesas Disponiveis
             //carregar Itens
-
-            cbMesas.DataSource = new Banco.Banco().mesasDisponiveis();
-            cbMesas.DisplayMember = "descricao";
             try
             {
                 
@@ -53,16 +52,33 @@ namespace Pizzaria.Tela
 
         }
         List<String> mesas;
+        public bool livre;
         private void btInserirMesa_Click(object sender, EventArgs e)
         {
-            bool can = true;
-            gbAddProduto.Visible = true;
-            for (int i = 0;i< mesas.Count;i++ )
+            if (rbLivre.Checked)
             {
-                if (mesas[i] == cbMesas.Text) can = false;
+                livre = true;
+                bool can = true;
+                gbAddProduto.Visible = true;
+                for (int i = 0; i < mesas.Count; i++)
+                {
+                    if (mesas[i] == cbMesas.Text) can = false;
+                }
+                if (can)
+                    mesas.Add(cbMesas.Text);
             }
-            if (can)
-               mesas.Add(cbMesas.Text);
+            else
+            {
+                if (vendas.cod_venda == new Banco.Banco().codigoDaVendaPelaMesa(cbMesas.Text)) {
+                    return;
+                
+                }
+                livre = false;
+                gbAddProduto.Visible = true;
+                lbTituloDes.Text += (" : " + cbMesas.Text);
+            }
+            label1.Visible = true;
+            gbMesaDaVenda.Visible = false;
         }
         public int quantidade(int codigo)
         {
@@ -89,7 +105,7 @@ namespace Pizzaria.Tela
 
                 vf.ordenaProduto();
                 lvItensNew.Items.Clear();
-                for (int i = 0; i < vendas.Completos.Length; i++)
+                for (int i = 0; i < vf.Completos.Length; i++)
                 {
                     //codigo
                     //lvInfo.Items.Add(vendas.Completos[i].cod_completo.ToString());
@@ -111,45 +127,53 @@ namespace Pizzaria.Tela
         }
         private void btProduto_Click(object sender, EventArgs e)
         {
-            if (cod_novaVenda == 0)
-            {
+            if (!livre)
+            { 
+                cod_novaVenda = new Banco.Banco().codigoDaVendaPelaMesa(cbMesas.Text); 
 
-                this.cod_novaVenda = new Banco.Banco().novaVenda(vendas.cod_caixa, new Banco.Banco().cod_mesa(mesas.ToArray()));//venda aberta
-                new Banco.BancoVenda().superVenda(this.cod_novaVenda);//cria a super venda e associa a venda criada
-            }
             
-            codigosCompleto = new int[lvItensOld.Items.Count];//os codigos dos produtos
-            for (int i = 0; i < codigosCompleto.Length; i++)
-                codigosCompleto[i] = vendas.Completos[Convert.ToInt16(lvItensOld.Items[i].Text) - 1].cod_completo;
-            // codigos[i] = Convert.ToInt16(lvInfo.Items[i].Text);
-
-           qtd  = new int[lvItensOld.Items.Count];//as quantidades
-            for (int i = 0; i < qtd.Length; i++)
-                qtd[i] = Convert.ToInt16(lvItensOld.Items[i].SubItems[3].Text);
-            //tenho q mover ou deletar
-
-            if (existe(codigosCompleto[Convert.ToInt16(mtCodigo.Text) - 1]))
-            {
-                if (numQuantidade.Value <= quantidade(codigosCompleto[Convert.ToInt16(mtCodigo.Text) - 1]))
+            }
+                if (cod_novaVenda == 0)
                 {
-                    new Banco.BancoInformacao().transferirCompleto(codigosCompleto[Convert.ToInt16(mtCodigo.Text) - 1],
-                         Convert.ToInt16(numQuantidade.Value), this.cod_novaVenda);
 
-                    MessageBox.Show("PRODUTO INSERIDO NA NOVA VENDA", "MENSAGEM");
-                    vendas = new Banco.BancoVenda().carregaVenda(vendas.cod_venda);
-                    carregar();
-                    new Banco.BancoInformacao().unirProdutosIguais(new Banco.BancoVenda().carregaVenda(cod_novaVenda));
-                    carregarNovaVenda();    
+                    this.cod_novaVenda = new Banco.Banco().novaVenda(vendas.cod_caixa, new Banco.Banco().cod_mesa(mesas.ToArray()));//venda aberta
+                    new Banco.BancoVenda().superVenda(this.cod_novaVenda);//cria a super venda e associa a venda criada
+                }
+
+                codigosCompleto = new int[lvItensOld.Items.Count];//os codigos dos produtos
+                for (int i = 0; i < codigosCompleto.Length; i++)
+                    codigosCompleto[i] = vendas.Completos[Convert.ToInt16(lvItensOld.Items[i].Text) - 1].cod_completo;
+                // codigos[i] = Convert.ToInt16(lvInfo.Items[i].Text);
+
+                qtd = new int[lvItensOld.Items.Count];//as quantidades
+                for (int i = 0; i < qtd.Length; i++)
+                    qtd[i] = Convert.ToInt16(lvItensOld.Items[i].SubItems[3].Text);
+                //tenho q mover ou deletar
+
+                if (existe(codigosCompleto[Convert.ToInt16(mtCodigo.Text) - 1]))
+                {
+                    if (numQuantidade.Value <= quantidade(codigosCompleto[Convert.ToInt16(mtCodigo.Text) - 1]))
+                    {
+                        new Banco.BancoInformacao().transferirCompleto(codigosCompleto[Convert.ToInt16(mtCodigo.Text) - 1],
+                             Convert.ToInt16(numQuantidade.Value), this.cod_novaVenda);
+
+                        MessageBox.Show("ALTERAÇÃO CONCLUÍDA", "MENSAGEM");
+                        vendas = new Banco.BancoVenda().carregaVenda(vendas.cod_venda);
+                        carregar();
+                        new Banco.BancoInformacao().unirProdutosIguais(new Banco.BancoVenda().carregaVenda(cod_novaVenda));
+                        carregarNovaVenda();
+                    }
+                    else
+                    {
+                        MessageBox.Show("QUANDITADE DE ITENS RETIRADOS ALÉM DA QUANTIA EXISTENTE", "MENSAGEM DE ERRO");
+                    }
                 }
                 else
-                {
-                    MessageBox.Show("QUANDITADE DE ITENS RETIRADOS ALÉM DA QUANTIA EXISTENTE ", "MENSAGEM DE ERRO");
-                }
-            }
-            else
-            { MessageBox.Show("CODIGO NÃO IDENTIFICADO NESTA VENDA ", "MENSAGEM DE ERRO"); }
+                { MessageBox.Show("CODIGO NÃO IDENTIFICADO NESTA VENDA ", "MENSAGEM DE ERRO"); }
 
-
+                mtCodigo.Clear();
+                mtCodigo.Focus();
+            
         }
 
         private void btEncerrar_Click(object sender, EventArgs e)
@@ -164,6 +188,21 @@ namespace Pizzaria.Tela
                 case Keys.Escape://Voltar Tela
                     this.Close();
                     break;
+            }
+        }
+        private void rbLivre_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbLivre.Checked)
+            {
+
+                cbMesas.DataSource = new Banco.Banco().mesasDisponiveis();
+                cbMesas.DisplayMember = "descricao";
+
+            }
+            else
+            {
+                cbMesas.DataSource = new Banco.Banco().mesasIndisponiveis();
+                cbMesas.DisplayMember = "descricao";
             }
         }
 

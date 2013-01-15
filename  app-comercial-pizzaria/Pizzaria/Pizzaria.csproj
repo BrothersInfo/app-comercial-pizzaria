@@ -122,6 +122,7 @@
   <ItemGroup>
     <Compile Include="Banco\BancoInformacao.cs" />
     <Compile Include="Banco\BancoSenha.cs" />
+    <Compile Include="ClasseDLL\MP2032.cs" />
     <Compile Include="Classes\CRelatorio.cs" />
     <Compile Include="Classes\Entrega.cs" />
     <Compile Include="Classes\GarconFisico.cs" />
@@ -354,6 +355,7 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="Pizzaria.Classes.CRelatorio.datasource" />
     <None Include="Pizzaria_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">

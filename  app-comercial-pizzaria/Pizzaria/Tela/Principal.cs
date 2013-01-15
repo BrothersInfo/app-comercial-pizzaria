@@ -393,6 +393,7 @@ namespace Pizzaria.Tela
             carregarMesa(false);
             lInutil2.ForeColor = Color.Black;
             linutil1.ForeColor = Color.Red;
+            lValor.Text = "";
             lValor.Visible = false;
             carregarGridItem();
         }
