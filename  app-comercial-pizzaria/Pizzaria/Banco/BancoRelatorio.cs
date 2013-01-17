@@ -94,7 +94,7 @@ namespace Pizzaria.Banco
         private string orderQuery(int numero){
         switch(numero){
             case 0 : return " v.datavenda";
-            case 1 : return " v.valorTotal";
+            case 1 : return " v.valorReal";
             case 2 : return " a.cod_ambiente";
             case 3 :return " x.cod_caixa";
             case 4 :return " p.cod_pagamento";
@@ -211,7 +211,7 @@ namespace Pizzaria.Banco
             if (!cancelado) query += " (p.descricao) as \"Pagamento\",";
             else            query += " 'Não Houve' as \" Pagamento\", "; 
                 
-                    query +=" (CASE v.valortotal >0  WHEN true THEN (trim(to_char( v.valorTotal,'9999.99'))) ELSE '0.00'  end ) as \"Valor\","
+                    query +=" (CASE v.valorReal >0  WHEN true THEN (trim(to_char( v.valorReal,'9999.99'))) ELSE '0.00'  end ) as \"Valor\","
               
                 +" (select x.descricao from ambiente x where x.cod_ambiente = (select mm.cod_ambiente from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) "
 	               + " inner join venda vv on (vv.cod_venda = vmm.cod_venda) "
@@ -247,7 +247,7 @@ namespace Pizzaria.Banco
                 + "to_char(v.horario, 'HH24:MI') as \"Horario\", "
                 + " v.cod_venda, "
                  + " p.cod_pagamento as \"Pagamento\","
-                + " ( case v.valorTotal > 0 when true then(trim(to_char( v.valorTotal,'9999.99'))) else '0.00' end) as \"Valor\" "
+                + " ( case v.valorReal > 0 when true then(trim(to_char( v.valorReal,'9999.99'))) else '0.00' end) as \"Valor\" "
                 + ",( case v.cancelado when true then 'Extorno' else 'Finaliz' end) as \"Situacao\""
                 + " from  venda v "
                 + " inner join caixa x                   on (x.cod_caixa     = v.cod_caixa) "

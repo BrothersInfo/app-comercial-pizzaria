@@ -288,6 +288,39 @@ namespace Pizzaria.Tela
             pbConsulta.BorderStyle = BorderStyle.FixedSingle;
             gbAtalho.Visible = true;
         }
+        private void pbAjuda_Click(object sender, EventArgs e)
+        {
+            new Manutencao().ShowDialog();
+        }
+        private void Fundo_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.F2://CADASTRO
+                    pbCadastro_Click(sender, null);
+
+                    break;
+                case Keys.F3://ALTERAR
+                    pbAlterar_Click(sender, null);
+
+                    break;
+                case Keys.F4://RELATORIO
+                    pbRelatorio_Click(sender, null);
+                    break;
+                case Keys.F5://CONSULTA
+                    pbConsulta_Click(sender, null);
+                    break;
+                case Keys.F6://MANUTENCAO
+                    pbAjuda_Click(sender, null);
+                    break;
+                case Keys.F12://MANUTENCAO
+                    if(MessageBox.Show("DESEJA SAIR DO SISTEMA?","INFORMAÇÂO",MessageBoxButtons.YesNo
+                                        ,MessageBoxIcon.Question,MessageBoxDefaultButton.Button1
+                                        ,MessageBoxOptions.DefaultDesktopOnly) == DialogResult.Yes)
+                        pbFechar_Click(sender, null);
+                    break;
+            }
+        }
 
 
 

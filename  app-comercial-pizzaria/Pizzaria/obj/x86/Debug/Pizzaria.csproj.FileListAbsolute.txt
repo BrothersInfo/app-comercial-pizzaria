@@ -303,3 +303,5 @@ D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.application
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.exe
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.pdb
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.QuantidadeItem.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.csprojResolveAssemblyReference.cache
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.Manutencao.resources

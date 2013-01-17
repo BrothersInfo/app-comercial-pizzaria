@@ -51,8 +51,9 @@
             this.codGar = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nomGar = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pValor = new System.Windows.Forms.Panel();
-            this.mtValor = new System.Windows.Forms.MaskedTextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbTotal = new System.Windows.Forms.Label();
+            this.lbComissao = new System.Windows.Forms.Label();
+            this.lbSubValor = new System.Windows.Forms.Label();
             this.lvMesa = new System.Windows.Forms.ListView();
             this.nomMesa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ambient = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -135,7 +136,6 @@
             // 
             // lvInfo
             // 
-            this.lvInfo.CheckBoxes = true;
             this.lvInfo.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.codigo,
             this.Produto,
@@ -254,8 +254,8 @@
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.65625F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.34375F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.16667F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.83333F));
             this.tableLayoutPanel5.Controls.Add(this.lvGarcon, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.pValor, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -278,9 +278,9 @@
             this.lvGarcon.FullRowSelect = true;
             this.lvGarcon.GridLines = true;
             this.lvGarcon.HoverSelection = true;
-            this.lvGarcon.Location = new System.Drawing.Point(186, 3);
+            this.lvGarcon.Location = new System.Drawing.Point(211, 3);
             this.lvGarcon.Name = "lvGarcon";
-            this.lvGarcon.Size = new System.Drawing.Size(195, 127);
+            this.lvGarcon.Size = new System.Drawing.Size(170, 127);
             this.lvGarcon.TabIndex = 33;
             this.lvGarcon.UseCompatibleStateImageBehavior = false;
             this.lvGarcon.View = System.Windows.Forms.View.Details;
@@ -292,42 +292,55 @@
             // nomGar
             // 
             this.nomGar.Text = "Garçon";
-            this.nomGar.Width = 117;
+            this.nomGar.Width = 100;
             // 
             // pValor
             // 
             this.pValor.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pValor.Controls.Add(this.mtValor);
-            this.pValor.Controls.Add(this.label4);
+            this.pValor.Controls.Add(this.lbTotal);
+            this.pValor.Controls.Add(this.lbComissao);
+            this.pValor.Controls.Add(this.lbSubValor);
             this.pValor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pValor.Location = new System.Drawing.Point(3, 3);
             this.pValor.Name = "pValor";
-            this.pValor.Size = new System.Drawing.Size(177, 127);
+            this.pValor.Size = new System.Drawing.Size(202, 127);
             this.pValor.TabIndex = 34;
             // 
-            // mtValor
+            // lbTotal
             // 
-            this.mtValor.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mtValor.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtValor.ForeColor = System.Drawing.Color.DarkRed;
-            this.mtValor.Location = new System.Drawing.Point(21, 59);
-            this.mtValor.Mask = "0,00";
-            this.mtValor.Name = "mtValor";
-            this.mtValor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.mtValor.Size = new System.Drawing.Size(132, 44);
-            this.mtValor.TabIndex = 17;
+            this.lbTotal.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbTotal.AutoSize = true;
+            this.lbTotal.Font = new System.Drawing.Font("Arial", 13F);
+            this.lbTotal.ForeColor = System.Drawing.Color.Black;
+            this.lbTotal.Location = new System.Drawing.Point(3, 93);
+            this.lbTotal.Name = "lbTotal";
+            this.lbTotal.Size = new System.Drawing.Size(68, 21);
+            this.lbTotal.TabIndex = 20;
+            this.lbTotal.Text = "VALOR";
             // 
-            // label4
+            // lbComissao
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Maroon;
-            this.label4.Location = new System.Drawing.Point(47, 26);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 30);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "VALOR";
+            this.lbComissao.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbComissao.AutoSize = true;
+            this.lbComissao.Font = new System.Drawing.Font("Arial", 13F);
+            this.lbComissao.ForeColor = System.Drawing.Color.Black;
+            this.lbComissao.Location = new System.Drawing.Point(4, 55);
+            this.lbComissao.Name = "lbComissao";
+            this.lbComissao.Size = new System.Drawing.Size(68, 21);
+            this.lbComissao.TabIndex = 19;
+            this.lbComissao.Text = "VALOR";
+            // 
+            // lbSubValor
+            // 
+            this.lbSubValor.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbSubValor.AutoSize = true;
+            this.lbSubValor.Font = new System.Drawing.Font("Arial", 13F);
+            this.lbSubValor.ForeColor = System.Drawing.Color.Black;
+            this.lbSubValor.Location = new System.Drawing.Point(3, 22);
+            this.lbSubValor.Name = "lbSubValor";
+            this.lbSubValor.Size = new System.Drawing.Size(68, 21);
+            this.lbSubValor.TabIndex = 18;
+            this.lbSubValor.Text = "VALOR";
             // 
             // lvMesa
             // 
@@ -788,8 +801,7 @@
         private System.Windows.Forms.ColumnHeader codGar;
         private System.Windows.Forms.ColumnHeader nomGar;
         private System.Windows.Forms.Panel pValor;
-        private System.Windows.Forms.MaskedTextBox mtValor;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbSubValor;
         private System.Windows.Forms.ListView lvMesa;
         private System.Windows.Forms.ColumnHeader nomMesa;
         private System.Windows.Forms.ColumnHeader ambient;
@@ -831,5 +843,7 @@
         private System.Windows.Forms.ToolStripSeparator separador;
         private System.Windows.Forms.ToolStripMenuItem MSProduto;
         private System.Windows.Forms.ToolStripMenuItem reimpressãoToolStripMenuItem;
+        private System.Windows.Forms.Label lbTotal;
+        private System.Windows.Forms.Label lbComissao;
     }
 }
