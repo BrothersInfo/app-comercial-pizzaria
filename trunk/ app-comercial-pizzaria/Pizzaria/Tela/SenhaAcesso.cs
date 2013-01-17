@@ -52,5 +52,17 @@ namespace Pizzaria.Tela
             }
         }
 
+        private void SenhaAcesso_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            switch (e.KeyCode)
+            {
+                case Keys.Escape://MANUTENCAO
+                    this.Close();
+                    break;
+                
+            }
+        }
+
     }
 }

@@ -155,8 +155,25 @@ namespace Pizzaria.Tela
                     lvInfo.Items[i].SubItems.Add("R$ " + new Tratamento().retornaValorEscrito(Convert.ToDouble(t.Rows[i].ItemArray.GetValue(2))));
                     lvInfo.Items[i].SubItems.Add("" + new BancoInformacao().quantidadeCompletaByCodigo(Convert.ToInt16(t.Rows[i].ItemArray.GetValue(0))));
                 }
-                lValor.Text ="TOTAL PARCIAL = R$ "+ new Tratamento().retornaValorEscrito(new BancoVenda().carregaVenda(new Banco().codVendaSelecionada2(listVenda.FocusedItem.Text)).valorTotal);
-              
+                VendaFull vf =  new BancoVenda().carregaVenda(new Banco().codVendaSelecionada2(listVenda.FocusedItem.Text));
+                lValor.Text = "SUB TOTAL R$ " + new Tratamento().retornaValorEscrito(vf.subValor);
+
+                lValor2.Text ="COUVERT R$ " + new Tratamento().retornaValorEscrito(vf.valorComissao);
+                lValor3.Text ="TOTAL PARCIAL R$ "+ new Tratamento().retornaValorEscrito(vf.valorSomado);
+                lValor.Visible = true;
+                if (vf.valorComissao > 0)
+                {
+
+                    lValor.Margin = new Padding(3, 9, 4, 0);
+                    lValor2.Visible = true;
+                    lValor3.Visible = true;
+                }
+                else
+                {
+                    lValor.Margin = new Padding(150, 9, 4, 0);
+                    lValor2.Visible = false;
+                    lValor3.Visible = false;
+                }
             }
             catch { return; }
         }
@@ -273,7 +290,7 @@ namespace Pizzaria.Tela
                 if (new BancoVenda().isImpresso(f.cod_venda) || (MessageBox.Show("COMANDA DESATUALIZADA \n DESEJA ENCERRAR MESMO ASSIM?", "Confirme sua Opcao", MessageBoxButtons.YesNo) == DialogResult.Yes))
                 {
 
-                    Pagamento rec = new Pagamento(f.cod_venda, f.valorTotal, f.mesa, false);
+                    Pagamento rec = new Pagamento(f.cod_venda,f.subValor,f.valorComissao, f.valorSomado, f.mesa, false);
                     rec.ShowDialog();
                     if (rec.encerrou)
                     {
@@ -395,6 +412,12 @@ namespace Pizzaria.Tela
             linutil1.ForeColor = Color.Red;
             lValor.Text = "";
             lValor.Visible = false;
+
+            lValor2.Text = "";
+            lValor2.Visible = false;
+            lValor3.Text = "";
+            lValor3.Visible = false;
+              
             carregarGridItem();
         }
         private void pOcupada_MouseEnter(object sender, EventArgs e)

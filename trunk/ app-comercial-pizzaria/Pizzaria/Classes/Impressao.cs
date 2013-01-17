@@ -22,6 +22,118 @@ namespace Pizzaria.Classes
        
         VendaFull venda;
         int sizeLetra = 7;
+        //esse metodo é a atualizacao para a impressao. INICIO
+        public Impressao(bool novo, VendaFull v)
+        {
+            venda = v;
+        }
+        public void novoMetodo(Completa[] produto, string[] mesa)
+        {
+
+            try
+            {
+                Reporter mr = new Reporter();
+                EpsonCodes mer = new EpsonCodes();
+
+                if (File.Exists(endereco))
+                    File.Delete(endereco);
+
+                mr.Output = endereco;
+                mr.StartJob();
+                Comanda cc = new Comanda(venda.cod_venda, true);
+                string pont = "|---------------------------|";
+                int line = 1;
+                int limite = 29;
+                mr.PrintText(line++, 01, "|----------COZINHA----------|");
+
+                mr.PrintText(line, 01, "|Data:" + DateTime.Now.ToShortDateString()); mr.PrintText(line++, limite, "|");
+                mr.PrintText(line, 01, "|Hora:" + DateTime.Now.ToShortTimeString()); mr.PrintText(line++, limite, "|");
+                mr.PrintText(line++, 01, pont);
+                mr.PrintText(line, 01, "|"); mr.PrintText(line++, limite, "|");
+                //produto
+                int ii = produto.Length;
+
+                while (ii-- > 0)
+                {
+                    mr.PrintText(line, 1, "| - " + produto[ii].segmentoImprimir); mr.PrintText(line++, limite, "|");
+                    string tam = new BancoInformacao().tamanhoDescricaoByCodigo(produto[ii].produto[0].cod_tamanho);
+                    if (tam.Length > 18) tam = tam.Substring(0, 18);
+                    mr.PrintText(line, 1, "|Tamanho- " + tam); mr.PrintText(line++, limite, "|");
+                    for (int j = 0; j < produto[ii].produto.Length; j++)
+                    {
+                        string prod = new Banco().preencherNomeProdctAll(produto[ii].produto[j].cod_produto);
+                        if (prod.Length > 27) prod = prod.Substring(0, 27);
+                        mr.PrintText(line, 01, "|" + prod); mr.PrintText(line++, limite, "|");
+                        mr.PrintText(line, 01, "|"); mr.PrintText(line, 6, "--" + (produto[ii].produto[j].porcentagem * 100) + " %"); mr.PrintText(line++, limite, "|");
+                    }
+
+                    mr.PrintText(line, 1, "|Quantidade - " + produto[ii].quantidade); mr.PrintText(line++, limite, "|");
+                    string noticia = "";
+                    int u = 0;
+                    string nota = produto[ii].getNoticia(); string obs = "obs. "; int limit = limite -7;
+                    while (u < nota.Length)
+                    {
+                        if (noticia.Length % limit == 0 && u >= limit)
+                        {
+                            mr.PrintText(line, 01, obs + noticia); mr.PrintText(line++, limite, "|"); noticia = ""; obs = ""; limit = limite-1;
+                        }
+                        noticia += produto[ii].getNoticia().Substring(u++, 1);
+                    }
+                    mr.PrintText(line, 01, "|" + noticia); mr.PrintText(line++, limite, "|"); noticia = "";
+                    mr.PrintText(line++, 01, "| -- - -- - --  |");
+                }
+                //produto
+                mr.PrintText(line++, 01, pont);
+                if (produto[0].garconImprimir.Length > 15) produto[0].garconImprimir = produto[0].garconImprimir.Substring(0, 15);
+                string garc = "|GARCON -" + produto[0].garconImprimir;
+                mr.PrintText(line, 01, garc); mr.PrintText(line++, limite, "|");
+
+                mr.PrintText(line, 01, "| " + mesa[mesa.Length - 1]); mr.PrintText(line++, limite, "|");
+                mr.PrintText(line++, 01, pont);
+
+                mr.PrintJob();
+                mr.EndJob();
+
+                ImprimirBematech(endereco, new Banco().getCodImpressoraByTipo(new BancoConsulta().cod_tipoPeloNome(new Banco().segmentoDoProduto(produto[0].produto[0].cod_produto))));
+
+
+            }
+            catch { }
+        }
+        // FIM ---- 
+        private void ImprimirBematech(string StrArquivo, int cod_impressora)
+        {
+            DataTable impressora = new Banco().impressora(cod_impressora);
+            MP2032.ConfiguraModeloImpressora(Convert.ToInt16(impressora.Rows[0].ItemArray.GetValue(2)));
+            MP2032.IniciaPorta(impressora.Rows[0].ItemArray.GetValue(3).ToString());//se for internet a porta é o IP
+
+            MP2032.AjustaLarguraPapel(48);
+           
+            try
+            {
+                using (StreamReader sr = new StreamReader(StrArquivo))
+                {
+                    String linha;
+                    //Ler e exibe as linhas até alcançar o fim do arquivo.
+                    while ((linha = sr.ReadLine()) != null)
+                    {
+                        MP2032.FormataTX(linha + "\r\n"
+                            , Convert.ToInt16(impressora.Rows[0].ItemArray.GetValue(4))
+                            , Convert.ToInt16(impressora.Rows[0].ItemArray.GetValue(5))
+                            , Convert.ToInt16(impressora.Rows[0].ItemArray.GetValue(6))
+                            , Convert.ToInt16(impressora.Rows[0].ItemArray.GetValue(7))
+                            , Convert.ToInt16(impressora.Rows[0].ItemArray.GetValue(8)));
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Não é possivel ler o arquivo");
+                MessageBox.Show(e.Message);
+            }
+            MP2032.FechaPorta();
+        }
         public Impressao(LeituraX impri)
         {
             int qtdLinha = 20+  impri.itens.Count ;
@@ -56,7 +168,7 @@ namespace Pizzaria.Classes
         private System.Drawing.Printing.PrintDocument printDocument1;
         string endereco = "comanda.txt"; string comanda = "";
         int linePorFolha = 0;
-        //aqui eu preciso colocar a data da LeituraX  -  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
         public void gerarLeituraX(LeituraX leitu){
             int qtdLinha = 20 + leitu.itens.Count;
             linePorFolha = qtdLinha;
@@ -148,7 +260,7 @@ namespace Pizzaria.Classes
            for (int u = 0; u < produto.Length; u++)
                 qtd += produto[u].produto.Length;
            qtd *= 3;
-            int qtdLinha = 18 +qtd;
+            int qtdLinha = 20 +qtd;
             qtdLinha *= 26;
           //  qtdLinha += 400;
             this.printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("comanda", 304, qtdLinha);
@@ -224,13 +336,13 @@ namespace Pizzaria.Classes
                 mr.PrintJob();
                 mr.EndJob();
        
-                lerArquivo(  new Banco().getCodImpressoraByTipo( new BancoConsulta().cod_tipoPeloNome(produto[0].segmentoImprimir )) );
+                lerArquivo(  new Banco().getCodImpressoraByTipo( new BancoConsulta().cod_tipoPeloNome(  new Banco().segmentoDoProduto( produto[0].produto[0].cod_produto) )) );
             }
             catch { }
         }
         public void gerarComandaNaoFiscal(string formaPagamento,double dinheiro, double troco)
         {
-            int qtdLinha = 25 + (venda.Completos.Length * 2);
+            int qtdLinha = 30 + (venda.Completos.Length * 2);
             qtdLinha *= 10;
             qtdLinha += 70;
             this.printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("comanda", 304, qtdLinha);
@@ -291,10 +403,17 @@ namespace Pizzaria.Classes
                         mr.PrintText(line, 25, new Tratamento().retornaValorEscritoCo((venda.Completos[ii].valorUnitario * venda.Completos[ii++].quantidade)));
                     mr.PrintText(line++, 37, "|");
                 }
+                mr.PrintText(line++, 01, pont);
+                if (venda.valorComissao > 0)
+                {
+                    mr.PrintText(line++, 01, cc.fixRightPont("COUVERT : " + new Tratamento().retornaValorEscrito(venda.valorComissao), 1));
+
+                }
 
                 mr.PrintText(line++, 01, pont);
-                mr.PrintText(line++, 01,cc.fixCenter( "FORMA DE PAGAMENTO : "+formaPagamento, 1));
-                mr.PrintText(line, 01, "|"); mr.PrintText(line, 18, ("TOTAL RS : " + new Tratamento().retornaValorEscrito(venda.valorTotal))); mr.PrintText(line++, 37, "|");
+                                mr.PrintText(line++, 01,cc.fixCenter( "FORMA DE PAGAMENTO : "+formaPagamento, 1));
+               
+                mr.PrintText(line, 01, "|"); mr.PrintText(line, 18, ("TOTAL RS : " + new Tratamento().retornaValorEscrito(venda.valorSomado))); mr.PrintText(line++, 37, "|");
                 mr.PrintText(line, 01, "|"); mr.PrintText(line, 18, ("DINHEIRO : " + new Tratamento().retornaValorEscrito(dinheiro))); mr.PrintText(line++, 37, "|");
                 mr.PrintText(line, 01, "|"); mr.PrintText(line, 18, ("TROCO    : " + new Tratamento().retornaValorEscrito(troco))); mr.PrintText(line++, 37, "|");
                 mr.PrintText(line++, 01, pont);
@@ -321,7 +440,7 @@ namespace Pizzaria.Classes
         }
         public void gerarComprovante()
         {
-           int qtdLinha = 28 + (venda.Completos.Length * 2);
+           int qtdLinha = 32 + (venda.Completos.Length * 2);
            qtdLinha *= 11;
            qtdLinha += 70;
             this.printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("comanda", 304, qtdLinha);
@@ -376,7 +495,12 @@ namespace Pizzaria.Classes
                 }
                 
                 mr.PrintText(line++, 01, pont);
-                mr.PrintText(line++, 01, cc.fixRightPont("TOTAL RS : " + new Tratamento().retornaValorEscrito(venda.valorTotal),1));
+                if (venda.valorComissao > 0)
+                {
+                    mr.PrintText(line++, 01, cc.fixRightPont("COUVERT : " + new Tratamento().retornaValorEscrito(venda.valorComissao), 1));
+                    
+                } 
+                mr.PrintText(line++, 01, cc.fixRightPont("TOTAL RS : " + new Tratamento().retornaValorEscrito(venda.valorSomado), 1));
                 mr.PrintText(line++, 01, pont);
                 //--------------------------------ROTINA GARCON
 
@@ -544,6 +668,8 @@ namespace Pizzaria.Classes
                 DataTable impressora = new Banco().impressora(cod_impressora);
                 MP2032.ConfiguraModeloImpressora(Convert.ToInt16(impressora.Rows[0].ItemArray.GetValue(2)));
                 MP2032.IniciaPorta(impressora.Rows[0].ItemArray.GetValue(3).ToString());//se for internet a porta é o IP
+
+                MP2032.AjustaLarguraPapel(48);
                 //            MP2032.BematechTX(x);//texto q deverá ser impresso
                 MP2032.FormataTX(x + "\r\n\r\n", Convert.ToInt16(impressora.Rows[0].ItemArray.GetValue(4))
                     , Convert.ToInt16(impressora.Rows[0].ItemArray.GetValue(5))
@@ -582,7 +708,10 @@ namespace Pizzaria.Classes
                     String linha;
                     //Ler e exibe as linhas até alcançar o fim do arquivo.
                     while ((linha = sr.ReadLine()) != null)
+                    {
+
                         comanda += linha + "\n";
+                    }
                 }
             }
             catch (Exception e)

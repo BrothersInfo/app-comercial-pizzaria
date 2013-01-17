@@ -218,6 +218,12 @@
       <DependentUpon>Garcon.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Impressao.cs" />
+    <Compile Include="Tela\Manutencao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tela\Manutencao.Designer.cs">
+      <DependentUpon>Manutencao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tela\Pagamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,7 +285,6 @@
       <DependentUpon>Venda.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\VendaFull.cs" />
-    <Compile Include="Classes\VendaHalf.cs" />
     <EmbeddedResource Include="Relatorios\crGarcon.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crGarcon.cs</LastGenOutput>
@@ -324,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tela\Garcon.resx">
       <DependentUpon>Garcon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tela\Manutencao.resx">
+      <DependentUpon>Manutencao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tela\Pagamento.resx">
       <DependentUpon>Pagamento.cs</DependentUpon>

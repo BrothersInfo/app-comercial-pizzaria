@@ -123,22 +123,28 @@ namespace Pizzaria.Tela
                     {
                         for (int j = 0; j < listaProd.Length; j++)
                             if (listaProd[j].Count > 0)
-                                new Impressao(new BancoVenda().carregaVenda(cod_venda)).gerarComandaInterna(listaProd[j].ToArray()
-                                    , mesas);
+                            {
+                            //    new Impressao(new BancoVenda().carregaVenda(cod_venda)).gerarComandaInterna(listaProd[j].ToArray() , mesas);
+                                new Impressao(true, new BancoVenda().carregaVenda(cod_venda)).novoMetodo(listaProd[j].ToArray(), mesas);
+                            }
                     }
                     else
                     {
                         try
                         {
                             VendaFull f = (new BancoVenda().carregaVenda(cod_venda));
-                            Pagamento rec = new Pagamento(f.cod_venda, f.valorTotal, f.mesa, true);
+                            Pagamento rec = new Pagamento(f.cod_venda,f.subValor,f.valorComissao, f.valorSomado, f.mesa, true);
                             this.Visible = false;
                             rec.ShowDialog();
                             if (rec.encerrou)
                             {
                                 for (int j = 0; j < listaProd.Length; j++)
                                     if (listaProd[j].Count > 0)
-                                       new Impressao(new BancoVenda().carregaVenda(cod_venda)).gerarComandaInterna(listaProd[j].ToArray(), mesas);
+                                    { 
+                                       // new Impressao(new BancoVenda().carregaVenda(cod_venda)).gerarComandaInterna(listaProd[j].ToArray(), mesas);
+                                        new Impressao(true,new BancoVenda().carregaVenda(cod_venda)).novoMetodo(listaProd[j].ToArray(), mesas); 
+                                    }
+
                                 MessageBox.Show("VENDA REALIZADA COM SUCESSO", "ATENDIMENDO BALCAO");
                               
                             }

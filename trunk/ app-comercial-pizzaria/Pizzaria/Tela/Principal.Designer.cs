@@ -50,7 +50,6 @@
             this.pbFoto = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lValor = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.tlpGrid = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lApresentacao = new System.Windows.Forms.Label();
@@ -64,6 +63,9 @@
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.ttMsg = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lValor2 = new System.Windows.Forms.Label();
+            this.lValor3 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pLoadForm.SuspendLayout();
             this.tlpColuna.SuspendLayout();
             this.tabLayFullEsquerda.SuspendLayout();
@@ -78,6 +80,7 @@
             this.tlpGrid.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuDireito.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pLoadForm
@@ -315,8 +318,7 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.lValor);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(2, 520);
             this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 4);
@@ -326,27 +328,15 @@
             // 
             // lValor
             // 
-            this.lValor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lValor.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lValor.AutoSize = true;
-            this.lValor.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.lValor.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.lValor.ForeColor = System.Drawing.Color.Red;
-            this.lValor.Location = new System.Drawing.Point(211, 10);
+            this.lValor.Location = new System.Drawing.Point(3, 9);
+            this.lValor.Margin = new System.Windows.Forms.Padding(3, 9, 4, 0);
             this.lValor.Name = "lValor";
-            this.lValor.Size = new System.Drawing.Size(0, 18);
+            this.lValor.Size = new System.Drawing.Size(0, 15);
             this.lValor.TabIndex = 37;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox2.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
-            this.textBox2.Location = new System.Drawing.Point(3, 2);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(155, 33);
-            this.textBox2.TabIndex = 24;
-            this.textBox2.Visible = false;
             // 
             // tlpGrid
             // 
@@ -465,6 +455,41 @@
             this.timer1.Interval = 60000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // lValor2
+            // 
+            this.lValor2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lValor2.AutoSize = true;
+            this.lValor2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.lValor2.ForeColor = System.Drawing.Color.Blue;
+            this.lValor2.Location = new System.Drawing.Point(10, 9);
+            this.lValor2.Margin = new System.Windows.Forms.Padding(3, 9, 4, 0);
+            this.lValor2.Name = "lValor2";
+            this.lValor2.Size = new System.Drawing.Size(0, 15);
+            this.lValor2.TabIndex = 38;
+            // 
+            // lValor3
+            // 
+            this.lValor3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lValor3.AutoSize = true;
+            this.lValor3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.lValor3.ForeColor = System.Drawing.Color.Black;
+            this.lValor3.Location = new System.Drawing.Point(17, 9);
+            this.lValor3.Margin = new System.Windows.Forms.Padding(3, 9, 4, 0);
+            this.lValor3.Name = "lValor3";
+            this.lValor3.Size = new System.Drawing.Size(0, 15);
+            this.lValor3.TabIndex = 39;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.lValor);
+            this.flowLayoutPanel1.Controls.Add(this.lValor2);
+            this.flowLayoutPanel1.Controls.Add(this.lValor3);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(442, 37);
+            this.flowLayoutPanel1.TabIndex = 1;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -495,11 +520,12 @@
             this.ptitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.tlpGrid.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.menuDireito.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -509,7 +535,6 @@
         private System.Windows.Forms.Panel pLoadForm;
         private System.Windows.Forms.TableLayoutPanel tlpColuna;
         private System.Windows.Forms.TableLayoutPanel tabLayFullEsquerda;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Panel pOcupada;
         private System.Windows.Forms.Label lInutil2;
         private System.Windows.Forms.Panel pLivre;
@@ -540,5 +565,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lApresentacao;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lValor3;
+        private System.Windows.Forms.Label lValor2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

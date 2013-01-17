@@ -186,11 +186,11 @@
             this.tlpBotoes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tlpBotoes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpBotoes.Controls.Add(this.pbFechar, 5, 0);
+            this.tlpBotoes.Controls.Add(this.pbConsulta, 3, 0);
             this.tlpBotoes.Controls.Add(this.pbAjuda, 4, 0);
-            this.tlpBotoes.Controls.Add(this.pbRelatorio, 3, 0);
-            this.tlpBotoes.Controls.Add(this.pbAlterar, 2, 0);
-            this.tlpBotoes.Controls.Add(this.pbConsulta, 1, 0);
             this.tlpBotoes.Controls.Add(this.pbCadastro, 0, 0);
+            this.tlpBotoes.Controls.Add(this.pbAlterar, 1, 0);
+            this.tlpBotoes.Controls.Add(this.pbRelatorio, 2, 0);
             this.tlpBotoes.Dock = System.Windows.Forms.DockStyle.Top;
             this.tlpBotoes.Location = new System.Drawing.Point(0, 0);
             this.tlpBotoes.Margin = new System.Windows.Forms.Padding(0);
@@ -224,6 +224,7 @@
             this.pbAjuda.Size = new System.Drawing.Size(91, 46);
             this.pbAjuda.TabIndex = 3;
             this.ttBotao.SetToolTip(this.pbAjuda, "Serviços de Manutenção");
+            this.pbAjuda.Click += new System.EventHandler(this.pbAjuda_Click);
             // 
             // pbRelatorio
             // 
@@ -232,7 +233,7 @@
             this.pbRelatorio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbRelatorio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbRelatorio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbRelatorio.Location = new System.Drawing.Point(298, 4);
+            this.pbRelatorio.Location = new System.Drawing.Point(200, 4);
             this.pbRelatorio.Name = "pbRelatorio";
             this.pbRelatorio.Size = new System.Drawing.Size(91, 46);
             this.pbRelatorio.TabIndex = 2;
@@ -245,7 +246,7 @@
             this.pbAlterar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbAlterar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbAlterar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbAlterar.Location = new System.Drawing.Point(200, 4);
+            this.pbAlterar.Location = new System.Drawing.Point(102, 4);
             this.pbAlterar.Name = "pbAlterar";
             this.pbAlterar.Size = new System.Drawing.Size(91, 46);
             this.pbAlterar.TabIndex = 1;
@@ -258,7 +259,7 @@
             this.pbConsulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbConsulta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbConsulta.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbConsulta.Location = new System.Drawing.Point(102, 4);
+            this.pbConsulta.Location = new System.Drawing.Point(298, 4);
             this.pbConsulta.Name = "pbConsulta";
             this.pbConsulta.Size = new System.Drawing.Size(91, 46);
             this.pbConsulta.TabIndex = 1;
@@ -305,6 +306,7 @@
             this.Name = "Fundo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Fundo_KeyDown);
             this.tlpFundo.ResumeLayout(false);
             this.pCentroFundo.ResumeLayout(false);
             this.pLoadForm.ResumeLayout(false);

@@ -22,48 +22,33 @@ namespace Pizzaria.Tela
         int cod_venda;
         double valor;
         string[] mesas;
-        VendaFull venda;
+
 
         //---
         double recebimento = 0;
          double desconto = 0;
         double troco = -1;
         public bool encerrou = false;
-         public Pagamento(VendaFull vend) {
-            venda = vend;
-            InitializeComponent();
-             carregandoTudo();
-           // mtValor.Focus();
-            posicionamento();
-            
-        }
+        
          String str = string.Empty; 
          public bool isBalcao = false;
-        public Pagamento(int cod_venda , double valor_venda, string [] mesa, bool balcao)
+        public double comissao;
+        public double subValor;
+        public Pagamento(int cod_venda , double subTotal,double comissao, double valorTotal, string [] mesa, bool balcao)
         {
             InitializeComponent();
             this.cod_venda = cod_venda;
-            this.valor = valor_venda;
-            carregandoTudo();
+            this.valor = valorTotal;
+
             mesas = mesa;
             //mtValor.Focus();
             posicionamento();
             isBalcao = balcao;
-           
+            this.subValor = subTotal;
+            this.comissao = comissao;
+            lbTotal.Text = "R$ " + new Tratamento().retornaValorEscrito(valorTotal);
         }
-        public void carregandoTudo()
-        {
-            lbTrocoNumero.Visible = false;
-            lbTroco.Visible = false;
 
-            if (venda == null)
-                lbTotal.Text = "R$ " + new Tratamento().retornaValorEscrito(valor);
-            else
-            {
-                lbTotal.Text = "R$ " + new Tratamento().retornaValorEscrito(venda.valorTotal);
-                valor = venda.valorTotal;
-            }
-        }
         private void FormatarValorMoeda(KeyEventArgs e, TextBox campo)
         {
             int KeyCode = e.KeyValue;
@@ -148,7 +133,6 @@ namespace Pizzaria.Tela
             str = String.Empty;
             tbValor.ForeColor = Color.Red;
         }
-
         private void tbValor_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '\r')
@@ -167,7 +151,7 @@ namespace Pizzaria.Tela
                     lbTroco.Visible = true;
                     lbTrocoNumero.Visible = true;
 
-                    lbTrocoNumero.Text = "RS " + new Tratamento().retornaValorEscrito(troco);
+                    lbTrocoNumero.Text =String.Format("{0:C}", troco);
                     btEncerrar.Focus();
                 }
                 else
@@ -179,12 +163,10 @@ namespace Pizzaria.Tela
 
             }
         }
-
         private void tbValor_KeyUp(object sender, KeyEventArgs e)
         {
             FormatarValorMoeda(e, tbValor);
         }
-
         private void tbValor_Leave(object sender, EventArgs e)
         {
 
@@ -199,7 +181,7 @@ namespace Pizzaria.Tela
                 lbTroco.Visible = true;
                 lbTrocoNumero.Visible = true;
 
-                lbTrocoNumero.Text = "RS " + new Tratamento().retornaValorEscrito(troco);
+                lbTrocoNumero.Text =String.Format("{0:C}", troco); ;
                 btEncerrar.Focus();
                 tbValor.ForeColor = Color.Black;
             }
@@ -211,13 +193,11 @@ namespace Pizzaria.Tela
             }
 
         }
-
         private void tbDesonto_Enter(object sender, EventArgs e)
         {
             str = String.Empty;
             tbDesonto.ForeColor = Color.Red;
         }
-
         private void tbDesonto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '\r')
@@ -236,7 +216,7 @@ namespace Pizzaria.Tela
                         lbTroco.Visible = true;
                         lbTrocoNumero.Visible = true;
 
-                        lbTrocoNumero.Text = "RS " + new Tratamento().retornaValorEscrito(troco);
+                        lbTrocoNumero.Text = String.Format("{0:C}", troco);
                         btEncerrar.Focus();
                     }
                     else
@@ -250,12 +230,10 @@ namespace Pizzaria.Tela
                 catch { }
             }
         }
-
         private void tbDesonto_KeyUp(object sender, KeyEventArgs e)
         {
             FormatarValorMoeda(e, tbDesonto);
         }
-
         private void tbDesonto_Leave(object sender, EventArgs e)
         {
             try
@@ -271,13 +249,12 @@ namespace Pizzaria.Tela
                     lbTroco.Visible = true;
                     lbTrocoNumero.Visible = true;
                     tbDesonto.ForeColor = Color.Black;
-                    lbTrocoNumero.Text = "RS " + new Tratamento().retornaValorEscrito(troco);
+                    lbTrocoNumero.Text = String.Format("{0:C}", troco);
                     btEncerrar.Focus();
                 }
             }
             catch { }
         }
-
         private void btAnular_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -299,7 +276,7 @@ namespace Pizzaria.Tela
                 else pag = 5;
 
                 new BancoVenda().receber(pag, cod_venda);
-                new BancoVenda().encerrarVenda((valor - desconto), cod_venda, mesas, isBalcao);
+                new BancoVenda().encerrarVenda( subValor,comissao, (valor - desconto), cod_venda, mesas, isBalcao);
                 new BancoVenda().atualizaSuper(new BancoVenda().consultaSuper(cod_venda), (valor - desconto));
                 VendaFull temp = new BancoVenda().carregaVenda(cod_venda);
                 if (rbSim.Checked)

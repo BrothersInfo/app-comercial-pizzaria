@@ -789,8 +789,9 @@ namespace Pizzaria.Banco
             DataTable dttTamanho = new DataTable();
 
             new NpgsqlDataAdapter
-                ("INSERT INTO venda(valortotal, datavenda, horario, cod_caixa, aberta, impressao) VALUES ( 0, current_date,current_time, '" +
-                cod_caixa + "', true, false)", Conectar())
+                ("INSERT INTO venda(subValor, datavenda, horario, cod_caixa, aberta, impressao,valorComissao,valorReal) "
+                +"VALUES ( 0, current_date,current_time, '" +
+                cod_caixa + "', true, false, "+new Banco().getValorComissao()+",0)", Conectar())
                 .Fill(new DataTable());
 
             new NpgsqlDataAdapter("select cod_venda from venda order by cod_venda desc limit 1", Conectar()).Fill(dttTamanho);
@@ -873,6 +874,40 @@ namespace Pizzaria.Banco
             string query = "select horario from venda where cod_venda = "+cod_venda;
             new NpgsqlDataAdapter(query, Conectar()).Fill(dtt);
             return dtt.Rows[0].ItemArray.GetValue(0).ToString().Substring(10);
+        }
+        public int getValorComissao()
+        {
+
+            DataTable dtt = new DataTable();
+            new NpgsqlDataAdapter("select valorComissao from comanda order by cod_comanda desc limit 1", Conectar()).
+            Fill(dtt);
+            try
+            {
+                return Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0));
+            }
+            catch { return 0; }
+        }
+        public void setComissao(int comissao)
+        {
+            string query9 = "update comanda set valorComissao = " + comissao;
+            new NpgsqlDataAdapter(query9, Conectar()).Fill(new DataTable());
+            ;
+        }
+        public bool comissaoIsPct()
+        {
+            DataTable dtt = new DataTable();
+            new NpgsqlDataAdapter("select isPct from comanda order by cod_comanda desc limit 1", Conectar()).
+            Fill(dtt);
+            try
+            {
+                return Convert.ToBoolean(dtt.Rows[0].ItemArray.GetValue(0));
+            }
+            catch { return true; }
+        }
+        public void setBoolComissaoIsPct(bool isPct)
+        {
+            string query9 = "update comanda set isPct = " + isPct;
+            new NpgsqlDataAdapter(query9, Conectar()).Fill(new DataTable());
         }
     }
 }

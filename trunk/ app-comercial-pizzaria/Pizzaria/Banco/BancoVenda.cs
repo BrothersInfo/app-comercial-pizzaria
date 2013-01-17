@@ -28,10 +28,13 @@ namespace Pizzaria.Banco
         {
             return new NpgsqlConnection(conexao);
         }
-        public void encerrarVenda(double valor, int cod_venda, string[] mesas, bool isBalcao)
+        public void encerrarVenda(double subValor, double comissao, double valorTotal, int cod_venda, string[] mesas, bool isBalcao)
         {
 
-            new NpgsqlDataAdapter("UPDATE venda   SET aberta = false, valortotal = '" + new Tratamento().retornaValorEscrito(valor).Replace(',', '.') + "' WHERE cod_venda = " + cod_venda, Conectar()).Fill(new DataTable());
+            new NpgsqlDataAdapter("UPDATE venda   SET aberta = false, valorreal = '"
+                + new Tratamento().retornaValorEscrito(valorTotal).Replace(',', '.')
+                + "',subValor = " + new Tratamento().retornaValorEscrito(subValor).Replace(',', '.')
+                + ", valorComissao = " + new Tratamento().retornaValorEscrito(comissao).Replace(',', '.') + " WHERE cod_venda = " + cod_venda, Conectar()).Fill(new DataTable());
 
             int[] i = new Banco().cod_mesa(mesas);
             if(!isBalcao)
@@ -142,9 +145,24 @@ namespace Pizzaria.Banco
                     (int)numero.Rows[j].ItemArray.GetValue(0),gf, valorItemCompleto((int)numero.Rows[j].ItemArray.GetValue(0)));
             }
             //---------------------------------------------------------------
-            string query = "select valorTotal, dataVenda, horario, cod_caixa, aberta,impressao, cod_pagamento from venda where cod_venda =" + cod_venda;
+            string query = "select subValor, dataVenda, horario, cod_caixa, aberta,impressao, cod_pagamento,  valorReal from venda where cod_venda =" + cod_venda;
             numero = new DataTable();
             new NpgsqlDataAdapter(query, Conectar()).Fill(numero);
+
+            double valor = 0;
+            for (int i = 0; i < conjCompleto.Length; i++)
+            {
+                string vlr = "select valorUnitarioCompleto from completo where cod_completo = " 
+                    + (conjCompleto[i].cod_completo);
+                DataTable vl = new DataTable();
+                new NpgsqlDataAdapter(vlr, Conectar()).Fill(vl);
+                double info = Convert.ToDouble(vl.Rows[0].ItemArray.GetValue(0));
+                int quantidade = new BancoInformacao().quantidadeCompletaByCodigo( conjCompleto[i].cod_completo);
+                valor += (info * quantidade);
+
+
+            }
+
 
             try
             {
@@ -153,17 +171,20 @@ namespace Pizzaria.Banco
                         conjCompleto, 
                         cod_venda, 
                         (int)numero.Rows[0].ItemArray.GetValue(3), 
-                        (double)numero.Rows[0].ItemArray.GetValue(0),
+                        valor,
                     numero.Rows[0].ItemArray.GetValue(2).ToString(), 
                     numero.Rows[0].ItemArray.GetValue(1).ToString(), 
-                    mesa);
+                    mesa,new Banco().comissaoIsPct(),
+                    new Banco().getValorComissao(),
+                    (double)numero.Rows[0].ItemArray.GetValue(7));
 
                 saida.super = retornoSuper(cod_venda);
                 return saida;
             }
             catch
             {
-                VendaFull saida = new VendaFull(conjCompleto, cod_venda, 1, 0, null, null, mesa);
+                VendaFull saida = new VendaFull(conjCompleto, cod_venda, 1, 0, null, null, mesa
+                    , new Banco().comissaoIsPct(), new Banco().getValorComissao(), (double)numero.Rows[0].ItemArray.GetValue(7));
                 saida.super = retornoSuper(cod_venda);
                 return saida;
             }
@@ -279,7 +300,22 @@ namespace Pizzaria.Banco
                 DataTable dt = new DataTable();
                 new NpgsqlDataAdapter(completo, Conectar()).Fill(dt);
             }
-            string vendas = "update venda set valortotal = " + new Tratamento().retornaValorEscrito(valor).Replace(',', '.') + ", cancelado = true, aberta = false, horario = current_time where cod_venda = " + cod_venda;
+            double valorSomado;
+
+            double comissao= new Banco().getValorComissao();
+            if (new Banco().comissaoIsPct())
+            {
+                valorSomado = ((comissao / 100) *valor) + valor;
+                valorSomado = ((comissao / 100) * valor);
+            }
+            else
+                valorSomado = valor + comissao;
+         
+
+            string vendas = "update venda set subValor = " + new Tratamento().retornaValorEscrito(valor).Replace(',', '.')
+                + ", cancelado = true, aberta = false, horario = current_time , valorComissao = " 
+                + new Tratamento().retornaValorEscrito(comissao).Replace(',', '.')
+                + ", valorReal = " + new Tratamento().retornaValorEscrito(valorSomado).Replace(',', '.') + " where cod_venda = " + cod_venda;
             new NpgsqlDataAdapter(vendas, Conectar()).Fill(compl);
         }
         public void unirVendas(string [] mesasDaVenda, string mesaDestino)

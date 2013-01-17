@@ -10,24 +10,21 @@ namespace Pizzaria.Classes
     using Pizzaria.Banco;
     public class VendaFull
     {
+        public bool isComissaoPct;
+        public double valorComissao;
         public int super;
         public int cod_pagamento;
         public int cod_venda;
         public int cod_caixa;
-        public double valorTotal;
+        public double valorSomado;
+        public double subValor;
         public string horario;
         public string dia;
         public string[] mesa;
         public Completa[] Completos;
         public int qtdItens;
        // public int[] garcon;
-        public VendaHalf subItem;//-----------------------------------------------------------------------------
 
-
-        public bool isHalfNull()
-        {
-            return subItem.Equals(null);
-        }
         public void ordenaProduto()
         {
 
@@ -46,23 +43,9 @@ namespace Pizzaria.Classes
             }
 
         }
-        public void inserirProdutos(int[] codigo)
-        {
-            double tot = 0;
-            Completa[] conj = new Completa[codigo.Length];
 
-            for (int x = 0; x < conj.Length; x++)
-                conj[x] = new BancoVenda().getCompleta(codigo[x], false);
-
-            for (int v = 0; v < codigo.Length; v++)
-                tot += (conj[v].valorUnitario * conj[v].quantidade);
-
-            subItem = new VendaHalf(cod_venda, cod_caixa, tot, DateTime.Now.ToShortTimeString(), dia, mesa);
-            subItem.setCompleta(conj);
-        }
-
-        public VendaFull(Completa[] conjProd, int cod_venda, int cod_caixa, double valorTotal,
-            string horario, string dia, string[] mesas)
+        public VendaFull(Completa[] conjProd, int cod_venda, int cod_caixa, double subValor,
+            string horario, string dia, string[] mesas, bool isPctComissao, double valorComissao, double valorSomado)
         {
             try
             {
@@ -70,13 +53,31 @@ namespace Pizzaria.Classes
                 Completos = conjProd;
                 this.cod_venda = cod_venda;
                 this.cod_caixa = cod_caixa;
-                this.valorTotal = valorTotal;
+                this.valorSomado = valorSomado;
                 this.horario = horario;
                 this.dia = dia;
                 this.mesa = mesas;
-                if(this.valorTotal ==0)
-                for (int i = 0; i < conjProd.Length; i++)
-                    this.valorTotal += (conjProd[i].valorUnitario * conjProd[i].quantidade);
+                this.isComissaoPct = isPctComissao;
+                this.valorComissao = valorComissao;
+                this.subValor = 0;
+                if (this.subValor == 0)
+                {
+                    for (int i = 0; i < conjProd.Length; i++)
+                        this.subValor += (conjProd[i].valorUnitario * conjProd[i].quantidade);
+
+                    if (isPctComissao)
+                    {
+                        this.valorSomado = ((valorComissao / 100) * this.subValor) + this.subValor;
+                        this.valorSomado = Math.Round(this.valorSomado, 2);
+                        this.valorComissao = ((valorComissao / 100) * this.subValor);
+                        this.valorComissao = Math.Round(this.valorComissao, 2);
+                    }
+                    else
+                    {
+                        this.valorSomado = this.subValor + valorComissao;
+                        this.valorSomado = Math.Round(this.valorSomado, 2);
+                    }
+                }
             }
             catch { }
         }
