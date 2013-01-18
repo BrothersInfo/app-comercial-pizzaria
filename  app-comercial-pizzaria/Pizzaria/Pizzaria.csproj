@@ -127,23 +127,22 @@
     <Compile Include="Classes\Entrega.cs" />
     <Compile Include="Classes\GarconFisico.cs" />
     <Compile Include="Classes\LeituraX.cs" />
-    <Compile Include="Relatorios\crGarcon.cs">
+    <Compile Include="Relatorios\RelatorioVenda\crVenda3.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>crGarcon.rpt</DependentUpon>
+      <DependentUpon>crVenda3.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Relatorios\crReVenda.cs">
+    <Compile Include="Relatorios\RelatorioVenda\dsVenda3.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>crReVenda.rpt</DependentUpon>
-      <SubType>Component</SubType>
+      <DependentUpon>dsVenda3.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Relatorios\reVenda.cs">
+    <Compile Include="Relatorios\RelatorioVenda\frpVenda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Relatorios\reVenda.Designer.cs">
-      <DependentUpon>reVenda.cs</DependentUpon>
+    <Compile Include="Relatorios\RelatorioVenda\frpVenda.Designer.cs">
+      <DependentUpon>frpVenda.cs</DependentUpon>
     </Compile>
     <Compile Include="Tela\Abertura.cs">
       <SubType>Form</SubType>
@@ -285,16 +284,12 @@
       <DependentUpon>Venda.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\VendaFull.cs" />
-    <EmbeddedResource Include="Relatorios\crGarcon.rpt">
+    <EmbeddedResource Include="Relatorios\RelatorioVenda\crVenda3.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>crGarcon.cs</LastGenOutput>
+      <LastGenOutput>crVenda3.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Relatorios\crReVenda.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>crReVenda.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Relatorios\reVenda.resx">
-      <DependentUpon>reVenda.cs</DependentUpon>
+    <EmbeddedResource Include="Relatorios\RelatorioVenda\frpVenda.resx">
+      <DependentUpon>frpVenda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportView.rdlc" />
     <EmbeddedResource Include="Tela\Abertura.resx">
@@ -370,7 +365,9 @@
     <EmbeddedResource Include="Tela\Venda.resx">
       <DependentUpon>Venda.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
     <None Include="Pizzaria.Classes.CRelatorio.datasource" />
@@ -386,6 +383,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Relatorios\RelatorioVenda\dsVenda3.xsc">
+      <DependentUpon>dsVenda3.xsd</DependentUpon>
+    </None>
+    <None Include="Relatorios\RelatorioVenda\dsVenda3.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsVenda3.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Relatorios\RelatorioVenda\dsVenda3.xss">
+      <DependentUpon>dsVenda3.xsd</DependentUpon>
+    </None>
     <None Include="Resources\BTnewAvancar.png" />
   </ItemGroup>
   <ItemGroup>
@@ -691,6 +699,9 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Relatorios\RelatorioVenda2\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
