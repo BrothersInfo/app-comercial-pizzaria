@@ -201,7 +201,7 @@ namespace Pizzaria.Banco
         public DataTable consultaVendaGeral(string []data, int order, bool hasFiltro, int filtro, int valorFiltro, bool ascen, bool cancelado)
         {
             string query = "select "
-                + "v.cod_venda as \"Id da Venda\", "
+                + "to_char(v.cod_venda,'00000') as \"Id_Venda\", "                
                 + "(select mm.descricao from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) inner join venda vv on (vv.cod_venda = vmm.cod_venda) where v.cod_venda = vv.cod_venda order by vv.cod_venda desc limit 1) as \"Venda\","
                 + " (CASE v.horario > '06:00'  WHEN true THEN to_char(v.dataVenda, 'DD MM YYYY') ELSE to_char( v.dataVenda - 1, 'DD MM YYYY')||'* Madrugada'   end ) as \"Data\", to_char(v.horario, 'HH24:MI:SS') as \"Horario\", x.nomeCaixa as \"Caixa\" ,"
                 + "(select gg.nome from garcon gg inner join GarconCompleto ccg on (ccg.cod_garcon = gg.cod_garcon) "
@@ -211,7 +211,8 @@ namespace Pizzaria.Banco
             if (!cancelado) query += " (p.descricao) as \"Pagamento\",";
             else            query += " 'Não Houve' as \" Pagamento\", "; 
                 
-                    query +=" (CASE v.valorReal >0  WHEN true THEN (trim(to_char( v.valorReal,'9999.99'))) ELSE '0.00'  end ) as \"Valor\","
+                 //   query +=" (CASE v.valorReal >0  WHEN true THEN (trim(to_char( v.valorReal,'9999.99'))) ELSE '0.00'  end ) as \"Valor\","
+            query += "v.valorReal  as \"Valor\","
               
                 +" (select x.descricao from ambiente x where x.cod_ambiente = (select mm.cod_ambiente from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) "
 	               + " inner join venda vv on (vv.cod_venda = vmm.cod_venda) "

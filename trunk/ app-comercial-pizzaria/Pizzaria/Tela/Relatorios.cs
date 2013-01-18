@@ -322,6 +322,7 @@ namespace Pizzaria.Tela
                     lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size++).ToString());
                 }
             }
+
         }
         public void limpaListView()
         {
@@ -434,81 +435,11 @@ namespace Pizzaria.Tela
 
         private void btEscolhaProduto_Click(object sender, EventArgs e)
         {
-          //  GeneratePDF(retorno);
-            CRelatorio cr = new CRelatorio(6);
-            cr.coluna1 = "um";
-            cr.coluna2 = "dois";
-            cr.coluna3 = "tres";
-            cr.coluna4 = "quatro";
-            cr.coluna5 = "cinco";
-            cr.coluna6 = "seis";
-           
-           
-          //  new PdfGenerator(retorno).ShowDialog();
-        }
-        private void GeneratePDF(DataTable dataTable)
-        {
-            // cria o PDF
+
+            Relatorios.RelatorioVenda.frpVenda  venda = new Relatorios.RelatorioVenda.frpVenda (retorno);
+            venda.Show();
             
-            Document pdfDoc = new Document(PageSize.A4, 30, 30, 40, 25);
-            // trabalha em memória
- 
-            // cria um Writer para o documento
-            PdfWriter.GetInstance(pdfDoc, new
-              FileStream("exemplo.pdf", FileMode.Create));
-            //------------------------------
-            MemoryStream mStream = new MemoryStream();
-            PdfWriter writer = PdfWriter.GetInstance(pdfDoc, mStream);
-
-            // numero de colunas e linhas
-            int cols = dataTable.Columns.Count;
-            int rows = dataTable.Rows.Count;
-            pdfDoc.Open();
-            // cria tabela
-            int [] ff = new int[cols];
-
-             for (int i = 0; i < cols; i++)
-                 ff[i] = 9;
-
-            PdfPTable pdfTable = new PdfPTable(cols);
-           // pdfTable.SetWidths(new int[8] {21, 21, 21, 21, 21,21,21, 20});
-            // cabeçalhos
-            for (int i = 0; i < cols; i++)
-            {
-           
-
-               iTextSharp.text.  Font ColFont =  FontFactory.GetFont("Arial",12,BaseColor.BLUE);//   (FontFactory.HELVETICA, 12, Font.Bold);
-                PdfPCell cellCols = new PdfPCell();
-                Chunk chunkCols = new Chunk(dataTable.Columns[i].ColumnName, ColFont);
-
-               // (new Phrase(dataTable.Columns[i].ColumnName, ColFont)));
-                cellCols.Phrase = new Phrase(dataTable.Columns[i].ColumnName, ColFont);
-                pdfTable.AddCell(cellCols);
-
-            }
-          
-            // dados
-            for (int k = 0; k < rows; k++)
-                for (int j = 0; j < cols; j++)
-                {
-                    PdfPCell cellRows = new PdfPCell();
-                    
-                    iTextSharp.text.Font RowFont = FontFactory.GetFont(FontFactory.HELVETICA, 11);
-                    Chunk chunkRows = new Chunk(dataTable.Rows[k][j].ToString(), RowFont);
-   
-                    cellRows.Phrase = new Phrase(chunkRows);
-                    pdfTable.AddCell(cellRows);
-                }
-          //  pdfTable.SetTotalWidth(ff);
-            pdfDoc.Add(pdfTable);
-           // pdfDoc.Open();
- 
-            pdfDoc.Close();
-         
-            // joga pro navegador
-          
         }
-
         private void btLeituraX_Click(object sender, EventArgs e)
         {
             string data = cbDiaX.SelectedItem + "/" + (cbMesX.SelectedIndex+1) + "/" + cbAnoX.SelectedItem;

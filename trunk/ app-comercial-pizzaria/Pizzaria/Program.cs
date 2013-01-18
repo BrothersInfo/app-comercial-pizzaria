@@ -32,9 +32,9 @@ namespace Pizzaria
              //   f.ShowDialog();
               //  f.ShowIcon = true;
 
-
-               Application.Run(new Fundo()                    );
-            //     Application.Run(new Relatorios.reVenda());
+            //    Application.Run(new Tela.TipoRelatorio());
+        Application.Run(new Fundo()                    );
+          //       Application.Run(new Relatorios.reVenda());
            }            catch { return; }
             
         }
