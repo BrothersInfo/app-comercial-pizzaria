@@ -211,13 +211,8 @@ namespace Pizzaria.Banco
             if (!cancelado) query += " (p.descricao) as \"Pagamento\",";
             else            query += " 'Não Houve' as \" Pagamento\", "; 
                 
-<<<<<<< .mine
                  //   query +=" (CASE v.valorReal >0  WHEN true THEN (trim(to_char( v.valorReal,'9999.99'))) ELSE '0.00'  end ) as \"Valor\","
             query += "v.valorReal  as \"Valor\","// " trim(to_char(v.valorReal,'9999.99'))  as \"Valor\","
-=======
-                 //   query +=" (CASE v.valorReal >0  WHEN true THEN (trim(to_char( v.valorReal,'9999.99'))) ELSE '0.00'  end ) as \"Valor\","
-            query += "v.valorReal  as \"Valor\","
->>>>>>> .r49
               
                 +" (select x.descricao from ambiente x where x.cod_ambiente = (select mm.cod_ambiente from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) "
 	               + " inner join venda vv on (vv.cod_venda = vmm.cod_venda) "

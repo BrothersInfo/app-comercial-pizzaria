@@ -449,7 +449,6 @@ namespace Pizzaria.Tela
 
         private void btEscolhaProduto_Click(object sender, EventArgs e)
         {
-<<<<<<< .mine
             if (retorno.IsInitialized && retorno.Rows.Count > 0)
             {
                 if (btConsultarVenda.Visible)
@@ -481,12 +480,6 @@ namespace Pizzaria.Tela
             else {
                 MessageBox.Show("RELATÓRIO VAZIO", "MENSAGEM", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-=======
-
-            Relatorios.RelatorioVenda.frpVenda  venda = new Relatorios.RelatorioVenda.frpVenda (retorno);
-            venda.Show();
-            
->>>>>>> .r49
         }
         private void btLeituraX_Click(object sender, EventArgs e)
         {
