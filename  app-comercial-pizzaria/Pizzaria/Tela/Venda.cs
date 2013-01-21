@@ -244,7 +244,7 @@ namespace Pizzaria.Tela
             { 
                 p = new Impressao(venda);
                 new BancoVenda().imprimiu(venda.cod_venda);
-                p.gerarComprovante();
+                p.imprimirComanda(1,venda);
             }
             catch
             {
@@ -323,7 +323,7 @@ namespace Pizzaria.Tela
                         cc.quantidade = 1;
                         cc.segmentoImprimir = new Banco().segmentoDoProduto(cc.produto[0].cod_produto);
                         Impressao p = new Impressao(venda);
-                        p.gerarComandaInterna(new Completa[] { cc }, venda.mesa);
+                        p.gerarComandaCozinha(new Completa[] { cc }, venda.mesa, false);
                     }
                 }
                 else
@@ -338,7 +338,7 @@ namespace Pizzaria.Tela
                             cc.quantidade = 1;
                             cc.segmentoImprimir = new Banco().segmentoDoProduto(cc.produto[0].cod_produto);
                             Impressao p = new Impressao(venda);
-                            p.gerarComandaInterna(new Completa[] { cc }, venda.mesa);
+                            p.gerarComandaCozinha(new Completa[] { cc }, venda.mesa, false);
                         }
                     }
 
@@ -437,7 +437,7 @@ namespace Pizzaria.Tela
                         cc.quantidade = 1;
                         cc.segmentoImprimir = new Banco().segmentoDoProduto(cc.produto[0].cod_produto);
                         Impressao p = new Impressao(venda);
-                        p.gerarComandaInterna(new Completa[] { cc }, venda.mesa);
+                        p.gerarComandaCozinha(new Completa[] { cc }, venda.mesa,false );
                     }
                 }
                 else
@@ -452,7 +452,7 @@ namespace Pizzaria.Tela
                             cc.quantidade = 1;
                             cc.segmentoImprimir = new Banco().segmentoDoProduto(cc.produto[0].cod_produto);
                             Impressao p = new Impressao(venda);
-                            p.gerarComandaInterna(new Completa[] { cc }, venda.mesa);
+                            p.gerarComandaCozinha(new Completa[] { cc }, venda.mesa, false);
                         }
                     }
 
@@ -481,24 +481,28 @@ namespace Pizzaria.Tela
         }
         private void ttRemoverTodos_Click(object sender, EventArgs e)
         {
-            try
+            if (MessageBox.Show("Tem certeza Disso ?", "Confirme sua Opcao",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1
+                , MessageBoxOptions.ServiceNotification) == DialogResult.Yes)
             {
-                int lvd = lvInfo.FocusedItem.Index;
-                Completa item = venda.Completos[lvd];
+                try
+                {
+                    int lvd = lvInfo.FocusedItem.Index;
+                    Completa item = venda.Completos[lvd];
 
-                new BancoInformacao().deletarCompleto(item.cod_completo, item.quantidade);
+                    new BancoInformacao().deletarCompleto(item.cod_completo, item.quantidade);
 
-                venda = new BancoVenda().carregaVenda(venda.cod_venda);
-                tamanhoMTVALOR(venda);
-                carregarListView(venda);
+                    venda = new BancoVenda().carregaVenda(venda.cod_venda);
+                    tamanhoMTVALOR(venda);
+                    carregarListView(venda);
+                }
+                catch
+                {
+                    return;
+                }
+
             }
-            catch
-            {
-                return;
-            }
-
         }
-
       
         }
 

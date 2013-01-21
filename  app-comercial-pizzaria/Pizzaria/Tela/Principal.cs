@@ -270,9 +270,10 @@ namespace Pizzaria.Tela
                 if (MessageBox.Show("Confirma Impressão?", "Confirme sua Opcao", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     int cod_venda = new Banco().codigoDaVendaPelaMesa(listVenda.FocusedItem.Text);
-                    Impressao p = new Impressao(new BancoVenda().carregaVenda(cod_venda));
+                    VendaFull vd = new BancoVenda().carregaVenda(cod_venda);
+                    Impressao p = new Impressao(vd);
                     new BancoVenda().imprimiu(cod_venda);
-                    p.gerarComprovante();
+                    p.imprimirComanda(1, vd);
                     new BancoVenda().imprimiu(cod_venda);
                     carregarMesa(true);
 
@@ -303,11 +304,15 @@ namespace Pizzaria.Tela
         }
         private void MSProduto_Click(object sender, EventArgs e)
         {
+
+
             int cod_venda = new Banco().codigoDaVendaPelaMesa(listVenda.FocusedItem.Text);
             VendaFull f = (new BancoVenda().carregaVenda(cod_venda));
            new AddProduto(f.cod_venda).ShowDialog();
             new BancoVenda().naoImprimiu(cod_venda);
             carregarMesa(true);
+
+
         }
         private void listVenda_ItemActivate(object sender, EventArgs e)
         {

@@ -27,6 +27,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_0F91112CB13D481AB768CB86FABD127E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_1124C43F87BA42EB8DACC39A777FBB80"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -51,7 +57,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_31C00DD769B146BC81EA9F932D02FC7A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_3BAA8B4B2F3F4C019F4DA99D2BADA1E7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3F10860AF2434550969BDEE5DBF2AEEF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -93,6 +111,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_6DD0A3F75A934DBF82924089E17A3A8C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_77983BCB239F2B1A61A78834E2B6608B"
         "OwnerKey" = "8:_132405F65BB2E760DA7BC7C4EBF33C12"
         "MsmSig" = "8:_UNDEFINED"
@@ -129,6 +153,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_ABBFBB8C290249828AEDB28AA411727C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_AF033C6840064F93AB8556D3456E3045"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -141,20 +171,38 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_C07CDC34942645EF9782B48F6A9864AA"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C964A5C738D345C596AC46EFFB371D37"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_DA5C3FDC73F96D6CEC6F1A7740629F9E"
-        "OwnerKey" = "8:_253CAFD97F604658A99B157B463A61B3"
+        "MsmKey" = "8:_E8B08050201D4A218F6D49CE5277D50C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EB5C1BDCB6A34BB7902F33ECC31254DB"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_F132F8CB118FD3D19572C0324D94422D"
         "OwnerKey" = "8:_253CAFD97F604658A99B157B463A61B3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F4FCC027861447D6B6354863ED02295A"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -173,12 +221,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_FB187A347CFFC683E4B2F307DCB37C0F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DA5C3FDC73F96D6CEC6F1A7740629F9E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -254,6 +296,26 @@
                     {
                     "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
                     "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Visual.C++.10.0.x86"
+                    {
+                    "Name" = "8:Visual C++ 2010 Runtime Libraries (x86)"
+                    "ProductCode" = "8:Microsoft.Visual.C++.10.0.x86"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.VisualBasic.PowerPacks.10.0"
+                    {
+                    "Name" = "8:Microsoft Visual Basic PowerPacks 10.0"
+                    "ProductCode" = "8:Microsoft.VisualBasic.PowerPacks.10.0"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:SAP.CrystalReports14.NET.2.0"
+                    {
+                    "Name" = "8:SAP Crystal Reports Runtime Engine for .NET Framework 4.0"
+                    "ProductCode" = "8:SAP.CrystalReports14.NET.2.0"
                     }
                 }
             }
@@ -347,6 +409,26 @@
             {
             "SourcePath" = "8:..\\Pizzaria\\fotos Produtos\\Sobremesa 4.jpg"
             "TargetName" = "8:Sobremesa 4.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_D220FA9928454703883F52759C1EABA9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0F91112CB13D481AB768CB86FABD127E"
+            {
+            "SourcePath" = "8:..\\Pizzaria\\Relatorios\\RelatorioProdutoQtd\\crProdutoQtd2.cs"
+            "TargetName" = "8:crProdutoQtd2.cs"
             "Tag" = "8:"
             "Folder" = "8:_D220FA9928454703883F52759C1EABA9"
             "Condition" = "8:"
@@ -465,10 +547,50 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_31C00DD769B146BC81EA9F932D02FC7A"
+            {
+            "SourcePath" = "8:..\\Pizzaria\\Resources\\logo.bmp"
+            "TargetName" = "8:logo.bmp"
+            "Tag" = "8:"
+            "Folder" = "8:_D220FA9928454703883F52759C1EABA9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3BAA8B4B2F3F4C019F4DA99D2BADA1E7"
             {
             "SourcePath" = "8:..\\Pizzaria\\fotos Produtos\\Outros 8.jpg"
             "TargetName" = "8:Outros 8.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_D220FA9928454703883F52759C1EABA9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3F10860AF2434550969BDEE5DBF2AEEF"
+            {
+            "SourcePath" = "8:..\\Pizzaria\\Relatorios\\RelatorioGarcon\\crGarcon2.cs"
+            "TargetName" = "8:crGarcon2.cs"
             "Tag" = "8:"
             "Folder" = "8:_D220FA9928454703883F52759C1EABA9"
             "Condition" = "8:"
@@ -649,6 +771,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6DD0A3F75A934DBF82924089E17A3A8C"
+            {
+            "SourcePath" = "8:..\\Pizzaria\\Relatorios\\RelatorioProdutoValor\\crProdutoValor2.rpt"
+            "TargetName" = "8:crProdutoValor2.rpt"
+            "Tag" = "8:"
+            "Folder" = "8:_D220FA9928454703883F52759C1EABA9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_77983BCB239F2B1A61A78834E2B6608B"
             {
             "AssemblyRegister" = "3:1"
@@ -780,6 +922,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_ABBFBB8C290249828AEDB28AA411727C"
+            {
+            "SourcePath" = "8:..\\Pizzaria\\Relatorios\\RelatorioGarcon\\crGarcon2.rpt"
+            "TargetName" = "8:crGarcon2.rpt"
+            "Tag" = "8:"
+            "Folder" = "8:_D220FA9928454703883F52759C1EABA9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AF033C6840064F93AB8556D3456E3045"
             {
             "SourcePath" = "8:..\\Pizzaria\\fotos Produtos\\Vinho 11.jpg"
@@ -820,6 +982,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C07CDC34942645EF9782B48F6A9864AA"
+            {
+            "SourcePath" = "8:..\\Pizzaria\\Relatorios\\RelatorioProdutoQtd\\crProdutoQtd2.rpt"
+            "TargetName" = "8:crProdutoQtd2.rpt"
+            "Tag" = "8:"
+            "Folder" = "8:_D220FA9928454703883F52759C1EABA9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C964A5C738D345C596AC46EFFB371D37"
             {
             "SourcePath" = "8:..\\Pizzaria\\fotos Produtos\\Suco 12.jpg"
@@ -840,21 +1022,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DA5C3FDC73F96D6CEC6F1A7740629F9E"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E8B08050201D4A218F6D49CE5277D50C"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:itextsharp, Version=5.3.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_DA5C3FDC73F96D6CEC6F1A7740629F9E"
-                    {
-                    "Name" = "8:itextsharp.DLL"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:itextsharp.DLL"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\Pizzaria\\Relatorios\\RelatorioVenda\\crVenda3.rpt"
+            "TargetName" = "8:crVenda3.rpt"
             "Tag" = "8:"
             "Folder" = "8:_D220FA9928454703883F52759C1EABA9"
             "Condition" = "8:"
@@ -868,7 +1039,27 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EB5C1BDCB6A34BB7902F33ECC31254DB"
+            {
+            "SourcePath" = "8:..\\Pizzaria\\Relatorios\\RelatorioVenda\\crVenda3.cs"
+            "TargetName" = "8:crVenda3.cs"
+            "Tag" = "8:"
+            "Folder" = "8:_D220FA9928454703883F52759C1EABA9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F132F8CB118FD3D19572C0324D94422D"
@@ -900,6 +1091,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F4FCC027861447D6B6354863ED02295A"
+            {
+            "SourcePath" = "8:..\\Pizzaria\\Relatorios\\RelatorioProdutoValor\\crProdutoValor2.cs"
+            "TargetName" = "8:crProdutoValor2.cs"
+            "Tag" = "8:"
+            "Folder" = "8:_D220FA9928454703883F52759C1EABA9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FB187A347CFFC683E4B2F307DCB37C0F"
@@ -990,7 +1201,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Titan"
         "ProductCode" = "8:{D1DC6A37-1C23-44AC-9A07-C9C53288F4B0}"
-        "PackageCode" = "8:{F88C4B91-D787-4F41-BC1A-879D8C9E17AE}"
+        "PackageCode" = "8:{FD7C8D2A-08E3-4C05-8264-9DA51DC007E8}"
         "UpgradeCode" = "8:{7E286C34-8DF6-4E12-8885-1A09F9266D8C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

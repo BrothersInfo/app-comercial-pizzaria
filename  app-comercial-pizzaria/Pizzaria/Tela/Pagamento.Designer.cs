@@ -111,6 +111,7 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cupom Não Fiscal - Imprimir?";
+            this.groupBox1.Visible = false;
             // 
             // rbNao
             // 

@@ -319,7 +319,21 @@ namespace Pizzaria.Tela
                 int size = 1;
                 while (size<tabela.Rows[i].ItemArray.Length)
                 {
-                    lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size++).ToString());
+                    if (Object.ReferenceEquals(((double)2).GetType(), tabela.Rows[i].ItemArray.GetValue(size).GetType()))
+                    {
+
+                        double valor = (double)tabela.Rows[i].ItemArray.GetValue(size);
+                        lvConsInfo.Items[i].SubItems.Add(valor.ToString("F2"));
+                    }
+                    else
+                    {
+                        lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size).ToString());
+                    }
+                   
+                   // try  {   double valor = (double)tabela.Rows[i].ItemArray.GetValue(size);
+                   //     lvConsInfo.Items[i].SubItems.Add(valor.ToString("F2")); }
+                   // catch { lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size).ToString());    }
+                    size++;
                 }
             }
 
@@ -355,10 +369,10 @@ namespace Pizzaria.Tela
                 , cbGarconTipo.SelectedItem.ToString()
                 , cbOrdenarGarcon.SelectedIndex
                 , rbGarconCres.Checked);
+            retorno = tabela;
             carregarListView(tabela);
             lValor.Text = somarValoresGarcon(tabela,12);
 
-            retorno = tabela;
         }
         public string somarValoresGarcon(DataTable tabela, int x)
         {
@@ -435,10 +449,44 @@ namespace Pizzaria.Tela
 
         private void btEscolhaProduto_Click(object sender, EventArgs e)
         {
+<<<<<<< .mine
+            if (retorno.IsInitialized && retorno.Rows.Count > 0)
+            {
+                if (btConsultarVenda.Visible)
+                {
+                    Relatorios.RelatorioVenda.frpVenda venda = new Relatorios.RelatorioVenda.frpVenda(retorno);
+                    venda.Show();
+                }
+                else if (btConsultarGarcon.Visible)
+                {
+
+                    Relatorios.RelatorioGarcon.frpGarcon garcon = new Relatorios.RelatorioGarcon.frpGarcon(retorno);
+                    garcon.Show();
+                }
+                else if (btConsultarProduto.Visible)
+                {
+                    if (rbProdutQuant.Checked)
+                    {
+
+                        Relatorios.RelatorioProdutoQtd.frpProdutoQtd produtoQtd = new Relatorios.RelatorioProdutoQtd.frpProdutoQtd(retorno);
+                        produtoQtd.Show();
+                    }
+                    else
+                    {
+                        Relatorios.RelatorioProdutoValor.frpProdutoValor produtoValor = new Relatorios.RelatorioProdutoValor.frpProdutoValor(retorno);
+                        produtoValor.Show();
+                    }
+                }
+            }
+            else {
+                MessageBox.Show("RELATÓRIO VAZIO", "MENSAGEM", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+=======
 
             Relatorios.RelatorioVenda.frpVenda  venda = new Relatorios.RelatorioVenda.frpVenda (retorno);
             venda.Show();
             
+>>>>>>> .r49
         }
         private void btLeituraX_Click(object sender, EventArgs e)
         {
@@ -491,7 +539,7 @@ namespace Pizzaria.Tela
             }
         }
 
-
+        
  
     }
 }

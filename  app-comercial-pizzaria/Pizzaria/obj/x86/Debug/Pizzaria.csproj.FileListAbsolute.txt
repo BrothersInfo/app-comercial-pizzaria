@@ -266,7 +266,10 @@ F:\Proj\pizzaria\Pizzaria\obj\x86\Debug\RdlCompile.cache
 F:\Proj\pizzaria\Pizzaria\obj\x86\Debug\RdlCompile.compiled
 F:\Proj\pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.exe.manifest
 F:\Proj\pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.application
+<<<<<<< .mine
+=======
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.csprojResolveAssemblyReference.cache
+>>>>>>> .r49
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.Abertura.resources
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.AddProduto.resources
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Tela.AlterarForm.resources
@@ -304,4 +307,20 @@ D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.exe.manifest
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.application
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.exe
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.pdb
+<<<<<<< .mine
 D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Relatorios.RelatorioVenda.frpVenda.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Relatorios.RelatorioGarcon.frpGarcon.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Relatorios.RelatorioProdutoQtd.frpProdutoQtd.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Relatorios.RelatorioProdutoValor.frpProdutoValor.resources
+D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Relatorios\RelatorioProdutoQtd\crProdutoQtd2.rpt
+D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Relatorios\RelatorioProdutoValor\crProdutoValor2.rpt
+D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Relatorios\RelatorioGarcon\crGarcon2.cs
+D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Relatorios\RelatorioProdutoQtd\crProdutoQtd2.cs
+D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Relatorios\RelatorioProdutoValor\crProdutoValor2.cs
+D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Relatorios\RelatorioGarcon\crGarcon2.rpt
+D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Relatorios\RelatorioVenda\crVenda.rpt
+D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Relatorios\RelatorioVenda\crVenda.cs
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.csprojResolveAssemblyReference.cache
+=======
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.Relatorios.RelatorioVenda.frpVenda.resources
+>>>>>>> .r49

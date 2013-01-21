@@ -196,8 +196,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Abertura";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Abertura_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Abertura_KeyPress);

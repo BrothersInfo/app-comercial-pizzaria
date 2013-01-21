@@ -211,8 +211,13 @@ namespace Pizzaria.Banco
             if (!cancelado) query += " (p.descricao) as \"Pagamento\",";
             else            query += " 'Não Houve' as \" Pagamento\", "; 
                 
+<<<<<<< .mine
+                 //   query +=" (CASE v.valorReal >0  WHEN true THEN (trim(to_char( v.valorReal,'9999.99'))) ELSE '0.00'  end ) as \"Valor\","
+            query += "v.valorReal  as \"Valor\","// " trim(to_char(v.valorReal,'9999.99'))  as \"Valor\","
+=======
                  //   query +=" (CASE v.valorReal >0  WHEN true THEN (trim(to_char( v.valorReal,'9999.99'))) ELSE '0.00'  end ) as \"Valor\","
             query += "v.valorReal  as \"Valor\","
+>>>>>>> .r49
               
                 +" (select x.descricao from ambiente x where x.cod_ambiente = (select mm.cod_ambiente from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) "
 	               + " inner join venda vv on (vv.cod_venda = vmm.cod_venda) "
@@ -270,10 +275,11 @@ namespace Pizzaria.Banco
         {
             string query =
                 "select (CASE v.horario > '06:00'  WHEN true THEN to_char(v.dataVenda, 'DD MM YYYY') " +
-                    "ELSE to_char( v.dataVenda - 1, 'DD MM YYYY')||'* Madrugada'   end ) as \"Data da Venda\" " +
-                ", to_char(gc.horario, 'HH24:MI:SS') as \"Hora Entrega\" " +
+                    "ELSE to_char( v.dataVenda - 1, 'DD MM YYYY')||'* Madrugada'   end ) as \"Data\" " +
+                ", to_char(gc.horario, 'HH24:MI:SS') as \"HoraEntrega\" " +
                 ", g.nome as \"Garcon\" " +
-                ",v.cod_venda as \"ID da Venda\" " +
+                " ,to_char(v.cod_venda,'00000') as \"Id_Venda\" "    +
+             
                 ",(select mm.descricao from mesa mm inner join vendaMesa vmm on(vmm.cod_mesa = mm.cod_mesa) " +
                     "inner join venda vv on (vv.cod_venda = vmm.cod_venda) " +
                     "where v.cod_venda = vv.cod_venda order by vv.cod_venda desc limit 1) as \"Mesa\" " +
@@ -292,21 +298,22 @@ namespace Pizzaria.Banco
                 ",(select s.descricao from divisor d inner join divisorSubDivisor ds on(d.cod_divisao = ds.cod_divisao) "+
                         "inner join subdivisor s on (s.cod_subDivisor= ds.cod_subdivisor) "+
                         "inner join tamanhoDIvisor td on (td.cod_divisao = d.cod_divisao) "+
-                        "where   s.valor = cp.porcentagem and td.cod_tamanho = tt.cod_tamanho order by s.descricao desc limit 1) as \"Parcionamento\" "+
-                ",(case c.valorUnitarioCompleto > 0 when true then "+
-	                "(trim(to_char((c.valorUnitarioCompleto*(select s.valor from divisor d "+ 
+                        "where   s.valor = cp.porcentagem and td.cod_tamanho = tt.cod_tamanho "+
+                        "order by s.descricao desc limit 1) as \"Divisao\" "+
+            
+	                " , (c.valorUnitarioCompleto*(select s.valor from divisor d "+ 
 	                "inner join divisorSubDivisor ds on(d.cod_divisao = ds.cod_divisao) "+
                         "inner join subdivisor s on (s.cod_subDivisor= ds.cod_subdivisor)  "+
                         "where   s.valor = cp.porcentagem order by s.descricao desc limit 1)) "+
-                        ",'9999.99'))) else '0.00' end) as \"Valor Unitario\" "+
+                        " as \"ValorUnit\" "+
                 ",gc.quantidade as \"Quantidade\" "+
                 ",(case c.valorUnitarioCompleto > 0 when true then "+
-	                "(trim(to_char(( "+
-	                "(c.valorUnitarioCompleto*(select s.valor from divisor d "+
+                   
+	                "((c.valorUnitarioCompleto*(select s.valor from divisor d "+
 	                "inner join divisorSubDivisor ds on(d.cod_divisao = ds.cod_divisao) "+
                         "inner join subdivisor s on (s.cod_subDivisor= ds.cod_subdivisor) "+ 
-                        "where   s.valor = cp.porcentagem order by s.descricao desc limit 1))* gc.quantidade) "+
-                        ",'9999.99'))) else '0.00' end) as \"Sub Total\" "+ 
+                        "where   s.valor = cp.porcentagem order by s.descricao desc limit 1))  * gc.quantidade) "+
+                        " else '0' end) as \"SubTotal\" " + 
                 ",(CASE c.cancelado  WHEN true THEN 'Extornado' ELSE 'Vendido'  end ) as \"Entrega\" ";
 
             query +=
@@ -351,10 +358,10 @@ namespace Pizzaria.Banco
                 " select "
                  + " (select pp.descricao from produto pp where pp.cod_produto = p.cod_produto) as \"Produto\" "
                  + " , (select pp.nome from tipo pp where pp.cod_tipo = t.cod_tipo) as \"Categoria\" "
-                 + " , (select pp.descricao from tamanho pp where pp.cod_tamanho = tt.cod_tamanho) as \"Sub Categoria\" "
+                 + " , (select pp.descricao from tamanho pp where pp.cod_tamanho = tt.cod_tamanho) as \"SubCategoria\" "
                  + " ,(select s.descricao from divisor d inner join divisorSubDivisor ds on(d.cod_divisao = ds.cod_divisao)"
                      + " inner join subdivisor s on (s.cod_subDivisor= ds.cod_subdivisor) "
-                     + " where   s.valor = cp.porcentagem order by s.descricao desc limit 1) as \"Parcionamento\" ";
+                     + " where   s.valor = cp.porcentagem order by s.descricao desc limit 1) as \"Divisao\" ";
 
 
             string quantidade =
@@ -368,13 +375,13 @@ namespace Pizzaria.Banco
             + "where p7.cod_produto = p.cod_produto  and tt7.cod_tamanho = tt.cod_tamanho "
             + "and cp7.porcentagem = cp.porcentagem ";
             if (hasValor) quantidade += " and c7.valorUnitariocompleto = c.valorUnitarioCompleto ";
-            quantidade +=" and c7.cancelado = c.cancelado) as \"Quantidade\" ";
+            quantidade +=" and c7.cancelado = c.cancelado and c7.cod_completo = c.cod_completo) as \"Quantidade\" ";
             query += quantidade;
             string valorUnitario_subTotal =
                  " , (CASE (c.valorUnitarioCompleto*(cast(cp.porcentagem as double precision))) >0  "
-                     + " WHEN true THEN (trim(to_char( (c.valorUnitarioCompleto*(cast(cp.porcentagem as double precision) )),'9999.99'))) "
-                     + " ELSE '0.00'  end ) as \"Valor Unitario\""
-             + ", (select (trim(to_char(((c.valorUnitarioCompleto *  cp.porcentagem )*(select sum(gc7.quantidade) "
+                     + " WHEN true THEN ((c.valorUnitarioCompleto*(cast(cp.porcentagem as double precision) ))) "
+                     + " ELSE '0'  end ) as \"ValorUnit\""
+             + ",  (select ( ((c.valorUnitarioCompleto *  cp.porcentagem )*(select sum(gc7.quantidade) "
             + "from garcon g7 inner join  garconCompleto gc7 on(gc7.cod_garcon = g7.cod_garcon) "
             + "inner join completo c7 on (c7.cod_completo = gc7.cod_completo) "
             + "inner join completoProduto cp7        on (cp7.cod_completo = c7.cod_completo)  "
@@ -383,7 +390,7 @@ namespace Pizzaria.Banco
             + "inner join tamanho tt7     	     on (tt7.cod_tamanho  = pt7.cod_tamanho and tt7.cod_tamanho =  cp7.cod_tamanho)  "
             + "inner join tipo t7 	             on (t7.cod_tipo      = p7.cod_tipo) "
             + "where p7.cod_produto = p.cod_produto  and tt7.cod_tamanho = tt.cod_tamanho "
-            + "and cp7.porcentagem = cp.porcentagem and c7.valorUnitariocompleto = c.valorUnitarioCompleto and c7.cancelado = c.cancelado)) ,'9999.99')))) as \"Sub total\" ";
+            + "and cp7.porcentagem = cp.porcentagem and c7.valorUnitariocompleto = c.valorUnitarioCompleto and c7.cancelado = c.cancelado )))) as \"SubTotal\" ";
 
             if (hasValor)
                 query += valorUnitario_subTotal;
@@ -412,7 +419,7 @@ namespace Pizzaria.Banco
                 if (hasProduto)
                     query += " and p.cod_produto = " + cod_produto;
             }
-            query += " group by t.cod_tipo,p.cod_produto, tt.cod_tamanho,cp.porcentagem , c.cancelado ";
+            query += " group by t.cod_tipo,p.cod_produto, tt.cod_tamanho,cp.porcentagem , c.cancelado , c.cod_completo";
             if(hasValor)
                 query+=
                 " , c.valorUnitarioCompleto  ";
