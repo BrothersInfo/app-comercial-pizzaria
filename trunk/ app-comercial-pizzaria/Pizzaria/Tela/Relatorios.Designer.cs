@@ -1417,13 +1417,13 @@
             // btEscolhaProduto
             // 
             this.btEscolhaProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btEscolhaProduto.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btEscolhaProduto.ForeColor = System.Drawing.Color.Maroon;
-            this.btEscolhaProduto.Location = new System.Drawing.Point(495, 3);
+            this.btEscolhaProduto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.btEscolhaProduto.ForeColor = System.Drawing.Color.Black;
+            this.btEscolhaProduto.Location = new System.Drawing.Point(541, 7);
             this.btEscolhaProduto.Name = "btEscolhaProduto";
-            this.btEscolhaProduto.Size = new System.Drawing.Size(291, 33);
+            this.btEscolhaProduto.Size = new System.Drawing.Size(198, 33);
             this.btEscolhaProduto.TabIndex = 47;
-            this.btEscolhaProduto.Text = "EXPORTAR PARA PDF";
+            this.btEscolhaProduto.Text = "EXPORTAR";
             this.btEscolhaProduto.UseVisualStyleBackColor = true;
             this.btEscolhaProduto.Click += new System.EventHandler(this.btEscolhaProduto_Click);
             // 

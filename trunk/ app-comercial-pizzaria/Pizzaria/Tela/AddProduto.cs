@@ -113,9 +113,18 @@ namespace Pizzaria.Tela
                 }
 
 
-                if(MessageBox.Show("DESEJA ACRESCENTAR OUTRO ITEM","INFORMAÇÂO",MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button1,MessageBoxOptions.DefaultDesktopOnly) == DialogResult.Yes)
+               // if(MessageBox.Show("DESEJA ACRESCENTAR OUTRO ITEM","INFORMAÇÂO",
+               //     MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button1
+               //     ,MessageBoxOptions.DefaultDesktopOnly) == DialogResult.Yes)
+                if (MessageBox.Show("ACRESCENTAR OUTRO ITEM??", "CONFIRME SUA OPCAO", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                
                 {
-                    limpaCampoCodigoProduto();                    mtCodigo.Visible = true;                    mtCodigo.Focus();
+                    limpaCampoCodigoProduto(); this.Focus(); mtCodigo.Visible = true; mtCodigo.Focus();
+                    numQuantidade.Value = 1; 
+                    this.mtCodigo_KeyPress(sender,new KeyPressEventArgs ('\r'));
+                   
+
+                    
                 }
                 else
                 {
@@ -124,8 +133,8 @@ namespace Pizzaria.Tela
                         for (int j = 0; j < listaProd.Length; j++)
                             if (listaProd[j].Count > 0)
                             {
-                            //    new Impressao(new BancoVenda().carregaVenda(cod_venda)).gerarComandaInterna(listaProd[j].ToArray() , mesas);
-                                new Impressao(true, new BancoVenda().carregaVenda(cod_venda)).novoMetodo(listaProd[j].ToArray(), mesas);
+                                new Impressao(new BancoVenda().carregaVenda(cod_venda)).gerarComandaCozinha(listaProd[j].ToArray(), mesas, false);
+                             //   new Impressao(true, new BancoVenda().carregaVenda(cod_venda)).novoMetodo(listaProd[j].ToArray(), mesas);
                             }
                     }
                     else
@@ -178,6 +187,7 @@ namespace Pizzaria.Tela
             load(cod_venda);
             new BancoVenda().superVenda(this.cod_venda);//cria a super venda e associa a venda criada
             //garconDaVenda();
+            //TopMost = true;
             mtCodigo_KeyPress(null, null);
         }
         public AddProduto(string[] mesasDaVenda, short cod_caixa)//Venda Sendo Aberta
@@ -193,6 +203,8 @@ namespace Pizzaria.Tela
             load(cod_venda);
             //mtCodigo.Focus();
             garconDaVenda();
+         //   TopMost = true;
+
             mtCodigo_KeyPress(null, null);
           
 
@@ -206,6 +218,7 @@ namespace Pizzaria.Tela
             load(cod_venda);
             garconDaVenda();
             preencherTexto(new BancoVenda().mesasDaVenda(cod_venda));
+            // TopMost = true;
             mtCodigo_KeyPress(null, null);
         }
         public void load(int cod_venda)
@@ -235,7 +248,7 @@ namespace Pizzaria.Tela
             double yy = (13.5 * valr) + 200;
             this.Location = new Point((Screen.PrimaryScreen.Bounds.Width - this.Size.Width) / 2, (int)yy);
 
-           this.TopMost = true;
+          // this.TopMost = true;
         }
         private void btGarc_Click(object sender, EventArgs e)
         {
@@ -254,7 +267,7 @@ namespace Pizzaria.Tela
                     if (listaProd[j].Count > 0)
                     {
                         Impressao p = new Impressao(new BancoVenda().carregaVenda(cod_venda));
-                        p.gerarComandaInterna(listaProd[j].ToArray(), mesas);
+                        p.gerarComandaCozinha(listaProd[j].ToArray(), mesas, false);
                     }
                 }
             }
@@ -344,7 +357,7 @@ namespace Pizzaria.Tela
                 lbMista.Visible = false;
                 
                 mtValor.Visible = false; lbRS.Visible = false;
-                
+                mtCodigo.Focus();
                 
             }
         }
@@ -745,6 +758,21 @@ namespace Pizzaria.Tela
                 case Keys.Escape://Voltar Tela
                     btBack_Click(sender, null);
                     break;
+                case Keys.F1:
+                    btConsulta1_Click(sender, null);
+                    break;
+                case Keys.F2:
+                    if(btConsulta2.Visible)
+                    btConsulta2_Click(sender, null);
+                    break;
+                case Keys.F3:
+                    if (btConsulta3.Visible)
+                    btConsulta3_Click(sender, null);
+                    break;
+                case Keys.F4:
+                    if (btConsulta4.Visible)
+                    btConsulta4_Click(sender, null);
+                    break;
             }
         }
         private void cbMista_SelectedIndexChanged(object sender, EventArgs e)
@@ -933,6 +961,14 @@ namespace Pizzaria.Tela
             LQuantidade.ForeColor = Color.Black;
             numQuantidade.ForeColor = Color.Black;
         }
+
+        private void AddProduto_Load(object sender, EventArgs e)
+        {
+            mtCodigo.Focus();
+            this.ProcessTabKey(true);
+        }
+
+
     //700 linhas
     }
 }

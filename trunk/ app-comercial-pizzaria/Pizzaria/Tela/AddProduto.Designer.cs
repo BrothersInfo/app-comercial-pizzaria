@@ -30,8 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddProduto));
             this.panFundo = new System.Windows.Forms.Panel();
+            this.LCodigo = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tbNoticia = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -49,7 +50,6 @@
             this.btGarc = new System.Windows.Forms.Button();
             this.btBack = new System.Windows.Forms.Button();
             this.lbMesa = new System.Windows.Forms.Label();
-            this.LCodigo = new System.Windows.Forms.Label();
             this.panelDesignCodigo = new System.Windows.Forms.Panel();
             this.lbNomePizza4 = new System.Windows.Forms.Label();
             this.lbNomePizza3 = new System.Windows.Forms.Label();
@@ -90,13 +90,13 @@
             // 
             this.panFundo.BackColor = System.Drawing.Color.White;
             this.panFundo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panFundo.Controls.Add(this.LCodigo);
+            this.panFundo.Controls.Add(this.label1);
             this.panFundo.Controls.Add(this.panel3);
-            this.panFundo.Controls.Add(this.label2);
             this.panFundo.Controls.Add(this.panel2);
             this.panFundo.Controls.Add(this.panel1);
             this.panFundo.Controls.Add(this.btBack);
             this.panFundo.Controls.Add(this.lbMesa);
-            this.panFundo.Controls.Add(this.LCodigo);
             this.panFundo.Controls.Add(this.panelDesignCodigo);
             this.panFundo.Controls.Add(this.panelValor);
             this.panFundo.Controls.Add(this.btEscolhaProduto);
@@ -108,36 +108,46 @@
             this.panFundo.Size = new System.Drawing.Size(947, 304);
             this.panFundo.TabIndex = 2;
             // 
+            // LCodigo
+            // 
+            this.LCodigo.AutoSize = true;
+            this.LCodigo.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LCodigo.Location = new System.Drawing.Point(159, 30);
+            this.LCodigo.Name = "LCodigo";
+            this.LCodigo.Size = new System.Drawing.Size(239, 24);
+            this.LCodigo.TabIndex = 26;
+            this.LCodigo.Text = "CODIGO DO PRODUTO";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(3, 249);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 36);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Observação\r\nInterna";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.BackgroundImage = global::Pizzaria.Properties.Resources.LogoTitan;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Location = new System.Drawing.Point(758, 60);
+            this.panel3.Location = new System.Drawing.Point(758, 61);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(176, 107);
             this.panel3.TabIndex = 19;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F);
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(9, 249);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 36);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Observação\r\nInterna";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.tbNoticia);
-            this.panel2.Location = new System.Drawing.Point(103, 243);
+            this.panel2.Location = new System.Drawing.Point(108, 243);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(322, 47);
+            this.panel2.Size = new System.Drawing.Size(317, 47);
             this.panel2.TabIndex = 19;
             // 
             // tbNoticia
@@ -164,7 +174,7 @@
             this.panel1.Controls.Add(this.LQuantidade);
             this.panel1.Controls.Add(this.lbGarcon);
             this.panel1.Controls.Add(this.btGarc);
-            this.panel1.Location = new System.Drawing.Point(429, 60);
+            this.panel1.Location = new System.Drawing.Point(429, 61);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(322, 169);
             this.panel1.TabIndex = 22;
@@ -341,14 +351,14 @@
             // 
             // btBack
             // 
-            this.btBack.BackgroundImage = global::Pizzaria.Properties.Resources.BtCancelar;
             this.btBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btBack.Font = new System.Drawing.Font("Comic Sans MS", 8F, System.Drawing.FontStyle.Bold);
-            this.btBack.ForeColor = System.Drawing.Color.White;
+            this.btBack.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold);
+            this.btBack.ForeColor = System.Drawing.Color.Black;
             this.btBack.Location = new System.Drawing.Point(758, 243);
             this.btBack.Name = "btBack";
             this.btBack.Size = new System.Drawing.Size(180, 48);
             this.btBack.TabIndex = 21;
+            this.btBack.Text = "VOLTAR";
             this.btBack.UseVisualStyleBackColor = true;
             this.btBack.Click += new System.EventHandler(this.btBack_Click);
             // 
@@ -362,16 +372,6 @@
             this.lbMesa.TabIndex = 20;
             this.lbMesa.Text = "label1";
             // 
-            // LCodigo
-            // 
-            this.LCodigo.AutoSize = true;
-            this.LCodigo.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LCodigo.Location = new System.Drawing.Point(150, 33);
-            this.LCodigo.Name = "LCodigo";
-            this.LCodigo.Size = new System.Drawing.Size(239, 24);
-            this.LCodigo.TabIndex = 3;
-            this.LCodigo.Text = "CODIGO DO PRODUTO";
-            // 
             // panelDesignCodigo
             // 
             this.panelDesignCodigo.BackColor = System.Drawing.Color.White;
@@ -382,7 +382,7 @@
             this.panelDesignCodigo.Controls.Add(this.lbNomePizza1);
             this.panelDesignCodigo.Controls.Add(this.pDescricao);
             this.panelDesignCodigo.Controls.Add(this.layoutCodigo);
-            this.panelDesignCodigo.Location = new System.Drawing.Point(12, 60);
+            this.panelDesignCodigo.Location = new System.Drawing.Point(12, 61);
             this.panelDesignCodigo.Name = "panelDesignCodigo";
             this.panelDesignCodigo.Size = new System.Drawing.Size(411, 169);
             this.panelDesignCodigo.TabIndex = 1;
@@ -506,11 +506,13 @@
             // 
             // btConsulta1
             // 
-            this.btConsulta1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btConsulta1.BackgroundImage")));
+            this.btConsulta1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btConsulta1.BackgroundImage = global::Pizzaria.Properties.Resources.F11;
             this.btConsulta1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btConsulta1.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
             this.btConsulta1.Location = new System.Drawing.Point(3, 3);
             this.btConsulta1.Name = "btConsulta1";
-            this.btConsulta1.Size = new System.Drawing.Size(36, 31);
+            this.btConsulta1.Size = new System.Drawing.Size(49, 31);
             this.btConsulta1.TabIndex = 17;
             this.btConsulta1.UseVisualStyleBackColor = true;
             this.btConsulta1.Click += new System.EventHandler(this.btConsulta1_Click);
@@ -518,11 +520,11 @@
             // mtCodigo
             // 
             this.mtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtCodigo.Location = new System.Drawing.Point(45, 3);
+            this.mtCodigo.Location = new System.Drawing.Point(58, 3);
             this.mtCodigo.Mask = "00000";
             this.mtCodigo.Name = "mtCodigo";
-            this.mtCodigo.Size = new System.Drawing.Size(81, 32);
-            this.mtCodigo.TabIndex = 3;
+            this.mtCodigo.Size = new System.Drawing.Size(64, 32);
+            this.mtCodigo.TabIndex = 1;
             this.mtCodigo.ValidatingType = typeof(int);
             this.mtCodigo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtCodigo_MouseClick);
             this.mtCodigo.Enter += new System.EventHandler(this.mtCodigo_Enter);
@@ -531,11 +533,12 @@
             // 
             // btConsulta2
             // 
-            this.btConsulta2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btConsulta2.BackgroundImage")));
+            this.btConsulta2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btConsulta2.BackgroundImage = global::Pizzaria.Properties.Resources.F2;
             this.btConsulta2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btConsulta2.Location = new System.Drawing.Point(3, 41);
             this.btConsulta2.Name = "btConsulta2";
-            this.btConsulta2.Size = new System.Drawing.Size(36, 31);
+            this.btConsulta2.Size = new System.Drawing.Size(49, 31);
             this.btConsulta2.TabIndex = 17;
             this.btConsulta2.UseVisualStyleBackColor = true;
             this.btConsulta2.Visible = false;
@@ -544,10 +547,10 @@
             // mtCodigo1
             // 
             this.mtCodigo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtCodigo1.Location = new System.Drawing.Point(45, 41);
+            this.mtCodigo1.Location = new System.Drawing.Point(58, 41);
             this.mtCodigo1.Mask = "00000";
             this.mtCodigo1.Name = "mtCodigo1";
-            this.mtCodigo1.Size = new System.Drawing.Size(81, 32);
+            this.mtCodigo1.Size = new System.Drawing.Size(64, 32);
             this.mtCodigo1.TabIndex = 1;
             this.mtCodigo1.ValidatingType = typeof(int);
             this.mtCodigo1.Visible = false;
@@ -557,11 +560,12 @@
             // 
             // btConsulta3
             // 
-            this.btConsulta3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btConsulta3.BackgroundImage")));
+            this.btConsulta3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btConsulta3.BackgroundImage = global::Pizzaria.Properties.Resources.F3;
             this.btConsulta3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btConsulta3.Location = new System.Drawing.Point(3, 79);
             this.btConsulta3.Name = "btConsulta3";
-            this.btConsulta3.Size = new System.Drawing.Size(36, 31);
+            this.btConsulta3.Size = new System.Drawing.Size(49, 31);
             this.btConsulta3.TabIndex = 17;
             this.btConsulta3.UseVisualStyleBackColor = true;
             this.btConsulta3.Visible = false;
@@ -570,10 +574,10 @@
             // mtCodigo2
             // 
             this.mtCodigo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtCodigo2.Location = new System.Drawing.Point(45, 79);
+            this.mtCodigo2.Location = new System.Drawing.Point(58, 79);
             this.mtCodigo2.Mask = "00000";
             this.mtCodigo2.Name = "mtCodigo2";
-            this.mtCodigo2.Size = new System.Drawing.Size(81, 32);
+            this.mtCodigo2.Size = new System.Drawing.Size(64, 32);
             this.mtCodigo2.TabIndex = 2;
             this.mtCodigo2.ValidatingType = typeof(int);
             this.mtCodigo2.Visible = false;
@@ -583,11 +587,12 @@
             // 
             // btConsulta4
             // 
-            this.btConsulta4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btConsulta4.BackgroundImage")));
+            this.btConsulta4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btConsulta4.BackgroundImage = global::Pizzaria.Properties.Resources.F4;
             this.btConsulta4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btConsulta4.Location = new System.Drawing.Point(3, 117);
             this.btConsulta4.Name = "btConsulta4";
-            this.btConsulta4.Size = new System.Drawing.Size(36, 31);
+            this.btConsulta4.Size = new System.Drawing.Size(49, 31);
             this.btConsulta4.TabIndex = 16;
             this.btConsulta4.UseVisualStyleBackColor = true;
             this.btConsulta4.Visible = false;
@@ -596,10 +601,10 @@
             // mtCodigo3
             // 
             this.mtCodigo3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtCodigo3.Location = new System.Drawing.Point(45, 117);
+            this.mtCodigo3.Location = new System.Drawing.Point(58, 117);
             this.mtCodigo3.Mask = "00000";
             this.mtCodigo3.Name = "mtCodigo3";
-            this.mtCodigo3.Size = new System.Drawing.Size(81, 32);
+            this.mtCodigo3.Size = new System.Drawing.Size(64, 32);
             this.mtCodigo3.TabIndex = 3;
             this.mtCodigo3.ValidatingType = typeof(int);
             this.mtCodigo3.Visible = false;
@@ -641,11 +646,11 @@
             // 
             // btEscolhaProduto
             // 
-            this.btEscolhaProduto.BackgroundImage = global::Pizzaria.Properties.Resources.BtInserir;
+            this.btEscolhaProduto.BackgroundImage = global::Pizzaria.Properties.Resources.BtConfirmar;
             this.btEscolhaProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btEscolhaProduto.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btEscolhaProduto.ForeColor = System.Drawing.Color.Maroon;
-            this.btEscolhaProduto.Location = new System.Drawing.Point(758, 173);
+            this.btEscolhaProduto.Location = new System.Drawing.Point(758, 174);
             this.btEscolhaProduto.Name = "btEscolhaProduto";
             this.btEscolhaProduto.Size = new System.Drawing.Size(180, 56);
             this.btEscolhaProduto.TabIndex = 11;
@@ -668,8 +673,8 @@
             this.lineShape1.Name = "lineShape1";
             this.lineShape1.X1 = 963;
             this.lineShape1.X2 = 0;
-            this.lineShape1.Y1 = 30;
-            this.lineShape1.Y2 = 30;
+            this.lineShape1.Y1 = 28;
+            this.lineShape1.Y2 = 28;
             // 
             // AddProduto
             // 
@@ -688,7 +693,7 @@
             this.MinimumSize = new System.Drawing.Size(963, 250);
             this.Name = "AddProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.TopMost = true;
+            this.Load += new System.EventHandler(this.AddProduto_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddProduto_KeyDown);
             this.panFundo.ResumeLayout(false);
             this.panFundo.PerformLayout();
@@ -725,7 +730,6 @@
         private System.Windows.Forms.ComboBox cbGarLivre;
         private System.Windows.Forms.Button btBack;
         private System.Windows.Forms.Label lbMesa;
-        private System.Windows.Forms.Label LCodigo;
         private System.Windows.Forms.Panel panelDesignCodigo;
         private System.Windows.Forms.Label lbNomePizza4;
         private System.Windows.Forms.Label lbNomePizza3;
@@ -755,9 +759,10 @@
         private System.Windows.Forms.ComboBox cbGarVen;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox tbNoticia;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label LCodigo;
+        private System.Windows.Forms.Label label1;
     }
 }

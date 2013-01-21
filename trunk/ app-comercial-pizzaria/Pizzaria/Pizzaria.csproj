@@ -127,6 +127,100 @@
     <Compile Include="Classes\Entrega.cs" />
     <Compile Include="Classes\GarconFisico.cs" />
     <Compile Include="Classes\LeituraX.cs" />
+<<<<<<< .mine
+    <Compile Include="Relatorios\RelatorioGarcon\crGarcon2.cs">
+      <DependentUpon>crGarcon2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+=======
+    <Compile Include="Relatorios\RelatorioVenda\crVenda3.cs">
+>>>>>>> .r49
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioGarcon\dsGarcon.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+<<<<<<< .mine
+      <DependentUpon>dsGarcon.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioGarcon\frpGarcon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioGarcon\frpGarcon.Designer.cs">
+      <DependentUpon>frpGarcon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioProdutoQtd\crProdutoQtd2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crProdutoQtd2.rpt</DependentUpon>
+=======
+      <DependentUpon>crVenda3.rpt</DependentUpon>
+>>>>>>> .r49
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+<<<<<<< .mine
+    <Compile Include="Relatorios\RelatorioProdutoQtd\dsProdutoQtd.cs">
+      <DependentUpon>dsProdutoQtd.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioProdutoQtd\dsProdutoQtd.Designer.cs">
+=======
+    <Compile Include="Relatorios\RelatorioVenda\dsVenda3.Designer.cs">
+>>>>>>> .r49
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+<<<<<<< .mine
+      <DependentUpon>dsProdutoQtd.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioProdutoQtd\frpProdutoQtd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioProdutoQtd\frpProdutoQtd.Designer.cs">
+      <DependentUpon>frpProdutoQtd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioProdutoValor\crProdutoValor2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crProdutoValor2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+=======
+      <DependentUpon>dsVenda3.xsd</DependentUpon>
+>>>>>>> .r49
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+<<<<<<< .mine
+    <Compile Include="Relatorios\RelatorioProdutoValor\dsProdutoValor.cs">
+      <DependentUpon>dsProdutoValor.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioProdutoValor\dsProdutoValor.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsProdutoValor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioProdutoValor\frpProdutoValor.cs">
+=======
+    <Compile Include="Relatorios\RelatorioVenda\frpVenda.cs">
+>>>>>>> .r49
+      <SubType>Form</SubType>
+    </Compile>
+<<<<<<< .mine
+    <Compile Include="Relatorios\RelatorioProdutoValor\frpProdutoValor.Designer.cs">
+      <DependentUpon>frpProdutoValor.cs</DependentUpon>
+=======
+    <Compile Include="Relatorios\RelatorioVenda\frpVenda.Designer.cs">
+      <DependentUpon>frpVenda.cs</DependentUpon>
+>>>>>>> .r49
+    </Compile>
+    <Compile Include="Relatorios\RelatorioVenda\crVenda.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crVenda.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Relatorios\RelatorioVenda\crVenda3.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -284,9 +378,54 @@
       <DependentUpon>Venda.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\VendaFull.cs" />
+<<<<<<< .mine
+    <EmbeddedResource Include="Relatorios\RelatorioGarcon\crGarcon2.rpt">
+=======
+    <EmbeddedResource Include="Relatorios\RelatorioVenda\crVenda3.rpt">
+>>>>>>> .r49
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+<<<<<<< .mine
+      <LastGenOutput>crGarcon2.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+=======
+      <LastGenOutput>crVenda3.cs</LastGenOutput>
+>>>>>>> .r49
+    </EmbeddedResource>
+<<<<<<< .mine
+    <EmbeddedResource Include="Relatorios\RelatorioGarcon\frpGarcon.resx">
+      <DependentUpon>frpGarcon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\RelatorioProdutoQtd\crProdutoQtd2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crProdutoQtd2.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+=======
+    <EmbeddedResource Include="Relatorios\RelatorioVenda\frpVenda.resx">
+      <DependentUpon>frpVenda.cs</DependentUpon>
+>>>>>>> .r49
+    </EmbeddedResource>
+<<<<<<< .mine
+    <EmbeddedResource Include="Relatorios\RelatorioProdutoQtd\frpProdutoQtd.resx">
+      <DependentUpon>frpProdutoQtd.cs</DependentUpon>
+    </EmbeddedResource>
+=======
+>>>>>>> .r49
+    <EmbeddedResource Include="Relatorios\RelatorioProdutoValor\crProdutoValor2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crProdutoValor2.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\RelatorioProdutoValor\frpProdutoValor.resx">
+      <DependentUpon>frpProdutoValor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Relatorios\RelatorioVenda\crVenda3.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crVenda3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\RelatorioVenda\crVenda.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crVenda.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Relatorios\RelatorioVenda\frpVenda.resx">
       <DependentUpon>frpVenda.cs</DependentUpon>
@@ -383,6 +522,40 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< .mine
+    <None Include="Relatorios\RelatorioGarcon\dsGarcon.xsc">
+      <DependentUpon>dsGarcon.xsd</DependentUpon>
+    </None>
+    <None Include="Relatorios\RelatorioGarcon\dsGarcon.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsGarcon.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Relatorios\RelatorioGarcon\dsGarcon.xss">
+      <DependentUpon>dsGarcon.xsd</DependentUpon>
+    </None>
+    <None Include="Relatorios\RelatorioProdutoQtd\dsProdutoQtd.xsc">
+      <DependentUpon>dsProdutoQtd.xsd</DependentUpon>
+    </None>
+    <None Include="Relatorios\RelatorioProdutoQtd\dsProdutoQtd.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsProdutoQtd.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Relatorios\RelatorioProdutoQtd\dsProdutoQtd.xss">
+      <DependentUpon>dsProdutoQtd.xsd</DependentUpon>
+    </None>
+    <None Include="Relatorios\RelatorioProdutoValor\dsProdutoValor.xsc">
+      <DependentUpon>dsProdutoValor.xsd</DependentUpon>
+    </None>
+    <None Include="Relatorios\RelatorioProdutoValor\dsProdutoValor.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsProdutoValor.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Relatorios\RelatorioProdutoValor\dsProdutoValor.xss">
+      <DependentUpon>dsProdutoValor.xsd</DependentUpon>
+    </None>
     <None Include="Relatorios\RelatorioVenda\dsVenda3.xsc">
       <DependentUpon>dsVenda3.xsd</DependentUpon>
     </None>
@@ -394,9 +567,26 @@
     <None Include="Relatorios\RelatorioVenda\dsVenda3.xss">
       <DependentUpon>dsVenda3.xsd</DependentUpon>
     </None>
+=======
+    <None Include="Relatorios\RelatorioVenda\dsVenda3.xsc">
+      <DependentUpon>dsVenda3.xsd</DependentUpon>
+    </None>
+    <None Include="Relatorios\RelatorioVenda\dsVenda3.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsVenda3.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Relatorios\RelatorioVenda\dsVenda3.xss">
+      <DependentUpon>dsVenda3.xsd</DependentUpon>
+    </None>
+>>>>>>> .r49
     <None Include="Resources\BTnewAvancar.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\F4.png" />
+    <None Include="Resources\F3.png" />
+    <None Include="Resources\F2.png" />
+    <None Include="Resources\F1.png" />
     <None Include="Resources\BtSeparar.png" />
     <None Include="Resources\BtAgrupar.png" />
     <None Include="Resources\Add-128.png" />
@@ -421,6 +611,7 @@
     <None Include="Resources\BtCancelar.png" />
     <None Include="fotos Produtos\Delirios.png" />
     <None Include="fotos Produtos\LogoTitan.png" />
+    <None Include="bin\Debug\logo.bmp" />
     <Content Include="icone.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -700,9 +891,13 @@
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>
+<<<<<<< .mine
+  <ItemGroup />
+=======
   <ItemGroup>
     <Folder Include="Relatorios\RelatorioVenda2\" />
   </ItemGroup>
+>>>>>>> .r49
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

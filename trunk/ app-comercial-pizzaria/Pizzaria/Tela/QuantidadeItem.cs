@@ -31,9 +31,9 @@ namespace Pizzaria.Tela
             {
                 produto.quantidade = (int)numQuantidade.Value;
                 produto.garconImprimir = produto.garcons[0].nome;
-                produto.segmentoImprimir = "REIMPRESSAO |\n" + " | - " + new Banco.Banco().segmentoDoProduto(produto.produto[0].cod_produto);
+                produto.segmentoImprimir = new Banco.Banco().segmentoDoProduto(produto.produto[0].cod_produto);
                 VendaFull vf = new BancoVenda().carregaVenda(cod_venda);
-                new Impressao(vf).gerarComandaInterna(new Completa[] { produto }, vf.mesa);
+                new Impressao(vf).gerarComandaCozinha(new Completa[] { produto }, vf.mesa, true);
             }
             catch { return; }
             this.Close();
