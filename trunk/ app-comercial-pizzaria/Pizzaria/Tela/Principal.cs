@@ -271,7 +271,7 @@ namespace Pizzaria.Tela
                 {
                     int cod_venda = new Banco().codigoDaVendaPelaMesa(listVenda.FocusedItem.Text);
                     VendaFull vd = new BancoVenda().carregaVenda(cod_venda);
-                    Impressao p = new Impressao(vd);
+                    Impressao p = new Impressao();
                     new BancoVenda().imprimiu(cod_venda);
                     p.imprimirComanda(1, vd);
                     new BancoVenda().imprimiu(cod_venda);
