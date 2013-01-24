@@ -242,7 +242,7 @@ namespace Pizzaria.Tela
             Impressao p;
             try
             { 
-                p = new Impressao(venda);
+                p = new Impressao();
                 new BancoVenda().imprimiu(venda.cod_venda);
                 p.imprimirComanda(1,venda);
             }

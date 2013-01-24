@@ -23,6 +23,9 @@ namespace Pizzaria.Classes
         VendaFull venda;
         int sizeLetra = 7;
         //esse metodo é a atualizacao para a impressao. INICIO
+        public Impressao()
+        {
+        }
         public Impressao(bool novo, VendaFull v)
         {
             venda = v;
@@ -187,27 +190,16 @@ namespace Pizzaria.Classes
             {
 
                 impressora = new Banco().impressora(cod_impressora);
-                MP2032.ConfiguraModeloImpressora(Convert.ToInt16(impressora.Rows[0].ItemArray.GetValue(2)));
-                MP2032.IniciaPorta(impressora.Rows[0].ItemArray.GetValue(3).ToString());//se for internet a porta é o IP
-
-                MP2032.AjustaLarguraPapel(48);
                 
                    Comanda cc = new Comanda(vend.cod_venda);
 
-                   MP2032.ImprimeBmpEspecial(Application.StartupPath + "logo.bmp",-1,-1,0);
+          
                 //
                 string pont = "|----------------------------------------------|";
-                   inserirLinhaImpressao(pont, 0);
-                   inserirLinhaImpressao(cc.empresa,0);
-                   inserirLinhaImpressao(cc.telefone,0);
-                   inserirLinhaImpressao(pont,0);
-                   inserirLinhaImpressao(cc.titulo,0);
-                   inserirLinhaImpressao(pont,0);
-                   string linha = "| ID da VENDA : " + vend.cod_venda; linha = linha.PadRight(47, ' '); linha += "|";
-                   inserirLinhaImpressao(linha, 0);
-                   inserirLinhaImpressao(pont, 0);
-                   inserirLinhaImpressao("| ID | CODIGO |      DESCRICAO     | CATEGORIA |", 0);
-                   inserirLinhaImpressao("|    QTD Unid  X  VALOR Unit       = SUB-TOTAL |", 0);
+                string linha = "| ID da VENDA : " + vend.cod_venda; linha = linha.PadRight(47, ' '); linha += "|";
+                string[] VETOR1 = new string[vend.Completos.Length];
+                string[] VETOR2 = new string[vend.Completos.Length];
+                  
                    int ii = 0; int i = vend.Completos.Length;
                    while (ii < i)
                    {
@@ -217,33 +209,34 @@ namespace Pizzaria.Classes
                        if (vend.Completos[ii].produto.Length > 1) PRODUTO = "mista " + new Banco().preencherNomeProdctAll(vend.Completos[ii].produto[0].cod_produto);
                        else PRODUTO = new Banco().preencherNomeProdctAll(vend.Completos[ii].produto[0].cod_produto);
                        
-                       if(PRODUTO.Length > 19 )    PRODUTO = PRODUTO.Substring(0, 19);
-                       else                        PRODUTO = PRODUTO.PadRight(19,' ');
+                       if(PRODUTO.Length > 18 )    PRODUTO = PRODUTO.Substring(0, 18);
+                       else                        PRODUTO = PRODUTO.PadRight(18,' ');
                        string TAMANHO = new BancoInformacao().tamanhoDescricaoByCodigo(vend.Completos[ii].produto[0].cod_tamanho);
-                       if(TAMANHO.Length > 10 )    TAMANHO = TAMANHO.Substring(0, 10);
-                       else                        TAMANHO = TAMANHO.PadRight(10,' ');
-                       linha = "| "+ID+ " - "+ CODPRODUTO + " , "+ PRODUTO + " | " + TAMANHO + " |";
-                       inserirLinhaImpressao(linha, 0);
+                       if(TAMANHO.Length > 9 )    TAMANHO = TAMANHO.Substring(0, 9);
+                       else                        TAMANHO = TAMANHO.PadRight(9,' ');
+                       linha = "| "+ID+ " - "+ CODPRODUTO + "   , "+ PRODUTO + " | " + TAMANHO + " |";
+                       VETOR1[ii] = linha;
+                       
+                       
 
                        string QUANTIDADE = "" + vend.Completos[ii].quantidade; QUANTIDADE = QUANTIDADE.PadLeft(3, '0');
                        string UNITARIO = String.Format("{0:C}", vend.Completos[ii].valorUnitario).PadRight(7, ' ');
-                       string VALORSOMADO = String.Format("{0:C}", vend.Completos[ii].quantidade * vend.Completos[ii].valorUnitario).PadRight(13, ' ');
-                       linha = "|      "+ QUANTIDADE + "   X   "+ UNITARIO+ "    =     "+ VALORSOMADO+"|";
-                       inserirLinhaImpressao(linha, 0);
+                       string VALORSOMADO = String.Format("{0:C}", vend.Completos[ii].quantidade * vend.Completos[ii].valorUnitario).PadRight(11, ' ');
+                       linha = "|      "+ QUANTIDADE + "     X   "+ UNITARIO+ "    =    "+ VALORSOMADO+"|";
+                       VETOR2[ii] = linha;
                        ii++;    
                    }
-                   inserirLinhaImpressao(pont, 0);
-                   string COMISSAO;
+                   string COMISSAO = "";
                    if (vend.valorComissao > 0)
                    {
-                       COMISSAO = "COUVERT : " + String.Format("{0:C}", vend.valorComissao)+" |";
+                       COMISSAO = "COUVERT : " + String.Format("{0:C}", vend.valorComissao) + " |";
                        COMISSAO = "|" + COMISSAO.PadLeft(47, ' ');
-                       inserirLinhaImpressao(COMISSAO , 0);
+                 
                    }
                    string VALORCOMANDA;
                    VALORCOMANDA = "VALOR TOTAL : " + String.Format("{0:C}", vend.valorSomado) + " |";
                    VALORCOMANDA = "|" + VALORCOMANDA.PadLeft(47, ' ');
-                   
+
 
                    //rotina GARCON
                    List<String> garcons = new List<string>();
@@ -256,24 +249,50 @@ namespace Pizzaria.Classes
                                    can = false;
                            if (can) garcons.Add(vend.Completos[k].garcons[l].nome);
                        }
-                   
-                   int n = 0; string GARCON = "";
+
+                   int n = 0; string GARCON = "| GARCOM - ";
                    while (n < garcons.Count)
-                       GARCON += "| "+garcons[n++]+" ";
+                       GARCON += garcons[n++] + " - ";
                    if (GARCON.Length > 47) GARCON = GARCON.Substring(0, 47);
                    GARCON = GARCON.PadRight(47, ' ') + "|";
                    string MESA = "";
-                   for (int l = 0; l < vend.mesa.Length && l < 4; l++)
+                   for (int l = 0; l < vend.mesa.Length && l < 7; l++)
                        MESA += "| " + vend.mesa[l] + " ";
                    MESA = MESA.PadRight(47, ' ') + "|";
                    string CAIXA = "| CAIXA : " + new BancoVenda().nomeVendedor(venda.cod_caixa);
                    CAIXA = CAIXA.PadRight(47, ' ') + "|";
-                   string HORARIOVENDA = "| Abertura : " + vend.horario + "  - Final : " + DateTime.Now.ToShortTimeString();
+                   string HORARIOVENDA = "| Abertura : " + vend.horario.Substring(10) + "  - Final : " + DateTime.Now.ToShortTimeString();
                    string LIMPO = "|";
                    LIMPO = LIMPO.PadRight(47, ' ') + "|";
                    HORARIOVENDA = HORARIOVENDA.PadRight(47, ' ') + "|";
                    string SUBLINADA = "|";
                    SUBLINADA = SUBLINADA.PadRight(47, '_') + "|";
+                   
+                   //IMRESSAO
+                   MP2032.ConfiguraModeloImpressora(Convert.ToInt16(impressora.Rows[0].ItemArray.GetValue(2)));
+                   MP2032.IniciaPorta(impressora.Rows[0].ItemArray.GetValue(3).ToString());//se for internet a porta é o IP
+
+                   MP2032.AjustaLarguraPapel(48);
+                   MP2032.ImprimeBmpEspecial(Application.StartupPath + "logo.bmp", -1, -1, 0);
+                   inserirLinhaImpressao(pont, 0);
+                   inserirLinhaImpressao(cc.empresa, 0);
+                   inserirLinhaImpressao(cc.telefone, 0);
+                   inserirLinhaImpressao(pont, 0);
+                   inserirLinhaImpressao(cc.titulo, 0);
+                   inserirLinhaImpressao(pont, 0);
+                   inserirLinhaImpressao(linha, 0);
+                   inserirLinhaImpressao(pont, 0);
+                   inserirLinhaImpressao("| ID | CODIGO |      DESCRICAO     | CATEGORIA |", 0);
+                   inserirLinhaImpressao("|    QTD Unid  X  VALOR Unit       = SUB-TOTAL |", 0);
+
+                   for (int h = 0; h < VETOR1.Length; h++)
+                   {
+                       inserirLinhaImpressao(VETOR1[h], 0);
+                       inserirLinhaImpressao(VETOR2[h], 0);
+                   }
+                   inserirLinhaImpressao(pont, 0);
+                   if(vend.valorComissao >0)
+                       inserirLinhaImpressao(COMISSAO, 0);
                    //IMPRESSAO DESDE VALOR ATE O FIM
                    inserirLinhaImpressao(VALORCOMANDA, 1);
                    inserirLinhaImpressao(pont, 0);
