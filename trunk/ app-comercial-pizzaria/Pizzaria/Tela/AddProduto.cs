@@ -116,8 +116,8 @@ namespace Pizzaria.Tela
                // if(MessageBox.Show("DESEJA ACRESCENTAR OUTRO ITEM","INFORMAÇÂO",
                //     MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button1
                //     ,MessageBoxOptions.DefaultDesktopOnly) == DialogResult.Yes)
-                if (MessageBox.Show("ACRESCENTAR OUTRO ITEM??", "CONFIRME SUA OPCAO", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                
+            //    if (MessageBox.Show("ACRESCENTAR OUTRO ITEM??", "CONFIRME SUA OPCAO", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                MessageBox.Show("PRODUTO INSERIDO", "CONFIRMAÇÃO", MessageBoxButtons.OK,MessageBoxIcon.Information);
                 {
                     limpaCampoCodigoProduto(); this.Focus(); mtCodigo.Visible = true; mtCodigo.Focus();
                     numQuantidade.Value = 1; 
@@ -126,7 +126,7 @@ namespace Pizzaria.Tela
 
                     
                 }
-                else
+            /*    else
                 {
                     if (!(new Banco().isVendaBalcao(cod_venda)))
                     {
@@ -163,8 +163,8 @@ namespace Pizzaria.Tela
                             this.Visible = true;
 
                         }    catch { }
-                    } this.Close();
-                }
+                    } this.Close();/*/
+               // }
             }
             catch { };
         }        
@@ -180,7 +180,7 @@ namespace Pizzaria.Tela
         {
             InitializeComponent();
             inicializaLista();
-            posicionamento();
+          //  posicionamento();
             preencherTexto(new string[] { "BALCAO ", " ATENDIMENTO RAPIDO" });
             this.cod_venda = new Banco().novaVenda(cod_caixa, new int[] { new Banco().codBalcao() });
             pGarLivre.Visible = false; lbGarcon.Visible = false; cbGarVen.Visible = false;
@@ -193,7 +193,7 @@ namespace Pizzaria.Tela
         public AddProduto(string[] mesasDaVenda, short cod_caixa)//Venda Sendo Aberta
         {
             InitializeComponent();
-            posicionamento();
+        //    posicionamento();
             inicializaLista();
             mesas = mesasDaVenda;
             this.cod_caixa = cod_caixa;
@@ -707,15 +707,20 @@ namespace Pizzaria.Tela
                         lbNomePizza1.Visible = true;
                         cbTamanho.DataSource = new Banco().tamanhoProduto(Convert.ToInt16(mtCodigo.Text));
                         cbTamanho.DisplayMember = "descricao";
-                        cbTamanho.SelectedIndex = 0;
-                        lTamanho.Visible = true;
-                        cbTamanho.Visible = true; mtValor.Visible = true; lbRS.Visible = true;
-                        cbTamanho_SelectedIndexChanged(sender, null);
+                       // cbTamanho.SelectedIndex = 0;
+                     //   if (cbTamanho.Items.Count < 4) cbTamanho.Visible = false;
+                      //  else cbTamanho.Visible = true;
+                       // lTamanho.Visible = true;
+                      //  cbTamanho.Visible = true; 
+                        if (cbTamanho.Items.Count >= 4) { cbTamanho.Visible = true; lTamanho.Visible = true; }
+                        else { cbTamanho.Visible = false; lTamanho.Visible = false; }
+                        mtValor.Visible = true; lbRS.Visible = true;
+                      //  cbTamanho_SelectedIndexChanged(sender, null);
                         if (mtCodigo1.Visible)
                             mtCodigo1.Focus();
                         else
                         {
-                            if (cbTamanho.Items.Count >  1)
+                            if (cbTamanho.Items.Count >  2)
                                 cbTamanho.Focus();
                             else
                             {
@@ -814,13 +819,17 @@ namespace Pizzaria.Tela
             cbMista.DisplayMember = "descricao";
             cbMista.SelectedIndex = 0;
 
+            if (cbTamanho.Items.Count >= 4) { cbTamanho.Visible = true; lTamanho.Visible = true; }
+            else { cbTamanho.Visible = false; lTamanho.Visible = false; }
             preencherLabelDescritivo(codTamanho, new Banco().codDivisorByDescricao(cbMista.Text));
 
-            lbMista.Visible = true;
-            cbMista.Visible = true;
+            if (cbMista.Items.Count >=2) { cbMista.Visible = true; lbMista.Visible = true; }
+            else { cbMista.Visible = false; lbMista.Visible = false; }
+            //lbMista.Visible = true;
+            //cbMista.Visible = true;
             panelValor.Visible = true;
-        }
-        private void cbMista_KeyPress(object sender, KeyPressEventArgs e)
+      }
+        private void cbMista_KeyPss(object sender, KeyPressEventArgs e)
         {
             try
             {
@@ -840,6 +849,31 @@ namespace Pizzaria.Tela
         private void cbGarLivre_KeyPress(object sender, KeyPressEventArgs e)
         {
             btEscolhaProduto.Focus();
+        }
+        private void cbMista_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (e.KeyChar == '\r')
+                {
+                    if (mtCodigo1.Visible)
+                        mtCodigo1.Focus();
+                    else numQuantidade.Focus();
+                }
+            }
+            catch { }
+        }
+        private void cbTamanho_Leave(object sender, EventArgs e)
+        {
+            cbTamanho.ForeColor = Color.Black;
+            lTamanho.ForeColor = Color.Black;
+            cbTamanho.BackColor = Color.WhiteSmoke;
+        }
+        private void cbMista_Leave(object sender, EventArgs e)
+        {
+            cbMista.ForeColor = Color.Black;
+            lbMista.ForeColor = Color.Black;
+            cbMista.BackColor = Color.WhiteSmoke;
         }
 
         private void modoNormal(Label pct , MaskedTextBox mtb)
@@ -905,10 +939,9 @@ namespace Pizzaria.Tela
         {
             cbTamanho.ForeColor = Color.Red;
             lTamanho.ForeColor = Color.Red;
-            cbTamanho.BackColor = Color.LightGreen;         
-        }
-        private void cbTamanho_Leave(object sender, EventArgs e)
-        {
+            cbTamanho.BackColor = Color.LightGreen;
+          //  if (cbTamanho.Items.Count > 2) { cbTamanho.Visible = true; lTamanho.Visible = true; }
+           // else  
             cbTamanho.ForeColor = Color.Black;
             lTamanho.ForeColor = Color.Black;
             cbTamanho.BackColor = Color.WhiteSmoke;
@@ -918,9 +951,9 @@ namespace Pizzaria.Tela
             cbMista.ForeColor = Color.Red;
             lbMista.ForeColor = Color.Red;
             cbMista.BackColor = Color.LightGreen;
-        }
-        private void cbMista_Leave(object sender, EventArgs e)
-        {
+
+      //      if (cbMista.Items.Count > 2) { cbMista.Visible = true; lbMista.Visible = true; }
+      //      else { cbMista.Visible = false; cbMista.Visible =true; }
             cbMista.ForeColor = Color.Black;
             lbMista.ForeColor = Color.Black;
             cbMista.BackColor = Color.WhiteSmoke;

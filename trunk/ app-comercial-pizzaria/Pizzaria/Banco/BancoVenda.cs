@@ -21,7 +21,7 @@ namespace Pizzaria.Banco
         
         public BancoVenda()
         {
-            conexao = new BancoSenha().conexao;
+            conexao = ClasseDLL.Variaveis.conexao; // new BancoSenha().conexao;
         }
         
         public NpgsqlConnection Conectar()

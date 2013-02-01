@@ -5,20 +5,24 @@ using System.Text;
 using System.Data;
 using Npgsql;
 using System.Collections;
+
+
 namespace Pizzaria.Banco
 {
 
     using Pizzaria.Classes;
     public class Banco
     {
-
+        
+        
         string conexao;
         //-------------------------------------
         //novos metodos
         //-------------------------------------
         public Banco()
         {
-            conexao = new BancoSenha().conexao;
+
+            conexao = ClasseDLL.Variaveis.conexao;
         }
         public NpgsqlConnection Conectar()
         {
