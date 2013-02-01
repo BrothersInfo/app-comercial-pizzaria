@@ -12,12 +12,27 @@ namespace Pizzaria.Tela
     using Pizzaria.Banco;
     using Pizzaria.Properties;
     using Pizzaria.Classes;
+    using System.IO;
     
     public partial class Abertura : Form
     {
         public Abertura()
         {
             InitializeComponent();
+            StreamReader sr;
+            try
+            {
+                sr = File.OpenText(Environment.CurrentDirectory + "\\StringConexao.txt");
+                string input = null;
+                while ((input = sr.ReadLine()) != null)
+                {
+
+
+                    ClasseDLL.Variaveis.conexao = input;
+                }
+            }
+            catch { MessageBox.Show("Conexao Com banco inconsistente - Entre em contato com o suporte", "Mensagem"); }
+
         }
         
         public int cod_caixa= 0 ;

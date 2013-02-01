@@ -121,8 +121,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Banco\BancoInformacao.cs" />
-    <Compile Include="Banco\BancoSenha.cs" />
     <Compile Include="ClasseDLL\MP2032.cs" />
+    <Compile Include="ClasseDLL\Variaveis.cs" />
     <Compile Include="Classes\CRelatorio.cs" />
     <Compile Include="Classes\Entrega.cs" />
     <Compile Include="Classes\GarconFisico.cs" />
