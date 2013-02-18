@@ -315,7 +315,7 @@ D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Relatorios\RelatorioProdutoValo
 D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Relatorios\RelatorioGarcon\crGarcon2.rpt
 D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Relatorios\RelatorioVenda\crVenda.rpt
 D:\Sistemas proprios\Pizzaria\Pizzaria\bin\Debug\Relatorios\RelatorioVenda\crVenda.cs
-D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.csprojResolveAssemblyReference.cache
 D:\Sistemas proprios\BackupPizzaria\Pizzaria\Pizzaria\bin\Debug\Pizzaria.exe.config
 D:\Sistemas proprios\BackupPizzaria\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.exe
 D:\Sistemas proprios\BackupPizzaria\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.pdb
+D:\Sistemas proprios\Pizzaria\Pizzaria\obj\x86\Debug\Pizzaria.csprojResolveAssemblyReference.cache

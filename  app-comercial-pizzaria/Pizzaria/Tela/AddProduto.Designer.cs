@@ -261,7 +261,7 @@
             this.panel1.Controls.Add(this.numQuantidade);
             this.panel1.Controls.Add(this.lTamanho);
             this.panel1.Controls.Add(this.LQuantidade);
-            this.panel1.Location = new System.Drawing.Point(451, 118);
+            this.panel1.Location = new System.Drawing.Point(451, 66);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(176, 205);
             this.panel1.TabIndex = 22;
@@ -621,7 +621,7 @@
             this.panelValor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelValor.Controls.Add(this.lbRS);
             this.panelValor.Controls.Add(this.mtValor);
-            this.panelValor.Location = new System.Drawing.Point(451, 66);
+            this.panelValor.Location = new System.Drawing.Point(451, 273);
             this.panelValor.Name = "panelValor";
             this.panelValor.Size = new System.Drawing.Size(176, 47);
             this.panelValor.TabIndex = 18;

@@ -91,7 +91,7 @@ namespace Pizzaria.Banco
                 +" where cod_venda =" + cod_venda+" and c.cancelado  = false ";
             new NpgsqlDataAdapter(queryC, Conectar()).Fill(numero);
 
-            conjCompleto = new Completa[Convert.ToInt16(numero.Rows[0].ItemArray.GetValue(0))];
+            conjCompleto = new Completa[Convert.ToInt32(numero.Rows[0].ItemArray.GetValue(0))];
             string queryComplet = "select c.cod_completo from completo c inner join vendaCompleta vc on (vc.cod_completo = c.cod_completo)" +
                                   " inner join venda v on (v.cod_venda = vc.cod_venda)" +
                                   " where v.cod_venda = " + cod_venda+ " and c.cancelado = false";
@@ -131,10 +131,10 @@ namespace Pizzaria.Banco
                     int teste = new BancoInformacao().quantidadeCompletaByCodigo((int)numero.Rows[j].ItemArray.GetValue(0));
                     subProdutos[k] = new Produto();
                     subProdutos[k].setLoad(
-                        Convert.ToInt16(sub.Rows[k].ItemArray.GetValue(0)),
+                        Convert.ToInt32(sub.Rows[k].ItemArray.GetValue(0)),
                         Convert.ToDouble(sub.Rows[k].ItemArray.GetValue(1)),
                         Convert.ToDouble(sub.Rows[k].ItemArray.GetValue(2)),
-                        Convert.ToInt16(sub.Rows[k].ItemArray.GetValue(3)),
+                        Convert.ToInt32(sub.Rows[k].ItemArray.GetValue(3)),
                         //preciso fazer saber a quantidade de produtos
                       
                         new Banco().isImpressoProduto(Convert.ToInt16(sub.Rows[k].ItemArray.GetValue(0)))
@@ -145,7 +145,7 @@ namespace Pizzaria.Banco
                     (int)numero.Rows[j].ItemArray.GetValue(0),gf, valorItemCompleto((int)numero.Rows[j].ItemArray.GetValue(0)));
             }
             //---------------------------------------------------------------
-            string query = "select subValor, dataVenda, horario, cod_caixa, aberta,impressao, cod_pagamento,  valorReal from venda where cod_venda =" + cod_venda;
+            string query = "select subValor, dataVenda,to_char(horario, 'HH24:MI'), cod_caixa, aberta,impressao, cod_pagamento,  valorReal from venda where cod_venda =" + cod_venda;
             numero = new DataTable();
             new NpgsqlDataAdapter(query, Conectar()).Fill(numero);
 
@@ -287,15 +287,15 @@ namespace Pizzaria.Banco
             double valor = 0;
             for (int i = 0; i < conjCompleto.Rows.Count; i++)
             {
-                string vlr = "select valorUnitarioCompleto from completo where cod_completo = " + Convert.ToInt16(conjCompleto.Rows[i].ItemArray.GetValue(0));
+                string vlr = "select valorUnitarioCompleto from completo where cod_completo = " + Convert.ToInt32(conjCompleto.Rows[i].ItemArray.GetValue(0));
                 DataTable vl = new DataTable();
                 new NpgsqlDataAdapter(vlr, Conectar()).Fill(vl);
                 double info = Convert.ToDouble(vl.Rows[0].ItemArray.GetValue(0)); 
-                int quantidade = new BancoInformacao().quantidadeCompletaByCodigo(Convert.ToInt16(conjCompleto.Rows[i].ItemArray.GetValue(0)));
+                int quantidade = new BancoInformacao().quantidadeCompletaByCodigo(Convert.ToInt32(conjCompleto.Rows[i].ItemArray.GetValue(0)));
                 valor+= ( info * quantidade);
 
                 string completo = "update Completo set cancelado = true where cod_completo  = "
-                    + Convert.ToInt16(conjCompleto.Rows[i].ItemArray.GetValue(0));
+                    + Convert.ToInt32(conjCompleto.Rows[i].ItemArray.GetValue(0));
 
                 DataTable dt = new DataTable();
                 new NpgsqlDataAdapter(completo, Conectar()).Fill(dt);

@@ -1,15 +1,15 @@
  |----   COZINHA   ----|
- | Data : 01/02/2013   |
- | Hora : 19:36        |
+ | Data : 14/02/2013   |
+ | Hora : 21:42        |
  |---------------------|
  |                     |
- | - Whisky            |
- | Tam - 1 Litro       |
- | Old Parr Superior   |
+ | - Pizza             |
+ | Tam - Grande        |
+ | Batata Palha        |
  |Quantidade - 1       |
  |                     |
  | --  -   --   -  --  |
  |---------------------|
- | GARCOM -Teste       |
- | Mesa 5              |
+ | GARCOM -Nailton     |
+ | Mesa 9              |
  |---------------------|

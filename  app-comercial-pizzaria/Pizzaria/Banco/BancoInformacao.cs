@@ -83,7 +83,7 @@ namespace Pizzaria.Banco
         + " and cp.cod_tamanho = " + cod_tamanho;
             DataTable dtt = new DataTable();
             new NpgsqlDataAdapter(query, Conectar()).Fill(dtt);
-            return Convert.ToInt16(dtt.Rows[0].ItemArray.GetValue(0));
+            return Convert.ToInt32(dtt.Rows[0].ItemArray.GetValue(0));
 
         }
         public void deletarCompleto(int cod_Completo, int quantidadeRetirada)
@@ -109,7 +109,7 @@ namespace Pizzaria.Banco
             string query = "select cod_venda from vendaCompleta where cod_completo = "+cod_completo;
             DataTable quantidadeTable = new DataTable();
             new NpgsqlDataAdapter(query, Conectar()).Fill(quantidadeTable);
-            return Convert.ToInt16(quantidadeTable.Rows[0].ItemArray.GetValue(0));
+            return Convert.ToInt32(quantidadeTable.Rows[0].ItemArray.GetValue(0));
 
         }
         public void makeCompletoDeletado(int cod_completo, bool cancelado)
