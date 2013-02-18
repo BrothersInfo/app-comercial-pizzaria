@@ -103,7 +103,8 @@ namespace Pizzaria.Tela
                     btCancelar_Click(sender, e);
                     break;
                 case Keys.Enter://Voltar Tela
-                    btConfirmar_Click(sender, e);
+                    if (tvTipado.Focused)  lvCodigo.Focus();
+                    else btConfirmar_Click(sender, e);
                     break;
             }
         }

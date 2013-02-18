@@ -367,10 +367,17 @@ namespace Pizzaria.Banco
             + "inner join produtoTamanho pt7         on (pt7.cod_produto  = p7.cod_produto)    "
             + "inner join tamanho tt7     	     on (tt7.cod_tamanho  = pt7.cod_tamanho and tt7.cod_tamanho =  cp7.cod_tamanho)  "
             + "inner join tipo t7 	             on (t7.cod_tipo      = p7.cod_tipo) "
-            + "where p7.cod_produto = p.cod_produto  and tt7.cod_tamanho = tt.cod_tamanho "
+            +"inner join vendaCompleta vc7 	 on( vc7.cod_completo = c7.cod_completo) "
+	        +"inner join venda v7 		 on (v7.cod_venda = vc7.cod_venda ) "
+            + "where v7.aberta = false and p7.cod_produto = p.cod_produto  and tt7.cod_tamanho = tt.cod_tamanho "
             + "and cp7.porcentagem = cp.porcentagem ";
             if (hasValor) quantidade += " and c7.valorUnitariocompleto = c.valorUnitarioCompleto ";
-            quantidade +=" and c7.cancelado = c.cancelado and c7.cod_completo = c.cod_completo) as \"Quantidade\" ";
+
+            if (data.Length == 1)
+                quantidade += " and ((v7.dataVenda = '" + data[0] + "' and v7.horario > ' 06:00' ) or (v7.dataVenda = date '" + data[0] + "' + 1 and v7.horario < ' 06:00' ))";
+            else
+                quantidade += " and v7.dataVenda between '" + data[0] + "' and '" + data[1] + "' ";
+            quantidade +=" and c7.cancelado = c.cancelado ) as \"Quantidade\" ";
             query += quantidade;
             string valorUnitario_subTotal =
                  " , (CASE (c.valorUnitarioCompleto*(cast(cp.porcentagem as double precision))) >0  "
@@ -384,8 +391,15 @@ namespace Pizzaria.Banco
             + "inner join produtoTamanho pt7         on (pt7.cod_produto  = p7.cod_produto)    "
             + "inner join tamanho tt7     	     on (tt7.cod_tamanho  = pt7.cod_tamanho and tt7.cod_tamanho =  cp7.cod_tamanho)  "
             + "inner join tipo t7 	             on (t7.cod_tipo      = p7.cod_tipo) "
-            + "where p7.cod_produto = p.cod_produto  and tt7.cod_tamanho = tt.cod_tamanho "
-            + "and cp7.porcentagem = cp.porcentagem and c7.valorUnitariocompleto = c.valorUnitarioCompleto and c7.cancelado = c.cancelado )))) as \"SubTotal\" ";
+            + "inner join vendaCompleta vc7 	 on( vc7.cod_completo = c7.cod_completo) "
+            + "inner join venda v7 		 on (v7.cod_venda = vc7.cod_venda ) " 
+            + "where v7.aberta = false and p7.cod_produto = p.cod_produto and ";
+
+             if (data.Length == 1)
+                 valorUnitario_subTotal += " ((v7.dataVenda = '" + data[0] + "' and v7.horario > ' 06:00' ) or (v7.dataVenda = date '" + data[0] + "' + 1 and v7.horario < ' 06:00' ))";
+            else
+                 valorUnitario_subTotal += " v7.dataVenda between '" + data[0] + "' and '" + data[1] + "' ";
+             valorUnitario_subTotal += "and cp7.porcentagem = cp.porcentagem and c7.valorUnitariocompleto = c.valorUnitarioCompleto and c7.cancelado = c.cancelado )))) as \"SubTotal\" ";
 
             if (hasValor)
                 query += valorUnitario_subTotal;
@@ -414,7 +428,7 @@ namespace Pizzaria.Banco
                 if (hasProduto)
                     query += " and p.cod_produto = " + cod_produto;
             }
-            query += " group by t.cod_tipo,p.cod_produto, tt.cod_tamanho,cp.porcentagem , c.cancelado , c.cod_completo";
+            query += " group by t.cod_tipo,p.cod_produto, tt.cod_tamanho,cp.porcentagem , c.cancelado ";
             if(hasValor)
                 query+=
                 " , c.valorUnitarioCompleto  ";

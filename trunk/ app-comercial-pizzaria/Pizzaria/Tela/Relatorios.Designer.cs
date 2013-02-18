@@ -1425,6 +1425,7 @@
             this.btEscolhaProduto.TabIndex = 47;
             this.btEscolhaProduto.Text = "EXPORTAR";
             this.btEscolhaProduto.UseVisualStyleBackColor = true;
+            this.btEscolhaProduto.Visible = false;
             this.btEscolhaProduto.Click += new System.EventHandler(this.btEscolhaProduto_Click);
             // 
             // lValor

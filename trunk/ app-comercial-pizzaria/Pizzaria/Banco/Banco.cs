@@ -318,7 +318,7 @@ namespace Pizzaria.Banco
             {
                 DataTable dttTamanho = new DataTable();
                 new NpgsqlDataAdapter("select cod_completo from Completo order by cod_completo desc limit 1", Conectar()).Fill(dttTamanho);
-                return Convert.ToInt16(dttTamanho.Rows[0].ItemArray.GetValue(0));
+                return Convert.ToInt32(dttTamanho.Rows[0].ItemArray.GetValue(0));
             }
             catch
             {
@@ -360,7 +360,7 @@ namespace Pizzaria.Banco
             sql2.Fill(dttValor2);
 
             string nome = dttValor2.Rows[0].ItemArray.GetValue(0).ToString();
-            int pct = (Convert.ToInt16(dttValor2.Rows[0].ItemArray.GetValue(1)));
+            int pct = (Convert.ToInt32(dttValor2.Rows[0].ItemArray.GetValue(1)));
             if (pct != 1) return "Mista : " + nome;
             return nome;
         }
@@ -369,7 +369,7 @@ namespace Pizzaria.Banco
         {
             DataTable dttTamanho = new DataTable();
             NpgsqlDataAdapter sql = new NpgsqlDataAdapter
-                (" select t.descricao, pt.valorproduto from Produtotamanho pt inner join tamanho t on( t.cod_tamanho = pt.cod_tamanho)" +
+                (" select t.descricao from Produtotamanho pt inner join tamanho t on( t.cod_tamanho = pt.cod_tamanho)" +
                 " inner join produto p on (p.cod_produto = pt.cod_produto) where t.ativo = true and p.ativo = true and p.cod_produto = '" + cod_produto + "' order by t.cod_tamanho", Conectar());
             sql.Fill(dttTamanho);
             return dttTamanho;
@@ -529,9 +529,8 @@ namespace Pizzaria.Banco
         {
             string query = "UPDATE produto   SET  descricao= '" + descricao + "', cod_tipo= "
                 + cod_tipo + ", ativo= " + ativo + ",  impresso= " + impresso + "  WHERE cod_produto =" +cod_produto;
-            DataTable dtt = new DataTable();
-            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
-            sql.Fill(dtt);
+
+            new NpgsqlDataAdapter(query, Conectar()).Fill(new DataTable());
         }
         public DataTable subcategoriaProduto(int cod_produto)
         {
@@ -600,7 +599,7 @@ namespace Pizzaria.Banco
                 + " inner join venda v on(vm.cod_venda = v.cod_venda) "
                 + " where m.status = false and v.aberta = true and m.descricao = '" + mesa + "' order by v.cod_venda desc limit 1", Conectar());
             sql.Fill(dttTamanho);
-            return Convert.ToInt16(dttTamanho.Rows[0].ItemArray.GetValue(0)); ;
+            return Convert.ToInt32(dttTamanho.Rows[0].ItemArray.GetValue(0)); ;
         }
         public bool isVendaBalcao(int cod_venda) {
 
@@ -668,7 +667,7 @@ namespace Pizzaria.Banco
             for (int i = 0; i < dtt.Rows.Count; i++)
             {
                 DataTable dtt2 = new DataTable();
-                int cod = Convert.ToInt16(dtt.Rows[i].ItemArray.GetValue(0));
+                int cod = Convert.ToInt32(dtt.Rows[i].ItemArray.GetValue(0));
                 string query2 = "select m.descricao from venda v inner join vendaMesa vm on(vm.cod_venda = v.cod_venda)" +
    "inner join mesa m on (m.cod_mesa = vm.cod_mesa) where v.cod_venda = " + cod + " group by m.descricao order by m.descricao  desc limit 1";
                 new NpgsqlDataAdapter(query2, Conectar()).Fill(dtt2);
@@ -703,7 +702,7 @@ namespace Pizzaria.Banco
                 ("select v.cod_venda from mesa m inner join vendaMesa vm on (m.cod_mesa = vm.cod_mesa)"
                 + " inner join venda v on (v.cod_venda = vm.cod_venda) where aberta = true and m.cod_mesa =  '" + mesa + "'", Conectar()).
                 Fill(dttTamanho);
-            return Convert.ToInt16(dttTamanho.Rows[0].ItemArray.GetValue(0));
+            return Convert.ToInt32(dttTamanho.Rows[0].ItemArray.GetValue(0));
         }
         public int codVendaSelecionada2(string mesa)
         {
@@ -713,7 +712,7 @@ namespace Pizzaria.Banco
                 ("select v.cod_venda from mesa m inner join vendaMesa vm on (m.cod_mesa = vm.cod_mesa)"
                 + " inner join venda v on (v.cod_venda = vm.cod_venda) where aberta = true and m.descricao =  '" + mesa + "'", Conectar()).
                 Fill(dttTamanho);
-            return Convert.ToInt16(dttTamanho.Rows[0].ItemArray.GetValue(0));
+            return Convert.ToInt32(dttTamanho.Rows[0].ItemArray.GetValue(0));
         }
         public double[] valorPctByDescricao(string descricao)
         {
@@ -799,7 +798,7 @@ namespace Pizzaria.Banco
                 .Fill(new DataTable());
 
             new NpgsqlDataAdapter("select cod_venda from venda order by cod_venda desc limit 1", Conectar()).Fill(dttTamanho);
-            int cod_venda = Convert.ToInt16(dttTamanho.Rows[0].ItemArray.GetValue(0));
+            int cod_venda = Convert.ToInt32(dttTamanho.Rows[0].ItemArray.GetValue(0));
             for (int i = 0; i < codMesa.Length; i++)
             {
                 new NpgsqlDataAdapter("INSERT INTO vendaMesa(cod_venda, cod_mesa)  VALUES ('" + cod_venda + "' , '" + codMesa[i] + "')", Conectar()).Fill(new DataTable());

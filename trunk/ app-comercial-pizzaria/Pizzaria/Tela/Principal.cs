@@ -150,10 +150,10 @@ namespace Pizzaria.Tela
                 lvInfo.Items.Clear();
                 for (int i = 0; i < t.Rows.Count; i++)
                 {
-                    lvInfo.Items.Add(new Banco().informacoes2(Convert.ToInt16(t.Rows[i].ItemArray.GetValue(0))));
+                    lvInfo.Items.Add(new Banco().informacoes2(Convert.ToInt32(t.Rows[i].ItemArray.GetValue(0))));
                     lvInfo.Items[i].SubItems.Add(t.Rows[i].ItemArray.GetValue(1).ToString());
                     lvInfo.Items[i].SubItems.Add("R$ " + new Tratamento().retornaValorEscrito(Convert.ToDouble(t.Rows[i].ItemArray.GetValue(2))));
-                    lvInfo.Items[i].SubItems.Add("" + new BancoInformacao().quantidadeCompletaByCodigo(Convert.ToInt16(t.Rows[i].ItemArray.GetValue(0))));
+                    lvInfo.Items[i].SubItems.Add("" + new BancoInformacao().quantidadeCompletaByCodigo(Convert.ToInt32(t.Rows[i].ItemArray.GetValue(0))));
                 }
                 VendaFull vf =  new BancoVenda().carregaVenda(new Banco().codVendaSelecionada2(listVenda.FocusedItem.Text));
                 lValor.Text = "SUB TOTAL R$ " + new Tratamento().retornaValorEscrito(vf.subValor);

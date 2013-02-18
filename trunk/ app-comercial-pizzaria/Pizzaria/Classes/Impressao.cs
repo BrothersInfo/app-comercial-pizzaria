@@ -259,9 +259,9 @@ namespace Pizzaria.Classes
                    for (int l = 0; l < vend.mesa.Length && l < 7; l++)
                        MESA += "| " + vend.mesa[l] + " ";
                    MESA = MESA.PadRight(47, ' ') + "|";
-                   string CAIXA = "| CAIXA : " + new BancoVenda().nomeVendedor(venda.cod_caixa);
+                   string CAIXA = "| CAIXA : " + new BancoVenda().nomeVendedor(vend.cod_caixa);
                    CAIXA = CAIXA.PadRight(47, ' ') + "|";
-                   string HORARIOVENDA = "| Abertura : " + vend.horario.Substring(10) + "  - Final : " + DateTime.Now.ToShortTimeString();
+                   string HORARIOVENDA = "| Abertura : " + vend.horario + "  - Final : " + DateTime.Now.ToShortTimeString();
                    string LIMPO = "|";
                    LIMPO = LIMPO.PadRight(47, ' ') + "|";
                    HORARIOVENDA = HORARIOVENDA.PadRight(47, ' ') + "|";
@@ -271,8 +271,8 @@ namespace Pizzaria.Classes
                    //IMRESSAO
                    MP2032.ConfiguraModeloImpressora(Convert.ToInt16(impressora.Rows[0].ItemArray.GetValue(2)));
                    MP2032.IniciaPorta(impressora.Rows[0].ItemArray.GetValue(3).ToString());//se for internet a porta é o IP
-
-                   MP2032.AjustaLarguraPapel(48);
+                   
+                  MP2032.AjustaLarguraPapel(48);
                    MP2032.ImprimeBmpEspecial(Application.StartupPath + "logo.bmp", -1, -1, 0);
                    inserirLinhaImpressao(pont, 0);
                    inserirLinhaImpressao(cc.empresa, 0);
@@ -280,11 +280,9 @@ namespace Pizzaria.Classes
                    inserirLinhaImpressao(pont, 0);
                    inserirLinhaImpressao(cc.titulo, 0);
                    inserirLinhaImpressao(pont, 0);
-                   inserirLinhaImpressao(linha, 0);
-                   inserirLinhaImpressao(pont, 0);
                    inserirLinhaImpressao("| ID | CODIGO |      DESCRICAO     | CATEGORIA |", 0);
                    inserirLinhaImpressao("|    QTD Unid  X  VALOR Unit       = SUB-TOTAL |", 0);
-
+                   inserirLinhaImpressao(pont, 0);
                    for (int h = 0; h < VETOR1.Length; h++)
                    {
                        inserirLinhaImpressao(VETOR1[h], 0);

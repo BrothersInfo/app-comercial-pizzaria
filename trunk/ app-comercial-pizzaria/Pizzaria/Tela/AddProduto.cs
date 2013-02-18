@@ -712,7 +712,7 @@ namespace Pizzaria.Tela
                       //  else cbTamanho.Visible = true;
                        // lTamanho.Visible = true;
                       //  cbTamanho.Visible = true; 
-                        if (cbTamanho.Items.Count >= 4) { cbTamanho.Visible = true; lTamanho.Visible = true; }
+                        if (cbTamanho.Items.Count > 1) { cbTamanho.Visible = true; lTamanho.Visible = true; }
                         else { cbTamanho.Visible = false; lTamanho.Visible = false; }
                         mtValor.Visible = true; lbRS.Visible = true;
                       //  cbTamanho_SelectedIndexChanged(sender, null);
@@ -720,7 +720,7 @@ namespace Pizzaria.Tela
                             mtCodigo1.Focus();
                         else
                         {
-                            if (cbTamanho.Items.Count >  2)
+                            if (cbTamanho.Items.Count > 1)
                                 cbTamanho.Focus();
                             else
                             {
@@ -819,7 +819,7 @@ namespace Pizzaria.Tela
             cbMista.DisplayMember = "descricao";
             cbMista.SelectedIndex = 0;
 
-            if (cbTamanho.Items.Count >= 4) { cbTamanho.Visible = true; lTamanho.Visible = true; }
+            if (cbTamanho.Items.Count >= 2) { cbTamanho.Visible = true; lTamanho.Visible = true; }
             else { cbTamanho.Visible = false; lTamanho.Visible = false; }
             preencherLabelDescritivo(codTamanho, new Banco().codDivisorByDescricao(cbMista.Text));
 
@@ -897,7 +897,6 @@ namespace Pizzaria.Tela
         private void mtCodigo_Leave(object sender, EventArgs e)
         {
             modoNormal(lbPct1, mtCodigo);
-            mtCodigo_KeyPress(sender, new KeyPressEventArgs('\r'));
         }
         private void mtCodigo1_Enter(object sender, EventArgs e)
         {
@@ -906,7 +905,6 @@ namespace Pizzaria.Tela
         private void mtCodigo1_Leave(object sender, EventArgs e)
         {
             modoNormal(lbPct2, mtCodigo1);
-            mtCodigo1_KeyPress(sender, new KeyPressEventArgs('\r'));
         }
         private void mtCodigo2_Enter(object sender, EventArgs e)
         {
@@ -915,7 +913,6 @@ namespace Pizzaria.Tela
         private void mtCodigo2_Leave(object sender, EventArgs e)
         {
             modoNormal(lbPct3, mtCodigo2);
-            mtCodigo2_KeyPress(sender, new KeyPressEventArgs('\r'));
         }
         private void mtCodigo3_Enter(object sender, EventArgs e)
         {
@@ -924,7 +921,6 @@ namespace Pizzaria.Tela
         private void mtCodigo3_Leave(object sender, EventArgs e)
         {
             modoNormal(lbPct4, mtCodigo3);
-            mtCodigo3_KeyPress(sender, new KeyPressEventArgs('\r'));
         }
         private void tbNoticia_Enter(object sender, EventArgs e)
         {
