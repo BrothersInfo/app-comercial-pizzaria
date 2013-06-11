@@ -318,23 +318,10 @@ namespace Pizzaria.Tela
                 lvConsInfo.Items.Add(tabela.Rows[i].ItemArray.GetValue(0).ToString());
                 int size = 1;
                 while (size<tabela.Rows[i].ItemArray.Length)
-                {
                     if (Object.ReferenceEquals(((double)2).GetType(), tabela.Rows[i].ItemArray.GetValue(size).GetType()))
-                    {
-
-                        double valor = (double)tabela.Rows[i].ItemArray.GetValue(size);
-                        lvConsInfo.Items[i].SubItems.Add(valor.ToString("F2"));
-                    }
+                        lvConsInfo.Items[i].SubItems.Add(((double)tabela.Rows[i].ItemArray.GetValue(size++)).ToString("F2"));
                     else
-                    {
-                        lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size).ToString());
-                    }
-                   
-                   // try  {   double valor = (double)tabela.Rows[i].ItemArray.GetValue(size);
-                   //     lvConsInfo.Items[i].SubItems.Add(valor.ToString("F2")); }
-                   // catch { lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size).ToString());    }
-                    size++;
-                }
+                        lvConsInfo.Items[i].SubItems.Add(tabela.Rows[i].ItemArray.GetValue(size++).ToString());
             }
 
         }
