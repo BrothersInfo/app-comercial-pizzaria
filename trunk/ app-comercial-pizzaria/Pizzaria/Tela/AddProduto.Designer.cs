@@ -674,7 +674,7 @@
             // lineShape1
             // 
             this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 950;
+            this.lineShape1.X1 = 629;
             this.lineShape1.X2 = 0;
             this.lineShape1.Y1 = 30;
             this.lineShape1.Y2 = 30;
