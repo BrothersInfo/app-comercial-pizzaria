@@ -102,8 +102,8 @@ namespace Pizzaria.Tela
                         lvInfo.Items[i].SubItems.Add(new Banco().preencherNomeProdctAll(vendas.Completos[i].produto[0].cod_produto));
 
                     lvInfo.Items[i].SubItems.Add(new BancoInformacao().tamanhoDescricaoByCodigo(vendas.Completos[i].produto[0].cod_tamanho));
-                    lvInfo.Items[i].SubItems.Add(vendas.Completos[i].quantidade.ToString());
-                    lvInfo.Items[i].SubItems.Add("R$ " + new Tratamento().retornaValorEscrito(vendas.Completos[i].valorUnitario));
+                    lvInfo.Items[i].SubItems.Add(vendas.Completos[i].quantidade.ToString("0.000"));
+                    lvInfo.Items[i].SubItems.Add("R$ " + (vendas.Completos[i].valorUnitario).ToString("0.00"));
                     lvInfo.Items[i].SubItems.Add("R$ " + new Tratamento().retornaValorEscrito(vendas.Completos[i].quantidade * vendas.Completos[i].valorUnitario));
 
                 }

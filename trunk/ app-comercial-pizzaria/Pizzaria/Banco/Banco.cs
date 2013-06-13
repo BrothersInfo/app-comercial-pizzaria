@@ -511,9 +511,10 @@ namespace Pizzaria.Banco
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-        public void alterarValorSubCategoria(int cod_produto, int cod_tamanho, double valor)
+        public void alterarValorSubCategoria(int cod_produto, int cod_tamanho, double valor, double saida)
         {
-            string query = "UPDATE produtotamanho set valorproduto= " + new Tratamento().retornaValorEscrito(valor).Replace(',', '.') + " WHERE cod_produto = " + cod_produto + " and cod_tamanho = " + cod_tamanho;
+            string query = "UPDATE produtotamanho set valorproduto= " + new Tratamento().retornaValorEscrito(valor).Replace(',', '.') + " , valorcompra = " + saida.ToString().Replace(',', '.')
+                + " WHERE cod_produto = " + cod_produto + " and cod_tamanho = " + cod_tamanho;
             DataTable t = new DataTable();
             new NpgsqlDataAdapter(query, Conectar()).Fill(t);
 
@@ -871,6 +872,13 @@ namespace Pizzaria.Banco
             new NpgsqlDataAdapter(query, Conectar()).Fill(dtt);
             return dtt;
         }
+        public string carregaComandaCozinha()
+        {
+            DataTable dtt = new DataTable();
+            string query = "select comandaCOzinha from comanda where cod_comanda = 1";
+            new NpgsqlDataAdapter(query, Conectar()).Fill(dtt);
+            return dtt.Rows[0].ItemArray.GetValue(0).ToString() ;
+        }
         public string getHorarioVenda(int cod_venda)
         {
             DataTable dtt = new DataTable();
@@ -911,6 +919,23 @@ namespace Pizzaria.Banco
         {
             string query9 = "update comanda set isPct = " + isPct;
             new NpgsqlDataAdapter(query9, Conectar()).Fill(new DataTable());
+        }
+        public void inserePrecoCompraEmCompleto(int cod_completo, double precoCompra)
+        {
+            new NpgsqlDataAdapter("UPDATE completo   SET valorCompra =  "+precoCompra
+                +" WHERE cod_completo = " + cod_completo, Conectar()).Fill(new DataTable());
+        }
+        public double valorCompraDoProduto(int cod_produto, int cod_tamanho)
+        {
+
+            DataTable dtt = new DataTable();
+            new NpgsqlDataAdapter("select valorCompra from Produtotamanho where cod_produto = "+cod_produto+" and cod_tamanho = "+cod_tamanho+";", Conectar()).
+            Fill(dtt);
+            try
+            {
+                return Convert.ToDouble(dtt.Rows[0].ItemArray.GetValue(0));
+            }
+            catch { return 0; }
         }
     }
 }

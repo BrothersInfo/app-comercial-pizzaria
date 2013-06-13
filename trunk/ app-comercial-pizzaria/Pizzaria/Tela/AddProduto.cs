@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace Pizzaria.Tela
 {
@@ -72,7 +73,7 @@ namespace Pizzaria.Tela
                 if (new Banco().isVendaBalcao(cod_venda))                    Xcod_garcon = new Banco().cod_garconBalcao();
                 else                     Xcod_garcon = new Banco().codGarconByNome(getGarcon());
                 //garcons preenchidos
-                int XquantidadeProduto = Convert.ToInt16(numQuantidade.Text);// quantidade do produto inserido
+                double XquantidadeProduto = Convert.ToDouble( tbQuantidade.Text.Replace('.',',') );// quantidade do produto inserido
              
                 Produto []produto = new Produto[conjuntoCodProduto.Length];
                 double [] porcentagem = new Banco().valorPctByDescricao(cbMista.Text);
@@ -97,8 +98,9 @@ namespace Pizzaria.Tela
                 }
                 
                 Completa cc = new BancoVenda().getCompleta(cod_completo, false);
-                cc.quantidade = (int)numQuantidade.Value;
+                cc.quantidade = XquantidadeProduto;
                 cc.garconImprimir = getGarcon();
+                new Banco().inserePrecoCompraEmCompleto(cod_completo, new Banco().valorCompraDoProduto(cc.produto[0].cod_produto, cc.produto[0].cod_tamanho));
                 cc.segmentoImprimir = new Banco().segmentoDoProduto(Convert.ToInt16( mtCodigo.Text));
                 if (tbNoticia.TextLength > 0) cc.setNoticia(tbNoticia.Text);
                 if (cc.needImpress)
@@ -120,14 +122,10 @@ namespace Pizzaria.Tela
                 MessageBox.Show("PRODUTO INSERIDO", "CONFIRMAÇÃO", MessageBoxButtons.OK,MessageBoxIcon.Information);
                 {
                     limpaCampoCodigoProduto(); this.Focus(); mtCodigo.Visible = true; mtCodigo.Focus();
-                    numQuantidade.Value = 1; 
+                    tbQuantidade.Text = 1.ToString("0.00");
                     this.mtCodigo_KeyPress(sender,new KeyPressEventArgs ('\r'));
-                   
-
-                    
                 }
-            /*    else
-                {
+            
                     if (!(new Banco().isVendaBalcao(cod_venda)))
                     {
                         for (int j = 0; j < listaProd.Length; j++)
@@ -163,8 +161,8 @@ namespace Pizzaria.Tela
                             this.Visible = true;
 
                         }    catch { }
-                    } this.Close();/*/
-               // }
+                    } this.Close();
+               
             }
             catch { };
         }        
@@ -225,8 +223,8 @@ namespace Pizzaria.Tela
         {
             cbMista.Visible = false; lTamanho.Visible = false;
             cbTamanho.Visible = false; lbMista.Visible = false;
-            numQuantidade.Visible = false;
-            LQuantidade.Visible = false;
+            gbQtd.Visible = false;
+           
         }
         public bool podeCodigo(int cod_produto)
         {
@@ -352,8 +350,7 @@ namespace Pizzaria.Tela
                 cbMista.Visible = false;
                 cbTamanho.Visible = false;
                 lTamanho.Visible = false;
-                LQuantidade.Visible = false;
-                numQuantidade.Visible = false;
+                gbQtd.Visible = false;
                 lbMista.Visible = false;
                 
                 mtValor.Visible = false; lbRS.Visible = false;
@@ -419,13 +416,13 @@ namespace Pizzaria.Tela
         }
         public void mascaraValor(double t)
         {
+            
             if ((t < 100 && t >= 10) || t == 0) mtValor.Mask = "00.00";
             else
                 if (t < 10) mtValor.Mask = "0.00";
 
                 else if (t >= 100) mtValor.Mask = "000.00";
-
-            mtValor.Text = new Tratamento().retornaValorEscrito(t);
+            mtValor.Text = t.ToString("0.00");
             mtValor.Visible = true;
         }
         private void mtCodigo2_KeyPress(object sender, KeyPressEventArgs e)
@@ -459,7 +456,9 @@ namespace Pizzaria.Tela
                             {
                                 preencherLabelDescritivo(new Banco().codTamanho(cbTamanho.Text)
                                             , new Banco().codDivisorByDescricao(cbMista.Text));
-                                numQuantidade.Focus();
+                                gbQtd.Visible = true;
+
+                                gbQtd.Focus();
                             }
                             else { texto2.Clear(); texto2.Focus(); }
 
@@ -468,7 +467,9 @@ namespace Pizzaria.Tela
                         {
                             preencherLabelDescritivo(new Banco().codTamanho(cbTamanho.Text)
                                             , new Banco().codDivisorByDescricao(cbMista.Text));
-                            numQuantidade.Focus();
+                              gbQtd.Visible = true;
+
+                              gbQtd.Focus(); 
                         }
                     }
                     else { texto1.Clear(); texto1.Focus(); }
@@ -477,7 +478,9 @@ namespace Pizzaria.Tela
                 {
                     preencherLabelDescritivo(new Banco().codTamanho(cbTamanho.Text)
                                             , new Banco().codDivisorByDescricao(cbMista.Text));
-                    numQuantidade.Focus();
+                    gbQtd.Visible = true;
+
+                    gbQtd.Focus(); 
                 }
             }
             else { usado.Clear(); usado.Focus(); }
@@ -732,13 +735,12 @@ namespace Pizzaria.Tela
                                 }
                             }
                         }
-                        LQuantidade.Visible = true;
-                        numQuantidade.Visible = true; if (!new Banco().isVendaBalcao(cod_venda)) garconDaVenda();
+                        gbQtd.Visible = true; tbQuantidade.Text = 1.ToString("0.00"); if (!new Banco().isVendaBalcao(cod_venda)) garconDaVenda();
                     }
                     else
                     {
-                        LQuantidade.Visible = false;
-                        numQuantidade.Visible = false;
+
+                        gbQtd.Visible = false;
                         mtCodigo.Clear(); mtCodigo.Focus();
                     }
                 }
@@ -806,9 +808,14 @@ namespace Pizzaria.Tela
         {
             if (e.KeyChar == '\r')
             {
-                if (cbMista.Items.Count> 1)
+                if (cbMista.Items.Count > 1)
                     cbMista.Focus();
-                else numQuantidade.Focus();
+                else
+                {
+                    gbQtd.Visible = true;
+
+                    gbQtd.Focus();
+                }
             }
         }
         private void cbTamanho_SelectedIndexChanged(object sender, EventArgs e)
@@ -837,7 +844,12 @@ namespace Pizzaria.Tela
                 {
                     if (mtCodigo1.Visible)
                         mtCodigo1.Focus();
-                    else numQuantidade.Focus();
+                   else
+                {
+                    gbQtd.Visible = true;
+
+                    gbQtd.Focus();
+                }
                 }
             }
             catch { }
@@ -858,7 +870,12 @@ namespace Pizzaria.Tela
                 {
                     if (mtCodigo1.Visible)
                         mtCodigo1.Focus();
-                    else numQuantidade.Focus();
+                 else
+                {
+                    gbQtd.Visible = true;
+
+                    gbQtd.Focus();
+                }
                 }
             }
             catch { }
@@ -981,20 +998,48 @@ namespace Pizzaria.Tela
 
         private void numQuantidade_Enter(object sender, EventArgs e)
         {
-            LQuantidade.ForeColor = Color.Red;
-            numQuantidade.ForeColor = Color.Red;
+         
+            tbQuantidade.ForeColor = Color.Red;
         }
 
         private void numQuantidade_Leave(object sender, EventArgs e)
         {
-            LQuantidade.ForeColor = Color.Black;
-            numQuantidade.ForeColor = Color.Black;
+            tbQuantidade.ForeColor = Color.Black;
         }
 
         private void AddProduto_Load(object sender, EventArgs e)
         {
             mtCodigo.Focus();
             this.ProcessTabKey(true);
+        }
+
+        private void btMenos_Click(object sender, EventArgs e)
+        {
+            if (double.Parse(tbQuantidade.Text)>1)
+                tbQuantidade.Text = (double.Parse(tbQuantidade.Text) - 1).ToString("0.00") ;
+        }
+
+        private void btMais_Click(object sender, EventArgs e)
+        {
+            tbQuantidade.Text = (double.Parse(tbQuantidade.Text) + 1).ToString("0.00");
+        }
+
+        private void btBalanca_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string peso ="";
+                string precoQuilo= "";
+                string total ="";
+               int ii =  Bemafi32.Bematech_FI_AbrePortaSerial();
+               int k = Bemafi32.Bematech_FI_InfoBalanca("USB", 2, ref peso, ref precoQuilo,ref total);
+
+
+
+                float ff = DllToledo.Get();
+            }catch( Exception ee){
+                MessageBox.Show(ee.Message);
+            }
         }
 
 

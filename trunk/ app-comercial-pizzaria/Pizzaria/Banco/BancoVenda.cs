@@ -128,7 +128,8 @@ namespace Pizzaria.Banco
                 Produto[] subProdutos = new Produto[sub.Rows.Count];
                 for (int k = 0; k < sub.Rows.Count; k++)
                 {
-                    int teste = new BancoInformacao().quantidadeCompletaByCodigo((int)numero.Rows[j].ItemArray.GetValue(0));
+                    double teste = new BancoInformacao().quantidadeCompletaByCodigo
+                        ( Convert.ToInt32( numero.Rows[j].ItemArray.GetValue(0).ToString()));
                     subProdutos[k] = new Produto();
                     subProdutos[k].setLoad(
                         Convert.ToInt32(sub.Rows[k].ItemArray.GetValue(0)),
@@ -157,7 +158,7 @@ namespace Pizzaria.Banco
                 DataTable vl = new DataTable();
                 new NpgsqlDataAdapter(vlr, Conectar()).Fill(vl);
                 double info = Convert.ToDouble(vl.Rows[0].ItemArray.GetValue(0));
-                int quantidade = new BancoInformacao().quantidadeCompletaByCodigo( conjCompleto[i].cod_completo);
+                double quantidade = new BancoInformacao().quantidadeCompletaByCodigo( conjCompleto[i].cod_completo);
                 valor += (info * quantidade);
 
 
@@ -291,7 +292,7 @@ namespace Pizzaria.Banco
                 DataTable vl = new DataTable();
                 new NpgsqlDataAdapter(vlr, Conectar()).Fill(vl);
                 double info = Convert.ToDouble(vl.Rows[0].ItemArray.GetValue(0)); 
-                int quantidade = new BancoInformacao().quantidadeCompletaByCodigo(Convert.ToInt32(conjCompleto.Rows[i].ItemArray.GetValue(0)));
+                double quantidade = new BancoInformacao().quantidadeCompletaByCodigo(Convert.ToInt32(conjCompleto.Rows[i].ItemArray.GetValue(0)));
                 valor+= ( info * quantidade);
 
                 string completo = "update Completo set cancelado = true where cod_completo  = "

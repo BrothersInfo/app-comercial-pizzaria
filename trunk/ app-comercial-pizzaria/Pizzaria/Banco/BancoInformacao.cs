@@ -39,7 +39,7 @@ namespace Pizzaria.Banco
             return tamanho.Rows[0].ItemArray.GetValue(0).ToString();
         }
         public int criarCompleto(int cod_venda, int cod_garcon, double valorUnitario
-                                 , int quantidadeItem, bool impresso, bool cancelado, Produto[] conjProd)
+                                 , double quantidadeItem, bool impresso, bool cancelado, Produto[] conjProd)
         {
             int cod_completo = new Banco().novoCompleto(conjProd, valorUnitario, cancelado);
             new Banco().makeVendaCompleto(cod_venda, cod_completo);
@@ -48,7 +48,7 @@ namespace Pizzaria.Banco
             return cod_completo;
         }
         public int criarCompletoEspecial(int cod_venda,  double valorUnitario
-                               , int quantidadeItem, bool impresso, bool cancelado, Produto[] conjProd)
+                               , double quantidadeItem, bool impresso, bool cancelado, Produto[] conjProd)
         {
             int cod_completo = new Banco().novoCompleto(conjProd, valorUnitario, cancelado);
             new Banco().makeVendaCompleto(cod_venda, cod_completo);
@@ -86,7 +86,7 @@ namespace Pizzaria.Banco
             return Convert.ToInt32(dtt.Rows[0].ItemArray.GetValue(0));
 
         }
-        public void deletarCompleto(int cod_Completo, int quantidadeRetirada)
+        public void deletarCompleto(int cod_Completo, double quantidadeRetirada)
         {
 
             if (quantidadeCompletaByCodigo(cod_Completo) == quantidadeRetirada)
@@ -118,7 +118,7 @@ namespace Pizzaria.Banco
             DataTable dtt = new DataTable();
             new NpgsqlDataAdapter(query, Conectar()).Fill(dtt);
         }
-        public int quantidadeCompletaByCodigo(int cod_completo)
+        public double quantidadeCompletaByCodigo(int cod_completo)
         {
             string qtdItens = "select sum(cg.quantidade)  "
                 +" from garcon g "
@@ -127,7 +127,7 @@ namespace Pizzaria.Banco
             + " where c.cod_completo = " + cod_completo;
             DataTable quantidadeTable = new DataTable();
             new NpgsqlDataAdapter(qtdItens, Conectar()).Fill(quantidadeTable);
-            return Convert.ToInt16(quantidadeTable.Rows[0].ItemArray.GetValue(0));
+            return Convert.ToDouble(quantidadeTable.Rows[0].ItemArray.GetValue(0));
 
         }
         public void alterarVendaCompleta(int cod_vendaAnt,int cod_vendaNova, int cod_completa)
@@ -139,7 +139,7 @@ namespace Pizzaria.Banco
           
 
         }
-        public void dinimuirGarcon(int cod_completo, int quantidade, int cod_completoNovo)//sem o novo Completo
+        public void dinimuirGarcon(int cod_completo, double quantidade, int cod_completoNovo)//sem o novo Completo
         {
             DataTable compl = new DataTable();
             string itens = "select g.cod_garcon,cg.quantidade from garcon g "
@@ -150,39 +150,39 @@ namespace Pizzaria.Banco
 
             for (int i = 0; (i < compl.Rows.Count) && (quantidade > 0); i++)
             {
-                int codigo = Convert.ToInt16(compl.Rows[i].ItemArray.GetValue(1));
-                if (Convert.ToInt16(compl.Rows[i].ItemArray.GetValue(1)) <= quantidade)//se a quantidade desse garcon e igual ou menor ao q deve ser deletado
+                double codigo = Convert.ToInt16(compl.Rows[i].ItemArray.GetValue(1));
+                if (Convert.ToDouble(compl.Rows[i].ItemArray.GetValue(1)) <= quantidade)//se a quantidade desse garcon e igual ou menor ao q deve ser deletado
                 {
-                    alterarTabelaCompletaGarcon(Convert.ToInt16(compl.Rows[i].ItemArray.GetValue(0)), cod_completo, cod_completoNovo, Convert.ToInt16(compl.Rows[i].ItemArray.GetValue(1)));
+                    alterarTabelaCompletaGarcon(Convert.ToInt32(compl.Rows[i].ItemArray.GetValue(0)), cod_completo, cod_completoNovo, Convert.ToDouble(compl.Rows[i].ItemArray.GetValue(1)));
                     quantidade -= Convert.ToInt16(compl.Rows[i].ItemArray.GetValue(1));
                 }
                 else
                 {
-                    alterarTabelaCompletaGarconQuantidade(Convert.ToInt16(compl.Rows[i].ItemArray.GetValue(0)), cod_completo, quantidade, Convert.ToInt16(compl.Rows[i].ItemArray.GetValue(1)));
+                    alterarTabelaCompletaGarconQuantidade(Convert.ToInt32(compl.Rows[i].ItemArray.GetValue(0)), cod_completo, quantidade, Convert.ToDouble(compl.Rows[i].ItemArray.GetValue(1)));
                     GarconCompleto(Convert.ToInt16(compl.Rows[i].ItemArray.GetValue(0)), cod_completoNovo, quantidade);
                     quantidade = 0;
                 }
             }
         }
-        public void alterarTabelaCompletaGarcon(int cod_garcon, int cod_completoantigo, int cod_completoNovo, int quantidade)
+        public void alterarTabelaCompletaGarcon(int cod_garcon, int cod_completoantigo, int cod_completoNovo, double quantidade)
         {
             string query = "update garconCompleto set cod_completo = " + cod_completoNovo
                         + " where cod_completo =  " + cod_completoantigo + " and cod_garcon = " + cod_garcon +
                        " and quantidade =  "+quantidade+" and horario = " +
                 "(select horario from garconCompleto where cod_garcon = "+cod_garcon
-                + " and cod_completo = " + cod_completoantigo + "  and quantidade =  " + quantidade + "  order by horario desc limit 1)";
+                + " and cod_completo = " + cod_completoantigo + "  and quantidade =  " + quantidade.ToString().Replace(',','.') + "  order by horario desc limit 1)";
             DataTable dtt = new DataTable();
             new NpgsqlDataAdapter(query, Conectar()).Fill(dtt);
 
         }
-        public void alterarTabelaCompletaGarconQuantidade(int cod_garcon, int cod_completo, int quantidade, int qtdAntiga)
+        public void alterarTabelaCompletaGarconQuantidade(int cod_garcon, int cod_completo, double quantidade, double qtdAntiga)
         {
             string query = "update garconCompleto set quantidade = (quantidade-" + quantidade
                         + ") where cod_completo =  " + cod_completo + " and cod_garcon = " + cod_garcon +
-                        "  and quantidade =  " + qtdAntiga + "  and horario = " +
+                        "  and quantidade =  " + qtdAntiga.ToString().Replace(',','.') + "  and horario = " +
                         "(select horario from garconCompleto where cod_garcon = " + cod_garcon
                         + " and cod_completo = " + cod_completo + " and quantidade =  " 
-                        + qtdAntiga + "  order by horario desc limit 1)";
+                        + qtdAntiga.ToString().Replace(',','.') + "  order by horario desc limit 1)";
                         DataTable dtt = new DataTable();
                         new NpgsqlDataAdapter(query, Conectar()).Fill(dtt);
 
@@ -199,7 +199,7 @@ namespace Pizzaria.Banco
             
             return sim;
         }
-        public void addqtdGarconCompleto(int cod_garcon, int cod_completo, int quantidade)
+        public void addqtdGarconCompleto(int cod_garcon, int cod_completo, double quantidade)
         {
             string opa = "select count(*)=0 from garconCompleto where cod_garcon = "+cod_garcon+" and cod_completo = "+cod_completo;
              DataTable dttOpa = new DataTable();
@@ -208,10 +208,10 @@ namespace Pizzaria.Banco
                 GarconCompleto(cod_garcon, cod_completo, quantidade);
 
             }
-        public void GarconCompleto(int cod_garcon, int cod_completo, int quantidade)
+        public void GarconCompleto(int cod_garcon, int cod_completo, double quantidade)
         {
             DataTable dtt = new DataTable();
-            string query = "INSERT INTO garconcompleto( cod_garcon, cod_completo, quantidade)    VALUES (" + cod_garcon + "," + cod_completo + "," + quantidade + ")";
+            string query = "INSERT INTO garconcompleto( cod_garcon, cod_completo, quantidade)    VALUES (" + cod_garcon + "," + cod_completo + "," + quantidade.ToString().Replace(',','.') + ")";
             new NpgsqlDataAdapter(query, Conectar()).
               Fill(dtt);
         }

@@ -272,7 +272,6 @@ namespace Pizzaria.Tela
                 cbNewTamanhoOpcao.DisplayMember
                            = "descricao";
                 cbNewSegmento.SelectedIndex = 0;
-                btNewAdd.Visible = false;
                 mtbNewValor.Clear();
             
             }
@@ -309,32 +308,35 @@ namespace Pizzaria.Tela
                 cbNewAlterarSub.DisplayMember
                         = "descricao";
                 cbNewAlterarSub.SelectedIndex = 0;
-                btNewAlterarConfir.Visible = false;
-                mtbNewAlterarSub.Clear();
+                mtProdAltSaida.Text = "0";
+                mtProdAltEntrada.Text = "0";
+
             }
             catch { return; }
         }
         private void mtbNewAlterarSub_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (mtbNewAlterarSub.MaskFull)
+            if (mtProdAltSaida.MaskFull && mtProdAltEntrada.MaskFull)
                 btNewAlterarConfir.Visible = true;
             else
                 btNewAlterarConfir.Visible = false;
         }
         private void mtbNewValor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (mtbNewValor.MaskFull)
-                btNewAdd.Visible = true;
-            else 
-                btNewAdd.Visible = false;
         }
         private void btNewAlterarConfir_Click(object sender, EventArgs e)
         {
-            new Banco().alterarValorSubCategoria(Convert.ToInt16(tbNewCodigo.Text), new Banco().codTamanho(cbNewAlterarSub.Text), Convert.ToDouble(mtbNewAlterarSub.Text.Replace('.', ',')));
+            if (!mtProdAltEntrada.MaskFull || !mtProdAltSaida.MaskFull) return;
+            new Banco().alterarValorSubCategoria
+                (Convert.ToInt16(tbNewCodigo.Text),          new Banco().codTamanho(cbNewAlterarSub.Text),
+                Convert.ToDouble(mtProdAltSaida.Text.Replace('.', ',')),Convert.ToDouble(mtProdAltEntrada.Text.Replace('.', ',')));
             flpNewAlterar.Visible = false;
         }
         private void btNewAdd_Click(object sender, EventArgs e)
         {
+
+            if (!mtbNewValor.MaskFull || !mtCompra.MaskFull) return;
+
             new Banco().insereSubCategoria(Convert.ToInt16(tbNewCodigo.Text), new Banco().codTamanho(cbNewTamanhoOpcao.Text), Convert.ToDouble(mtbNewValor.Text.Replace('.', ',')));
             flpNewMais.Visible = false;
         }
@@ -394,6 +396,7 @@ namespace Pizzaria.Tela
                 MessageBox.Show("Alteração concluida com Sucesso!","MESSAGEM"  ,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
             }
         }
+
 
 
 

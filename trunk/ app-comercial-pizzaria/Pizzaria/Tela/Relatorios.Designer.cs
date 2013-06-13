@@ -344,16 +344,16 @@
             // 
             // flpPrincipal
             // 
+            this.flpPrincipal.Controls.Add(this.flpLeituraX);
             this.flpPrincipal.Controls.Add(this.flpVenda);
             this.flpPrincipal.Controls.Add(this.flpProduto);
             this.flpPrincipal.Controls.Add(this.flpGarcon);
-            this.flpPrincipal.Controls.Add(this.flpLeituraX);
             this.flpPrincipal.Dock = System.Windows.Forms.DockStyle.Right;
             this.flpPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.flpPrincipal.Location = new System.Drawing.Point(245, 0);
             this.flpPrincipal.Margin = new System.Windows.Forms.Padding(0);
             this.flpPrincipal.Name = "flpPrincipal";
-            this.flpPrincipal.Size = new System.Drawing.Size(1048, 95);
+            this.flpPrincipal.Size = new System.Drawing.Size(1048, 420);
             this.flpPrincipal.TabIndex = 9;
             // 
             // flpVenda
@@ -368,10 +368,11 @@
             this.flpVenda.Controls.Add(this.gbVendaData);
             this.flpVenda.Controls.Add(this.gbVendaTipo);
             this.flpVenda.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flpVenda.Location = new System.Drawing.Point(0, 0);
+            this.flpVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.flpVenda.Location = new System.Drawing.Point(0, 99);
             this.flpVenda.Margin = new System.Windows.Forms.Padding(0);
             this.flpVenda.Name = "flpVenda";
-            this.flpVenda.Size = new System.Drawing.Size(1048, 140);
+            this.flpVenda.Size = new System.Drawing.Size(1048, 94);
             this.flpVenda.TabIndex = 0;
             // 
             // btConsultarVenda
@@ -564,10 +565,10 @@
             this.flpProduto.Controls.Add(this.gbPeriodoProduto);
             this.flpProduto.Controls.Add(this.gbProdutoData);
             this.flpProduto.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flpProduto.Location = new System.Drawing.Point(0, 140);
+            this.flpProduto.Location = new System.Drawing.Point(0, 193);
             this.flpProduto.Margin = new System.Windows.Forms.Padding(0);
             this.flpProduto.Name = "flpProduto";
-            this.flpProduto.Size = new System.Drawing.Size(1048, 99);
+            this.flpProduto.Size = new System.Drawing.Size(1048, 108);
             this.flpProduto.TabIndex = 1;
             // 
             // btConsultarProduto
@@ -878,10 +879,10 @@
             this.flpGarcon.Controls.Add(this.gbGarconDia);
             this.flpGarcon.Controls.Add(this.gbGarconData);
             this.flpGarcon.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flpGarcon.Location = new System.Drawing.Point(0, 239);
+            this.flpGarcon.Location = new System.Drawing.Point(0, 301);
             this.flpGarcon.Margin = new System.Windows.Forms.Padding(0);
             this.flpGarcon.Name = "flpGarcon";
-            this.flpGarcon.Size = new System.Drawing.Size(1048, 98);
+            this.flpGarcon.Size = new System.Drawing.Size(1048, 100);
             this.flpGarcon.TabIndex = 2;
             // 
             // btConsultarGarcon
@@ -1202,7 +1203,7 @@
             this.flpLeituraX.Controls.Add(this.gbLeitX);
             this.flpLeituraX.Controls.Add(this.LCodigo);
             this.flpLeituraX.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flpLeituraX.Location = new System.Drawing.Point(0, 337);
+            this.flpLeituraX.Location = new System.Drawing.Point(0, 0);
             this.flpLeituraX.Margin = new System.Windows.Forms.Padding(0);
             this.flpLeituraX.Name = "flpLeituraX";
             this.flpLeituraX.Size = new System.Drawing.Size(1048, 99);
@@ -1366,7 +1367,7 @@
             this.pTipoRelatorio.Location = new System.Drawing.Point(0, 0);
             this.pTipoRelatorio.Margin = new System.Windows.Forms.Padding(0);
             this.pTipoRelatorio.Name = "pTipoRelatorio";
-            this.pTipoRelatorio.Size = new System.Drawing.Size(245, 95);
+            this.pTipoRelatorio.Size = new System.Drawing.Size(245, 420);
             this.pTipoRelatorio.TabIndex = 1;
             // 
             // tlpFundo
@@ -1383,7 +1384,7 @@
             this.tlpFundo.Location = new System.Drawing.Point(0, 0);
             this.tlpFundo.Name = "tlpFundo";
             this.tlpFundo.RowCount = 3;
-            this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 95F));
+            this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 420F));
             this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpFundo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
             this.tlpFundo.Size = new System.Drawing.Size(1338, 487);
@@ -1397,7 +1398,7 @@
             this.pFiltro.Location = new System.Drawing.Point(25, 0);
             this.pFiltro.Margin = new System.Windows.Forms.Padding(0);
             this.pFiltro.Name = "pFiltro";
-            this.pFiltro.Size = new System.Drawing.Size(1293, 95);
+            this.pFiltro.Size = new System.Drawing.Size(1293, 420);
             this.pFiltro.TabIndex = 0;
             // 
             // pValor
@@ -1443,10 +1444,10 @@
             // 
             this.pFundo.Controls.Add(this.lvConsInfo);
             this.pFundo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pFundo.Location = new System.Drawing.Point(25, 95);
+            this.pFundo.Location = new System.Drawing.Point(25, 420);
             this.pFundo.Margin = new System.Windows.Forms.Padding(0);
             this.pFundo.Name = "pFundo";
-            this.pFundo.Size = new System.Drawing.Size(1293, 333);
+            this.pFundo.Size = new System.Drawing.Size(1293, 8);
             this.pFundo.TabIndex = 47;
             // 
             // lvConsInfo
@@ -1460,7 +1461,7 @@
             this.lvConsInfo.Location = new System.Drawing.Point(0, 0);
             this.lvConsInfo.Margin = new System.Windows.Forms.Padding(0);
             this.lvConsInfo.Name = "lvConsInfo";
-            this.lvConsInfo.Size = new System.Drawing.Size(1293, 333);
+            this.lvConsInfo.Size = new System.Drawing.Size(1293, 8);
             this.lvConsInfo.TabIndex = 45;
             this.lvConsInfo.UseCompatibleStateImageBehavior = false;
             this.lvConsInfo.View = System.Windows.Forms.View.Details;

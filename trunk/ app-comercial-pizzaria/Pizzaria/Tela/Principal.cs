@@ -153,7 +153,9 @@ namespace Pizzaria.Tela
                     lvInfo.Items.Add(new Banco().informacoes2(Convert.ToInt32(t.Rows[i].ItemArray.GetValue(0))));
                     lvInfo.Items[i].SubItems.Add(t.Rows[i].ItemArray.GetValue(1).ToString());
                     lvInfo.Items[i].SubItems.Add("R$ " + new Tratamento().retornaValorEscrito(Convert.ToDouble(t.Rows[i].ItemArray.GetValue(2))));
-                    lvInfo.Items[i].SubItems.Add("" + new BancoInformacao().quantidadeCompletaByCodigo(Convert.ToInt32(t.Rows[i].ItemArray.GetValue(0))));
+                    lvInfo.Items[i].SubItems.Add("" + new BancoInformacao().quantidadeCompletaByCodigo(Convert.ToInt32(t.Rows[i].ItemArray.GetValue(0))).ToString("0.000"));
+
+                    lvInfo.Items[i].SubItems.Add("" +(Convert.ToDouble(t.Rows[i].ItemArray.GetValue(2))* new BancoInformacao().quantidadeCompletaByCodigo(Convert.ToInt32(t.Rows[i].ItemArray.GetValue(0)))).ToString("0.00"));
                 }
                 VendaFull vf =  new BancoVenda().carregaVenda(new Banco().codVendaSelecionada2(listVenda.FocusedItem.Text));
                 lValor.Text = "SUB TOTAL R$ " + new Tratamento().retornaValorEscrito(vf.subValor);
@@ -179,15 +181,17 @@ namespace Pizzaria.Tela
         }
         private void regularTamanho()
         {
-            double umPct =(double) 443 / 100;
+                double umPct =(double) 443 / 100;
        //     this.lvInfo.Size = new System.Drawing.Size((int)448, 384); //570 555
-            this.aparelho.Width = (int)(umPct * 35);//35
+            this.aparelho.Width = (int)(umPct * 31);//33
 
-            this.inicio.Width = (int)(umPct * 23);//23%
+            this.inicio.Width = (int)(umPct * 20);//21%
 
-            this.fim.Width = (int)(umPct * 22);//22%
+            this.fim.Width = (int)(umPct * 16);//18%
 
-            this.qtd.Width = (int)(umPct * 20);//20%
+            this.qtd.Width = (int)(umPct * 15);//16%
+
+            this.subV.Width = (int)(umPct * 18);
 
             this.lvInfo.Scrollable = false;
             if (this.lvInfo.Items.Count >= 15)

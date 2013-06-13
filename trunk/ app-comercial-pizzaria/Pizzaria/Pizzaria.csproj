@@ -121,6 +121,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Banco\BancoInformacao.cs" />
+    <Compile Include="ClasseDLL\Bemafi32.cs" />
+    <Compile Include="ClasseDLL\DllToledo.cs" />
     <Compile Include="ClasseDLL\MP2032.cs" />
     <Compile Include="ClasseDLL\Variaveis.cs" />
     <Compile Include="Classes\CRelatorio.cs" />
@@ -836,7 +838,9 @@
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

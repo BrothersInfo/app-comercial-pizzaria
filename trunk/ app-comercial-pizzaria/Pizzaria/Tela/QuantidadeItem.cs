@@ -20,8 +20,8 @@ namespace Pizzaria.Tela
         public QuantidadeItem(int cod_venda, Completa p)
         {
             InitializeComponent();
-            produto = p;
-            numQuantidade.Maximum = p.quantidade;
+            produto = p;  
+            numQuantidade.Maximum = decimal.Parse(  p.quantidade.ToString().Replace(',','.') );
             this.cod_venda = cod_venda;
         }
 

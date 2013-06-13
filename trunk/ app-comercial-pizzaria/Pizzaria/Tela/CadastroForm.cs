@@ -129,6 +129,7 @@ namespace Pizzaria.Tela
         private void btContinue_Click(object sender, EventArgs e)
         {
             t[ii].valor = new Tratamento().stringToDouble(mtValor.Text);
+            t[ii].compra = new Tratamento().stringToDouble(mtCompra.Text);
             try
             {
                 lbTamanho.Text = t[++ii].nome2;
@@ -175,7 +176,8 @@ namespace Pizzaria.Tela
             {
                 if (!new BancoConsulta().existeTamanho(tbCadTamNome.Text))
                 {
-                    new BancoConsulta().novoTamanho(tbCadTamNome.Text, new BancoConsulta().cod_divisorByDescricao(cbCadSubDivis.Text));
+                    int k = new BancoConsulta().cod_divisorByDescricao(cbCadSubDivis.Text);
+                    new BancoConsulta().novoTamanho(tbCadTamNome.Text, k);
                     MessageBox.Show("Cadastro Realizado com Sucesso", "Cadastro");
                 }
             }

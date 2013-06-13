@@ -1,15 +1,16 @@
- |----   COZINHA   ----|
- | Data : 14/02/2013   |
- | Hora : 21:42        |
+ |----   RENASCER   ----|
+ | Data : 13/06/2013   |
+ | Hora : 13:58        |
  |---------------------|
  |                     |
- | - Pizza             |
- | Tam - Grande        |
- | Batata Palha        |
- |Quantidade - 1       |
+ | - Almoco            |
+ | Tam - Unico         |
+ | File a Parmejiana   |
+ |Quantidade - 0,6     |
+ |Valor do Item - 9,00 |
  |                     |
  | --  -   --   -  --  |
  |---------------------|
- | GARCOM -Nailton     |
- | Mesa 9              |
+ | GARCOM -Teste       |
+ | Mesa 1              |
  |---------------------|
