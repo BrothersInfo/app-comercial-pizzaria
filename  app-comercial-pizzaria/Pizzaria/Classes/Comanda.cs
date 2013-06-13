@@ -20,6 +20,7 @@ namespace Pizzaria.Classes
         public string progTelefone;
         public string data;
         public int cod_venda;
+        
         public Comanda(int codVenda)
         {
             DataTable dtt = new Banco().carregaComanda();

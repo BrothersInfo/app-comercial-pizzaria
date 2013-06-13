@@ -10,6 +10,7 @@ using System.Collections;
 using System.Windows.Forms;
 using System.Drawing.Printing;
 
+
 namespace Pizzaria.Classes
 {
     
@@ -203,26 +204,30 @@ namespace Pizzaria.Classes
                    int ii = 0; int i = vend.Completos.Length;
                    while (ii < i)
                    {
-                       string ID = ""+(ii + 1);ID = ID.PadLeft(3,'0');
-                       string CODPRODUTO = "" + vend.Completos[ii].produto[0].cod_produto; CODPRODUTO = CODPRODUTO.PadLeft(3, '0');//11 ate entao
-                       string PRODUTO ;
-                       if (vend.Completos[ii].produto.Length > 1) PRODUTO = "mista " + new Banco().preencherNomeProdctAll(vend.Completos[ii].produto[0].cod_produto);
-                       else PRODUTO = new Banco().preencherNomeProdctAll(vend.Completos[ii].produto[0].cod_produto);
-                       
+                       string ID = (ii + 1).ToString("000");
+
+                       string CODPRODUTO = "" + vend.Completos[ii].produto[0].cod_produto.ToString("000"); // 3
+                       string PRODUTO  = new Banco().preencherNomeProdctAll(vend.Completos[ii].produto[0].cod_produto); // 3
+                       if (vend.Completos[ii].produto.Length > 1) PRODUTO = "mista " + PRODUTO; //18
+
                        if(PRODUTO.Length > 18 )    PRODUTO = PRODUTO.Substring(0, 18);
                        else                        PRODUTO = PRODUTO.PadRight(18,' ');
-                       string TAMANHO = new BancoInformacao().tamanhoDescricaoByCodigo(vend.Completos[ii].produto[0].cod_tamanho);
+
+
+                       string TAMANHO = new BancoInformacao().tamanhoDescricaoByCodigo(vend.Completos[ii].produto[0].cod_tamanho); // 9
                        if(TAMANHO.Length > 9 )    TAMANHO = TAMANHO.Substring(0, 9);
                        else                        TAMANHO = TAMANHO.PadRight(9,' ');
-                       linha = "| "+ID+ " - "+ CODPRODUTO + "   , "+ PRODUTO + " | " + TAMANHO + " |";
+                       linha = "| "+ID+ " - "+ CODPRODUTO + "   , "+ PRODUTO + " | " + TAMANHO + " |"; //48 
                        VETOR1[ii] = linha;
                        
                        
 
-                       string QUANTIDADE = "" + vend.Completos[ii].quantidade; QUANTIDADE = QUANTIDADE.PadLeft(3, '0');
-                       string UNITARIO = String.Format("{0:C}", vend.Completos[ii].valorUnitario).PadRight(7, ' ');
-                       string VALORSOMADO = String.Format("{0:C}", vend.Completos[ii].quantidade * vend.Completos[ii].valorUnitario).PadRight(11, ' ');
-                       linha = "|      "+ QUANTIDADE + "     X   "+ UNITARIO+ "    =    "+ VALORSOMADO+"|";
+                       string QUANTIDADE =  vend.Completos[ii].quantidade.ToString("0.000").PadRight(6, ' ');//6
+
+                       string UNITARIO = (vend.Completos[ii].valorUnitario).ToString("0.00").PadRight(8, ' ');//8
+                       string VALORSOMADO = ( vend.Completos[ii].quantidade * vend.Completos[ii].valorUnitario).ToString("0.00");
+                       
+                       linha = ("|    "+ QUANTIDADE + "   X   "+ UNITARIO+ "        = "+ VALORSOMADO+"").PadRight(47,' ')+ "|";//48
                        VETOR2[ii] = linha;
                        ii++;    
                    }
@@ -415,7 +420,8 @@ namespace Pizzaria.Classes
             int line = 1;
             //
 
-            mr.PrintText(line++, 01, "|----   COZINHA   ----|");
+            string cozinha = new Banco().carregaComandaCozinha();
+            mr.PrintText(line++, 01, "|----"+cozinha+"----|");//13
 
             mr.PrintText(line, 01, "| Data : " + DateTime.Now.ToShortDateString()); mr.PrintText(line++, 23, "|");
             mr.PrintText(line, 01, "| Hora : " + DateTime.Now.ToShortTimeString()); mr.PrintText(line++, 23, "|");
@@ -448,6 +454,7 @@ namespace Pizzaria.Classes
                     }
                 }
                 mr.PrintText(line, 1, "|Quantidade - " + produto[ii].quantidade); mr.PrintText(line++, 23, "|");
+                mr.PrintText(line, 1, "|Valor do Item - " + (produto[ii].valorUnitario * produto[ii].quantidade).ToString("0.00")); mr.PrintText(line++, 23, "|");
                 //   mr.PrintText(line, 01, "|"); mr.PrintText(line++, 17, "|");
                 string noticia = "";
                 int u = 0;

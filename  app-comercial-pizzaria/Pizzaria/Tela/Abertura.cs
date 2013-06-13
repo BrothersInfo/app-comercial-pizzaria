@@ -26,8 +26,6 @@ namespace Pizzaria.Tela
                 string input = null;
                 while ((input = sr.ReadLine()) != null)
                 {
-
-
                     ClasseDLL.Variaveis.conexao = input;
                 }
             }

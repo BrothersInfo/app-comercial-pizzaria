@@ -13,6 +13,7 @@ namespace Pizzaria.Classes
         public int cod_tamanho2;
         public string nome2;
         public double valor;
+        public double compra;
         public void setCodigo(string nome)
         {
             

@@ -693,9 +693,9 @@ namespace Pizzaria.Banco
             sql.Fill(dtt);
             for (int i = 0; i < tam.Length; i++)
             {
-                string query2 = "INSERT INTO produtotamanho( cod_produto, cod_tamanho, valorproduto) VALUES ("
+                string query2 = "INSERT INTO produtotamanho( cod_produto, cod_tamanho, valorproduto,valorCompra) VALUES ("
                     + cod_produto + ",'" + tam[i].cod_tamanho2 + "' , " + (tam[i].valor).ToString().Replace(',', '.') 
-                    + ")";
+                    + ", "+(tam[i].compra).ToString().Replace(',', '.') +")";
                 dtt = new DataTable();
                 sql = new NpgsqlDataAdapter(query2, Conectar());
                 sql.Fill(dtt);

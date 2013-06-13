@@ -84,6 +84,8 @@
             this.tlpInternaLinhaTamanho = new System.Windows.Forms.TableLayoutPanel();
             this.pInternaTamanho = new System.Windows.Forms.Panel();
             this.gbCadastrarTamanho = new System.Windows.Forms.GroupBox();
+            this.cbCadSubDivis = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tbCadTamNome = new System.Windows.Forms.TextBox();
             this.btCadTamanho = new System.Windows.Forms.Button();
             this.lCadTamanho = new System.Windows.Forms.Label();
@@ -120,8 +122,8 @@
             this.lbCadNome = new System.Windows.Forms.Label();
             this.lTituloAmbiente = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.cbCadSubDivis = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.mtCompra = new System.Windows.Forms.MaskedTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.painelCadastroGeral.SuspendLayout();
             this.tpGarcon.SuspendLayout();
             this.tlpInternaColunaGarcon.SuspendLayout();
@@ -592,9 +594,9 @@
             this.bgAlterarTamanho.Controls.Add(this.label3);
             this.bgAlterarTamanho.Font = new System.Drawing.Font("Arial", 16F);
             this.bgAlterarTamanho.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.bgAlterarTamanho.Location = new System.Drawing.Point(66, 74);
+            this.bgAlterarTamanho.Location = new System.Drawing.Point(52, 80);
             this.bgAlterarTamanho.Name = "bgAlterarTamanho";
-            this.bgAlterarTamanho.Size = new System.Drawing.Size(408, 297);
+            this.bgAlterarTamanho.Size = new System.Drawing.Size(449, 297);
             this.bgAlterarTamanho.TabIndex = 24;
             this.bgAlterarTamanho.TabStop = false;
             this.bgAlterarTamanho.Text = "CADASTRAR";
@@ -696,6 +698,8 @@
             // 
             this.bgValores.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.bgValores.BackColor = System.Drawing.Color.White;
+            this.bgValores.Controls.Add(this.mtCompra);
+            this.bgValores.Controls.Add(this.label2);
             this.bgValores.Controls.Add(this.mtValor);
             this.bgValores.Controls.Add(this.lbRS);
             this.bgValores.Controls.Add(this.lbProduto);
@@ -704,7 +708,7 @@
             this.bgValores.Controls.Add(this.btContinue);
             this.bgValores.Font = new System.Drawing.Font("Arial", 16F);
             this.bgValores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.bgValores.Location = new System.Drawing.Point(66, 87);
+            this.bgValores.Location = new System.Drawing.Point(66, 80);
             this.bgValores.Name = "bgValores";
             this.bgValores.Size = new System.Drawing.Size(408, 186);
             this.bgValores.TabIndex = 24;
@@ -716,7 +720,7 @@
             // 
             this.mtValor.Font = new System.Drawing.Font("Arial", 18F);
             this.mtValor.ForeColor = System.Drawing.Color.DarkRed;
-            this.mtValor.Location = new System.Drawing.Point(225, 120);
+            this.mtValor.Location = new System.Drawing.Point(225, 73);
             this.mtValor.Mask = "000,00";
             this.mtValor.Name = "mtValor";
             this.mtValor.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -727,18 +731,18 @@
             // lbRS
             // 
             this.lbRS.AutoSize = true;
-            this.lbRS.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRS.Location = new System.Drawing.Point(163, 120);
+            this.lbRS.Font = new System.Drawing.Font("Arial", 16F);
+            this.lbRS.Location = new System.Drawing.Point(44, 83);
             this.lbRS.Name = "lbRS";
-            this.lbRS.Size = new System.Drawing.Size(56, 36);
+            this.lbRS.Size = new System.Drawing.Size(158, 25);
             this.lbRS.TabIndex = 38;
-            this.lbRS.Text = "R$";
+            this.lbRS.Text = "Valor de Venda";
             // 
             // lbProduto
             // 
             this.lbProduto.AutoSize = true;
             this.lbProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.lbProduto.Location = new System.Drawing.Point(151, 39);
+            this.lbProduto.Location = new System.Drawing.Point(152, 19);
             this.lbProduto.Name = "lbProduto";
             this.lbProduto.Size = new System.Drawing.Size(128, 26);
             this.lbProduto.TabIndex = 30;
@@ -748,7 +752,7 @@
             // 
             this.lbTamanho.AutoSize = true;
             this.lbTamanho.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.lbTamanho.Location = new System.Drawing.Point(16, 124);
+            this.lbTamanho.Location = new System.Drawing.Point(152, 45);
             this.lbTamanho.Name = "lbTamanho";
             this.lbTamanho.Size = new System.Drawing.Size(128, 26);
             this.lbTamanho.TabIndex = 29;
@@ -860,6 +864,25 @@
             this.gbCadastrarTamanho.TabIndex = 41;
             this.gbCadastrarTamanho.TabStop = false;
             this.gbCadastrarTamanho.Text = "CADASTRAR";
+            // 
+            // cbCadSubDivis
+            // 
+            this.cbCadSubDivis.Font = new System.Drawing.Font("Comic Sans MS", 12F);
+            this.cbCadSubDivis.FormattingEnabled = true;
+            this.cbCadSubDivis.Location = new System.Drawing.Point(172, 167);
+            this.cbCadSubDivis.Name = "cbCadSubDivis";
+            this.cbCadSubDivis.Size = new System.Drawing.Size(162, 31);
+            this.cbCadSubDivis.TabIndex = 39;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 13F);
+            this.label1.Location = new System.Drawing.Point(29, 177);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(137, 21);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "DIVISIBILIDADE";
             // 
             // tbCadTamNome
             // 
@@ -1304,24 +1327,26 @@
             this.label11.TabIndex = 39;
             this.label11.Text = "* Atenção - Não é permitido o cadastro de dois nomes iguais";
             // 
-            // cbCadSubDivis
+            // mtCompra
             // 
-            this.cbCadSubDivis.Font = new System.Drawing.Font("Comic Sans MS", 12F);
-            this.cbCadSubDivis.FormattingEnabled = true;
-            this.cbCadSubDivis.Location = new System.Drawing.Point(172, 167);
-            this.cbCadSubDivis.Name = "cbCadSubDivis";
-            this.cbCadSubDivis.Size = new System.Drawing.Size(162, 31);
-            this.cbCadSubDivis.TabIndex = 39;
+            this.mtCompra.Font = new System.Drawing.Font("Arial", 18F);
+            this.mtCompra.ForeColor = System.Drawing.Color.DarkRed;
+            this.mtCompra.Location = new System.Drawing.Point(225, 120);
+            this.mtCompra.Mask = "000,00";
+            this.mtCompra.Name = "mtCompra";
+            this.mtCompra.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.mtCompra.Size = new System.Drawing.Size(86, 35);
+            this.mtCompra.TabIndex = 41;
             // 
-            // label1
+            // label2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 13F);
-            this.label1.Location = new System.Drawing.Point(29, 177);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 21);
-            this.label1.TabIndex = 38;
-            this.label1.Text = "DIVISIBILIDADE";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 16F);
+            this.label2.Location = new System.Drawing.Point(27, 125);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(175, 25);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "Valor de Compra";
             // 
             // CadastroForm
             // 
@@ -1492,5 +1517,7 @@
         private System.Windows.Forms.CheckBox cbComanda;
         private System.Windows.Forms.ComboBox cbCadSubDivis;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MaskedTextBox mtCompra;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -9,7 +9,7 @@ namespace Pizzaria.Classes
     {
         public Produto[] produto;
         public double valorUnitario;
-        public int quantidade;
+        public double quantidade;
         public int cod_completo;
         public bool needImpress;
         public GarconFisico[] garcons;

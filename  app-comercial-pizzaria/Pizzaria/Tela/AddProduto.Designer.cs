@@ -46,9 +46,7 @@
             this.cbTamanho = new System.Windows.Forms.ComboBox();
             this.cbMista = new System.Windows.Forms.ComboBox();
             this.lbMista = new System.Windows.Forms.Label();
-            this.numQuantidade = new System.Windows.Forms.NumericUpDown();
             this.lTamanho = new System.Windows.Forms.Label();
-            this.LQuantidade = new System.Windows.Forms.Label();
             this.btBack = new System.Windows.Forms.Button();
             this.panelDesignCodigo = new System.Windows.Forms.Panel();
             this.lbNomePizza4 = new System.Windows.Forms.Label();
@@ -75,21 +73,27 @@
             this.btEscolhaProduto = new System.Windows.Forms.Button();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.tbQuantidade = new System.Windows.Forms.TextBox();
+            this.btMenos = new System.Windows.Forms.Button();
+            this.btMais = new System.Windows.Forms.Button();
+            this.gbQtd = new System.Windows.Forms.GroupBox();
+            this.btBalanca = new System.Windows.Forms.Button();
             this.panFundo.SuspendLayout();
             this.pGarLivre.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numQuantidade)).BeginInit();
             this.panelDesignCodigo.SuspendLayout();
             this.pDescricao.SuspendLayout();
             this.layoutCodigo.SuspendLayout();
             this.panelValor.SuspendLayout();
+            this.gbQtd.SuspendLayout();
             this.SuspendLayout();
             // 
             // panFundo
             // 
             this.panFundo.BackColor = System.Drawing.Color.White;
             this.panFundo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panFundo.Controls.Add(this.btBalanca);
             this.panFundo.Controls.Add(this.lbMesa);
             this.panFundo.Controls.Add(this.btGarc);
             this.panFundo.Controls.Add(this.pGarLivre);
@@ -109,7 +113,7 @@
             this.panFundo.Location = new System.Drawing.Point(0, 0);
             this.panFundo.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.panFundo.Name = "panFundo";
-            this.panFundo.Size = new System.Drawing.Size(640, 416);
+            this.panFundo.Size = new System.Drawing.Size(684, 416);
             this.panFundo.TabIndex = 2;
             // 
             // lbMesa
@@ -127,10 +131,13 @@
             // 
             this.btGarc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btGarc.BackgroundImage")));
             this.btGarc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btGarc.Location = new System.Drawing.Point(306, 235);
+            this.btGarc.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btGarc.ForeColor = System.Drawing.Color.White;
+            this.btGarc.Location = new System.Drawing.Point(465, 284);
             this.btGarc.Name = "btGarc";
-            this.btGarc.Size = new System.Drawing.Size(42, 31);
+            this.btGarc.Size = new System.Drawing.Size(38, 31);
             this.btGarc.TabIndex = 18;
+            this.btGarc.Text = "G";
             this.btGarc.UseVisualStyleBackColor = true;
             this.btGarc.Visible = false;
             this.btGarc.Click += new System.EventHandler(this.btGarc_Click);
@@ -141,7 +148,7 @@
             this.pGarLivre.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pGarLivre.Controls.Add(this.lGarLivre);
             this.pGarLivre.Controls.Add(this.cbGarLivre);
-            this.pGarLivre.Location = new System.Drawing.Point(335, 249);
+            this.pGarLivre.Location = new System.Drawing.Point(349, 249);
             this.pGarLivre.Name = "pGarLivre";
             this.pGarLivre.Size = new System.Drawing.Size(110, 71);
             this.pGarLivre.TabIndex = 23;
@@ -177,7 +184,7 @@
             this.cbGarVen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGarVen.Font = new System.Drawing.Font("Comic Sans MS", 12F);
             this.cbGarVen.FormattingEnabled = true;
-            this.cbGarVen.Location = new System.Drawing.Point(341, 285);
+            this.cbGarVen.Location = new System.Drawing.Point(355, 285);
             this.cbGarVen.Name = "cbGarVen";
             this.cbGarVen.Size = new System.Drawing.Size(98, 31);
             this.cbGarVen.TabIndex = 9;
@@ -214,7 +221,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(15, 247);
+            this.label1.Location = new System.Drawing.Point(55, 247);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(143, 18);
             this.label1.TabIndex = 25;
@@ -236,9 +243,9 @@
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.tbNoticia);
-            this.panel2.Location = new System.Drawing.Point(12, 273);
+            this.panel2.Location = new System.Drawing.Point(53, 273);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(317, 47);
+            this.panel2.Size = new System.Drawing.Size(276, 47);
             this.panel2.TabIndex = 19;
             // 
             // tbNoticia
@@ -246,7 +253,7 @@
             this.tbNoticia.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNoticia.Location = new System.Drawing.Point(3, 4);
             this.tbNoticia.Name = "tbNoticia";
-            this.tbNoticia.Size = new System.Drawing.Size(298, 36);
+            this.tbNoticia.Size = new System.Drawing.Size(262, 36);
             this.tbNoticia.TabIndex = 0;
             this.tbNoticia.Enter += new System.EventHandler(this.tbNoticia_Enter);
             this.tbNoticia.Leave += new System.EventHandler(this.tbNoticia_Leave);
@@ -255,15 +262,14 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.gbQtd);
             this.panel1.Controls.Add(this.cbTamanho);
             this.panel1.Controls.Add(this.cbMista);
             this.panel1.Controls.Add(this.lbMista);
-            this.panel1.Controls.Add(this.numQuantidade);
             this.panel1.Controls.Add(this.lTamanho);
-            this.panel1.Controls.Add(this.LQuantidade);
-            this.panel1.Location = new System.Drawing.Point(451, 66);
+            this.panel1.Location = new System.Drawing.Point(465, 66);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(176, 205);
+            this.panel1.Size = new System.Drawing.Size(206, 205);
             this.panel1.TabIndex = 22;
             // 
             // cbTamanho
@@ -274,7 +280,7 @@
             this.cbTamanho.FormattingEnabled = true;
             this.cbTamanho.Location = new System.Drawing.Point(19, 34);
             this.cbTamanho.Name = "cbTamanho";
-            this.cbTamanho.Size = new System.Drawing.Size(134, 31);
+            this.cbTamanho.Size = new System.Drawing.Size(174, 31);
             this.cbTamanho.TabIndex = 0;
             this.cbTamanho.SelectedIndexChanged += new System.EventHandler(this.cbTamanho_SelectedIndexChanged);
             this.cbTamanho.Enter += new System.EventHandler(this.cbTamanho_Enter);
@@ -294,7 +300,7 @@
             "4 x  - 25%"});
             this.cbMista.Location = new System.Drawing.Point(19, 97);
             this.cbMista.Name = "cbMista";
-            this.cbMista.Size = new System.Drawing.Size(134, 31);
+            this.cbMista.Size = new System.Drawing.Size(174, 31);
             this.cbMista.TabIndex = 7;
             this.cbMista.SelectedIndexChanged += new System.EventHandler(this.cbMista_SelectedIndexChanged);
             this.cbMista.Enter += new System.EventHandler(this.cbMista_Enter);
@@ -311,36 +317,6 @@
             this.lbMista.TabIndex = 10;
             this.lbMista.Text = "DIVISÃO";
             // 
-            // numQuantidade
-            // 
-            this.numQuantidade.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numQuantidade.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.numQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numQuantidade.Location = new System.Drawing.Point(19, 164);
-            this.numQuantidade.Maximum = new decimal(new int[] {
-            24,
-            0,
-            0,
-            0});
-            this.numQuantidade.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numQuantidade.Name = "numQuantidade";
-            this.numQuantidade.Size = new System.Drawing.Size(134, 32);
-            this.numQuantidade.TabIndex = 12;
-            this.numQuantidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numQuantidade.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numQuantidade.Visible = false;
-            this.numQuantidade.Enter += new System.EventHandler(this.numQuantidade_Enter);
-            this.numQuantidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numQuantidade_KeyPress);
-            this.numQuantidade.Leave += new System.EventHandler(this.numQuantidade_Leave);
-            // 
             // lTamanho
             // 
             this.lTamanho.AutoSize = true;
@@ -350,17 +326,6 @@
             this.lTamanho.Size = new System.Drawing.Size(120, 21);
             this.lTamanho.TabIndex = 12;
             this.lTamanho.Text = "SUB CATEG.";
-            // 
-            // LQuantidade
-            // 
-            this.LQuantidade.AutoSize = true;
-            this.LQuantidade.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
-            this.LQuantidade.Location = new System.Drawing.Point(19, 138);
-            this.LQuantidade.Name = "LQuantidade";
-            this.LQuantidade.Size = new System.Drawing.Size(130, 21);
-            this.LQuantidade.TabIndex = 2;
-            this.LQuantidade.Text = "QUANTIDADE";
-            this.LQuantidade.Visible = false;
             // 
             // btBack
             // 
@@ -387,7 +352,7 @@
             this.panelDesignCodigo.Controls.Add(this.layoutCodigo);
             this.panelDesignCodigo.Location = new System.Drawing.Point(12, 66);
             this.panelDesignCodigo.Name = "panelDesignCodigo";
-            this.panelDesignCodigo.Size = new System.Drawing.Size(433, 169);
+            this.panelDesignCodigo.Size = new System.Drawing.Size(447, 169);
             this.panelDesignCodigo.TabIndex = 1;
             // 
             // lbNomePizza4
@@ -621,9 +586,9 @@
             this.panelValor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelValor.Controls.Add(this.lbRS);
             this.panelValor.Controls.Add(this.mtValor);
-            this.panelValor.Location = new System.Drawing.Point(451, 273);
+            this.panelValor.Location = new System.Drawing.Point(509, 273);
             this.panelValor.Name = "panelValor";
-            this.panelValor.Size = new System.Drawing.Size(176, 47);
+            this.panelValor.Size = new System.Drawing.Size(162, 47);
             this.panelValor.TabIndex = 18;
             this.panelValor.Visible = false;
             // 
@@ -644,7 +609,7 @@
             this.mtValor.Mask = "0,00";
             this.mtValor.Name = "mtValor";
             this.mtValor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.mtValor.Size = new System.Drawing.Size(97, 41);
+            this.mtValor.Size = new System.Drawing.Size(83, 41);
             this.mtValor.TabIndex = 3;
             // 
             // btEscolhaProduto
@@ -653,9 +618,9 @@
             this.btEscolhaProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btEscolhaProduto.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btEscolhaProduto.ForeColor = System.Drawing.Color.Maroon;
-            this.btEscolhaProduto.Location = new System.Drawing.Point(451, 349);
+            this.btEscolhaProduto.Location = new System.Drawing.Point(465, 347);
             this.btEscolhaProduto.Name = "btEscolhaProduto";
-            this.btEscolhaProduto.Size = new System.Drawing.Size(176, 56);
+            this.btEscolhaProduto.Size = new System.Drawing.Size(206, 56);
             this.btEscolhaProduto.TabIndex = 11;
             this.btEscolhaProduto.UseVisualStyleBackColor = true;
             this.btEscolhaProduto.Click += new System.EventHandler(this.btEscolhaProduto_Click);
@@ -667,24 +632,81 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(638, 414);
+            this.shapeContainer1.Size = new System.Drawing.Size(682, 414);
             this.shapeContainer1.TabIndex = 24;
             this.shapeContainer1.TabStop = false;
             // 
             // lineShape1
             // 
             this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 629;
+            this.lineShape1.X1 = 680;
             this.lineShape1.X2 = 0;
             this.lineShape1.Y1 = 30;
             this.lineShape1.Y2 = 30;
+            // 
+            // tbQuantidade
+            // 
+            this.tbQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbQuantidade.Location = new System.Drawing.Point(63, 20);
+            this.tbQuantidade.Name = "tbQuantidade";
+            this.tbQuantidade.Size = new System.Drawing.Size(81, 36);
+            this.tbQuantidade.TabIndex = 1;
+            // 
+            // btMenos
+            // 
+            this.btMenos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btMenos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btMenos.Location = new System.Drawing.Point(16, 20);
+            this.btMenos.Name = "btMenos";
+            this.btMenos.Size = new System.Drawing.Size(40, 36);
+            this.btMenos.TabIndex = 19;
+            this.btMenos.Text = "-";
+            this.btMenos.UseVisualStyleBackColor = true;
+            this.btMenos.Click += new System.EventHandler(this.btMenos_Click);
+            // 
+            // btMais
+            // 
+            this.btMais.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btMais.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btMais.Location = new System.Drawing.Point(150, 20);
+            this.btMais.Name = "btMais";
+            this.btMais.Size = new System.Drawing.Size(40, 36);
+            this.btMais.TabIndex = 20;
+            this.btMais.Text = "+";
+            this.btMais.UseVisualStyleBackColor = true;
+            this.btMais.Click += new System.EventHandler(this.btMais_Click);
+            // 
+            // gbQtd
+            // 
+            this.gbQtd.Controls.Add(this.btMais);
+            this.gbQtd.Controls.Add(this.btMenos);
+            this.gbQtd.Controls.Add(this.tbQuantidade);
+            this.gbQtd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.gbQtd.Location = new System.Drawing.Point(3, 130);
+            this.gbQtd.Name = "gbQtd";
+            this.gbQtd.Size = new System.Drawing.Size(196, 65);
+            this.gbQtd.TabIndex = 18;
+            this.gbQtd.TabStop = false;
+            this.gbQtd.Text = "QUANTIDADE";
+            // 
+            // btBalanca
+            // 
+            this.btBalanca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btBalanca.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btBalanca.Location = new System.Drawing.Point(7, 279);
+            this.btBalanca.Name = "btBalanca";
+            this.btBalanca.Size = new System.Drawing.Size(40, 36);
+            this.btBalanca.TabIndex = 28;
+            this.btBalanca.Text = "-";
+            this.btBalanca.UseVisualStyleBackColor = true;
+            this.btBalanca.Click += new System.EventHandler(this.btBalanca_Click);
             // 
             // AddProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(640, 416);
+            this.ClientSize = new System.Drawing.Size(684, 416);
             this.ControlBox = false;
             this.Controls.Add(this.panFundo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
@@ -704,7 +726,6 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numQuantidade)).EndInit();
             this.panelDesignCodigo.ResumeLayout(false);
             this.panelDesignCodigo.PerformLayout();
             this.pDescricao.ResumeLayout(false);
@@ -713,6 +734,8 @@
             this.layoutCodigo.PerformLayout();
             this.panelValor.ResumeLayout(false);
             this.panelValor.PerformLayout();
+            this.gbQtd.ResumeLayout(false);
+            this.gbQtd.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -724,9 +747,7 @@
         private System.Windows.Forms.ComboBox cbTamanho;
         private System.Windows.Forms.ComboBox cbMista;
         private System.Windows.Forms.Label lbMista;
-        private System.Windows.Forms.NumericUpDown numQuantidade;
         private System.Windows.Forms.Label lTamanho;
-        private System.Windows.Forms.Label LQuantidade;
         private System.Windows.Forms.Label lbGarcon;
         private System.Windows.Forms.ComboBox cbGarLivre;
         private System.Windows.Forms.Button btBack;
@@ -765,5 +786,10 @@
         private System.Windows.Forms.Label LCodigo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbMesa;
+        private System.Windows.Forms.Button btMais;
+        private System.Windows.Forms.Button btMenos;
+        private System.Windows.Forms.TextBox tbQuantidade;
+        private System.Windows.Forms.GroupBox gbQtd;
+        private System.Windows.Forms.Button btBalanca;
     }
 }

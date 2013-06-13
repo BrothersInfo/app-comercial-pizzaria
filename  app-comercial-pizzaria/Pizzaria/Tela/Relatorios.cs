@@ -40,7 +40,7 @@ namespace Pizzaria.Tela
                     flpVenda.Enabled = true;
                     flpGarcon.Enabled = false;
                     flpProduto.Enabled = false;
-                    
+               //     panel1.Visible = false;
                     flpLeituraX.Enabled = false;
                     flpLeituraX.Visible = false;
                     carregarVenda();
@@ -53,7 +53,7 @@ namespace Pizzaria.Tela
                     flpVenda.Enabled = false;
                     flpGarcon.Enabled = true;
                     flpProduto.Enabled = false;
-                    
+                 //   panel1.Visible = false;
                     flpLeituraX.Enabled = false;
                     flpLeituraX.Visible = false;
                     carregaGarcon();
@@ -61,6 +61,7 @@ namespace Pizzaria.Tela
                 case 2 :
                     flpVenda.Visible = false;
                     flpGarcon.Visible = false;
+                   // panel1.Visible = true;
                     flpProduto.Visible = true;
                     flpVenda.Enabled = false;
                     flpGarcon.Enabled = false;
@@ -71,6 +72,7 @@ namespace Pizzaria.Tela
                     carregaProduto();
                     break;
                 case 3:
+                  //  panel1.Visible = false;
                     flpVenda.Visible = false;
                     flpGarcon.Visible = false;
                     flpProduto.Visible = false;
@@ -83,6 +85,7 @@ namespace Pizzaria.Tela
                     break;
                 
                 default :
+                  //  panel1.Visible = false;
                     flpVenda.Visible = true;
                     flpGarcon.Visible = false;
                     flpProduto.Visible = false;
