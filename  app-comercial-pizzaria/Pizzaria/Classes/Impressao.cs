@@ -404,86 +404,92 @@ namespace Pizzaria.Classes
 
         public void gerarComandaCozinha(Completa[] produto, string[] mesa, bool reimpresso)
         {
-
-            this.printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("comanda", 304, 2000);
-            printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            Reporter mr = new Reporter();
-            if (File.Exists(endereco))
-                File.Delete(endereco);
-
-            mr.Output = endereco;
-            mr.StartJob();
-            //tamanho Interno 23
-
-            Comanda cc = new Comanda(venda.cod_venda, true);
-            string pont = "|---------------------|";
-            int line = 1;
-            //
-
-            string cozinha = new Banco().carregaComandaCozinha();
-            mr.PrintText(line++, 01, "|----"+cozinha+"----|");//13
-
-            mr.PrintText(line, 01, "| Data : " + DateTime.Now.ToShortDateString()); mr.PrintText(line++, 23, "|");
-            mr.PrintText(line, 01, "| Hora : " + DateTime.Now.ToShortTimeString()); mr.PrintText(line++, 23, "|");
-            mr.PrintText(line++, 01, pont);
-            mr.PrintText(line, 01, "|"); mr.PrintText(line++, 23, "|");
-            //produto
-            int ii = produto.Length;
-
-            while (ii-- > 0)
+            try
             {
-                if (reimpresso)
-                {
-                    mr.PrintText(line, 1, "| - REIMPRESSAO "); mr.PrintText(line++, 23, "|");
-                }
-                mr.PrintText(line, 1, "| - " + produto[ii].segmentoImprimir); mr.PrintText(line++, 23, "|");
+                this.printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("comanda", 304, 2000);
+                printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+                Reporter mr = new Reporter();
+                if (File.Exists(endereco))
+                    File.Delete(endereco);
 
-                string tam = new BancoInformacao().tamanhoDescricaoByCodigo(produto[ii].produto[0].cod_tamanho);
-                if (tam.Length > 14) tam = tam.Substring(0, 14);
-                mr.PrintText(line, 1, "| Tam - " + tam); mr.PrintText(line++, 23, "|");
-                for (int j = 0; j < produto[ii].produto.Length; j++)
+                mr.Output = endereco;
+                mr.StartJob();
+                //tamanho Interno 23
+
+                Comanda cc = new Comanda(venda.cod_venda, true);
+                string pont = "|---------------------|";
+                int line = 1;
+                //
+
+                string cozinha = new Banco().carregaComandaCozinha();
+                mr.PrintText(line++, 01, "|----" + cozinha + "----|");//13
+
+                mr.PrintText(line, 01, "| Data : " + DateTime.Now.ToShortDateString()); mr.PrintText(line++, 23, "|");
+                mr.PrintText(line, 01, "| Hora : " + DateTime.Now.ToShortTimeString()); mr.PrintText(line++, 23, "|");
+                mr.PrintText(line++, 01, pont);
+                mr.PrintText(line, 01, "|"); mr.PrintText(line++, 23, "|");
+                //produto
+                int ii = produto.Length;
+
+                while (ii-- > 0)
                 {
-                    string prod = new Banco().preencherNomeProdctAll(produto[ii].produto[j].cod_produto);
-                    if (prod.Length > 18) prod = prod.Substring(0, 18);
-                    mr.PrintText(line, 01, "| " + prod); mr.PrintText(line++, 23, "|");
-                    if (produto[ii].produto[j].porcentagem != 1)
+                    if (reimpresso)
                     {
-                        mr.PrintText(line, 01, "|"); 
-                        mr.PrintText(line, 6, " -- " + (produto[ii].produto[j].porcentagem * 100) + " %"); 
-                        mr.PrintText(line++, 23, "|");
+                        mr.PrintText(line, 1, "| - REIMPRESSAO "); mr.PrintText(line++, 23, "|");
                     }
-                }
-                mr.PrintText(line, 1, "|Quantidade - " + produto[ii].quantidade); mr.PrintText(line++, 23, "|");
-                mr.PrintText(line, 1, "|Valor do Item - " + (produto[ii].valorUnitario * produto[ii].quantidade).ToString("0.00")); mr.PrintText(line++, 23, "|");
-                //   mr.PrintText(line, 01, "|"); mr.PrintText(line++, 17, "|");
-                string noticia = "";
-                int u = 0;
-                string nota = produto[ii].getNoticia(); string obs = "obs. "; int limite = 16;
-                while (u < nota.Length)
-                {
-                    if (noticia.Length % limite == 0 && u >= limite)
+                    mr.PrintText(line, 1, "| - " + produto[ii].segmentoImprimir); mr.PrintText(line++, 23, "|");
+
+                    string tam = new BancoInformacao().tamanhoDescricaoByCodigo(produto[ii].produto[0].cod_tamanho);
+                    if (tam.Length > 14) tam = tam.Substring(0, 14);
+                    mr.PrintText(line, 1, "| Especif. - " + tam); mr.PrintText(line++, 23, "|");
+                    for (int j = 0; j < produto[ii].produto.Length; j++)
                     {
-                        mr.PrintText(line, 01, obs + noticia); mr.PrintText(line++, 23, "|"); noticia = ""; obs = ""; limite = 22;
+                        string prod = "Item - " + new Banco().preencherNomeProdctAll(produto[ii].produto[j].cod_produto);
+                        if (prod.Length > 16) prod = prod.Substring(0, 16);
+                        mr.PrintText(line, 01, "| " + prod); mr.PrintText(line++, 23, "|");
+                        if (produto[ii].produto[j].porcentagem != 1)
+                        {
+                            mr.PrintText(line, 01, "|");
+                            mr.PrintText(line, 6, " -- " + (produto[ii].produto[j].porcentagem * 100) + " %");
+                            mr.PrintText(line++, 23, "|");
+                        }
                     }
-                    noticia += produto[ii].getNoticia().Substring(u++, 1);
+                    mr.PrintText(line, 1, "|Quantidade - " + produto[ii].quantidade.ToString("0.000")); mr.PrintText(line++, 23, "|");
+                    mr.PrintText(line, 1, "|Valor Item - " + (produto[ii].valorUnitario * produto[ii].quantidade).ToString("0.00")); mr.PrintText(line++, 23, "|");
+                    //   mr.PrintText(line, 01, "|"); mr.PrintText(line++, 17, "|");
+                    string noticia = "";
+                    int u = 0;
+                    string nota = produto[ii].getNoticia(); string obs = "obs. "; int limite = 16;
+                    while (u < nota.Length)
+                    {
+                        if (noticia.Length % limite == 0 && u >= limite)
+                        {
+                            mr.PrintText(line, 01, obs + noticia); mr.PrintText(line++, 23, "|"); noticia = ""; obs = ""; limite = 22;
+                        }
+                        noticia += produto[ii].getNoticia().Substring(u++, 1);
+                    }
+                    mr.PrintText(line, 01, "|" + noticia); mr.PrintText(line++, 23, "|"); noticia = "";
+                    mr.PrintText(line++, 01, "| --  -   --   -  --  |");
                 }
-                mr.PrintText(line, 01, "|" + noticia); mr.PrintText(line++, 23, "|"); noticia = "";
-                mr.PrintText(line++, 01, "| --  -   --   -  --  |");
+                //produto
+                mr.PrintText(line++, 01, pont);
+                if (produto[0].garconImprimir.Length > 12) produto[0].garconImprimir = produto[0].garconImprimir.Substring(0, 12);
+                string garc = "| GARCOM -" + produto[0].garconImprimir;
+                mr.PrintText(line, 01, garc); mr.PrintText(line++, 23, "|");
+
+
+                mr.PrintText(line, 01, "| " + mesa[mesa.Length - 1]); mr.PrintText(line++, 23, "|");
+                mr.PrintText(line++, 01, pont);
+
+                mr.PrintJob();
+                mr.EndJob();
+                lerArquivo(new Banco().getCodImpressoraByTipo(new BancoConsulta().cod_tipoPeloNome(new Banco().segmentoDoProduto(produto[0].produto[0].cod_produto))));
             }
-            //produto
-            mr.PrintText(line++, 01, pont);
-            if (produto[0].garconImprimir.Length > 12) produto[0].garconImprimir = produto[0].garconImprimir.Substring(0, 12);
-            string garc = "| GARCOM -" + produto[0].garconImprimir;
-            mr.PrintText(line, 01, garc); mr.PrintText(line++, 23, "|");
-
-
-            mr.PrintText(line, 01, "| " + mesa[mesa.Length - 1]); mr.PrintText(line++, 23, "|");
-            mr.PrintText(line++, 01, pont);
-
-            mr.PrintJob();
-            mr.EndJob();
-            lerArquivo(new Banco().getCodImpressoraByTipo(new BancoConsulta().cod_tipoPeloNome(new Banco().segmentoDoProduto(produto[0].produto[0].cod_produto))));
-        }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message+ "info add:  "+ ee.Data);
+            }
+            }
         public string make48(string linha)
         {
             

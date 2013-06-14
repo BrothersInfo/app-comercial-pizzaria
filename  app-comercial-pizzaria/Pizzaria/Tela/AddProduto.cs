@@ -149,7 +149,7 @@ namespace Pizzaria.Tela
                                     if (listaProd[j].Count > 0)
                                     { 
                                        // new Impressao(new BancoVenda().carregaVenda(cod_venda)).gerarComandaInterna(listaProd[j].ToArray(), mesas);
-                                        new Impressao(true,new BancoVenda().carregaVenda(cod_venda)).novoMetodo(listaProd[j].ToArray(), mesas); 
+                                        new Impressao( new BancoVenda().carregaVenda(cod_venda)).gerarComandaCozinha(listaProd[j].ToArray(), mesas,false); 
                                     }
 
                                 MessageBox.Show("VENDA REALIZADA COM SUCESSO", "ATENDIMENDO BALCAO");
@@ -735,7 +735,10 @@ namespace Pizzaria.Tela
                                 }
                             }
                         }
-                        gbQtd.Visible = true; tbQuantidade.Text = 1.ToString("0.00"); if (!new Banco().isVendaBalcao(cod_venda)) garconDaVenda();
+                        gbQtd.Visible = true; tbQuantidade.Text = 1.ToString("0.00"); 
+                        if (!new Banco().isVendaBalcao(cod_venda)) garconDaVenda();
+
+                        if (!cbTamanho.Visible && !cbMista.Visible) tbQuantidade.Focus();
                     }
                     else
                     {
@@ -831,7 +834,7 @@ namespace Pizzaria.Tela
             preencherLabelDescritivo(codTamanho, new Banco().codDivisorByDescricao(cbMista.Text));
 
             if (cbMista.Items.Count >=2) { cbMista.Visible = true; lbMista.Visible = true; }
-            else { cbMista.Visible = false; lbMista.Visible = false; }
+            else { cbMista.Visible = false; lbMista.Visible = false; tbQuantidade.Focus(); }
             //lbMista.Visible = true;
             //cbMista.Visible = true;
             panelValor.Visible = true;
@@ -1032,14 +1035,20 @@ namespace Pizzaria.Tela
                 string precoQuilo= "";
                 string total ="";
                int ii =  Bemafi32.Bematech_FI_AbrePortaSerial();
-               int k = Bemafi32.Bematech_FI_InfoBalanca("USB", 2, ref peso, ref precoQuilo,ref total);
+               int k = Bemafi32.Bematech_FI_InfoBalanca(new Banco().portaBalanca(), 2, ref peso, ref precoQuilo,ref total);
 
+               MessageBox.Show(peso+" : "+precoQuilo+" : "+total);
 
 
                 float ff = DllToledo.Get();
             }catch( Exception ee){
                 MessageBox.Show(ee.Message);
             }
+        }
+
+        private void tbQuantidade_KeyPress(object sender, KeyPressEventArgs e)
+        {
+              if (e.KeyChar == '\r')            btEscolhaProduto.Focus();
         }
 
 

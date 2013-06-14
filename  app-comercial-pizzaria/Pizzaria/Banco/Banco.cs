@@ -29,6 +29,19 @@ namespace Pizzaria.Banco
             return new NpgsqlConnection(conexao);
         }
         //-------------
+        public string portaBalanca()
+        {
+            DataTable dtt = new DataTable();
+            string query = "select portabalanca from comanda where cod_comanda = 1";
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter
+               (query, Conectar());
+            sql.Fill(dtt);
+            try
+            {
+                return (dtt.Rows[0].ItemArray.GetValue(0)).ToString();
+            }
+            catch { return "USB"; }
+        }
         public DataTable divisorByTamanho(int cod_tamanho){
 
             DataTable dtt = new DataTable();
