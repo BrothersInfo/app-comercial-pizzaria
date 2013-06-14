@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddProduto));
             this.panFundo = new System.Windows.Forms.Panel();
+            this.btBalanca = new System.Windows.Forms.Button();
             this.lbMesa = new System.Windows.Forms.Label();
             this.btGarc = new System.Windows.Forms.Button();
             this.pGarLivre = new System.Windows.Forms.Panel();
@@ -43,6 +44,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tbNoticia = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.gbQtd = new System.Windows.Forms.GroupBox();
+            this.btMais = new System.Windows.Forms.Button();
+            this.btMenos = new System.Windows.Forms.Button();
+            this.tbQuantidade = new System.Windows.Forms.TextBox();
             this.cbTamanho = new System.Windows.Forms.ComboBox();
             this.cbMista = new System.Windows.Forms.ComboBox();
             this.lbMista = new System.Windows.Forms.Label();
@@ -73,20 +78,15 @@
             this.btEscolhaProduto = new System.Windows.Forms.Button();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.tbQuantidade = new System.Windows.Forms.TextBox();
-            this.btMenos = new System.Windows.Forms.Button();
-            this.btMais = new System.Windows.Forms.Button();
-            this.gbQtd = new System.Windows.Forms.GroupBox();
-            this.btBalanca = new System.Windows.Forms.Button();
             this.panFundo.SuspendLayout();
             this.pGarLivre.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.gbQtd.SuspendLayout();
             this.panelDesignCodigo.SuspendLayout();
             this.pDescricao.SuspendLayout();
             this.layoutCodigo.SuspendLayout();
             this.panelValor.SuspendLayout();
-            this.gbQtd.SuspendLayout();
             this.SuspendLayout();
             // 
             // panFundo
@@ -115,6 +115,19 @@
             this.panFundo.Name = "panFundo";
             this.panFundo.Size = new System.Drawing.Size(684, 416);
             this.panFundo.TabIndex = 2;
+            // 
+            // btBalanca
+            // 
+            this.btBalanca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btBalanca.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btBalanca.Location = new System.Drawing.Point(7, 279);
+            this.btBalanca.Name = "btBalanca";
+            this.btBalanca.Size = new System.Drawing.Size(40, 36);
+            this.btBalanca.TabIndex = 28;
+            this.btBalanca.Text = "-";
+            this.btBalanca.UseVisualStyleBackColor = true;
+            this.btBalanca.Visible = false;
+            this.btBalanca.Click += new System.EventHandler(this.btBalanca_Click);
             // 
             // lbMesa
             // 
@@ -198,7 +211,7 @@
             this.lbGarcon.AutoSize = true;
             this.lbGarcon.BackColor = System.Drawing.Color.Transparent;
             this.lbGarcon.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
-            this.lbGarcon.Location = new System.Drawing.Point(345, 258);
+            this.lbGarcon.Location = new System.Drawing.Point(359, 257);
             this.lbGarcon.Name = "lbGarcon";
             this.lbGarcon.Size = new System.Drawing.Size(90, 21);
             this.lbGarcon.TabIndex = 8;
@@ -243,7 +256,7 @@
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.tbNoticia);
-            this.panel2.Location = new System.Drawing.Point(53, 273);
+            this.panel2.Location = new System.Drawing.Point(58, 271);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(276, 47);
             this.panel2.TabIndex = 19;
@@ -253,7 +266,7 @@
             this.tbNoticia.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNoticia.Location = new System.Drawing.Point(3, 4);
             this.tbNoticia.Name = "tbNoticia";
-            this.tbNoticia.Size = new System.Drawing.Size(262, 36);
+            this.tbNoticia.Size = new System.Drawing.Size(266, 36);
             this.tbNoticia.TabIndex = 0;
             this.tbNoticia.Enter += new System.EventHandler(this.tbNoticia_Enter);
             this.tbNoticia.Leave += new System.EventHandler(this.tbNoticia_Leave);
@@ -271,6 +284,52 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(206, 205);
             this.panel1.TabIndex = 22;
+            // 
+            // gbQtd
+            // 
+            this.gbQtd.Controls.Add(this.btMais);
+            this.gbQtd.Controls.Add(this.btMenos);
+            this.gbQtd.Controls.Add(this.tbQuantidade);
+            this.gbQtd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.gbQtd.Location = new System.Drawing.Point(3, 130);
+            this.gbQtd.Name = "gbQtd";
+            this.gbQtd.Size = new System.Drawing.Size(196, 65);
+            this.gbQtd.TabIndex = 18;
+            this.gbQtd.TabStop = false;
+            this.gbQtd.Text = "QUANTIDADE";
+            // 
+            // btMais
+            // 
+            this.btMais.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btMais.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btMais.Location = new System.Drawing.Point(150, 20);
+            this.btMais.Name = "btMais";
+            this.btMais.Size = new System.Drawing.Size(40, 36);
+            this.btMais.TabIndex = 20;
+            this.btMais.Text = "+";
+            this.btMais.UseVisualStyleBackColor = true;
+            this.btMais.Click += new System.EventHandler(this.btMais_Click);
+            // 
+            // btMenos
+            // 
+            this.btMenos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btMenos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btMenos.Location = new System.Drawing.Point(16, 20);
+            this.btMenos.Name = "btMenos";
+            this.btMenos.Size = new System.Drawing.Size(40, 36);
+            this.btMenos.TabIndex = 19;
+            this.btMenos.Text = "-";
+            this.btMenos.UseVisualStyleBackColor = true;
+            this.btMenos.Click += new System.EventHandler(this.btMenos_Click);
+            // 
+            // tbQuantidade
+            // 
+            this.tbQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbQuantidade.Location = new System.Drawing.Point(63, 20);
+            this.tbQuantidade.Name = "tbQuantidade";
+            this.tbQuantidade.Size = new System.Drawing.Size(81, 36);
+            this.tbQuantidade.TabIndex = 1;
+            this.tbQuantidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbQuantidade_KeyPress);
             // 
             // cbTamanho
             // 
@@ -644,63 +703,6 @@
             this.lineShape1.Y1 = 30;
             this.lineShape1.Y2 = 30;
             // 
-            // tbQuantidade
-            // 
-            this.tbQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbQuantidade.Location = new System.Drawing.Point(63, 20);
-            this.tbQuantidade.Name = "tbQuantidade";
-            this.tbQuantidade.Size = new System.Drawing.Size(81, 36);
-            this.tbQuantidade.TabIndex = 1;
-            // 
-            // btMenos
-            // 
-            this.btMenos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btMenos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btMenos.Location = new System.Drawing.Point(16, 20);
-            this.btMenos.Name = "btMenos";
-            this.btMenos.Size = new System.Drawing.Size(40, 36);
-            this.btMenos.TabIndex = 19;
-            this.btMenos.Text = "-";
-            this.btMenos.UseVisualStyleBackColor = true;
-            this.btMenos.Click += new System.EventHandler(this.btMenos_Click);
-            // 
-            // btMais
-            // 
-            this.btMais.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btMais.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btMais.Location = new System.Drawing.Point(150, 20);
-            this.btMais.Name = "btMais";
-            this.btMais.Size = new System.Drawing.Size(40, 36);
-            this.btMais.TabIndex = 20;
-            this.btMais.Text = "+";
-            this.btMais.UseVisualStyleBackColor = true;
-            this.btMais.Click += new System.EventHandler(this.btMais_Click);
-            // 
-            // gbQtd
-            // 
-            this.gbQtd.Controls.Add(this.btMais);
-            this.gbQtd.Controls.Add(this.btMenos);
-            this.gbQtd.Controls.Add(this.tbQuantidade);
-            this.gbQtd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.gbQtd.Location = new System.Drawing.Point(3, 130);
-            this.gbQtd.Name = "gbQtd";
-            this.gbQtd.Size = new System.Drawing.Size(196, 65);
-            this.gbQtd.TabIndex = 18;
-            this.gbQtd.TabStop = false;
-            this.gbQtd.Text = "QUANTIDADE";
-            // 
-            // btBalanca
-            // 
-            this.btBalanca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btBalanca.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btBalanca.Location = new System.Drawing.Point(7, 279);
-            this.btBalanca.Name = "btBalanca";
-            this.btBalanca.Size = new System.Drawing.Size(40, 36);
-            this.btBalanca.TabIndex = 28;
-            this.btBalanca.Text = "-";
-            this.btBalanca.UseVisualStyleBackColor = true;
-            this.btBalanca.Click += new System.EventHandler(this.btBalanca_Click);
-            // 
             // AddProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -726,6 +728,8 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.gbQtd.ResumeLayout(false);
+            this.gbQtd.PerformLayout();
             this.panelDesignCodigo.ResumeLayout(false);
             this.panelDesignCodigo.PerformLayout();
             this.pDescricao.ResumeLayout(false);
@@ -734,8 +738,6 @@
             this.layoutCodigo.PerformLayout();
             this.panelValor.ResumeLayout(false);
             this.panelValor.PerformLayout();
-            this.gbQtd.ResumeLayout(false);
-            this.gbQtd.PerformLayout();
             this.ResumeLayout(false);
 
         }

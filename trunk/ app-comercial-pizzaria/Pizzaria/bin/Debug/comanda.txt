@@ -1,16 +1,16 @@
  |----   RENASCER   ----|
- | Data : 13/06/2013   |
- | Hora : 13:58        |
+ | Data : 14/06/2013   |
+ | Hora : 11:45        |
  |---------------------|
  |                     |
  | - Almoco            |
- | Tam - Unico         |
- | File a Parmejiana   |
- |Quantidade - 0,6     |
- |Valor do Item - 9,00 |
+ | Especif. - Maior    |
+ | Item - Feijoada     |
+ |Quantidade - 2,500   |
+ |Valor Item - 62,50   |
  |                     |
  | --  -   --   -  --  |
  |---------------------|
- | GARCOM -Teste       |
- | Mesa 1              |
+ | GARCOM -            |
+ | Balcao              |
  |---------------------|
