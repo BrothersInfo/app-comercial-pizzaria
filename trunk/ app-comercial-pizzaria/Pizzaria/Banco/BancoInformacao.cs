@@ -215,7 +215,7 @@ namespace Pizzaria.Banco
             new NpgsqlDataAdapter(query, Conectar()).
               Fill(dtt);
         }
-        public void transferirCompleto(int cod_Completo, int quantidadeRetirada, int cod_venda)
+        public void transferirCompleto(int cod_Completo, double quantidadeRetirada, int cod_venda)
         {
 
             if (new BancoInformacao().quantidadeCompletaByCodigo(cod_Completo) == quantidadeRetirada)

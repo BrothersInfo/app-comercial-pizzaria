@@ -142,10 +142,9 @@
             // 
             // btGarc
             // 
-            this.btGarc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btGarc.BackgroundImage")));
             this.btGarc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btGarc.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btGarc.ForeColor = System.Drawing.Color.White;
+            this.btGarc.ForeColor = System.Drawing.Color.Maroon;
             this.btGarc.Location = new System.Drawing.Point(465, 284);
             this.btGarc.Name = "btGarc";
             this.btGarc.Size = new System.Drawing.Size(38, 31);
@@ -324,10 +323,10 @@
             // 
             // tbQuantidade
             // 
-            this.tbQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbQuantidade.Location = new System.Drawing.Point(63, 20);
             this.tbQuantidade.Name = "tbQuantidade";
-            this.tbQuantidade.Size = new System.Drawing.Size(81, 36);
+            this.tbQuantidade.Size = new System.Drawing.Size(81, 32);
             this.tbQuantidade.TabIndex = 1;
             this.tbQuantidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbQuantidade_KeyPress);
             // 

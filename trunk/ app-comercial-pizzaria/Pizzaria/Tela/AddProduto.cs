@@ -811,13 +811,14 @@ namespace Pizzaria.Tela
         {
             if (e.KeyChar == '\r')
             {
+                
                 if (cbMista.Items.Count > 1)
                     cbMista.Focus();
                 else
                 {
                     gbQtd.Visible = true;
 
-                    gbQtd.Focus();
+                    gbQtd.Focus(); tbQuantidade.Focus();
                 }
             }
         }
@@ -830,11 +831,13 @@ namespace Pizzaria.Tela
             cbMista.SelectedIndex = 0;
 
             if (cbTamanho.Items.Count >= 2) { cbTamanho.Visible = true; lTamanho.Visible = true; }
-            else { cbTamanho.Visible = false; lTamanho.Visible = false; }
+            else { cbTamanho.Visible = false; lTamanho.Visible = false; tbQuantidade.Focus();}
             preencherLabelDescritivo(codTamanho, new Banco().codDivisorByDescricao(cbMista.Text));
 
             if (cbMista.Items.Count >=2) { cbMista.Visible = true; lbMista.Visible = true; }
-            else { cbMista.Visible = false; lbMista.Visible = false; tbQuantidade.Focus(); }
+            else { cbMista.Visible = false; lbMista.Visible = false;  }
+
+            
             //lbMista.Visible = true;
             //cbMista.Visible = true;
             panelValor.Visible = true;
@@ -1019,12 +1022,12 @@ namespace Pizzaria.Tela
         private void btMenos_Click(object sender, EventArgs e)
         {
             if (double.Parse(tbQuantidade.Text)>1)
-                tbQuantidade.Text = (double.Parse(tbQuantidade.Text) - 1).ToString("0.00") ;
+                tbQuantidade.Text = (double.Parse(tbQuantidade.Text) - 1).ToString("0.000") ;
         }
 
         private void btMais_Click(object sender, EventArgs e)
         {
-            tbQuantidade.Text = (double.Parse(tbQuantidade.Text) + 1).ToString("0.00");
+            tbQuantidade.Text = (double.Parse(tbQuantidade.Text) + 1).ToString("0.000");
         }
 
         private void btBalanca_Click(object sender, EventArgs e)

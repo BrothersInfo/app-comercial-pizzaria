@@ -29,7 +29,12 @@ namespace Pizzaria.Tela
                     ClasseDLL.Variaveis.conexao = input;
                 }
             }
-            catch { MessageBox.Show("Conexao Com banco inconsistente - Entre em contato com o suporte", "Mensagem"); }
+            catch { MessageBox.Show("Conexao Com banco inconsistente - Entre em contato com o suporte", "Mensagem"); 
+            
+            
+            }
+         
+        //   ClasseDLL.Variaveis.conexao = " server=Localhost;Port=5433;User=postgres;Password=fof0130407*;Database=renascer"; ;
 
         }
         

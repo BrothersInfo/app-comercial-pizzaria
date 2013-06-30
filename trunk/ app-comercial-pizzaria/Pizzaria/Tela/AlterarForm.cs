@@ -64,8 +64,33 @@ namespace Pizzaria.Tela
         }
         private void btAltCaixConfirmar_Click(object sender, EventArgs e)
         {
-            if (new BancoConsulta().isAdm(new BancoConsulta().getNome_Caixa((int)cod_caixa)))
-                new BancoConsulta().caixaOpcoes(cbCAQuadroAlterar.Text, tbCANomeAlterar.Text, tbCAIdAlterar.Text, tbCAPassAlterar.Text, cbCAAdm.Checked);
+           SenhaAcesso sa = new SenhaAcesso();
+           if (cbCAAdm.Checked)
+           {
+               sa.ShowDialog();
+               if (sa.acesso)
+               {
+                   if (new Banco().temUsuario(cbCAQuadroAlterar.Text, tbCANomeAlterar.Text))//garantiu que o usuario acertou senha
+                   {
+                       new BancoConsulta().alterarSenha(cbCAQuadroAlterar.Text, tbCAIdAlterar.Text, cbCAAdm.Checked);//mudou senha e tipoAdmin se for admin aqui
+
+                       MessageBox.Show("SENHA ALTERADA COM SUCESSO ","INFORMAÇÃO");
+                       tbCAIdAlterar.Text = "";
+                       tbCANomeAlterar.Text = "";
+                       tbCAPassAlterar.Text = "";
+                   }
+               }
+           }
+           else  if (new Banco().temUsuario(cbCAQuadroAlterar .Text, tbCANomeAlterar.Text))//garantiu que o usuario acertou senha
+            {
+                new BancoConsulta().alterarSenha(cbCAQuadroAlterar.Text, tbCAIdAlterar.Text, cbCAAdm.Checked);//mudou senha e tipoAdmin se for admin aqui
+                MessageBox.Show("SENHA ALTERADA COM SUCESSO ", "INFORMAÇÃO");
+                tbCAIdAlterar.Text = "";
+                tbCANomeAlterar.Text = "";
+                tbCAPassAlterar.Text = "";
+
+            }
+
         }
         private void alterarTamanho()
         {
@@ -196,9 +221,7 @@ namespace Pizzaria.Tela
         private void cbAltAmb_SelectedIndexChanged(object sender, EventArgs e)
         {
             cBoxAltAmb.Checked = new BancoConsulta().isAmbienteAtivo(cbAltAmb.Text);
-        }
-        
-             
+        }                     
         private void tbComanda_KeyUp(object sender, KeyEventArgs e)
         {
             try
@@ -397,8 +420,10 @@ namespace Pizzaria.Tela
             }
         }
 
-
-
+        private void cbCAQuadroAlterar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbCAAdm.Checked = new BancoConsulta().isAdm(cbCAQuadroAlterar.Text);
+        }
 
     }
 }

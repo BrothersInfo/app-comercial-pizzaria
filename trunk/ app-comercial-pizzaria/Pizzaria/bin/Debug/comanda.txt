@@ -1,16 +1,17 @@
- |----   RENASCER   ----|
- | Data : 14/06/2013   |
- | Hora : 11:45        |
+ |----   RENASCER  ----|
+ | Data : 25/06/2013   |
+ | Hora : 17:05        |
  |---------------------|
  |                     |
  | - Almoco            |
- | Especif. - Maior    |
- | Item - Feijoada     |
- |Quantidade - 2,500   |
- |Valor Item - 62,50   |
+ | Especif. - KG Promo |
+ | Item - Self Serv    |
+ | PRECO UNITARIO - 24,9                       |
+ |Quantidade - 0,670   |
+ |Valor Item - 16,68   |
  |                     |
  | --  -   --   -  --  |
  |---------------------|
- | GARCOM -            |
- | Balcao              |
+ | GARCOM -Teste       |
+ | Mesa 20             |
  |---------------------|

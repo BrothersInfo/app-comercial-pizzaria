@@ -30,14 +30,13 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.mtProduto = new System.Windows.Forms.MaskedTextBox();
-            this.numQuantidade = new System.Windows.Forms.NumericUpDown();
             this.btCancelar = new System.Windows.Forms.Button();
             this.btConfirmar = new System.Windows.Forms.Button();
             this.LQuantidade = new System.Windows.Forms.Label();
             this.lbCodigo = new System.Windows.Forms.Label();
             this.pFundo = new System.Windows.Forms.Panel();
+            this.mtbQuantidade = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numQuantidade)).BeginInit();
             this.pFundo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,8 +44,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.mtbQuantidade);
             this.panel1.Controls.Add(this.mtProduto);
-            this.panel1.Controls.Add(this.numQuantidade);
             this.panel1.Location = new System.Drawing.Point(12, 48);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(380, 84);
@@ -63,29 +62,6 @@
             this.mtProduto.Size = new System.Drawing.Size(102, 44);
             this.mtProduto.TabIndex = 1;
             this.mtProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtProduto_KeyPress);
-            // 
-            // numQuantidade
-            // 
-            this.numQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numQuantidade.Location = new System.Drawing.Point(204, 19);
-            this.numQuantidade.Maximum = new decimal(new int[] {
-            25,
-            0,
-            0,
-            0});
-            this.numQuantidade.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numQuantidade.Name = "numQuantidade";
-            this.numQuantidade.Size = new System.Drawing.Size(132, 44);
-            this.numQuantidade.TabIndex = 1;
-            this.numQuantidade.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // btCancelar
             // 
@@ -150,6 +126,17 @@
             this.pFundo.Size = new System.Drawing.Size(406, 193);
             this.pFundo.TabIndex = 26;
             // 
+            // mtbQuantidade
+            // 
+            this.mtbQuantidade.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtbQuantidade.ForeColor = System.Drawing.Color.DarkRed;
+            this.mtbQuantidade.Location = new System.Drawing.Point(204, 18);
+            this.mtbQuantidade.Mask = "00000";
+            this.mtbQuantidade.Name = "mtbQuantidade";
+            this.mtbQuantidade.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.mtbQuantidade.Size = new System.Drawing.Size(129, 44);
+            this.mtbQuantidade.TabIndex = 2;
+            // 
             // RemoverProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,7 +158,6 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RemoverProduto_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numQuantidade)).EndInit();
             this.pFundo.ResumeLayout(false);
             this.pFundo.PerformLayout();
             this.ResumeLayout(false);
@@ -182,11 +168,11 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MaskedTextBox mtProduto;
-        private System.Windows.Forms.NumericUpDown numQuantidade;
         private System.Windows.Forms.Button btCancelar;
         private System.Windows.Forms.Button btConfirmar;
         private System.Windows.Forms.Label LQuantidade;
         private System.Windows.Forms.Label lbCodigo;
         private System.Windows.Forms.Panel pFundo;
+        private System.Windows.Forms.MaskedTextBox mtbQuantidade;
     }
 }
