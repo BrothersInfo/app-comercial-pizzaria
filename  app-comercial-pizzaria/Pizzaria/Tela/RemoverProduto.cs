@@ -14,9 +14,9 @@ namespace Pizzaria.Tela
     using Pizzaria.Classes;
     public partial class RemoverProduto : Form
     {
-        int[] codigosCompleto; int []qtd;
+        int[] codigosCompleto; double []qtd;
         int cod_venda;
-        public RemoverProduto(int cod_venda, int [] codigo, int [] qtd)
+        public RemoverProduto(int cod_venda, int [] codigo, double [] qtd)
         {
             this.cod_venda = cod_venda;
             codigosCompleto = codigo;
@@ -32,7 +32,7 @@ namespace Pizzaria.Tela
             this.Location = new Point((Screen.PrimaryScreen.Bounds.Width - this.Size.Width) / 2, (int)yy);
         }
 
-        public int quantidade(int codigo)
+        public double quantidade(int codigo)
         {
             for (int i = 0; i < codigosCompleto.Length; i++)
                 if (codigosCompleto[i] == codigo)
@@ -52,10 +52,10 @@ namespace Pizzaria.Tela
             if (existe( codigosCompleto[ Convert.ToInt16(mtProduto.Text)-1]   ))
             {
  
-                if (numQuantidade.Value <= quantidade(codigosCompleto[Convert.ToInt16(mtProduto.Text) - 1]))
+                if (  double.Parse( mtbQuantidade.Text) <= quantidade(codigosCompleto[Convert.ToInt16(mtProduto.Text) - 1]))
                 {
                     new BancoInformacao().deletarCompleto(codigosCompleto[Convert.ToInt16(mtProduto.Text) - 1],
-                         Convert.ToInt16(numQuantidade.Value));
+                          double.Parse(mtbQuantidade.Text));
 
                     MessageBox.Show("ALTERAÇÂO CONCLUIDA COM SUCESSO", "MENSAGEM");
                     this.Close();
@@ -69,15 +69,14 @@ namespace Pizzaria.Tela
             { MessageBox.Show("CODIGO NÃO IDENTIFICADO NESTA VENDA ", "MENSAGEM DE ERRO"); }
 
         }
-
+        double maximo= 0;
         private void mtProduto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '\r' && existe(codigosCompleto[Convert.ToInt16(mtProduto.Text) - 1]))
             {
-                numQuantidade.Maximum = quantidade(codigosCompleto[Convert.ToInt16(mtProduto.Text) - 1]);
+                maximo  = quantidade(codigosCompleto[Convert.ToInt16(mtProduto.Text) - 1]);
                 btConfirmar_Click(sender, e);
             }
-
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
@@ -90,8 +89,6 @@ namespace Pizzaria.Tela
         {
             switch (e.KeyCode)
             {
-
-
                 case Keys.Escape://Voltar Tela
                     btCancelar_Click(sender, null);
                     break;

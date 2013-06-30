@@ -144,16 +144,16 @@ namespace Pizzaria.Tela
                     lbSubValor.Visible = true;
                     lbTotal.Visible = true;
 
-                    lbSubValor.Text = "Sub Total R$" + new Tratamento().retornaValorEscrito(venda.subValor);
-                    lbComissao.Text = "Couvert R$" + new Tratamento().retornaValorEscrito(venda.valorComissao);
-                    lbTotal.Text = "Valor Total R$" + new Tratamento().retornaValorEscrito(venda.valorSomado);
+                    lbSubValor.Text = "Sub Total R$ " + venda.subValor.ToString("0.00");
+                    lbComissao.Text = "Couvert R$ " + venda.valorComissao.ToString("0.00");
+                    lbTotal.Text = "Valor Total R$ " +venda.valorSomado.ToString("0.00");
                 }
                 else
                 {
                     lbComissao.Visible = false;
                     lbSubValor.Visible = false;
                     lbTotal.Visible = true;
-                    lbTotal.Text = "Valor Total R$" + new Tratamento().retornaValorEscrito(venda.valorSomado);
+                    lbTotal.Text = "Valor Total R$ " + venda.valorSomado.ToString("0.00");
                 }
                
             }
@@ -215,9 +215,9 @@ namespace Pizzaria.Tela
                 codigos[i] = venda.Completos[Convert.ToInt16(lvInfo.Items[i].Text) - 1].cod_completo;
                // codigos[i] = Convert.ToInt16(lvInfo.Items[i].Text);
 
-            int[] qtd = new int[lvInfo.Items.Count];
+            double[] qtd = new double[lvInfo.Items.Count];
             for (int i = 0; i < qtd.Length; i++)
-                qtd[i] = Convert.ToInt16(lvInfo.Items[i].SubItems[3].Text);
+                qtd[i] = Convert.ToDouble(lvInfo.Items[i].SubItems[3].Text);
 
             new RemoverProduto(venda.cod_venda, codigos, qtd).ShowDialog();
             venda = new BancoVenda().carregaVenda(venda.cod_venda);
@@ -270,7 +270,7 @@ namespace Pizzaria.Tela
         private void btParcial_Click(object sender, EventArgs e)
         {
             new DividirVenda(venda).ShowDialog();
-            venda = new BancoVenda().carregaVenda(new Banco().codigoDaVendaPelaMesa(venda.mesa[0]));
+            venda = new BancoVenda().carregaVenda(new Banco().codigoDaVendaPelaMesa(venda.mesa[  venda.mesa.Length-1  ]));
            
             tamanhoMTVALOR(venda);
             carregarListView(venda);

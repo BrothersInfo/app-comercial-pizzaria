@@ -19,7 +19,7 @@ namespace Pizzaria.Tela
             carregar();
             mesas = new List<string>();
             rbAberta.Checked = true;
-            lbTItulo.Text += " : "+vf.mesa[0];
+            lbTItulo.Text += " : "+vf.mesa[vf.mesa.Length-1];
         }
         public void carregar()
         {
@@ -59,7 +59,7 @@ namespace Pizzaria.Tela
             {
                 livre = true;
                 bool can = true;
-                gbAddProduto.Visible = true;
+                gbAddProduto.Visible = true; tbQuantidade.Text = "1";
                 for (int i = 0; i < mesas.Count; i++)
                 {
                     if (mesas[i] == cbMesas.Text) can = false;
@@ -80,8 +80,9 @@ namespace Pizzaria.Tela
             lbTituloDes.Text += (" : " + cbMesas.Text);
             label1.Visible = true;
             gbMesaDaVenda.Visible = false;
+
         }
-        public int quantidade(int codigo)
+        public double quantidade(int codigo)
         {
             for (int i = 0; i < codigosCompleto.Length; i++)
                 if (codigosCompleto[i] == codigo)
@@ -95,7 +96,7 @@ namespace Pizzaria.Tela
                     return true;
             return false;
         }
-        int[] codigosCompleto; int[] qtd;
+        int[] codigosCompleto; double[] qtd;
         int cod_novaVenda = 0;
         public void carregarNovaVenda()
         {
@@ -129,51 +130,41 @@ namespace Pizzaria.Tela
         private void btProduto_Click(object sender, EventArgs e)
         {
             if (!livre)
-            { 
                 cod_novaVenda = new Banco.Banco().codigoDaVendaPelaMesa(cbMesas.Text); 
-
-            
+            if (cod_novaVenda == 0)
+            {
+                this.cod_novaVenda = new Banco.Banco().novaVenda(vendas.cod_caixa, new Banco.Banco().cod_mesa(mesas.ToArray()));//venda aberta
+                new Banco.BancoVenda().superVenda(this.cod_novaVenda);//cria a super venda e associa a venda criada
             }
-                if (cod_novaVenda == 0)
+            codigosCompleto = new int[lvItensOld.Items.Count];//os codigos dos produtos
+            for (int i = 0; i < codigosCompleto.Length; i++)
+                codigosCompleto[i] = vendas.Completos[Convert.ToInt16(lvItensOld.Items[i].Text) - 1].cod_completo;
+            // codigos[i] = Convert.ToInt16(lvInfo.Items[i].Text);
+
+            qtd = new double[lvItensOld.Items.Count];//as quantidades
+            for (int i = 0; i < qtd.Length; i++)
+                qtd[i] = Convert.ToDouble(lvItensOld.Items[i].SubItems[3].Text);
+            //tenho q mover ou deletar
+
+            if (existe(codigosCompleto[Convert.ToInt16(mtCodigo.Text) - 1]))
+            {
+                if ( Double.Parse(  tbQuantidade.Text) <= quantidade(codigosCompleto[Convert.ToInt16(mtCodigo.Text) - 1]))
                 {
+                    new Banco.BancoInformacao().transferirCompleto(codigosCompleto[Convert.ToInt16(mtCodigo.Text) - 1],
+                            Double.Parse(tbQuantidade.Text), this.cod_novaVenda);
 
-                    this.cod_novaVenda = new Banco.Banco().novaVenda(vendas.cod_caixa, new Banco.Banco().cod_mesa(mesas.ToArray()));//venda aberta
-                    new Banco.BancoVenda().superVenda(this.cod_novaVenda);//cria a super venda e associa a venda criada
-                }
-
-                codigosCompleto = new int[lvItensOld.Items.Count];//os codigos dos produtos
-                for (int i = 0; i < codigosCompleto.Length; i++)
-                    codigosCompleto[i] = vendas.Completos[Convert.ToInt16(lvItensOld.Items[i].Text) - 1].cod_completo;
-                // codigos[i] = Convert.ToInt16(lvInfo.Items[i].Text);
-
-                qtd = new int[lvItensOld.Items.Count];//as quantidades
-                for (int i = 0; i < qtd.Length; i++)
-                    qtd[i] = Convert.ToInt16(lvItensOld.Items[i].SubItems[3].Text);
-                //tenho q mover ou deletar
-
-                if (existe(codigosCompleto[Convert.ToInt16(mtCodigo.Text) - 1]))
-                {
-                    if (numQuantidade.Value <= quantidade(codigosCompleto[Convert.ToInt16(mtCodigo.Text) - 1]))
-                    {
-                        new Banco.BancoInformacao().transferirCompleto(codigosCompleto[Convert.ToInt16(mtCodigo.Text) - 1],
-                             Convert.ToInt16(numQuantidade.Value), this.cod_novaVenda);
-
-                        MessageBox.Show("ALTERAÇÃO CONCLUÍDA", "MENSAGEM");
-                        vendas = new Banco.BancoVenda().carregaVenda(vendas.cod_venda);
-                        carregar();
-                        new Banco.BancoInformacao().unirProdutosIguais(new Banco.BancoVenda().carregaVenda(cod_novaVenda));
-                        carregarNovaVenda();
-                    }
-                    else
-                    {
-                        MessageBox.Show("QUANDITADE DE ITENS RETIRADOS ALÉM DA QUANTIA EXISTENTE", "MENSAGEM DE ERRO");
-                    }
+                    MessageBox.Show("ALTERAÇÃO CONCLUÍDA", "MENSAGEM");
+                    vendas = new Banco.BancoVenda().carregaVenda(vendas.cod_venda);
+                    carregar();
+                    new Banco.BancoInformacao().unirProdutosIguais(new Banco.BancoVenda().carregaVenda(cod_novaVenda));
+                    carregarNovaVenda();
                 }
                 else
-                { MessageBox.Show("CODIGO NÃO IDENTIFICADO NESTA VENDA ", "MENSAGEM DE ERRO"); }
-
-                mtCodigo.Clear();
-                mtCodigo.Focus();
+                    MessageBox.Show("QUANDITADE DE ITENS RETIRADOS ALÉM DA QUANTIA EXISTENTE", "MENSAGEM DE ERRO");
+            }
+            else MessageBox.Show("CODIGO NÃO IDENTIFICADO NESTA VENDA ", "MENSAGEM DE ERRO"); 
+            mtCodigo.Clear();
+            mtCodigo.Focus();
             
         }
 
@@ -207,6 +198,30 @@ namespace Pizzaria.Tela
             }
         }
 
+        private void btMenos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (double.Parse(tbQuantidade.Text) > 1)
+                    tbQuantidade.Text = (double.Parse(tbQuantidade.Text) - 1).ToString("0.000");
+            }
+            catch {
+                tbQuantidade.Text = "0.000";
+            }
+        }
+        private void btMais_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                tbQuantidade.Text = (double.Parse(tbQuantidade.Text) + 1).ToString("0.000");
+            }
+            catch
+            {
+                tbQuantidade.Text = "0.000";
+            }
+        }
+
+     
 
 
 

@@ -751,6 +751,16 @@ namespace Pizzaria.Banco
             return t;
 
         }
+        
 
+        public void alterarSenha(string usuario, string senha, bool isAdmin)
+        {
+            string query = "UPDATE caixa set  nivel_acesso= " + isAdmin+ ", senha= '" + senha
+            + "' WHERE  upper(nomecaixa) = upper( trim('" + usuario + "'))";
+            DataTable dtt = new DataTable();
+            NpgsqlDataAdapter sql = new NpgsqlDataAdapter(query, Conectar());
+            sql.Fill(dtt);
+        }
+        //------------------------------------------------
     }
 }

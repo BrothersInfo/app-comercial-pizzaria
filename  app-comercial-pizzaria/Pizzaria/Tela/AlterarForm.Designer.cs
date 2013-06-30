@@ -102,14 +102,22 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flpNewMais = new System.Windows.Forms.FlowLayoutPanel();
             this.cbNewTamanhoOpcao = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.mtCompra = new System.Windows.Forms.MaskedTextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.mtbNewValor = new System.Windows.Forms.MaskedTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btNewAdd = new System.Windows.Forms.Button();
             this.flpNewMenos = new System.Windows.Forms.FlowLayoutPanel();
             this.cbNewTamanhoDoProduto = new System.Windows.Forms.ComboBox();
             this.btnewRemover = new System.Windows.Forms.Button();
             this.flpNewAlterar = new System.Windows.Forms.FlowLayoutPanel();
             this.cbNewAlterarSub = new System.Windows.Forms.ComboBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.mtProdAltEntrada = new System.Windows.Forms.MaskedTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.mtProdAltSaida = new System.Windows.Forms.MaskedTextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.btNewAlterarConfir = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btNewMais = new System.Windows.Forms.Button();
@@ -160,14 +168,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.tcAlterar = new System.Windows.Forms.TabControl();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.mtCompra = new System.Windows.Forms.MaskedTextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.mtProdAltEntrada = new System.Windows.Forms.MaskedTextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.mtProdAltSaida = new System.Windows.Forms.MaskedTextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.tabPage9.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
@@ -198,8 +198,10 @@
             this.pNewProduto.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flpNewMais.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.flpNewMenos.SuspendLayout();
             this.flpNewAlterar.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -213,8 +215,6 @@
             this.gbAlterarGarcon.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tcAlterar.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage9
@@ -1114,15 +1114,37 @@
             this.cbNewTamanhoOpcao.Size = new System.Drawing.Size(132, 30);
             this.cbNewTamanhoOpcao.TabIndex = 43;
             // 
-            // label2
+            // panel1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 14F);
-            this.label2.Location = new System.Drawing.Point(17, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 22);
-            this.label2.TabIndex = 38;
-            this.label2.Text = "Valor Venda";
+            this.panel1.Controls.Add(this.mtCompra);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.mtbNewValor);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Location = new System.Drawing.Point(141, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(220, 90);
+            this.panel1.TabIndex = 65;
+            // 
+            // mtCompra
+            // 
+            this.mtCompra.Font = new System.Drawing.Font("Arial", 18F);
+            this.mtCompra.ForeColor = System.Drawing.Color.DarkRed;
+            this.mtCompra.Location = new System.Drawing.Point(131, 48);
+            this.mtCompra.Mask = "000,00";
+            this.mtCompra.Name = "mtCompra";
+            this.mtCompra.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.mtCompra.Size = new System.Drawing.Size(86, 35);
+            this.mtCompra.TabIndex = 56;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 14F);
+            this.label3.Location = new System.Drawing.Point(3, 54);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(126, 22);
+            this.label3.TabIndex = 55;
+            this.label3.Text = "Valor Compra";
             // 
             // mtbNewValor
             // 
@@ -1135,6 +1157,16 @@
             this.mtbNewValor.Size = new System.Drawing.Size(86, 35);
             this.mtbNewValor.TabIndex = 54;
             this.mtbNewValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtbNewValor_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 14F);
+            this.label2.Location = new System.Drawing.Point(17, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 22);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "Valor Venda";
             // 
             // btNewAdd
             // 
@@ -1200,6 +1232,59 @@
             this.cbNewAlterarSub.Name = "cbNewAlterarSub";
             this.cbNewAlterarSub.Size = new System.Drawing.Size(132, 30);
             this.cbNewAlterarSub.TabIndex = 43;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.mtProdAltEntrada);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.mtProdAltSaida);
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Location = new System.Drawing.Point(141, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(220, 93);
+            this.panel3.TabIndex = 66;
+            // 
+            // mtProdAltEntrada
+            // 
+            this.mtProdAltEntrada.Font = new System.Drawing.Font("Arial", 18F);
+            this.mtProdAltEntrada.ForeColor = System.Drawing.Color.DarkRed;
+            this.mtProdAltEntrada.Location = new System.Drawing.Point(131, 48);
+            this.mtProdAltEntrada.Mask = "000,00";
+            this.mtProdAltEntrada.Name = "mtProdAltEntrada";
+            this.mtProdAltEntrada.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.mtProdAltEntrada.Size = new System.Drawing.Size(86, 35);
+            this.mtProdAltEntrada.TabIndex = 56;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 14F);
+            this.label7.Location = new System.Drawing.Point(3, 54);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(126, 22);
+            this.label7.TabIndex = 55;
+            this.label7.Text = "Valor Compra";
+            // 
+            // mtProdAltSaida
+            // 
+            this.mtProdAltSaida.Font = new System.Drawing.Font("Arial", 18F);
+            this.mtProdAltSaida.ForeColor = System.Drawing.Color.DarkRed;
+            this.mtProdAltSaida.Location = new System.Drawing.Point(131, 7);
+            this.mtProdAltSaida.Mask = "000,00";
+            this.mtProdAltSaida.Name = "mtProdAltSaida";
+            this.mtProdAltSaida.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.mtProdAltSaida.Size = new System.Drawing.Size(86, 35);
+            this.mtProdAltSaida.TabIndex = 54;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 14F);
+            this.label8.Location = new System.Drawing.Point(17, 20);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(112, 22);
+            this.label8.TabIndex = 38;
+            this.label8.Text = "Valor Venda";
             // 
             // btNewAlterarConfir
             // 
@@ -1478,7 +1563,7 @@
             // 
             this.lbQuadroCaixaAlterar.AutoSize = true;
             this.lbQuadroCaixaAlterar.Font = new System.Drawing.Font("Arial", 14F);
-            this.lbQuadroCaixaAlterar.Location = new System.Drawing.Point(74, 53);
+            this.lbQuadroCaixaAlterar.Location = new System.Drawing.Point(89, 41);
             this.lbQuadroCaixaAlterar.Name = "lbQuadroCaixaAlterar";
             this.lbQuadroCaixaAlterar.Size = new System.Drawing.Size(97, 22);
             this.lbQuadroCaixaAlterar.TabIndex = 39;
@@ -1486,12 +1571,13 @@
             // 
             // cbCAQuadroAlterar
             // 
-            this.cbCAQuadroAlterar.Font = new System.Drawing.Font("Arial", 14F);
+            this.cbCAQuadroAlterar.Font = new System.Drawing.Font("Arial", 12F);
             this.cbCAQuadroAlterar.FormattingEnabled = true;
-            this.cbCAQuadroAlterar.Location = new System.Drawing.Point(216, 45);
+            this.cbCAQuadroAlterar.Location = new System.Drawing.Point(216, 33);
             this.cbCAQuadroAlterar.Name = "cbCAQuadroAlterar";
-            this.cbCAQuadroAlterar.Size = new System.Drawing.Size(133, 30);
+            this.cbCAQuadroAlterar.Size = new System.Drawing.Size(162, 26);
             this.cbCAQuadroAlterar.TabIndex = 38;
+            this.cbCAQuadroAlterar.SelectedIndexChanged += new System.EventHandler(this.cbCAQuadroAlterar_SelectedIndexChanged);
             // 
             // lbTracoCaixa
             // 
@@ -1517,10 +1603,11 @@
             // 
             // tbCAPassAlterar
             // 
-            this.tbCAPassAlterar.Font = new System.Drawing.Font("Arial", 14F);
+            this.tbCAPassAlterar.Font = new System.Drawing.Font("Arial", 12F);
             this.tbCAPassAlterar.Location = new System.Drawing.Point(216, 173);
             this.tbCAPassAlterar.Name = "tbCAPassAlterar";
-            this.tbCAPassAlterar.Size = new System.Drawing.Size(162, 29);
+            this.tbCAPassAlterar.PasswordChar = '*';
+            this.tbCAPassAlterar.Size = new System.Drawing.Size(162, 26);
             this.tbCAPassAlterar.TabIndex = 45;
             // 
             // lbAltCaixSenha
@@ -1528,18 +1615,19 @@
             this.lbAltCaixSenha.AutoSize = true;
             this.lbAltCaixSenha.Font = new System.Drawing.Font("Arial", 14F);
             this.lbAltCaixSenha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbAltCaixSenha.Location = new System.Drawing.Point(96, 180);
+            this.lbAltCaixSenha.Location = new System.Drawing.Point(21, 180);
             this.lbAltCaixSenha.Name = "lbAltCaixSenha";
-            this.lbAltCaixSenha.Size = new System.Drawing.Size(75, 22);
+            this.lbAltCaixSenha.Size = new System.Drawing.Size(165, 22);
             this.lbAltCaixSenha.TabIndex = 44;
-            this.lbAltCaixSenha.Text = "SENHA";
+            this.lbAltCaixSenha.Text = "REPETIR SENHA";
             // 
             // tbCAIdAlterar
             // 
-            this.tbCAIdAlterar.Font = new System.Drawing.Font("Arial", 14F);
+            this.tbCAIdAlterar.Font = new System.Drawing.Font("Arial", 12F);
             this.tbCAIdAlterar.Location = new System.Drawing.Point(216, 132);
             this.tbCAIdAlterar.Name = "tbCAIdAlterar";
-            this.tbCAIdAlterar.Size = new System.Drawing.Size(162, 29);
+            this.tbCAIdAlterar.PasswordChar = '*';
+            this.tbCAIdAlterar.Size = new System.Drawing.Size(162, 26);
             this.tbCAIdAlterar.TabIndex = 43;
             // 
             // lbAltCaixID
@@ -1547,18 +1635,19 @@
             this.lbAltCaixID.AutoSize = true;
             this.lbAltCaixID.Font = new System.Drawing.Font("Arial", 14F);
             this.lbAltCaixID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbAltCaixID.Location = new System.Drawing.Point(141, 141);
+            this.lbAltCaixID.Location = new System.Drawing.Point(54, 141);
             this.lbAltCaixID.Name = "lbAltCaixID";
-            this.lbAltCaixID.Size = new System.Drawing.Size(30, 22);
+            this.lbAltCaixID.Size = new System.Drawing.Size(132, 22);
             this.lbAltCaixID.TabIndex = 42;
-            this.lbAltCaixID.Text = "ID";
+            this.lbAltCaixID.Text = "SENHA NOVA";
             // 
             // tbCANomeAlterar
             // 
-            this.tbCANomeAlterar.Font = new System.Drawing.Font("Arial", 14F);
+            this.tbCANomeAlterar.Font = new System.Drawing.Font("Arial", 12F);
             this.tbCANomeAlterar.Location = new System.Drawing.Point(216, 88);
             this.tbCANomeAlterar.Name = "tbCANomeAlterar";
-            this.tbCANomeAlterar.Size = new System.Drawing.Size(162, 29);
+            this.tbCANomeAlterar.PasswordChar = '*';
+            this.tbCANomeAlterar.Size = new System.Drawing.Size(162, 26);
             this.tbCANomeAlterar.TabIndex = 41;
             // 
             // lbAltCaixNomeAlterar
@@ -1566,11 +1655,11 @@
             this.lbAltCaixNomeAlterar.AutoSize = true;
             this.lbAltCaixNomeAlterar.Font = new System.Drawing.Font("Arial", 14F);
             this.lbAltCaixNomeAlterar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbAltCaixNomeAlterar.Location = new System.Drawing.Point(105, 99);
+            this.lbAltCaixNomeAlterar.Location = new System.Drawing.Point(36, 99);
             this.lbAltCaixNomeAlterar.Name = "lbAltCaixNomeAlterar";
-            this.lbAltCaixNomeAlterar.Size = new System.Drawing.Size(66, 22);
+            this.lbAltCaixNomeAlterar.Size = new System.Drawing.Size(150, 22);
             this.lbAltCaixNomeAlterar.TabIndex = 40;
-            this.lbAltCaixNomeAlterar.Text = "NOME";
+            this.lbAltCaixNomeAlterar.Text = "SENHA ANTIGA";
             // 
             // btAltCaixConfirmar
             // 
@@ -1797,92 +1886,6 @@
             this.tcAlterar.Size = new System.Drawing.Size(944, 529);
             this.tcAlterar.TabIndex = 5;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.mtCompra);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.mtbNewValor);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(141, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 90);
-            this.panel1.TabIndex = 65;
-            // 
-            // mtCompra
-            // 
-            this.mtCompra.Font = new System.Drawing.Font("Arial", 18F);
-            this.mtCompra.ForeColor = System.Drawing.Color.DarkRed;
-            this.mtCompra.Location = new System.Drawing.Point(131, 48);
-            this.mtCompra.Mask = "000,00";
-            this.mtCompra.Name = "mtCompra";
-            this.mtCompra.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.mtCompra.Size = new System.Drawing.Size(86, 35);
-            this.mtCompra.TabIndex = 56;
-
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 14F);
-            this.label3.Location = new System.Drawing.Point(3, 54);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 22);
-            this.label3.TabIndex = 55;
-            this.label3.Text = "Valor Compra";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.mtProdAltEntrada);
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.mtProdAltSaida);
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Location = new System.Drawing.Point(141, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(220, 93);
-            this.panel3.TabIndex = 66;
-            // 
-            // mtProdAltEntrada
-            // 
-            this.mtProdAltEntrada.Font = new System.Drawing.Font("Arial", 18F);
-            this.mtProdAltEntrada.ForeColor = System.Drawing.Color.DarkRed;
-            this.mtProdAltEntrada.Location = new System.Drawing.Point(131, 48);
-            this.mtProdAltEntrada.Mask = "000,00";
-            this.mtProdAltEntrada.Name = "mtProdAltEntrada";
-            this.mtProdAltEntrada.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.mtProdAltEntrada.Size = new System.Drawing.Size(86, 35);
-            this.mtProdAltEntrada.TabIndex = 56;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 14F);
-            this.label7.Location = new System.Drawing.Point(3, 54);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(126, 22);
-            this.label7.TabIndex = 55;
-            this.label7.Text = "Valor Compra";
-            // 
-            // mtProdAltSaida
-            // 
-            this.mtProdAltSaida.Font = new System.Drawing.Font("Arial", 18F);
-            this.mtProdAltSaida.ForeColor = System.Drawing.Color.DarkRed;
-            this.mtProdAltSaida.Location = new System.Drawing.Point(131, 7);
-            this.mtProdAltSaida.Mask = "000,00";
-            this.mtProdAltSaida.Name = "mtProdAltSaida";
-            this.mtProdAltSaida.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.mtProdAltSaida.Size = new System.Drawing.Size(86, 35);
-            this.mtProdAltSaida.TabIndex = 54;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 14F);
-            this.label8.Location = new System.Drawing.Point(17, 20);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(112, 22);
-            this.label8.TabIndex = 38;
-            this.label8.Text = "Valor Venda";
-            // 
             // AlterarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1938,8 +1941,12 @@
             this.pNewProduto.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flpNewMais.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.flpNewMenos.ResumeLayout(false);
             this.flpNewAlterar.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -1957,10 +1964,6 @@
             this.gbAlterarGarcon.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.tcAlterar.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }

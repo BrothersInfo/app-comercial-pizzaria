@@ -119,9 +119,9 @@
             // 
             this.panel1.BackgroundImage = global::Pizzaria.Properties.Resources.LogoTitan;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(16, 62);
+            this.panel1.Location = new System.Drawing.Point(8, 44);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(93, 100);
+            this.panel1.Size = new System.Drawing.Size(111, 118);
             this.panel1.TabIndex = 37;
             // 
             // SenhaAcesso

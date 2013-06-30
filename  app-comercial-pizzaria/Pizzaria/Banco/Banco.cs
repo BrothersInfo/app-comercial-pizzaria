@@ -935,8 +935,15 @@ namespace Pizzaria.Banco
         }
         public void inserePrecoCompraEmCompleto(int cod_completo, double precoCompra)
         {
-            new NpgsqlDataAdapter("UPDATE completo   SET valorCompra =  "+precoCompra
-                +" WHERE cod_completo = " + cod_completo, Conectar()).Fill(new DataTable());
+            try
+            {
+                new NpgsqlDataAdapter("UPDATE completo   SET valorCompra =  " + precoCompra.ToString().Replace(',','.')
+                    + " WHERE cod_completo = " + cod_completo, Conectar()).Fill(new DataTable());
+            }
+            catch
+            {
+                string i = "aqui";
+            }
         }
         public double valorCompraDoProduto(int cod_produto, int cod_tamanho)
         {

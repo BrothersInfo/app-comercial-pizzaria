@@ -447,6 +447,7 @@ namespace Pizzaria.Classes
                         string prod = "Item - " + new Banco().preencherNomeProdctAll(produto[ii].produto[j].cod_produto);
                         if (prod.Length > 16) prod = prod.Substring(0, 16);
                         mr.PrintText(line, 01, "| " + prod); mr.PrintText(line++, 23, "|");
+                        mr.PrintText(line, 1, "| PRECO UNITARIO - " + produto[ii].valorUnitario); mr.PrintText(line++, 23, "|");
                         if (produto[ii].produto[j].porcentagem != 1)
                         {
                             mr.PrintText(line, 01, "|");
