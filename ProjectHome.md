@@ -1,0 +1,1 @@
+Destinado a vendas em pizzaria ou restarantes
